@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e0c54c3d494d969fa8a47885b1ba7c, type: 3}
+  m_Name: BehavioursDatabase
+  m_EditorClassIdentifier: 
+  _keys:
+  - _typeNameAndAssembly: MouseEventTrigger`1, Assembly-CSharp
+  - _typeNameAndAssembly: LocalEvent`1, Assembly-CSharp
+  _values:
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: GridObject, Assembly-CSharp
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_97c9052817bcc654ebfba23b9ccedc45,
+        z_MouseEventTrigger_GridObject
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: Item, Assembly-CSharp
+    - _collection:
+      - _typeNameAndAssembly: UnityEngine.GameObject, UnityEngine.CoreModule
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_a4b0cdadf5a10a348b3bda34f4084372,
+        z_LocalEvent_Item
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_36b0579fe673d9c44a7070895d122479,
+        z_LocalEvent_GameObject

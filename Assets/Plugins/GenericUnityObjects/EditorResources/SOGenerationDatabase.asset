@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f04e00c890644cc9adb05d0c17f5ee62, type: 3}
+  m_Name: SOGenerationDatabase
+  m_EditorClassIdentifier: 
+  _genericArgumentKeys:
+  - _typeNameAndAssembly: GridObject, Assembly-CSharp
+    _guid: a189d557cd0c42bebb4e2ef1dc861402
+  - _typeNameAndAssembly: System.Single, mscorlib
+    _guid: 
+  _genericArgumentValues:
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: GridObject, Assembly-CSharp
+        _guid: a189d557cd0c42bebb4e2ef1dc861402
+      _assemblyGUID: acbbaaf694c31a945ba7944cbf72222a
+    - _arguments:
+      - _typeNameAndAssembly: System.Single, mscorlib
+        _guid: 
+      _assemblyGUID: 137942c619128044897e32fffb3566cf
+  - _array: []
+  _genericTypeValues:
+  - _array:
+    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+      _guid: 6e0691897fdd4e5894148f79dce13dbc
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+      _guid: 6e0691897fdd4e5894148f79dce13dbc
+      AssemblyGUID: 
+      _argNames:
+      - T
+  _genericTypeKeys:
+  - _typeNameAndAssembly: UnityEditor.Rendering.DebugState`1, Unity.RenderPipelines.Core.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.GenericScriptablePath`1,
+      Unity.RenderPipelines.Universal.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.GenericScriptablePathInspector`2,
+      Unity.RenderPipelines.Universal.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - U
+    - T
+  - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.ScriptableData`1,
+      Unity.RenderPipelines.Universal.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+    _guid: 6e0691897fdd4e5894148f79dce13dbc
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T

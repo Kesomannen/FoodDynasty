@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e34fec35c2bb4f2880a04272d23fbc31, type: 3}
+  m_Name: BehavioursGenerationDatabase
+  m_EditorClassIdentifier: 
+  _genericArgumentKeys:
+  - _typeNameAndAssembly: GridObject, Assembly-CSharp
+    _guid: a189d557cd0c42bebb4e2ef1dc861402
+  - _typeNameAndAssembly: Item, Assembly-CSharp
+    _guid: 8dbbab00aaad493d81fa6e862abf0843
+  - _typeNameAndAssembly: UnityEngine.GameObject, UnityEngine.CoreModule
+    _guid: 
+  _genericArgumentValues:
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: GridObject, Assembly-CSharp
+        _guid: a189d557cd0c42bebb4e2ef1dc861402
+      _assemblyGUID: 97c9052817bcc654ebfba23b9ccedc45
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: Item, Assembly-CSharp
+        _guid: 8dbbab00aaad493d81fa6e862abf0843
+      _assemblyGUID: a4b0cdadf5a10a348b3bda34f4084372
+    - _arguments:
+      - _typeNameAndAssembly: UnityEngine.GameObject, UnityEngine.CoreModule
+        _guid: 
+      _assemblyGUID: 36b0579fe673d9c44a7070895d122479
+  _genericTypeValues:
+  - _array:
+    - _typeNameAndAssembly: MouseEventTrigger`1, Assembly-CSharp
+      _guid: 318420d1009c4ad9825b98ca678d0cbd
+      AssemblyGUID: 16eb4516c38b3884cb42775cfd164c9d
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+  - _array:
+    - _typeNameAndAssembly: LocalEvent`1, Assembly-CSharp
+      _guid: be6ea51c1d444bfea4be48aa08e096c3
+      AssemblyGUID: 7aeffb166c28e2344afa03df658daf5a
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+  - _array:
+    - _typeNameAndAssembly: LocalEvent`1, Assembly-CSharp
+      _guid: be6ea51c1d444bfea4be48aa08e096c3
+      AssemblyGUID: 7aeffb166c28e2344afa03df658daf5a
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+  _genericTypeKeys:
+  - _typeNameAndAssembly: MouseEventTrigger`1, Assembly-CSharp
+    _guid: 318420d1009c4ad9825b98ca678d0cbd
+    AssemblyGUID: 16eb4516c38b3884cb42775cfd164c9d
+    _argNames:
+    - T
+    _componentName: 
+    _order: 0
+  - _typeNameAndAssembly: LocalEvent`1, Assembly-CSharp
+    _guid: be6ea51c1d444bfea4be48aa08e096c3
+    AssemblyGUID: 7aeffb166c28e2344afa03df658daf5a
+    _argNames:
+    - T
+    _componentName: 
+    _order: 0
