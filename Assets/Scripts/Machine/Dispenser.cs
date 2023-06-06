@@ -21,6 +21,7 @@ public class Dispenser : MonoBehaviour {
 
     bool TryDispense() {
         if (!_condition.Check()) return false;
+        
         var obj = Instantiate(_prefab, _spawnPoint.position, _spawnPoint.rotation);
         _dispenseEvent.Raise(obj);
         

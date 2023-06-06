@@ -157,13 +157,13 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
         
         var newPos = _gridManager.GridToWorld(_currentPosition, _currentObject.StaticSize, _currentRotation);
         if (_currentBlueprint.position != newPos) {
-            UpdateBlueprintMaterial();
+            UpdateBlueprintValidity();
         }
         
         _currentBlueprint.position = newPos;
     }
 
-    void UpdateBlueprintMaterial() {
+    void UpdateBlueprintValidity() {
         var valid = _gridManager.CanAdd(_currentObject, _currentPosition, _currentRotation);
         if (valid == _currentMaterialIsValid) return;
 

@@ -56,8 +56,8 @@ public class GridManager : MonoBehaviour, IGridManager {
     }
     
     bool CheckOverlapping(Vector2Int position, Vector2Int size, out List<Cell> overlappingCells) {
-        overlappingCells = null;
         if (!IsWithinGrid(position, size)) {
+            overlappingCells = null;
             return false;
         }
 
@@ -89,11 +89,11 @@ public class GridManager : MonoBehaviour, IGridManager {
         return gridObject.IsPlaced && gridObject.GridManager is GridManager manager && manager == this;
     }
 
-    public Vector3 GridToWorld(Vector2 position) {
+    Vector3 GridToWorld(Vector2 position) {
         return transform.position + new Vector3(position.x * _cellSize.x, 0, position.y * _cellSize.y);
     }
-    
-    public Vector3 GridToWorld(Vector2Int gridPosition, Vector2Int rotatedSize) {
+
+    Vector3 GridToWorld(Vector2Int gridPosition, Vector2Int rotatedSize) {
         return GridToWorld(gridPosition + (Vector2) (rotatedSize - Vector2Int.one) / 2f);
     }
     
