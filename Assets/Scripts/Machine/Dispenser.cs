@@ -2,9 +2,10 @@
 using UnityEngine;
 
 public class Dispenser : MonoBehaviour {
-    [SerializeField] float _spawnInterval;
+    [SerializeField] DataObject<float> _spawnSpeed;
     [SerializeField] GameObject _prefab;
     [SerializeField] Transform _spawnPoint;
+    [Space]
     [SerializeField] LocalConditional<bool> _condition;
     [SerializeField] LocalEvent<GameObject> _dispenseEvent;
 
@@ -14,7 +15,7 @@ public class Dispenser : MonoBehaviour {
 
     IEnumerator DispenseLoop() {
         while (enabled) {
-            yield return CoroutineHelpers.Wait(_spawnInterval);
+            yield return CoroutineHelpers.Wait(1 / _spawnSpeed.Value);
             TryDispense();
         }
     }

@@ -22,6 +22,7 @@ MonoBehaviour:
       Unity.RenderPipelines.Universal.Editor
   - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
+  - _typeNameAndAssembly: DataObject`1, Assembly-CSharp
   _values:
   - _keys: []
     _values: []
@@ -43,3 +44,9 @@ MonoBehaviour:
         z_GameEvent_Single
   - _keys: []
     _values: []
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: System.Single, mscorlib
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_3fc98cc5efadfb34f8ae6e0365e83b51,
+        z_DataObject_Single

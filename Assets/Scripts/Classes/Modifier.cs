@@ -23,7 +23,14 @@ public struct Modifier {
         return Mathf.RoundToInt(Apply((float) value));
     }
 
-    public void Modify(float value, ModifierType type) {
+    public void Bake() {
+        Base = Apply(1);
+        Percentual = 0;
+        Additive = 0;
+        Multiplicative = 1;
+    }
+
+    public void Modify(float value, ModifierType type, bool bake = false) {
         switch (type) {
             case ModifierType.Base: Base += value; break;
             case ModifierType.Percentual: Percentual += value; break;
@@ -36,6 +43,10 @@ public struct Modifier {
                 }
                 break;
             default: throw new ArgumentOutOfRangeException(nameof(type), type, null);
+        }
+
+        if (bake) {
+            Bake();
         }
     }
     

@@ -9,8 +9,8 @@ public interface ISupply {
 public class Supply : MonoBehaviour, ISupply, IPointerClickHandler {
     [SerializeField] Optional<int> _maxSupply;
     [SerializeField] LocalConditional<bool> _condition;
-    [SerializeField] GenericLocalEvent _dispenseEvent;
-     
+    [SerializeField] GenericLocalEvent _useEvent;
+
     int _currentSupply;
 
     public int MaxSupply {
@@ -28,16 +28,15 @@ public class Supply : MonoBehaviour, ISupply, IPointerClickHandler {
     
     void OnEnable() {
         _condition.AddCondition(HasSupply);
-        _dispenseEvent.AddListener(OnDispensed);
+        _useEvent.AddListener(OnDispensed);
     }
     
     void OnDisable() {
         _condition.RemoveCondition(HasSupply);
-        _dispenseEvent.RemoveListener(OnDispensed);
+        _useEvent.RemoveListener(OnDispensed);
     }
 
     public void OnPointerClick(PointerEventData eventData) {
-        _currentSupply++;
-        Debug.Log($"Current supply: {_currentSupply}");
+        _currentSupply = MaxSupply;
     }
 }

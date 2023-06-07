@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class LocalConditional<TIn, TOut> : MonoBehaviour {
     readonly List<Func<TIn>> _conditions = new();
-    public  IReadOnlyList<Func<TIn>> Conditions => _conditions;
+    public IReadOnlyList<Func<TIn>> Conditions => _conditions;
 
     public abstract TOut Check();
     

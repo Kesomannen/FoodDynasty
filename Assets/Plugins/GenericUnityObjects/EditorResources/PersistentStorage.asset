@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: PersistentStorage
   m_EditorClassIdentifier: 
   _menuItemMethods:
+  - _typeName: DataObject`1, Assembly-CSharp
+    _fileName: New DataObject`1
+    _menuName: DataObject<T>
+    _order: 0
   - _typeName: GameEvent`1, Assembly-CSharp
     _fileName: New GameEvent`1
     _menuName: GameEvent<T>

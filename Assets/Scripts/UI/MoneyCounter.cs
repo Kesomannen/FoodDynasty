@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoneyCounter : MonoBehaviour {
     [SerializeField] TMP_Text _moneyText;
+    [SerializeField] TMP_Text _deltaText;
     [SerializeField] MoneyManager _moneyManager;
 
     void OnEnable() {
@@ -16,6 +17,7 @@ public class MoneyCounter : MonoBehaviour {
     }
     
     void OnMoneyChanged(float prev, float current) {
+        _deltaText.text = $"${current - prev:0}";
         _moneyText.text = $"${current:0}";
     }
 }

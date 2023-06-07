@@ -118,3 +118,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _baseSellPrice: 5
+  _startingData: 00000000

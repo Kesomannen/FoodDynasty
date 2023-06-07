@@ -32,6 +32,11 @@ MonoBehaviour:
         _guid: 
       _assemblyGUID: 137942c619128044897e32fffb3566cf
   - _array: []
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: System.Single, mscorlib
+        _guid: 
+      _assemblyGUID: 3fc98cc5efadfb34f8ae6e0365e83b51
   _genericTypeValues:
   - _array:
     - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
@@ -42,6 +47,11 @@ MonoBehaviour:
   - _array:
     - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
       _guid: 6e0691897fdd4e5894148f79dce13dbc
+      AssemblyGUID: 
+      _argNames:
+      - T
+    - _typeNameAndAssembly: DataObject`1, Assembly-CSharp
+      _guid: 50b2c379333c427eb280f13d27bcba5d
       AssemblyGUID: 
       _argNames:
       - T
@@ -77,6 +87,11 @@ MonoBehaviour:
     - T
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
     _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: DataObject`1, Assembly-CSharp
+    _guid: 50b2c379333c427eb280f13d27bcba5d
     AssemblyGUID: 
     _argNames:
     - T

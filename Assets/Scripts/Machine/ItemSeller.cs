@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 
 public class ItemSeller : ItemMachineComponent {
-    [SerializeField] Modifier _modifier;
+    [Space]
     [SerializeField] MoneyManager _moneyManager;
+    [SerializeField] Modifier _sellPriceModifier;
 
     protected override void OnItemEntered(Item item) {
-        var sellPrice = (item.SellPriceModifier + _modifier).Apply(item.BaseSellPrice);
+        var sellPrice = (item.SellPriceModifier + _sellPriceModifier).Apply(item.BaseSellPrice);
         _moneyManager.CurrentMoney += sellPrice;
     }
 }

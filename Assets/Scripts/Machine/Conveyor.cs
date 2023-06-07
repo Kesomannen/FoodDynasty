@@ -2,7 +2,7 @@
 
 [RequireComponent(typeof(Rigidbody))]
 public class Conveyor : MonoBehaviour {
-    [SerializeField] float _speed;
+    [SerializeField] DataObject<float> _speed;
 
     Rigidbody _rigidbody;
 
@@ -14,7 +14,7 @@ public class Conveyor : MonoBehaviour {
         var newPosition = _rigidbody.position;
         var pos = newPosition;
         
-        newPosition += -transform.forward * (_speed * Time.fixedDeltaTime);
+        newPosition += -transform.forward * (_speed.Value * Time.fixedDeltaTime);
         _rigidbody.position = newPosition;
         
         _rigidbody.MovePosition(pos);

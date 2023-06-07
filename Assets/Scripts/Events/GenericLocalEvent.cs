@@ -4,7 +4,7 @@ using UnityEngine;
 public class GenericLocalEvent : MonoBehaviour {
     public event Action OnEventRaised;
 
-    public void Raise() {
+    protected void Raise() {
         OnEventRaised?.Invoke();
     }
     
