@@ -3,21 +3,22 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Manager/Money")]
 public class MoneyManager : ScriptableObject {
-    [SerializeField] GameEvent<float> _onMoneyChanged;
+    [SerializeField] GameEvent<double> _onMoneyChanged;
     
-    float _currentMoney;
+    double _currentMoney;
 
-    public float CurrentMoney {
+    public double CurrentMoney {
         get => _currentMoney;
         set {
-            var clamped = Mathf.Max(value, 0);
-            if (Mathf.Approximately(_currentMoney, clamped)) return;
+            var clamped = Math.Max(_currentMoney, 0);
+            if (Math.Abs(clamped - _currentMoney) < 0.05f) return;
             var previous = _currentMoney;
-            _currentMoney = clamped;
+            
+            _currentMoney = value;
             _onMoneyChanged.Raise(_currentMoney);
             OnMoneyChanged?.Invoke(previous, _currentMoney);
         }
     }
     
-    public event Action<float, float> OnMoneyChanged; 
+    public event Action<double, double> OnMoneyChanged; 
 }

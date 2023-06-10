@@ -1,13 +1,14 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Dispenser : MonoBehaviour {
+public class Dispenser : MonoBehaviour, IInfoProvider {
     [SerializeField] DataObject<float> _spawnSpeed;
-    [SerializeField] GameObject _prefab;
+    [SerializeField] Item _prefab;
     [SerializeField] Transform _spawnPoint;
     [Space]
     [SerializeField] LocalConditional<bool> _condition;
-    [SerializeField] LocalEvent<GameObject> _dispenseEvent;
+    [SerializeField] LocalEvent<Item> _dispenseEvent;
 
     void OnEnable() {
         StartCoroutine(DispenseLoop());
@@ -27,5 +28,9 @@ public class Dispenser : MonoBehaviour {
         _dispenseEvent.Raise(obj);
         
         return true;
+    }
+
+    public IEnumerable<(string Name, string Value)> GetInfo() {
+        yield return ("Speed", _spawnSpeed.Value.ToString("0"));
     }
 }

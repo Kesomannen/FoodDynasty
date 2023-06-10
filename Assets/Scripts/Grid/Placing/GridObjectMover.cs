@@ -2,14 +2,14 @@
 
 public class GridObjectMover : MonoBehaviour {
     [SerializeField] GridObjectPlacer _placer;
-    [SerializeField] GameEvent<GridObject> _gridObjectClickedEvent;
+    [SerializeField] GameEvent<GridObject> _startMovingEvent;
 
     void OnEnable() {
-        _gridObjectClickedEvent.AddListener(OnGridObjectClicked);
+        _startMovingEvent.AddListener(OnGridObjectClicked);
     }
     
     void OnDisable() {
-        _gridObjectClickedEvent.RemoveListener(OnGridObjectClicked);
+        _startMovingEvent.RemoveListener(OnGridObjectClicked);
     }
 
     async void OnGridObjectClicked(GridObject obj) {

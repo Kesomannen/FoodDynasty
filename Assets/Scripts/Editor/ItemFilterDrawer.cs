@@ -19,6 +19,8 @@ public class ItemFilterDrawer : PropertyDrawer {
     }
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+        EditorGUI.BeginProperty(position, label, property);
+        
         var itemFilter = property.GetValue<ItemFilter>();
         
         var filterTypeProperty = property.Find(nameof(ItemFilter.FilterType));
@@ -64,6 +66,7 @@ public class ItemFilterDrawer : PropertyDrawer {
         }
         
         property.serializedObject.ApplyModifiedProperties();
+        EditorGUI.EndProperty();
     }
 
     static ItemFieldFilter DrawFieldFilter(ItemFieldFilter filter, FieldInfo info, ref Rect rect) {

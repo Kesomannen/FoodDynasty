@@ -15,13 +15,11 @@ MonoBehaviour:
   _keys:
   - _typeNameAndAssembly: MouseEventTrigger`1, Assembly-CSharp
   - _typeNameAndAssembly: LocalEvent`1, Assembly-CSharp
+  - _typeNameAndAssembly: UIContainer`1, Assembly-CSharp
+  - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
   _values:
-  - _keys:
-    - _collection:
-      - _typeNameAndAssembly: GridObject, Assembly-CSharp
-    _values:
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_97c9052817bcc654ebfba23b9ccedc45,
-        z_MouseEventTrigger_GridObject
+  - _keys: []
+    _values: []
   - _keys:
     - _collection:
       - _typeNameAndAssembly: Item, Assembly-CSharp
@@ -32,3 +30,19 @@ MonoBehaviour:
         z_LocalEvent_Item
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_36b0579fe673d9c44a7070895d122479,
         z_LocalEvent_GameObject
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: Item, Assembly-CSharp
+    - _collection:
+      - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_29ed66bd779ef4e41aac8592cad76f30,
+        z_UIContainer_Item
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_b8843ce0992ed004b91676c7d64448d7,
+        z_UIContainer_InventoryItemData
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_fb82ae66c84cc94459d02e45bb2babda,
+        z_Tooltip_InventoryItemData

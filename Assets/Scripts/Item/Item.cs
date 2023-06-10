@@ -4,20 +4,65 @@ using System.Runtime.Serialization;
 using UnityEngine;
 
 public class Item : MonoBehaviour, IDisposable {
-    [SerializeField] float _baseSellPrice;
+    [SerializeField] double _baseSellPrice;
+    [SerializeField] GameObject _originalModel;
+    [SerializeField] Vector3 _toppingOffset;
     [SerializeField] ItemDataType[] _startingData;
 
-    public float BaseSellPrice => _baseSellPrice;
+    public double BaseSellPrice => _baseSellPrice;
     public Modifier SellPriceModifier { get; set; } = new(multiplicative: 1f);
     
     readonly Dictionary<Type, object> _data = new();
-    
+    readonly Stack<GameObject> _models = new();
+    GameObject _baseModel;
+
     public event Action<Item> OnDisposed;
 
     void Awake() {
-        SetupData();
+        Reset();
     }
 
+    public void Dispose() {
+        Reset();
+        SellPriceModifier = new Modifier(multiplicative: 1f);
+        OnDisposed?.Invoke(this);
+    }
+
+    void Reset() {
+        _data.Clear();
+        foreach (var dataType in _startingData) {
+            EnforceData(ItemDataUtil.GetDataType(dataType));
+        }
+
+        SetBaseModel(_originalModel);
+        while (_models.Count > 0) {
+            Destroy(_models.Pop());
+        }
+    }
+
+    public void SetBaseModel(GameObject model) {
+        if (_baseModel == model) return;
+        
+        if (_baseModel) {
+            Destroy(_baseModel);
+        }
+
+        _baseModel = model;
+        SetupModel(model, ItemModelPivot.Base);
+    }
+
+    public void AddTopping(GameObject model) {
+        _models.Push(model);
+        SetupModel(model, ItemModelPivot.Topping);
+    }
+
+    void SetupModel(GameObject model, ItemModelPivot pivot) {
+        model.transform.SetParent(transform);
+        model.transform.localPosition = pivot == ItemModelPivot.Base ? Vector3.zero : _toppingOffset;
+    }
+
+    # region Data 
+    
     public void SetData<T>(T data) {
         _data[typeof(T)] = data;
     }
@@ -52,17 +97,11 @@ public class Item : MonoBehaviour, IDisposable {
         data = default;
         return false;
     }
+    
+    # endregion
+}
 
-    public void Dispose() {
-        _data.Clear();
-        SellPriceModifier = new Modifier(multiplicative: 1f);
-        OnDisposed?.Invoke(this);
-    }
-
-    void SetupData() {
-        _data.Clear();
-        foreach (var dataType in _startingData) {
-            EnforceData(ItemDataUtil.GetDataType(dataType));
-        }
-    }
+public enum ItemModelPivot {
+    Base,
+    Topping
 }

@@ -17,6 +17,10 @@ MonoBehaviour:
     _guid: a189d557cd0c42bebb4e2ef1dc861402
   - _typeNameAndAssembly: System.Single, mscorlib
     _guid: 
+  - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
+    _guid: d3d4539531654c55aeb30f6fc3dc4fa1
+  - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
+    _guid: 
   _genericArgumentValues:
   - _array: []
   - _array: []
@@ -31,12 +35,26 @@ MonoBehaviour:
       - _typeNameAndAssembly: System.Single, mscorlib
         _guid: 
       _assemblyGUID: 137942c619128044897e32fffb3566cf
+    - _arguments:
+      - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
+        _guid: d3d4539531654c55aeb30f6fc3dc4fa1
+      _assemblyGUID: a14a7d9fe5f908246825849ce0481a4b
+    - _arguments:
+      - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
+        _guid: 
+      _assemblyGUID: 8c6db5823145e23418a29d1902b98007
   - _array: []
   - _array:
     - _arguments:
       - _typeNameAndAssembly: System.Single, mscorlib
         _guid: 
-      _assemblyGUID: 3fc98cc5efadfb34f8ae6e0365e83b51
+      _assemblyGUID: 9b74f1689cf906b49b2cd4f94f8c2c89
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
   _genericTypeValues:
   - _array:
     - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
@@ -50,8 +68,20 @@ MonoBehaviour:
       AssemblyGUID: 
       _argNames:
       - T
-    - _typeNameAndAssembly: DataObject`1, Assembly-CSharp
-      _guid: 50b2c379333c427eb280f13d27bcba5d
+    - _typeNameAndAssembly: SerializedDataObject`1, Assembly-CSharp
+      _guid: 4fb2b33abd3c49579f0b9c73ad320fb1
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+      _guid: 6e0691897fdd4e5894148f79dce13dbc
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+      _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T
@@ -90,8 +120,40 @@ MonoBehaviour:
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: DataObject`1, Assembly-CSharp
-    _guid: 50b2c379333c427eb280f13d27bcba5d
+  - _typeNameAndAssembly: SerializedDataObject`1, Assembly-CSharp
+    _guid: 4fb2b33abd3c49579f0b9c73ad320fb1
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEngine.HexagonalRuleTile`1, Unity.2D.Tilemap.Extras
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEngine.IsometricRuleTile`1, Unity.2D.Tilemap.Extras
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEngine.RuleTile`1, Unity.2D.Tilemap.Extras
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePath`1, Unity.2D.Path.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePathInspector`2,
+      Unity.2D.Path.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - U
+    - T
+  - _typeNameAndAssembly: UnityEditor.U2D.Path.ScriptableData`1, Unity.2D.Path.Editor
+    _guid: 
     AssemblyGUID: 
     _argNames:
     - T

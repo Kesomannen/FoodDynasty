@@ -1,43 +1,44 @@
 ﻿using System;
-using UnityEngine;
 
 [Serializable]
 public struct Modifier {
-    public float Base;
-    public float Percentual;
-    public float Additive;
-    public float Multiplicative;
+    public double Base;
+    public double Percentual;
+    public double Additive;
+    public double Multiplicative;
 
-    public Modifier(float @base = 0, float percentual = 0, float additive = 0, float multiplicative = 1) {
+    public Modifier(double @base = 0, double percentual = 0, double additive = 0, double multiplicative = 1) {
         Base = @base;
         Percentual = percentual;
         Additive = additive;
         Multiplicative = multiplicative;
     }
-    
-    public float Apply(float value) {
+
+    public float Delta => Apply(1);
+
+    public double Apply(double value) {
         return (value + Base) * (1 + Percentual) * Multiplicative + Additive;
     }
 
     public int Apply(int value) {
-        return Mathf.RoundToInt(Apply((float) value));
+        return (int)Apply((double)value);
     }
 
     public void Bake() {
-        Base = Apply(1);
+        Base = Delta;
         Percentual = 0;
         Additive = 0;
         Multiplicative = 1;
     }
 
-    public void Modify(float value, ModifierType type, bool bake = false) {
+    public void Modify(double value, ModifierType type, bool bake = false) {
         switch (type) {
             case ModifierType.Base: Base += value; break;
             case ModifierType.Percentual: Percentual += value; break;
             case ModifierType.Additive: Additive += value; break;
             case ModifierType.Multiplicative:
                 if (value < 0) {
-                    Multiplicative /= Mathf.Abs(value);
+                    Multiplicative /= Math.Abs(value);
                 } else {
                     Multiplicative *= value;
                 }
@@ -66,6 +67,10 @@ public struct Modifier {
             a.Additive - b.Additive,
             a.Multiplicative / b.Multiplicative
         );
+    }
+
+    public override string ToString() {
+        return $"x{Delta:0.##}";
     }
 }
 

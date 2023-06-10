@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Conveyor : MonoBehaviour {
+public class Conveyor : MonoBehaviour, IInfoProvider {
     [SerializeField] DataObject<float> _speed;
 
     Rigidbody _rigidbody;
@@ -18,5 +19,9 @@ public class Conveyor : MonoBehaviour {
         _rigidbody.position = newPosition;
         
         _rigidbody.MovePosition(pos);
+    }
+
+    public IEnumerable<(string Name, string Value)> GetInfo() {
+        yield return ("Speed", _speed.Value.ToString("0"));
     }
 }

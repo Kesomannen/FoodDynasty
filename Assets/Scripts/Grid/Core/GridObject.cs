@@ -1,7 +1,8 @@
-﻿using Unity.Collections;
+﻿using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 
-public class GridObject : MonoBehaviour, IGridObject {
+public class GridObject : MonoBehaviour, IGridObject, IInfoProvider {
     [SerializeField] Vector2Int _size = new(1, 1);
     [SerializeField] Vector3 _rotationAxis = Vector3.up;
     [SerializeField] GameObject _blueprintPrefab;
@@ -31,5 +32,9 @@ public class GridObject : MonoBehaviour, IGridObject {
 
     public void OnRemoved() {
         IsPlaced = false;
+    }
+
+    public IEnumerable<(string Name, string Value)> GetInfo() {
+        yield return ("Size", $"{_size.x}x{_size.y}");
     }
 }

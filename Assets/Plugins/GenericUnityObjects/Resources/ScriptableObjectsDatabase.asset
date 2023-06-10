@@ -22,7 +22,14 @@ MonoBehaviour:
       Unity.RenderPipelines.Universal.Editor
   - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
-  - _typeNameAndAssembly: DataObject`1, Assembly-CSharp
+  - _typeNameAndAssembly: SerializedDataObject`1, Assembly-CSharp
+  - _typeNameAndAssembly: UnityEngine.HexagonalRuleTile`1, Unity.2D.Tilemap.Extras
+  - _typeNameAndAssembly: UnityEngine.IsometricRuleTile`1, Unity.2D.Tilemap.Extras
+  - _typeNameAndAssembly: UnityEngine.RuleTile`1, Unity.2D.Tilemap.Extras
+  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePath`1, Unity.2D.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePathInspector`2,
+      Unity.2D.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Path.ScriptableData`1, Unity.2D.Path.Editor
   _values:
   - _keys: []
     _values: []
@@ -37,16 +44,36 @@ MonoBehaviour:
       - _typeNameAndAssembly: GridObject, Assembly-CSharp
     - _collection:
       - _typeNameAndAssembly: System.Single, mscorlib
+    - _collection:
+      - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
+    - _collection:
+      - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_acbbaaf694c31a945ba7944cbf72222a,
         z_GameEvent_GridObject
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_137942c619128044897e32fffb3566cf,
         z_GameEvent_Single
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_a14a7d9fe5f908246825849ce0481a4b,
+        z_GameEvent_InventoryItemData
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_8c6db5823145e23418a29d1902b98007,
+        z_GameEvent_TooltipParams
   - _keys: []
     _values: []
   - _keys:
     - _collection:
       - _typeNameAndAssembly: System.Single, mscorlib
     _values:
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_3fc98cc5efadfb34f8ae6e0365e83b51,
-        z_DataObject_Single
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_9b74f1689cf906b49b2cd4f94f8c2c89,
+        z_SerializedDataObject_Single
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []

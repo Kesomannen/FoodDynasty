@@ -1,12 +1,5 @@
-﻿using GenericUnityObjects;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateGenericAssetMenu]
-public class DataObject<T> : ScriptableObject {
-    [SerializeField] T _value;
-    
-    public T Value {
-        get => _value;
-        set => _value = value;
-    }
+public abstract class DataObject<T> : ScriptableObject {
+    public abstract T Value { get; set; }
 }

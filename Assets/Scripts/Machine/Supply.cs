@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public interface ISupply {
@@ -6,7 +7,7 @@ public interface ISupply {
     int CurrentSupply { get; set; }
 }
 
-public class Supply : MonoBehaviour, ISupply, IPointerClickHandler {
+public class Supply : MonoBehaviour, ISupply, IPointerClickHandler, IInfoProvider {
     [SerializeField] Optional<int> _maxSupply;
     [SerializeField] LocalConditional<bool> _condition;
     [SerializeField] GenericLocalEvent _useEvent;
@@ -38,5 +39,11 @@ public class Supply : MonoBehaviour, ISupply, IPointerClickHandler {
 
     public void OnPointerClick(PointerEventData eventData) {
         _currentSupply = MaxSupply;
+    }
+
+    public IEnumerable<(string Name, string Value)> GetInfo() {
+        if (_maxSupply.Enabled) {
+            yield return ("Max Supply", _maxSupply.Value.ToString());
+        }
     }
 }

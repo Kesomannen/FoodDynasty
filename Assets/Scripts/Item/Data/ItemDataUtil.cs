@@ -5,7 +5,7 @@ public static class ItemDataUtil {
     static readonly Dictionary<ItemDataType, Type> _itemDataLookup = new() {
         { ItemDataType.Cookable, typeof(Cookable) },
         { ItemDataType.Spice, typeof(Spice) },
-        { ItemDataType.Purified, typeof(Purified) }
+        { ItemDataType.Softened, typeof(Softened) }
     };
     
     public static Type GetDataType(ItemDataType type) {
@@ -16,5 +16,5 @@ public static class ItemDataUtil {
 public enum ItemDataType {
     Cookable,
     Spice,
-    Purified
+    Softened
 }
