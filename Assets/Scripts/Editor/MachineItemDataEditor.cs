@@ -30,7 +30,7 @@ public class MachineItemDataEditor : Editor {
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Providers", EditorStyles.boldLabel);
         
-        var providers = data.InfoProviders;
+        var providers = data.GetInfoProviders();
         for (var i = 0; i < providers.Length; i++) {
             var (provider, enabled) = providers[i];
             EditorGUILayout.BeginHorizontal();
@@ -48,7 +48,7 @@ public class MachineItemDataEditor : Editor {
             EditorGUI.EndDisabledGroup();
             providers[i] = (provider, enabled);
         }
-        data.InfoProviders = providers;
+        data.SetInfoProviders(providers);
 
         serializedObject.ApplyModifiedProperties();
     }

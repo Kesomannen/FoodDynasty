@@ -2,7 +2,7 @@
 using NaughtyAttributes;
 using UnityEngine;
 
-public class InventoryItemData : ScriptableObject, IInfoProvider {
+public abstract class InventoryItemData : ScriptableObject, IInfoProvider {
     [Header("Metadata")]
     [SerializeField] string _name;
     [ResizableTextArea]
@@ -11,15 +11,15 @@ public class InventoryItemData : ScriptableObject, IInfoProvider {
     [SerializeField] Sprite _image;
 
     [Header("Item")]
-    [SerializeField] InventoryItemType _type;
     [SerializeField] InventoryItemTier _tier;
     [SerializeField] double _price;
     
     public string Name => _name;
     public string FlavorText => _flavorText;
-    public InventoryItemType Type => _type;
     public InventoryItemTier Tier => _tier;
     public double Price => _price;
+    
+    public abstract InventoryItemType Type { get; }
 
     public Sprite Image {
         get => _image;

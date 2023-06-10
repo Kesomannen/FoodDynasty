@@ -1,0 +1,4 @@
+<linker>
+    <assembly fullname="ExtEvents.OdinSerializer" preserve="all"/>
+    <assembly fullname="z_ExtEvents_AOTGeneration" preserve="all"/>
+</linker>

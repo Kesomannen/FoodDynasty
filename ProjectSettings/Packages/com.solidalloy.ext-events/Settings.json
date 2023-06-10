@@ -1,0 +1,13 @@
+{
+    "m_Name": "Settings",
+    "m_Path": "ProjectSettings/Packages/com.solidalloy.ext-events/Settings.json",
+    "m_Dictionary": {
+        "m_DictionaryValues": [
+            {
+                "type": "System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
+                "key": "_buildCallbackOrder",
+                "value": "{\"m_Value\":0}"
+            }
+        ]
+    }
+}

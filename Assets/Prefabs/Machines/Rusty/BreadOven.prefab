@@ -223,10 +223,11 @@ GameObject:
   - component: {fileID: 6683153179909623582}
   - component: {fileID: 8092926146817743006}
   - component: {fileID: -572785721937663073}
+  - component: {fileID: -2849903439086842772}
   - component: {fileID: -838393948165991145}
   - component: {fileID: 3410612895767058713}
   - component: {fileID: 815739036822323244}
-  - component: {fileID: 8479839293513278157}
+  - component: {fileID: 5443791581840259084}
   m_Layer: 0
   m_Name: BreadOven
   m_TagString: Machine
@@ -282,10 +283,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _size: {x: 5, y: 6}
   _rotationAxis: {x: 0, y: 1, z: 0}
-  _blueprintPrefab: {fileID: 6934147759885031633, guid: 744528f03935bf24eadf9e49d39d3e1a,
+  _blueprintPrefab: {fileID: 4491705385250359134, guid: 89468df527c10d94fbd02ded17cc66e2,
     type: 3}
   _rotation:
     _value: 0
+--- !u!114 &-2849903439086842772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6934147759885031633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 171461265, guid: 171bbc814cca5234ebe1352b8fe4081b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventData: {fileID: -572785721937663073}
+  _clickGameEvent:
+    _enabled: 1
+    _value: {fileID: 11400000, guid: 1e2144b20bdbd1d4182e86be2564634b, type: 2}
+  _enterGameEvent:
+    _enabled: 0
+    _value: {fileID: 0}
+  _exitGameEvent:
+    _enabled: 0
+    _value: {fileID: 0}
+  _allowedButtons: 00000000
 --- !u!114 &-838393948165991145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,10 +335,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040c2a7020ab40519a3dcec439fad13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onTriggered: {fileID: 5443791581840259084}
   _itemFilter:
     _enabled: 0
     _value: {fileID: 0}
-  _onEnterEvent: {fileID: 8479839293513278157}
 --- !u!114 &815739036822323244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,8 +351,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942eb65bff9d4455a8862a6ac7bec17e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemEnteredEvent: {fileID: 8479839293513278157}
-  _triggerCondition:
+  _triggerEvent: {fileID: 5443791581840259084}
+  _condition:
     _enabled: 0
     _value: {fileID: 0}
   _itemFilter:
@@ -352,7 +376,10 @@ MonoBehaviour:
     IntValue: 0
     FloatValue: 0
     BoolValue: 1
---- !u!114 &8479839293513278157
+  _onItemModified:
+    _enabled: 0
+    _value: {fileID: 0}
+--- !u!114 &5443791581840259084
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -361,7 +388,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6934147759885031633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1904746250, guid: a4b0cdadf5a10a348b3bda34f4084372, type: 3}
+  m_Script: {fileID: 346301358, guid: a01ff59d545ade842b9fc82cd03f6d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &789089585692313165

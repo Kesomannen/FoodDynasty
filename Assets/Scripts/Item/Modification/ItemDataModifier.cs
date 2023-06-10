@@ -3,7 +3,7 @@ using System.Reflection;
 
 [Serializable]
 public class ItemDataModifier {
-    public ItemModifierOperationType OperationType;
+    public ItemModifierOperation OperationType;
     public ItemDataType DataType;
     public string FieldName;
     
@@ -19,9 +19,9 @@ public class ItemDataModifier {
         var field = ReflectionHelpers.GetField(type, FieldName);
 
         switch (OperationType) {
-            case ItemModifierOperationType.Set:
+            case ItemModifierOperation.Set:
                 SetField(field, data); break;
-            case ItemModifierOperationType.Modifier:
+            case ItemModifierOperation.Modify:
                 ModifyField(field, data); break;
             default: throw new ArgumentOutOfRangeException();
         }
@@ -49,7 +49,7 @@ public class ItemDataModifier {
     }
 }
 
-public enum ItemModifierOperationType {
+public enum ItemModifierOperation {
     Set,
-    Modifier
+    Modify
 }

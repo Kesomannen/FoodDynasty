@@ -6,7 +6,7 @@ public class ItemSeller : ItemMachineComponent, IInfoProvider {
     [SerializeField] MoneyManager _moneyManager;
     [SerializeField] Modifier _sellPriceModifier;
 
-    protected override void OnItemEntered(Item item) {
+    protected override void OnTriggered(Item item) {
         var sellPrice = (item.SellPriceModifier + _sellPriceModifier).Apply(item.BaseSellPrice);
         _moneyManager.CurrentMoney += sellPrice;
     }

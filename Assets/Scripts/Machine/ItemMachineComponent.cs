@@ -1,23 +1,24 @@
 ﻿using UnityEngine;
 
 public abstract class ItemMachineComponent : MonoBehaviour {
-    [SerializeField] LocalEvent<Item> _itemEnteredEvent;
-    [SerializeField] Optional<LocalConditional<bool>> _triggerCondition;
+    [Header("Item Component")]
+    [SerializeField] Event<Item> _triggerEvent;
+    [SerializeField] Optional<CheckEvent<bool>> _condition;
     [SerializeField] Optional<ItemFilterGroup> _itemFilter;
 
-    protected abstract void OnItemEntered(Item item);
+    protected abstract void OnTriggered(Item item);
 
     void OnEnable() {
-        _itemEnteredEvent.AddListener(OnItemEventTriggered);
+        _triggerEvent.OnRaised += Trigger;
     }
     
     void OnDisable() {
-        _itemEnteredEvent.RemoveListener(OnItemEventTriggered);
+        _triggerEvent.OnRaised -= Trigger;
     }
-    
-    void OnItemEventTriggered(Item item) { 
-        if (_triggerCondition.Enabled && !_triggerCondition.Value.Check()) return;
+
+    void Trigger(Item item) { 
+        if (_condition.Enabled && !_condition.Value.Check()) return;
         if (_itemFilter.Enabled && !_itemFilter.Value.Check(item)) return;
-        OnItemEntered(item);
+        OnTriggered(item);
     }
 }

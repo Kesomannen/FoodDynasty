@@ -48,6 +48,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
     - _collection:
       - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
+    - _collection:
+      - _typeNameAndAssembly: System.Double, mscorlib
+    - _collection:
+      - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_acbbaaf694c31a945ba7944cbf72222a,
         z_GameEvent_GridObject
@@ -57,6 +61,10 @@ MonoBehaviour:
         z_GameEvent_InventoryItemData
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_8c6db5823145e23418a29d1902b98007,
         z_GameEvent_TooltipParams
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_5fa55cca6918ba042813da2ad02e5325,
+        z_GameEvent_Double
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_b2d1735e36a1b8d44a167a2022f66816,
+        z_GameEvent_InventoryItem
   - _keys: []
     _values: []
   - _keys:

@@ -56,11 +56,12 @@ GameObject:
   - component: {fileID: 6683153179909623582}
   - component: {fileID: 8092926146817743006}
   - component: {fileID: -572785721937663073}
+  - component: {fileID: 8320015781857118629}
   - component: {fileID: -838393948165991145}
   - component: {fileID: 8433179934092658897}
   - component: {fileID: 4532270968829164520}
   - component: {fileID: 6488703291210042468}
-  - component: {fileID: 7732717135841498987}
+  - component: {fileID: 2280971935090227621}
   m_Layer: 0
   m_Name: SellCrate
   m_TagString: Machine
@@ -118,6 +119,29 @@ MonoBehaviour:
   _blueprintPrefab: {fileID: 6194972921985695116}
   _rotation:
     _value: 0
+--- !u!114 &8320015781857118629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6934147759885031633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 171461265, guid: 171bbc814cca5234ebe1352b8fe4081b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventData: {fileID: -572785721937663073}
+  _clickGameEvent:
+    _enabled: 1
+    _value: {fileID: 11400000, guid: 1e2144b20bdbd1d4182e86be2564634b, type: 2}
+  _enterGameEvent:
+    _enabled: 0
+    _value: {fileID: 0}
+  _exitGameEvent:
+    _enabled: 0
+    _value: {fileID: 0}
+  _allowedButtons: 00000000
 --- !u!114 &-838393948165991145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,10 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040c2a7020ab40519a3dcec439fad13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onTriggered: {fileID: 2280971935090227621}
   _itemFilter:
     _enabled: 0
     _value: {fileID: 0}
-  _onEnterEvent: {fileID: 7732717135841498987}
 --- !u!114 &4532270968829164520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,8 +183,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9891dab076194c8883c8e0a5f37cd69d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemEnteredEvent: {fileID: 7732717135841498987}
-  _triggerCondition:
+  _triggerEvent: {fileID: 2280971935090227621}
+  _condition:
     _enabled: 0
     _value: {fileID: 0}
   _itemFilter:
@@ -184,14 +208,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61f05241bf244e39901bdf3a356a29d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemEnteredEvent: {fileID: 7732717135841498987}
-  _triggerCondition:
+  _triggerEvent: {fileID: 2280971935090227621}
+  _condition:
     _enabled: 0
     _value: {fileID: 0}
   _itemFilter:
     _enabled: 0
     _value: {fileID: 0}
---- !u!114 &7732717135841498987
+--- !u!114 &2280971935090227621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -200,7 +224,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6934147759885031633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1904746250, guid: a4b0cdadf5a10a348b3bda34f4084372, type: 3}
+  m_Script: {fileID: 346301358, guid: a01ff59d545ade842b9fc82cd03f6d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &8648948623426275428

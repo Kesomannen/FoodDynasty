@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: MoneyManager
   m_EditorClassIdentifier: 
   _onMoneyChanged: {fileID: 11400000, guid: 0b407c9ea5d900d429c8a849fa2b65bc, type: 2}
+  _startingMoney: 1000
+  _currentMoney: 1

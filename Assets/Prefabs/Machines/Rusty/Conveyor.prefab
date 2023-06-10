@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6683153179909623582}
   - component: {fileID: 8092926146817743006}
   - component: {fileID: -572785721937663073}
+  - component: {fileID: 4023636763292724815}
   - component: {fileID: -838393948165991145}
   m_Layer: 0
   m_Name: Conveyor
@@ -68,6 +69,23 @@ MonoBehaviour:
   _blueprintPrefab: {fileID: 908144217459856472}
   _rotation:
     _value: 0
+--- !u!114 &4023636763292724815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6934147759885031633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 171461265, guid: 171bbc814cca5234ebe1352b8fe4081b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventData: {fileID: -572785721937663073}
+  _clickGameEvent:
+    _enabled: 1
+    _value: {fileID: 11400000, guid: 1e2144b20bdbd1d4182e86be2564634b, type: 2}
+  _allowedButtons: 00000000
 --- !u!114 &-838393948165991145
 MonoBehaviour:
   m_ObjectHideFlags: 0

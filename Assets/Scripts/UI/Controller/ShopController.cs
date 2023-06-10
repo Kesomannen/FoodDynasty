@@ -1,29 +1,22 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ShopController : MonoBehaviour {
     [Header("Shop")]
-    [SerializeField] Transform _shopItemParent;
-    [SerializeField] UIContainer<InventoryItemData> _shopItemPrefab;
+    [SerializeField] Transform _itemParent;
+    [SerializeField] InteractableContainer<InventoryItemData> _itemPrefab;
+    [SerializeField] GameEvent<InventoryItem> _onItemPurchased;
     [SerializeField] InventoryItemData[] _itemData;
+    [Space]
     [SerializeField] MoneyManager _moneyManager;
-    [SerializeField] GameEvent<InventoryItemData> _onItemPurchased;
+    [SerializeField] TooltipData<InventoryItemData> _tooltipData;
 
-    [Header("Tooltip")]
-    [SerializeField] Transform _tooltipLockPoint;
-    [SerializeField] TooltipLockAxis _tooltipLockAxis;
-    [SerializeField] GameEvent<TooltipParams> _showTooltipEvent;
-    [SerializeField] GenericGameEvent _hideTooltipEvent;
+    readonly List<InteractableContainer<InventoryItemData>> _itemContainers = new();
 
-    readonly List<UIContainer<InventoryItemData>> _itemContainers = new();
-
-    void OnEnable() {
-        _moneyManager.OnMoneyChanged += OnMoneyChanged;
-    }
-
-    void Start() {
+    void Awake() {
         foreach (var item in _itemData) {
-            var itemContainer = Instantiate(_shopItemPrefab, _shopItemParent);
+            var itemContainer = Instantiate(_itemPrefab, _itemParent);
             itemContainer.OnClicked += OnItemClicked;
             itemContainer.OnHovered += OnItemHovered;
             itemContainer.SetContent(item);
@@ -32,6 +25,11 @@ public class ShopController : MonoBehaviour {
         }
     }
 
+    void OnEnable() {
+        _moneyManager.OnMoneyChanged += OnMoneyChanged;
+        OnMoneyChanged(0, _moneyManager.CurrentMoney);
+    }
+    
     void OnDisable() {
         _moneyManager.OnMoneyChanged -= OnMoneyChanged;
     }
@@ -44,31 +42,28 @@ public class ShopController : MonoBehaviour {
             i--;
         }
     }
+
+    bool Buy(InventoryItemData item, int count) {
+        var cost = item.Price * count;
+        if (_moneyManager.CurrentMoney < cost) return false;
+        
+        _moneyManager.CurrentMoney -= cost;
+        _onItemPurchased.Raise(new InventoryItem { Count = count, Data = item });
+        return true;
+    }
     
     void OnMoneyChanged(double previous, double current) {
         foreach (var itemContainer in _itemContainers) {
-            itemContainer.Interactable = current >= itemContainer.Content.Price;
+            itemContainer.interactable = current >= itemContainer.Content.Price;
         }
     }
 
-    void OnItemClicked(UIContainer<InventoryItemData> itemContainer) {
-        var item = itemContainer.Content;
-        if (item.Price > _moneyManager.CurrentMoney) return;
-        
-        _moneyManager.CurrentMoney -= item.Price;
-        _onItemPurchased.Raise(item);
+    void OnItemClicked(InteractableContainer<InventoryItemData> itemContainer, PointerEventData eventData) {
+        if (eventData.button != PointerEventData.InputButton.Left) return;
+        Buy(itemContainer.Content, 1);
     }
     
-    void OnItemHovered(UIContainer<InventoryItemData> itemContainer, bool hovered) {
-        if (hovered) {
-            var parameters = new TooltipParams {
-                Content = itemContainer.Content,
-                LockAxis = _tooltipLockAxis,
-                LockPoint = _tooltipLockPoint
-            };
-            _showTooltipEvent.Raise(parameters);
-        } else {
-            _hideTooltipEvent.Raise();
-        }
+    void OnItemHovered(InteractableContainer<InventoryItemData> itemContainer, bool hovered, PointerEventData eventData) {
+        _tooltipData.Show(itemContainer.Content, hovered);
     }
 }

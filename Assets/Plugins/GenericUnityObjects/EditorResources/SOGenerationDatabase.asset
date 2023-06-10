@@ -21,6 +21,10 @@ MonoBehaviour:
     _guid: d3d4539531654c55aeb30f6fc3dc4fa1
   - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
     _guid: 
+  - _typeNameAndAssembly: System.Double, mscorlib
+    _guid: 
+  - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
+    _guid: 0a63975efa0847789c7eac2ab049fc86
   _genericArgumentValues:
   - _array: []
   - _array: []
@@ -43,6 +47,14 @@ MonoBehaviour:
       - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
         _guid: 
       _assemblyGUID: 8c6db5823145e23418a29d1902b98007
+    - _arguments:
+      - _typeNameAndAssembly: System.Double, mscorlib
+        _guid: 
+      _assemblyGUID: 5fa55cca6918ba042813da2ad02e5325
+    - _arguments:
+      - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
+        _guid: 0a63975efa0847789c7eac2ab049fc86
+      _assemblyGUID: b2d1735e36a1b8d44a167a2022f66816
   - _array: []
   - _array:
     - _arguments:
@@ -70,6 +82,18 @@ MonoBehaviour:
       - T
     - _typeNameAndAssembly: SerializedDataObject`1, Assembly-CSharp
       _guid: 4fb2b33abd3c49579f0b9c73ad320fb1
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+      _guid: 6e0691897fdd4e5894148f79dce13dbc
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+      _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using UnityEngine;
 
-public class Item : MonoBehaviour, IDisposable {
+public class Item : MonoBehaviour, IPoolable<Item>, IInfoProvider {
     [SerializeField] double _baseSellPrice;
     [SerializeField] GameObject _originalModel;
     [SerializeField] Vector3 _toppingOffset;
@@ -22,10 +22,8 @@ public class Item : MonoBehaviour, IDisposable {
         Reset();
     }
 
-    public void Dispose() {
-        Reset();
-        SellPriceModifier = new Modifier(multiplicative: 1f);
-        OnDisposed?.Invoke(this);
+    public double GetSellPrice() {
+        return SellPriceModifier.Apply(_baseSellPrice);
     }
 
     void Reset() {
@@ -99,6 +97,17 @@ public class Item : MonoBehaviour, IDisposable {
     }
     
     # endregion
+
+    public IEnumerable<(string Name, string Value)> GetInfo() {
+        yield return ("Value", StringUtil.FormatMoney(GetSellPrice()));
+    }
+    
+    public void Dispose() {
+        SellPriceModifier = new Modifier(multiplicative: 1f);
+        Reset();
+        
+        OnDisposed?.Invoke(this);
+    }
 }
 
 public enum ItemModelPivot {

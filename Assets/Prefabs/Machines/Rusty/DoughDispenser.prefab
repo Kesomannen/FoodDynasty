@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 6683153179909623582}
   - component: {fileID: 8092926146817743006}
   - component: {fileID: -572785721937663073}
+  - component: {fileID: 7092405214336336073}
   - component: {fileID: 537656555496710057}
   - component: {fileID: 6168274075822164127}
   - component: {fileID: 1769845686578283046}
-  - component: {fileID: 3877147659268500031}
-  - component: {fileID: 178879265748469627}
+  - component: {fileID: 1402162177542612825}
   m_Layer: 0
   m_Name: DoughDispenser
   m_TagString: Machine
@@ -73,6 +73,29 @@ MonoBehaviour:
   _blueprintPrefab: {fileID: 668981280706155932}
   _rotation:
     _value: 0
+--- !u!114 &7092405214336336073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6934147759885031633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 171461265, guid: 171bbc814cca5234ebe1352b8fe4081b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventData: {fileID: -572785721937663073}
+  _clickGameEvent:
+    _enabled: 1
+    _value: {fileID: 11400000, guid: 1e2144b20bdbd1d4182e86be2564634b, type: 2}
+  _enterGameEvent:
+    _enabled: 0
+    _value: {fileID: 0}
+  _exitGameEvent:
+    _enabled: 0
+    _value: {fileID: 0}
+  _allowedButtons: 00000000
 --- !u!114 &537656555496710057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,7 +112,7 @@ MonoBehaviour:
     _enabled: 0
     _value: 0
   _condition: {fileID: 1769845686578283046}
-  _useEvent: {fileID: 3877147659268500031}
+  _onUsed: {fileID: 1402162177542612825}
 --- !u!114 &6168274075822164127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +129,7 @@ MonoBehaviour:
   _prefab: {fileID: 8179629649837785446, guid: fc616f45937903b49a1d6c30d53f2846, type: 3}
   _spawnPoint: {fileID: 6313898023143500595}
   _condition: {fileID: 1769845686578283046}
-  _dispenseEvent: {fileID: 3877147659268500031}
+  _onDispensed: {fileID: 1402162177542612825}
 --- !u!114 &1769845686578283046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,8 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee6f030891b48fab0ce39d510f70a75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultState: 0
---- !u!114 &3877147659268500031
+  _defaultState: 1
+--- !u!114 &1402162177542612825
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,27 +152,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6934147759885031633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1904746250, guid: a4b0cdadf5a10a348b3bda34f4084372, type: 3}
+  m_Script: {fileID: 346301358, guid: a01ff59d545ade842b9fc82cd03f6d70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &178879265748469627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6934147759885031633}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!1 &9007911243498576380
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Item/Machine")]
-public class MachineItemData : InventoryItemData, IInventoryItemPrefab<GridObject> {
+[CreateAssetMenu(menuName = "Inventory/Machine Item")]
+public class MachineItemData : InventoryItemData, IPrefabProvider<GridObject> {
+    [SerializeField] InventoryItemType _type;
+    
     [Header("Machine")]
     [SerializeField] GridObject _prefab;
     [HideInInspector]
@@ -12,24 +14,24 @@ public class MachineItemData : InventoryItemData, IInventoryItemPrefab<GridObjec
     
     IInfoProvider[] _cachedProviders;
     
+    public override InventoryItemType Type => _type;
     public GridObject Prefab => _prefab;
-    
-    public (IInfoProvider Provider, bool Enabled)[] InfoProviders {
-        get {
-            if (_cachedProviders == null) {
-                RefreshProviders();
-            }
-            
-            return _cachedProviders!.Select((provider, i) => (provider, _enabledProviders[i])).ToArray();
+
+    public (IInfoProvider Provider, bool Enabled)[] GetInfoProviders() {
+        if (_cachedProviders == null) {
+            RefreshProviders();
         }
-        set {
-            _cachedProviders = value.Select(pair => pair.Provider).ToArray();
-            _enabledProviders = value.Select(pair => pair.Enabled).ToArray();
-        }
+
+        return _cachedProviders!.Select((provider, i) => (provider, _enabledProviders[i])).ToArray();
+    }
+
+    public void SetInfoProviders((IInfoProvider Provider, bool Enabled)[] value) {
+        _cachedProviders = value.Select(pair => pair.Provider).ToArray();
+        _enabledProviders = value.Select(pair => pair.Enabled).ToArray();
     }
 
     public override IEnumerable<(string Name, string Value)> GetInfo() {
-        return base.GetInfo().Concat(InfoProviders
+        return base.GetInfo().Concat(GetInfoProviders()
             .Where(provider => provider.Enabled)
             .SelectMany(provider => provider.Provider.GetInfo()));
     }

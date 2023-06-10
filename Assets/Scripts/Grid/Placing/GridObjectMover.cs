@@ -5,11 +5,11 @@ public class GridObjectMover : MonoBehaviour {
     [SerializeField] GameEvent<GridObject> _startMovingEvent;
 
     void OnEnable() {
-        _startMovingEvent.AddListener(OnGridObjectClicked);
+        _startMovingEvent.OnRaised += OnGridObjectClicked;
     }
     
     void OnDisable() {
-        _startMovingEvent.RemoveListener(OnGridObjectClicked);
+        _startMovingEvent.OnRaised -= OnGridObjectClicked;
     }
 
     async void OnGridObjectClicked(GridObject obj) {

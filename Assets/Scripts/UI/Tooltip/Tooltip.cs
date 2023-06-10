@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class Tooltip<T> : MonoBehaviour {
     [SerializeField] Vector2 _mouseOffset;
-    [SerializeField] UIContainer<T> _tooltip;
+    [SerializeField] Container<T> _tooltip;
     [SerializeField] GameEvent<TooltipParams> _showTooltipEvent;
     [SerializeField] GenericGameEvent _hideTooltipEvent;
 
     RectTransform _tooltipRect;
-    TooltipLockAxis _currentLockAxis;
     Transform _currentLockPoint;
+
+    bool _currentLockX;
+    bool _currentLockY;
 
     void Awake() {
         _tooltipRect = _tooltip.GetComponent<RectTransform>();
@@ -17,13 +19,13 @@ public class Tooltip<T> : MonoBehaviour {
     }
 
     void OnEnable() {
-        _showTooltipEvent.AddListener(Show);
-        _hideTooltipEvent.AddListener(Hide);
+        _showTooltipEvent.OnRaised += Show;
+        _hideTooltipEvent.OnRaisedGeneric += Hide;
     }
     
     void OnDisable() {
-        _showTooltipEvent.RemoveListener(Show);
-        _hideTooltipEvent.RemoveListener(Hide);
+        _showTooltipEvent.OnRaised -= Show;
+        _hideTooltipEvent.OnRaisedGeneric -= Hide;
     }
 
     public void Show(TooltipParams tooltipParams) {
@@ -31,7 +33,8 @@ public class Tooltip<T> : MonoBehaviour {
     }
     
     public void Show(T content, TooltipLockAxis lockAxis = TooltipLockAxis.None, Transform lockPoint = null) {
-        _currentLockAxis = lockAxis;
+        _currentLockX = lockAxis.HasFlag(TooltipLockAxis.X);
+        _currentLockY = lockAxis.HasFlag(TooltipLockAxis.Y);
         _currentLockPoint = lockPoint;
         
         _tooltip.SetContent(content);
@@ -58,16 +61,21 @@ public class Tooltip<T> : MonoBehaviour {
         pivot.y = screenPos.y - screenSize.y < 0 ? 0 : 1;
         
         var lockPos = _currentLockPoint.position;
-        if (_currentLockAxis.HasFlag(TooltipLockAxis.X)) {
+        if (_currentLockX) {
             mousePos.x = lockPos.x;
             pivot.x = lockPos.x < mousePos.x ? 0 : 1;
         }
         
-        if (_currentLockAxis.HasFlag(TooltipLockAxis.Y)) {
+        if (_currentLockY) {
             mousePos.y = lockPos.y;
             pivot.y = lockPos.y < mousePos.y ? 0 : 1;
+            pivot.x = 0.5f;
         }
-        
+
+        if (_currentLockX) {
+            pivot.y = 0.5f;
+        }
+
         _tooltipRect.pivot = pivot;
         _tooltipRect.position = mousePos;
     }

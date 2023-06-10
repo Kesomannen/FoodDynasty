@@ -14,7 +14,7 @@ public struct Modifier {
         Multiplicative = multiplicative;
     }
 
-    public float Delta => Apply(1);
+    public double Delta => Apply(1.0);
 
     public double Apply(double value) {
         return (value + Base) * (1 + Percentual) * Multiplicative + Additive;

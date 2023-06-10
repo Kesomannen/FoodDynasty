@@ -56,19 +56,19 @@ public class ItemDataModifierDrawer : PropertyDrawer {
 
         if (_allowedModiferTypes.Contains(selectedField.FieldType)) {
             rect.y += EditorGUIUtility.singleLineHeight;
-            dataModifier.OperationType = (ItemModifierOperationType) EditorGUI.EnumPopup(rect, "Operation", dataModifier.OperationType);
+            dataModifier.OperationType = (ItemModifierOperation) EditorGUI.EnumPopup(rect, "Operation", dataModifier.OperationType);
         } else {
-            dataModifier.OperationType = ItemModifierOperationType.Set;
+            dataModifier.OperationType = ItemModifierOperation.Set;
         }
 
         rect.y += EditorGUIUtility.singleLineHeight;
         switch (dataModifier.OperationType) {
-            case ItemModifierOperationType.Modifier: {
+            case ItemModifierOperation.Modify: {
                 var modifierProperty = property.Find(nameof(ItemDataModifier.Modifier));
                 EditorGUI.PropertyField(rect, modifierProperty);
                 break;
             }
-            case ItemModifierOperationType.Set: {
+            case ItemModifierOperation.Set: {
                 EditorGUI.PropertyField(rect, GetSetValueProperty(property, selectedField));
                 break;
             }
@@ -79,7 +79,7 @@ public class ItemDataModifierDrawer : PropertyDrawer {
         property.serializedObject.ApplyModifiedProperties();
     }
 
-    SerializedProperty GetSetValueProperty(SerializedProperty property, FieldInfo field) {
+    static SerializedProperty GetSetValueProperty(SerializedProperty property, FieldInfo field) {
         if (field.FieldType == typeof(int)) {
             return property.Find(nameof(ItemDataModifier.IntValue));
         }

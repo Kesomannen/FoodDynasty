@@ -7,7 +7,7 @@ using UnityEngine;
 public class ItemFilter : IFilter<Item> {
     public ItemFilterType FilterType;
     public ItemDataType DataType;
-    [Tooltip("If true, will create a new instance of the data type if it doesn't exist on the item.")]
+    [Tooltip("If false, will create a new instance of the data type if it doesn't exist on the item.")]
     public bool RequireData;
     
     public List<ItemFieldFilter> FieldFilters;
