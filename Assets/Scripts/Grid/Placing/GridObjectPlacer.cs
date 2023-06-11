@@ -64,34 +64,34 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
         _hasCancelled = true;
     }
 
-    public async Task<PlacementResult> DoPlacement(IGridObject dataObject, bool keepRotation = true, bool keepPosition = true) {
+    public async Task<GridPlacementResult> DoPlacement(IGridObject data, bool keepRotation = true, bool keepPosition = true) {
         if (IsPlacing) {
-            return new PlacementResult { Succeeded = false };
+            return new GridPlacementResult { Succeeded = false };
         }
         
-        _currentObject = dataObject;
+        _currentObject = data;
         if (keepRotation) {
-            _currentRotation = dataObject.Rotation;
+            _currentRotation = data.Rotation;
         }
         if (keepPosition) {
-            _currentPosition = dataObject.GridPosition;
+            _currentPosition = data.GridPosition;
         }
 
         IsPlacing = true;
         _placeTrigger.enabled = true;
-        SetupBlueprint(dataObject);
+        SetupBlueprint(data);
         
-        await WaitForPlacement(dataObject);
+        await WaitForPlacement(data);
 
         IsPlacing = false;
         _placeTrigger.enabled = false;
         Destroy(_currentBlueprint.gameObject);
         
         if (_hasCancelled) {
-            return new PlacementResult { Succeeded = false };
+            return new GridPlacementResult { Succeeded = false };
         }
         
-        return new PlacementResult {
+        return new GridPlacementResult {
             GridPosition = _currentPosition,
             Rotation = _currentRotation,
             Succeeded = true
@@ -178,10 +178,10 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
     Vector2Int GetGridPos(PointerEventData eventData) {
         return _gridManager.WorldToGrid(GetWorldPos(eventData));
     }
+}
 
-    public struct PlacementResult {
-        public Vector2Int GridPosition;
-        public GridRotation Rotation;
-        public bool Succeeded;
-    }
+public struct GridPlacementResult {
+    public Vector2Int GridPosition;
+    public GridRotation Rotation;
+    public bool Succeeded;
 }

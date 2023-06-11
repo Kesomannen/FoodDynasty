@@ -18,7 +18,7 @@ public static class InventoryItemUIUtil {
     };
     
     static readonly Dictionary<InventoryItemTier, Color> _colorLookup = new() {
-        { InventoryItemTier.Rusty, new Color(0.45f, 0.25f, 0.2f) }
+        { InventoryItemTier.Rusty, new Color(0.62f, 0.3f, 0.25f) }
     };
 
     public static void SetFromItemType(this MaterialIcon icon, InventoryItemType type) {

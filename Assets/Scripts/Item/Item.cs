@@ -99,7 +99,7 @@ public class Item : MonoBehaviour, IPoolable<Item>, IInfoProvider {
     # endregion
 
     public IEnumerable<(string Name, string Value)> GetInfo() {
-        yield return ("Value", StringUtil.FormatMoney(GetSellPrice()));
+        yield return ("Value", StringHelpers.FormatMoney(GetSellPrice()));
     }
     
     public void Dispose() {
@@ -107,6 +107,7 @@ public class Item : MonoBehaviour, IPoolable<Item>, IInfoProvider {
         Reset();
         
         OnDisposed?.Invoke(this);
+        Destroy(gameObject);
     }
 }
 

@@ -17,7 +17,6 @@ MonoBehaviour:
   - _typeNameAndAssembly: Container`1, Assembly-CSharp
   - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
   - _typeNameAndAssembly: Event`1, Assembly-CSharp
-  - _typeNameAndAssembly: InteractableContainer`1, Assembly-CSharp
   _values:
   - _keys:
     - _collection:
@@ -30,11 +29,15 @@ MonoBehaviour:
       - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
     - _collection:
       - _typeNameAndAssembly: Item, Assembly-CSharp
+    - _collection:
+      - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_b8843ce0992ed004b91676c7d64448d7,
         z_Container_InventoryItemData
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_29ed66bd779ef4e41aac8592cad76f30,
         z_Container_Item
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_9739129c1b95b2c418d193f76cc1ab7c,
+        z_Container_InventoryItem
   - _keys:
     - _collection:
       - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
@@ -47,5 +50,3 @@ MonoBehaviour:
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_a01ff59d545ade842b9fc82cd03f6d70,
         z_Event_Item
-  - _keys: []
-    _values: []

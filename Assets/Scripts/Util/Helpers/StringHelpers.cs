@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-public static class StringUtil {
+public static class StringHelpers {
     public static string FormatCamelCase(string input) {
         var formattedString = Regex.Replace(input, "([A-Z])", " $1").Trim();
         formattedString = char.ToUpper(formattedString[0]) + formattedString[1..];
@@ -10,6 +10,11 @@ public static class StringUtil {
     }
 
     public static string FormatMoney(double value) {
+        switch (value) {
+            case 0: return "$0";
+            case < 0: return $"-${FormatMoney(-value)}";
+        }
+
         var magnitude = (int)Math.Log10(value);
         var adjustedMagnitude = magnitude - magnitude % 3;
         

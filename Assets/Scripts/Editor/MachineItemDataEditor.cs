@@ -35,7 +35,7 @@ public class MachineItemDataEditor : Editor {
             var (provider, enabled) = providers[i];
             EditorGUILayout.BeginHorizontal();
             
-            var providerName = StringUtil.FormatCamelCase(provider.GetType().Name);
+            var providerName = StringHelpers.FormatCamelCase(provider.GetType().Name);
             enabled = EditorGUILayout.Toggle(providerName, enabled);
             
             EditorGUI.indentLevel++;

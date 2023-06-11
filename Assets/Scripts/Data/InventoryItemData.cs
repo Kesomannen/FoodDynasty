@@ -27,7 +27,7 @@ public abstract class InventoryItemData : ScriptableObject, IInfoProvider {
     }
 
     public virtual IEnumerable<(string Name, string Value)> GetInfo() {
-        yield return ("Price", StringUtil.FormatMoney(_price));
+        yield return ("Price", StringHelpers.FormatMoney(_price));
     }
 }
 

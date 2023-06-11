@@ -51,33 +51,30 @@ public class Tooltip<T> : MonoBehaviour {
     }
 
     void UpdatePosition() {
-        var mousePos = MouseHelpers.MouseScreenPosition;
+        var position = MouseHelpers.MouseScreenPosition + _mouseOffset;
         var pivot = Vector2.one * 0.5f;
 
-        var screenPos = MouseHelpers.MouseScreenPosition + _mouseOffset;
-        var screenSize = CanvasHelpers.CanvasToScreen(_tooltipRect.sizeDelta);
-
-        pivot.x = screenPos.x / Screen.width;
-        pivot.y = screenPos.y - screenSize.y < 0 ? 0 : 1;
+        pivot.x = position.x / Screen.width;
+        pivot.y = position.y / Screen.height;
         
-        var lockPos = _currentLockPoint.position;
+        var lockPosition = _currentLockPoint.position;
         if (_currentLockX) {
-            mousePos.x = lockPos.x;
-            pivot.x = lockPos.x < mousePos.x ? 0 : 1;
+            position.x = lockPosition.x;
+            pivot.x = lockPosition.x < position.x ? 0 : 1;
         }
         
         if (_currentLockY) {
-            mousePos.y = lockPos.y;
-            pivot.y = lockPos.y < mousePos.y ? 0 : 1;
-            pivot.x = 0.5f;
+            position.y = lockPosition.y;
+            pivot.y = lockPosition.y < position.y ? 0 : 1;
+            pivot.x = position.x / Screen.width;
         }
 
         if (_currentLockX) {
-            pivot.y = 0.5f;
+            pivot.y = position.y / Screen.height;
         }
 
         _tooltipRect.pivot = pivot;
-        _tooltipRect.position = mousePos;
+        _tooltipRect.position = position;
     }
 }
 

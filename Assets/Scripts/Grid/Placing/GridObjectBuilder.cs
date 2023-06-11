@@ -10,34 +10,38 @@ public class GridObjectBuilder : MonoBehaviour {
         _placer.Cancel();
     }
     
-    public async Task<List<GridObject>> StartPlacing(GridObject prefab, Action<GridObject> onPlaced = null) {
+    public async Task<List<GridObject>> StartPlacing(GridObject prefab, Func<bool> beforePlace = null, Action<GridObject, GridPlacementResult> afterPlace = null) {
         var placedObjects = new List<GridObject>();
+        beforePlace ??= () => true;
         _placer.Cancel();
         
         while (true) {
-            var (succeeded, obj) = await Place(prefab);
-            if (!succeeded) break;
+            if (!beforePlace()) break;
+            
+            var (result, obj) = await Place(prefab);
+            afterPlace?.Invoke(obj, result);
+            if (!result.Succeeded) break;
             
             placedObjects.Add(obj);
-            onPlaced?.Invoke(obj);
         }
         
         return placedObjects;
     }
 
-    async Task<(bool Succeeded, GridObject Object)> Place(GridObject prefab) {
+    async Task<(GridPlacementResult Result, GridObject Object)> Place(GridObject prefab) {
         var result = await _placer.DoPlacement(prefab, false, false);
 
-        if (!result.Succeeded) return (false, null);
+        if (!result.Succeeded) return (result, null);
         
         var gridManager = _placer.GridManager;
         var gridObject = Instantiate(prefab);
 
         if (gridObject.AddAndPosition(gridManager, result.GridPosition, result.Rotation)) {
-            return (true, gridObject);
+            return (result, gridObject);
         }
         
         Destroy(gridObject);
-        return (false, null);
+        result.Succeeded = false;
+        return (result, null);
     }
 }

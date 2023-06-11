@@ -58,7 +58,7 @@ public class InventoryAsset : ScriptableObject {
         return _items[data] = new InventoryItem {
             Count = 0,
             Data = data,
-            Owner = this
+            Inventory = this
         };
     }
 }

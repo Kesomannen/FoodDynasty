@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-public static class MaterialUtil {
+public static class MaterialHelpers {
     public static void ApplyMaterials(this IEnumerable<Renderer> renderers, IEnumerable<Material> materials) {
         var rendererArray = renderers.ToArray();
         var materialArray = materials.ToArray();

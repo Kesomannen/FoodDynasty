@@ -73,7 +73,7 @@ public class ItemFilterDrawer : PropertyDrawer {
         filter.FieldName = info.Name;
 
         rect.y += EditorGUIUtility.singleLineHeight;
-        filter.Enabled = EditorGUI.Toggle(rect, StringUtil.FormatCamelCase(info.Name), filter.Enabled);
+        filter.Enabled = EditorGUI.Toggle(rect, StringHelpers.FormatCamelCase(info.Name), filter.Enabled);
 
         if (!filter.Enabled) return filter;
         EditorGUI.indentLevel++;

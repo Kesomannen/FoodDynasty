@@ -119,7 +119,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _size: {x: 4, y: 4}
   _rotationAxis: {x: 0, y: 1, z: 0}
-  _blueprintPrefab: {fileID: 4142241385700261311}
+  _blueprintPrefab: {fileID: -8775798653362858915, guid: 7e948a1e1bbaf8e499df904050b2de83,
+    type: 3}
   _rotation:
     _value: 0
 --- !u!114 &-838393948165991145
@@ -422,12 +423,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.125, y: 0.125, z: 1}
   m_Center: {x: 0.4375, y: 0.0625, z: 0}
---- !u!1 &4142241385700261311 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -8775798653362858915, guid: 7e948a1e1bbaf8e499df904050b2de83,
-    type: 3}
-  m_PrefabInstance: {fileID: 4560504881552648674}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5268456768612044880 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -695952916309149262, guid: 7e948a1e1bbaf8e499df904050b2de83,

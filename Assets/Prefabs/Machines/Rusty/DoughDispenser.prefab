@@ -70,7 +70,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _size: {x: 4, y: 4}
   _rotationAxis: {x: 0, y: 1, z: 0}
-  _blueprintPrefab: {fileID: 668981280706155932}
+  _blueprintPrefab: {fileID: 3236669909559828088, guid: bb0ef89c85783c1488ab98e08ba902d3,
+    type: 3}
   _rotation:
     _value: 0
 --- !u!114 &7092405214336336073
@@ -259,12 +260,6 @@ PrefabInstance:
 --- !u!4 &644043424045871702 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3265776963973560754, guid: bb0ef89c85783c1488ab98e08ba902d3,
-    type: 3}
-  m_PrefabInstance: {fileID: 2711805570664500196}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &668981280706155932 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3236669909559828088, guid: bb0ef89c85783c1488ab98e08ba902d3,
     type: 3}
   m_PrefabInstance: {fileID: 2711805570664500196}
   m_PrefabAsset: {fileID: 0}

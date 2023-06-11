@@ -1,27 +1,31 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class ShopController : MonoBehaviour {
     [Header("Shop")]
     [SerializeField] Transform _itemParent;
-    [SerializeField] InteractableContainer<InventoryItemData> _itemPrefab;
+    [SerializeField] Container<InventoryItemData> _itemPrefab;
     [SerializeField] GameEvent<InventoryItem> _onItemPurchased;
+    [SerializeField] ItemSortingMode _sortingMode;
     [SerializeField] InventoryItemData[] _itemData;
     [Space]
     [SerializeField] MoneyManager _moneyManager;
     [SerializeField] TooltipData<InventoryItemData> _tooltipData;
 
-    readonly List<InteractableContainer<InventoryItemData>> _itemContainers = new();
+    readonly List<(Interactable interactable, Container<InventoryItemData> container)> _items = new();
 
     void Awake() {
-        foreach (var item in _itemData) {
+        foreach (var item in _itemData.Sorted(_sortingMode)) {
             var itemContainer = Instantiate(_itemPrefab, _itemParent);
-            itemContainer.OnClicked += OnItemClicked;
-            itemContainer.OnHovered += OnItemHovered;
             itemContainer.SetContent(item);
             
-            _itemContainers.Add(itemContainer);
+            var interactable = itemContainer.GetOrAdd<Interactable>();
+            interactable.OnClicked += OnItemClicked;
+            interactable.OnHovered += OnItemHovered;
+
+            _items.Add((interactable, itemContainer));
         }
     }
 
@@ -35,35 +39,38 @@ public class ShopController : MonoBehaviour {
     }
 
     void OnDestroy() {
-        for (var i = 0; i < _itemContainers.Count; i++) {
-            var itemContainer = _itemContainers[i];
-            itemContainer.OnClicked -= OnItemClicked;
-            _itemContainers.Remove(itemContainer);
+        for (var i = 0; i < _items.Count; i++) {
+            var (interactable, container) = _items[i];
+            interactable.OnClicked -= OnItemClicked;
+            _items.Remove((interactable, container));
             i--;
         }
     }
 
-    bool Buy(InventoryItemData item, int count) {
+    void TryBuy(InventoryItemData item, int count) {
         var cost = item.Price * count;
-        if (_moneyManager.CurrentMoney < cost) return false;
-        
+        if (_moneyManager.CurrentMoney < cost) return;
+
         _moneyManager.CurrentMoney -= cost;
         _onItemPurchased.Raise(new InventoryItem { Count = count, Data = item });
-        return true;
     }
     
     void OnMoneyChanged(double previous, double current) {
-        foreach (var itemContainer in _itemContainers) {
-            itemContainer.interactable = current >= itemContainer.Content.Price;
+        foreach (var (interactable, container) in _items) {
+            interactable.interactable = current >= container.Content.Price;
         }
     }
 
-    void OnItemClicked(InteractableContainer<InventoryItemData> itemContainer, PointerEventData eventData) {
+    void OnItemClicked(Interactable interactable, PointerEventData eventData) {
         if (eventData.button != PointerEventData.InputButton.Left) return;
-        Buy(itemContainer.Content, 1);
+        TryBuy(GetData(interactable), 1);
     }
     
-    void OnItemHovered(InteractableContainer<InventoryItemData> itemContainer, bool hovered, PointerEventData eventData) {
-        _tooltipData.Show(itemContainer.Content, hovered);
+    void OnItemHovered(Interactable interactable, bool hovered, PointerEventData eventData) {
+        _tooltipData.Show(GetData(interactable), hovered);
+    }
+
+    InventoryItemData GetData(Interactable interactable) {
+        return _items.First(item => item.interactable == interactable).container.Content;
     }
 }

@@ -19,6 +19,8 @@ MonoBehaviour:
     _guid: d3d4539531654c55aeb30f6fc3dc4fa1
   - _typeNameAndAssembly: GridObject, Assembly-CSharp
     _guid: a189d557cd0c42bebb4e2ef1dc861402
+  - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
+    _guid: 0a63975efa0847789c7eac2ab049fc86
   _genericArgumentValues:
   - _array:
     - _arguments:
@@ -34,6 +36,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: Item, Assembly-CSharp
         _guid: 8dbbab00aaad493d81fa6e862abf0843
       _assemblyGUID: 29ed66bd779ef4e41aac8592cad76f30
+    - _arguments:
+      - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
+        _guid: 0a63975efa0847789c7eac2ab049fc86
+      _assemblyGUID: 9739129c1b95b2c418d193f76cc1ab7c
   - _array:
     - _arguments:
       - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
@@ -44,7 +50,6 @@ MonoBehaviour:
       - _typeNameAndAssembly: Item, Assembly-CSharp
         _guid: 8dbbab00aaad493d81fa6e862abf0843
       _assemblyGUID: a01ff59d545ade842b9fc82cd03f6d70
-  - _array: []
   _genericTypeValues:
   - _array:
     - _typeNameAndAssembly: Container`1, Assembly-CSharp
@@ -98,6 +103,14 @@ MonoBehaviour:
       - T
       _componentName: 
       _order: 0
+  - _array:
+    - _typeNameAndAssembly: Container`1, Assembly-CSharp
+      _guid: bc7fd065c7114f949ac90aaca54ac6c0
+      AssemblyGUID: 254ae94bd4cccc14b99480e951722e76
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
   _genericTypeKeys:
   - _typeNameAndAssembly: MouseEventTrigger`1, Assembly-CSharp
     _guid: 318420d1009c4ad9825b98ca678d0cbd
@@ -127,10 +140,3 @@ MonoBehaviour:
     - T
     _componentName: 
     _order: 0
-  - _typeNameAndAssembly: InteractableContainer`1, Assembly-CSharp
-    _guid: 8ea801d2688245aea29a614c0d689f8b
-    AssemblyGUID: d8264bcf15010c5459a9842459076e97
-    _argNames:
-    - T
-    _componentName: UI/Selectable
-    _order: 35

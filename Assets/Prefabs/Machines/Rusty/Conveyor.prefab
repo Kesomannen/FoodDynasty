@@ -66,7 +66,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _size: {x: 4, y: 4}
   _rotationAxis: {x: 0, y: 1, z: 0}
-  _blueprintPrefab: {fileID: 908144217459856472}
+  _blueprintPrefab: {fileID: 2638332497102006003, guid: a68d0041fcd3d6c479522dad8a16a51c,
+    type: 3}
   _rotation:
     _value: 0
 --- !u!114 &4023636763292724815
@@ -85,6 +86,12 @@ MonoBehaviour:
   _clickGameEvent:
     _enabled: 1
     _value: {fileID: 11400000, guid: 1e2144b20bdbd1d4182e86be2564634b, type: 2}
+  _enterGameEvent:
+    _enabled: 0
+    _value: {fileID: 0}
+  _exitGameEvent:
+    _enabled: 0
+    _value: {fileID: 0}
   _allowedButtons: 00000000
 --- !u!114 &-838393948165991145
 MonoBehaviour:
@@ -169,12 +176,6 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 8686905464242370237, guid: a68d0041fcd3d6c479522dad8a16a51c,
     type: 3}
---- !u!1 &908144217459856472 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2638332497102006003, guid: a68d0041fcd3d6c479522dad8a16a51c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2884376580776751787}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2298172085184485783 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4027311402426608444, guid: a68d0041fcd3d6c479522dad8a16a51c,

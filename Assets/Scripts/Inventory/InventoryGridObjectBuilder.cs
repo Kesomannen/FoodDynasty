@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 public class InventoryGridObjectBuilder : MonoBehaviour {
     [SerializeField] GridObjectBuilder _builder;
@@ -16,11 +17,15 @@ public class InventoryGridObjectBuilder : MonoBehaviour {
         _builder.Cancel();
         
         if (item.Data is not IPrefabProvider<GridObject> prefabProvider) return;
-        await _builder.StartPlacing(prefabProvider.Prefab, GridObjectPlaced);
+        await _builder.StartPlacing(prefabProvider.Prefab, BeforePlace, AfterPlace);
+
+        void AfterPlace(GridObject obj, GridPlacementResult result) {
+            if (result.Succeeded) return;
+            item.Inventory.Add(item.Data);
+        }
         
-        void GridObjectPlaced(GridObject gridObject) {
-            if (item.Owner.Remove(item.Data)) return;
-            _builder.Cancel();
+        bool BeforePlace() {
+            return item.Inventory.Remove(item.Data);
         }
     }
 }

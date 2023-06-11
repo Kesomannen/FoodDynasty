@@ -1,21 +1,25 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class InventoryController : MonoBehaviour {
     [Header("Inventory")] 
     [SerializeField] Transform _itemParent;
-    [SerializeField] InteractableContainer<InventoryItem> _itemPrefab;
+    [SerializeField] Container<InventoryItem> _itemPrefab;
     [SerializeField] GameEvent<InventoryItem> _onItemClicked;
     [SerializeField] InventoryAsset _inventoryAsset;
     [Space]
+    [SerializeField] ItemSortingMode _sortingMode;
     [SerializeField] TooltipData<InventoryItemData> _tooltipData;
 
-    readonly Dictionary<InventoryItemData, InteractableContainer<InventoryItem>> _itemContainers = new();
-    
+    readonly Dictionary<InventoryItemData, Container<InventoryItem>> _itemContainers = new();
+    Container<InventoryItem> _selectedContainer;
+
     void OnEnable() {
         _inventoryAsset.OnItemChanged += OnItemChanged;
         RefreshContainers();
+        SortContainers();
     }
     
     void OnDisable() {
@@ -23,26 +27,33 @@ public class InventoryController : MonoBehaviour {
     }
 
     void OnItemChanged(InventoryItem item) {
-        if (item.Count <= 0) RemoveContainer(item);
+        if (item.Count <= 0) DestroyContainer(item);
         else CreateOrUpdateContainer(item);
     }
 
     void CreateOrUpdateContainer(InventoryItem item) {
         if (!_itemContainers.TryGetValue(item.Data, out var itemContainer)) {
             itemContainer = Instantiate(_itemPrefab, _itemParent);
-            itemContainer.OnClicked += OnItemClicked;
-            itemContainer.OnHovered += OnItemHovered;
+
+            var interactable = itemContainer.GetOrAdd<Interactable>();
+            interactable.OnClicked += OnItemClicked;
+            interactable.OnHovered += OnItemHovered;
             
             _itemContainers.Add(item.Data, itemContainer);
         }
         itemContainer.SetContent(item);
     }
     
-    void RemoveContainer(InventoryItem item) {
+    void DestroyContainer(InventoryItem item) {
         if (!_itemContainers.TryGetValue(item.Data, out var itemContainer)) return;
         
-        itemContainer.OnClicked -= OnItemClicked;
-        itemContainer.OnHovered -= OnItemHovered;
+        var interactable = itemContainer.GetOrAdd<Interactable>();
+        interactable.OnClicked -= OnItemClicked;
+        interactable.OnHovered -= OnItemHovered;
+
+        if (_selectedContainer == itemContainer) {
+            _tooltipData.Hide();
+        }   
         
         _itemContainers.Remove(item.Data);
         Destroy(itemContainer.gameObject);
@@ -54,12 +65,22 @@ public class InventoryController : MonoBehaviour {
         }
     }
 
-    void OnItemClicked(InteractableContainer<InventoryItem> itemContainer, PointerEventData eventData) {
+    void SortContainers() {
+        _itemContainers.Values.SortSiblingIndices(container => container.Content.Data, ItemSortUtil.GetComparison(_sortingMode));
+    }
+
+    void OnItemClicked(Interactable interactable, PointerEventData eventData) {
         if (eventData.button != PointerEventData.InputButton.Left) return;
-        _onItemClicked.Raise(itemContainer.Content);
+        _onItemClicked.Raise(GetContainer(interactable).Content);
     }
     
-    void OnItemHovered(InteractableContainer<InventoryItem> itemContainer, bool hovered, PointerEventData eventData) {
-        _tooltipData.Show(itemContainer.Content.Data, hovered);
+    void OnItemHovered(Interactable interactable, bool hovered, PointerEventData eventData) {
+        var container = GetContainer(interactable);
+        _tooltipData.Show(container.Content.Data, hovered);
+        _selectedContainer = hovered ? container : null;
+    }
+
+    Container<InventoryItem> GetContainer(Component obj) {
+        return _itemContainers.Values.First(container => container.gameObject == obj.gameObject);
     }
 }

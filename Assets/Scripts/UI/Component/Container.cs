@@ -24,7 +24,7 @@ public class Container<T> : MonoBehaviour, IPoolable<Container<T>> {
         Content = content;
     }
 
-    public virtual void Dispose() {
+    public void Dispose() {
         OnDisposed?.Invoke(this);
     }
 }
