@@ -11,6 +11,10 @@ public static class ThumbnailCreator {
     const int Depth = 24;
 
     public static Sprite Create(Component prefab, string name) {
+        return Create(prefab.gameObject, name);
+    }
+    
+    public static Sprite Create(GameObject prefab, string name) {
         var target = Object.Instantiate(prefab, _position, Quaternion.identity);
 
         var thumbnailHandlers = target.GetComponentsInChildren<IOnThumbnailCreateHandler>();

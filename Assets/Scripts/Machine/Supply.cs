@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public interface ISupply {
     int MaxSupply { get; set; }
     int CurrentSupply { get; set; }
+    
+    bool IsValidRefill(InventoryItemData item);
 }
 
-public class Supply : MonoBehaviour, ISupply, IPointerClickHandler, IInfoProvider {
+public class Supply : MonoBehaviour, ISupply, IInfoProvider {
     [SerializeField] Optional<int> _maxSupply;
+    [SerializeField] InventoryItemData _refillItem;
     [SerializeField] CheckEvent<bool> _condition;
     [SerializeField] GenericEvent _onUsed;
 
@@ -24,6 +26,7 @@ public class Supply : MonoBehaviour, ISupply, IPointerClickHandler, IInfoProvide
         set => _currentSupply = Mathf.Clamp(value, 0, MaxSupply);
     }
 
+    public bool IsValidRefill(InventoryItemData item) => _refillItem == item;
     bool HasSupply() => CurrentSupply > 0;
     void OnUsed() => CurrentSupply--;
     
@@ -35,10 +38,6 @@ public class Supply : MonoBehaviour, ISupply, IPointerClickHandler, IInfoProvide
     void OnDisable() {
         _condition.RemoveCondition(HasSupply);
         _onUsed.OnRaisedGeneric -= OnUsed;
-    }
-
-    public void OnPointerClick(PointerEventData eventData) {
-        _currentSupply = MaxSupply;
     }
 
     public IEnumerable<(string Name, string Value)> GetInfo() {

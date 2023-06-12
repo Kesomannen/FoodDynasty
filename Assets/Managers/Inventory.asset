@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a508461ffe0e4252a62b60db444b1670, type: 3}
   m_Name: Inventory
   m_EditorClassIdentifier: 
-  _addItemEvent: {fileID: 11400000, guid: c5c8e9ad4a297984199a2e6b9f8f92ab, type: 2}
+  _addItemEvent: {fileID: 11400000, guid: 5e81af2d12fea0740b98f64c799dc9c4, type: 2}

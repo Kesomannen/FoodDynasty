@@ -1,0 +1,222 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1992722935222979667
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -838393948165991145, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: _speed
+      value: 
+      objectReference: {fileID: 11400000, guid: dd927c834874b6044a38511ab35023e1,
+        type: 2}
+    - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: _blueprintPrefab
+      value: 
+      objectReference: {fileID: 2638332497102006003, guid: a68d0041fcd3d6c479522dad8a16a51c,
+        type: 3}
+    - target: {fileID: 6328609926739982568, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 3adee0a046af31b45b0bec5ed3d03345,
+        type: 2}
+    - target: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6934147759885031633, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_Name
+      value: RustyConveyor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0b41a32b938fc324b90a999fc9957d7d, type: 3}
+--- !u!4 &5123062945788740429 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1992722935222979667}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2391674803068147331
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5123062945788740429}
+    m_Modifications:
+    - target: {fileID: -1912865722939267393, guid: a68d0041fcd3d6c479522dad8a16a51c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1912865722939267393, guid: a68d0041fcd3d6c479522dad8a16a51c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1912865722939267393, guid: a68d0041fcd3d6c479522dad8a16a51c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1912865722939267393, guid: a68d0041fcd3d6c479522dad8a16a51c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1912865722939267393, guid: a68d0041fcd3d6c479522dad8a16a51c,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1912865722939267393, guid: a68d0041fcd3d6c479522dad8a16a51c,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1912865722939267393, guid: a68d0041fcd3d6c479522dad8a16a51c,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1912865722939267393, guid: a68d0041fcd3d6c479522dad8a16a51c,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1912865722939267393, guid: a68d0041fcd3d6c479522dad8a16a51c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1912865722939267393, guid: a68d0041fcd3d6c479522dad8a16a51c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1912865722939267393, guid: a68d0041fcd3d6c479522dad8a16a51c,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638332497102006003, guid: a68d0041fcd3d6c479522dad8a16a51c,
+        type: 3}
+      propertyPath: m_Name
+      value: RustyConveyor
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 8686905464242370237, guid: a68d0041fcd3d6c479522dad8a16a51c,
+    type: 3}
+--- !u!1 &1644673603878632895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4027311402426608444, guid: a68d0041fcd3d6c479522dad8a16a51c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2391674803068147331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7654394756630795531
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644673603878632895}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.125, y: 0.125, z: 1}
+  m_Center: {x: 0.4375, y: 0.0625, z: 0}
+--- !u!1 &2801485892393353750 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8660405469216582507, guid: a68d0041fcd3d6c479522dad8a16a51c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2391674803068147331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1160206869705330318
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2801485892393353750}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.125, y: 0.125, z: 1}
+  m_Center: {x: 0.4375, y: 0.0625, z: 0}
+--- !u!1 &7294851214039665455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4319960259225952852, guid: a68d0041fcd3d6c479522dad8a16a51c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2391674803068147331}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &264736806719102981
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7294851214039665455}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 0.0625, z: 1}
+  m_Center: {x: 0, y: 0.03125, z: 0}

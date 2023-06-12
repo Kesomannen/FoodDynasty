@@ -22,6 +22,6 @@ public class Conveyor : MonoBehaviour, IInfoProvider {
     }
 
     public IEnumerable<(string Name, string Value)> GetInfo() {
-        yield return ("Speed", _speed.Value.ToString("0"));
+        yield return ("Speed", $"{_speed.Value:0.#}");
     }
 }

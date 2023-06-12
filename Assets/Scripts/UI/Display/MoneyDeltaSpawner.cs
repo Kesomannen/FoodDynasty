@@ -8,14 +8,14 @@ public class MoneyDeltaSpawner : MonoBehaviour {
     [SerializeField] LeanTweenType _animationEaseType;
     [Space]
     [SerializeField] TMP_Text _textPrefab;
-    [SerializeField] MoneyManager _moneyManager;
+    [SerializeField] ValueChangedEvent<double> _moneyChangedEvent;
 
     void OnEnable() {
-        _moneyManager.OnMoneyChanged += OnMoneyChanged;
+        _moneyChangedEvent.OnRaised += OnMoneyChanged;
     }
     
     void OnDisable() {
-        _moneyManager.OnMoneyChanged -= OnMoneyChanged;
+        _moneyChangedEvent.OnRaised -= OnMoneyChanged;
     }
 
     void OnMoneyChanged(double prev, double current) {

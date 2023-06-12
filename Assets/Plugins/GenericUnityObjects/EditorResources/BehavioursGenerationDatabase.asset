@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: BehavioursGenerationDatabase
   m_EditorClassIdentifier: 
   _genericArgumentKeys:
-  - _typeNameAndAssembly: Item, Assembly-CSharp
-    _guid: 8dbbab00aaad493d81fa6e862abf0843
   - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
     _guid: d3d4539531654c55aeb30f6fc3dc4fa1
+  - _typeNameAndAssembly: Item, Assembly-CSharp
+    _guid: 8dbbab00aaad493d81fa6e862abf0843
   - _typeNameAndAssembly: GridObject, Assembly-CSharp
     _guid: a189d557cd0c42bebb4e2ef1dc861402
   - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
@@ -24,73 +24,48 @@ MonoBehaviour:
   _genericArgumentValues:
   - _array:
     - _arguments:
+      - _typeNameAndAssembly: Item, Assembly-CSharp
+        _guid: 8dbbab00aaad493d81fa6e862abf0843
+      _assemblyGUID: 51ffa55fd3c2d8a4a99d778d29c44bb9
+  - _array:
+    - _arguments:
       - _typeNameAndAssembly: GridObject, Assembly-CSharp
         _guid: a189d557cd0c42bebb4e2ef1dc861402
-      _assemblyGUID: 171bbc814cca5234ebe1352b8fe4081b
+      _assemblyGUID: c36452e95c0c3b845ab55aa88fbd4dc3
   - _array:
     - _arguments:
       - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
         _guid: d3d4539531654c55aeb30f6fc3dc4fa1
-      _assemblyGUID: b8843ce0992ed004b91676c7d64448d7
-    - _arguments:
-      - _typeNameAndAssembly: Item, Assembly-CSharp
-        _guid: 8dbbab00aaad493d81fa6e862abf0843
-      _assemblyGUID: 29ed66bd779ef4e41aac8592cad76f30
+      _assemblyGUID: 753676d98d8e00946ab3cc596b2a3714
     - _arguments:
       - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
         _guid: 0a63975efa0847789c7eac2ab049fc86
-      _assemblyGUID: 9739129c1b95b2c418d193f76cc1ab7c
+      _assemblyGUID: a07511d51b0d145418e48fe384fe8af4
   - _array:
     - _arguments:
       - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
         _guid: d3d4539531654c55aeb30f6fc3dc4fa1
-      _assemblyGUID: fb82ae66c84cc94459d02e45bb2babda
-  - _array:
-    - _arguments:
-      - _typeNameAndAssembly: Item, Assembly-CSharp
-        _guid: 8dbbab00aaad493d81fa6e862abf0843
-      _assemblyGUID: a01ff59d545ade842b9fc82cd03f6d70
+      _assemblyGUID: eff3e6e99893af6498083035df40fbf4
   _genericTypeValues:
   - _array:
     - _typeNameAndAssembly: Container`1, Assembly-CSharp
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
-      AssemblyGUID: 254ae94bd4cccc14b99480e951722e76
-      _argNames:
-      - T
-      _componentName: 
-      _order: 0
-    - _typeNameAndAssembly: Event`1, Assembly-CSharp
-      _guid: 20b6ca5797584b78b97df411ce90faae
-      AssemblyGUID: d98198dd72b03384d892fbac187ff6f5
-      _argNames:
-      - T
-      _componentName: 
-      _order: 0
-    - _typeNameAndAssembly: Container`1, Assembly-CSharp
-      _guid: bc7fd065c7114f949ac90aaca54ac6c0
-      AssemblyGUID: 254ae94bd4cccc14b99480e951722e76
-      _argNames:
-      - T
-      _componentName: 
-      _order: 0
-  - _array:
-    - _typeNameAndAssembly: Container`1, Assembly-CSharp
-      _guid: bc7fd065c7114f949ac90aaca54ac6c0
-      AssemblyGUID: 254ae94bd4cccc14b99480e951722e76
+      AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
       _argNames:
       - T
       _componentName: 
       _order: 0
     - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
       _guid: 4addc1cb99f34fd0af74184bdb5e98fe
-      AssemblyGUID: afaea4dd8620fd14784d6de22fa79246
+      AssemblyGUID: 02ca79563ddb00743b64c78238a180d5
       _argNames:
       - T
       _componentName: 
       _order: 0
-    - _typeNameAndAssembly: Container`1, Assembly-CSharp
-      _guid: bc7fd065c7114f949ac90aaca54ac6c0
-      AssemblyGUID: 254ae94bd4cccc14b99480e951722e76
+  - _array:
+    - _typeNameAndAssembly: Event`1, Assembly-CSharp
+      _guid: 20b6ca5797584b78b97df411ce90faae
+      AssemblyGUID: 291ecd27c4ea412408fd3378455be894
       _argNames:
       - T
       _componentName: 
@@ -98,7 +73,7 @@ MonoBehaviour:
   - _array:
     - _typeNameAndAssembly: MouseEventTrigger`1, Assembly-CSharp
       _guid: 318420d1009c4ad9825b98ca678d0cbd
-      AssemblyGUID: 16eb4516c38b3884cb42775cfd164c9d
+      AssemblyGUID: 248815a51e52be74894e19030dd5d815
       _argNames:
       - T
       _componentName: 
@@ -106,36 +81,36 @@ MonoBehaviour:
   - _array:
     - _typeNameAndAssembly: Container`1, Assembly-CSharp
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
-      AssemblyGUID: 254ae94bd4cccc14b99480e951722e76
+      AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
       _argNames:
       - T
       _componentName: 
       _order: 0
   _genericTypeKeys:
+  - _typeNameAndAssembly: Event`1, Assembly-CSharp
+    _guid: 20b6ca5797584b78b97df411ce90faae
+    AssemblyGUID: 291ecd27c4ea412408fd3378455be894
+    _argNames:
+    - T
+    _componentName: 
+    _order: 0
   - _typeNameAndAssembly: MouseEventTrigger`1, Assembly-CSharp
     _guid: 318420d1009c4ad9825b98ca678d0cbd
-    AssemblyGUID: 16eb4516c38b3884cb42775cfd164c9d
+    AssemblyGUID: 248815a51e52be74894e19030dd5d815
     _argNames:
     - T
     _componentName: 
     _order: 0
   - _typeNameAndAssembly: Container`1, Assembly-CSharp
     _guid: bc7fd065c7114f949ac90aaca54ac6c0
-    AssemblyGUID: 254ae94bd4cccc14b99480e951722e76
+    AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
     _argNames:
     - T
     _componentName: 
     _order: 0
   - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
     _guid: 4addc1cb99f34fd0af74184bdb5e98fe
-    AssemblyGUID: afaea4dd8620fd14784d6de22fa79246
-    _argNames:
-    - T
-    _componentName: 
-    _order: 0
-  - _typeNameAndAssembly: Event`1, Assembly-CSharp
-    _guid: 20b6ca5797584b78b97df411ce90faae
-    AssemblyGUID: d98198dd72b03384d892fbac187ff6f5
+    AssemblyGUID: 02ca79563ddb00743b64c78238a180d5
     _argNames:
     - T
     _componentName: 

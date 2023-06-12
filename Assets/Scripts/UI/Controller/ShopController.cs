@@ -8,20 +8,21 @@ public class ShopController : MonoBehaviour {
     [SerializeField] Transform _itemParent;
     [SerializeField] Container<InventoryItemData> _itemPrefab;
     [SerializeField] GameEvent<InventoryItem> _onItemPurchased;
-    [SerializeField] ItemSortingMode _sortingMode;
     [SerializeField] InventoryItemData[] _itemData;
-    [Space]
     [SerializeField] MoneyManager _moneyManager;
+    [Space]
+    [SerializeField] bool _descendingOrder;
+    [SerializeField] ItemSortingMode _sortingMode;
     [SerializeField] TooltipData<InventoryItemData> _tooltipData;
 
     readonly List<(Interactable interactable, Container<InventoryItemData> container)> _items = new();
 
     void Awake() {
-        foreach (var item in _itemData.Sorted(_sortingMode)) {
+        foreach (var item in _itemData.Sorted(_sortingMode, _descendingOrder)) {
             var itemContainer = Instantiate(_itemPrefab, _itemParent);
             itemContainer.SetContent(item);
             
-            var interactable = itemContainer.GetOrAdd<Interactable>();
+            var interactable = itemContainer.GetOrAddComponent<Interactable>();
             interactable.OnClicked += OnItemClicked;
             interactable.OnHovered += OnItemHovered;
 

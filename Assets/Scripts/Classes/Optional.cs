@@ -5,7 +5,6 @@ using UnityEngine;
 [Serializable]
 public struct Optional<T> {
     [SerializeField] bool _enabled;
-    [Expandable]
     [SerializeField] T _value;
     
     public Optional(T initialValue, bool enabled = true) {

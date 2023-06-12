@@ -13,40 +13,36 @@ MonoBehaviour:
   m_Name: BehavioursDatabase
   m_EditorClassIdentifier: 
   _keys:
+  - _typeNameAndAssembly: Event`1, Assembly-CSharp
   - _typeNameAndAssembly: MouseEventTrigger`1, Assembly-CSharp
   - _typeNameAndAssembly: Container`1, Assembly-CSharp
   - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
-  - _typeNameAndAssembly: Event`1, Assembly-CSharp
   _values:
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: Item, Assembly-CSharp
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_51ffa55fd3c2d8a4a99d778d29c44bb9,
+        z_Event_Item
   - _keys:
     - _collection:
       - _typeNameAndAssembly: GridObject, Assembly-CSharp
     _values:
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_171bbc814cca5234ebe1352b8fe4081b,
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_c36452e95c0c3b845ab55aa88fbd4dc3,
         z_MouseEventTrigger_GridObject
   - _keys:
     - _collection:
       - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
     - _collection:
-      - _typeNameAndAssembly: Item, Assembly-CSharp
-    - _collection:
       - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
     _values:
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_b8843ce0992ed004b91676c7d64448d7,
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_753676d98d8e00946ab3cc596b2a3714,
         z_Container_InventoryItemData
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_29ed66bd779ef4e41aac8592cad76f30,
-        z_Container_Item
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_9739129c1b95b2c418d193f76cc1ab7c,
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_a07511d51b0d145418e48fe384fe8af4,
         z_Container_InventoryItem
   - _keys:
     - _collection:
       - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
     _values:
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_fb82ae66c84cc94459d02e45bb2babda,
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_eff3e6e99893af6498083035df40fbf4,
         z_Tooltip_InventoryItemData
-  - _keys:
-    - _collection:
-      - _typeNameAndAssembly: Item, Assembly-CSharp
-    _values:
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_a01ff59d545ade842b9fc82cd03f6d70,
-        z_Event_Item

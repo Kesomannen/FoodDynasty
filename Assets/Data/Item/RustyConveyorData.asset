@@ -15,8 +15,8 @@ MonoBehaviour:
   _name: Rusty Conveyor
   _flavorText: Moves things
   _image: {fileID: 21300000, guid: 148b327cc091ed74bb6fdc145f0dc1af, type: 3}
-  _type: 3
   _tier: 0
   _price: 50
-  _prefab: {fileID: -572785721937663073, guid: c9252d57297869b4da2f4dc78949546a, type: 3}
+  _type: 3
+  _prefab: {fileID: 7181724732692113356, guid: 9969140ad9624514c859f05f89154bc7, type: 3}
   _enabledProviders: 0101

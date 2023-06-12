@@ -13,21 +13,23 @@ MonoBehaviour:
   m_Name: PersistentStorage
   m_EditorClassIdentifier: 
   _menuItemMethods:
-  - _typeName: InventoryItemData`1, Assembly-CSharp
-    _fileName: New InventoryItemData`1
-    _menuName: InventoryItemData<T>
-    _order: 0
   - _typeName: SerializedDataObject`1, Assembly-CSharp
     _fileName: New SerializedDataObject`1
     _menuName: SerializedDataObject<T>
     _order: 0
   - _typeName: GameEvent`1, Assembly-CSharp
     _fileName: New GameEvent`1
-    _menuName: GameEvent<T>
+    _menuName: Event/Game
+    _order: 0
+  - _typeName: ValueChangedEvent`1, Assembly-CSharp
+    _fileName: New ValueChangedEvent`1
+    _menuName: Event/ValueChanged
     _order: 0
   _afterReloadEvent:
     _persistentListeners: []
     Expanded: 1
   _savedData:
-    _keys: []
-    _values: []
+    _keys:
+    - FailedAssemblyGuids
+    _values:
+    - '{"Data":["291ecd27c4ea412408fd3378455be894","248815a51e52be74894e19030dd5d815","21e4684d3c858ae439cf5f998fc42d48","02ca79563ddb00743b64c78238a180d5"]}'

@@ -1,21 +1,22 @@
-﻿using System.Linq;
+﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class MouseEventTrigger<T> : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
     [SerializeField] protected T EventData;
     [SerializeField] Optional<GameEvent<T>> _clickGameEvent;
+    [SerializeField] Optional<GameEvent<T>> _rightClickGameEvent;
     [SerializeField] Optional<GameEvent<T>> _enterGameEvent;
     [SerializeField] Optional<GameEvent<T>> _exitGameEvent;
-    [SerializeField] PointerEventData.InputButton[] _allowedButtons = { PointerEventData.InputButton.Left };
-    
+
     public void OnPointerClick(PointerEventData eventData) {
-        if (!_allowedButtons.Contains(eventData.button)) {
-            return;
-        }
-        
-        if (_clickGameEvent.Enabled) {
-            _clickGameEvent.Value.Raise(EventData);
+        switch (eventData.button) {
+            case PointerEventData.InputButton.Left when _clickGameEvent.Enabled:
+                _clickGameEvent.Value.Raise(EventData); break;
+            case PointerEventData.InputButton.Right when _rightClickGameEvent.Enabled:
+                _rightClickGameEvent.Value.Raise(EventData); break;
+            case PointerEventData.InputButton.Middle: break;
+            default: throw new ArgumentOutOfRangeException();
         }
     }
 

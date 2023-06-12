@@ -10,7 +10,7 @@ public static class VectorExtensions {
     }
     
     public static bool InRange(this Vector2Int range, int value, bool inclusive = true) {
-        return inclusive ? 
+        return inclusive ?
             value >= range.x && value <= range.y 
             : value > range.x && value < range.y;
     }

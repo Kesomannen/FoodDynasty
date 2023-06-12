@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf90dfcb28b46ffbb1d00d10ee5718f, type: 3}
   m_Name: MoneyManager
   m_EditorClassIdentifier: 
-  _onMoneyChanged: {fileID: 11400000, guid: 0b407c9ea5d900d429c8a849fa2b65bc, type: 2}
+  _moneyChangedEvent: {fileID: 11400000, guid: 0b407c9ea5d900d429c8a849fa2b65bc, type: 2}
   _startingMoney: 1000
-  _currentMoney: 1
+  _currentMoney: 1000

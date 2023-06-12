@@ -12,7 +12,7 @@ public class Container<T> : MonoBehaviour, IPoolable<Container<T>> {
     public T Content { get; private set; }
 
     void Awake() {
-        if (_autoDetectComponents) return;
+        if (!_autoDetectComponents) return;
         _components = GetComponentsInChildren<UIComponent<T>>();
     }
 

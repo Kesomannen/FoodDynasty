@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Delete",
+                    "type": "Button",
+                    "id": "1c3f6455-f89e-4c9e-a1a6-99bbcb6ca67b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -44,6 +53,17 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "551c701f-970e-4592-a2f0-24567b02810a",
+                    "path": "<Keyboard>/delete",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Delete",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

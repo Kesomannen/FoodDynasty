@@ -13,60 +13,62 @@ MonoBehaviour:
   m_Name: SOGenerationDatabase
   m_EditorClassIdentifier: 
   _genericArgumentKeys:
-  - _typeNameAndAssembly: GridObject, Assembly-CSharp
-    _guid: a189d557cd0c42bebb4e2ef1dc861402
-  - _typeNameAndAssembly: System.Single, mscorlib
-    _guid: 
-  - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
-    _guid: d3d4539531654c55aeb30f6fc3dc4fa1
-  - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
-    _guid: 
-  - _typeNameAndAssembly: System.Double, mscorlib
-    _guid: 
   - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
     _guid: 0a63975efa0847789c7eac2ab049fc86
+  - _typeNameAndAssembly: GridObject, Assembly-CSharp
+    _guid: a189d557cd0c42bebb4e2ef1dc861402
+  - _typeNameAndAssembly: System.Double, mscorlib
+    _guid: 
+  - _typeNameAndAssembly: UnityEngine.InputSystem.InputAction+CallbackContext, Unity.InputSystem
+    _guid: 
+  - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
+    _guid: 
+  - _typeNameAndAssembly: System.Single, mscorlib
+    _guid: 
   _genericArgumentValues:
   - _array: []
   - _array: []
   - _array: []
   - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
+  - _array: []
   - _array:
-    - _arguments:
-      - _typeNameAndAssembly: GridObject, Assembly-CSharp
-        _guid: a189d557cd0c42bebb4e2ef1dc861402
-      _assemblyGUID: acbbaaf694c31a945ba7944cbf72222a
     - _arguments:
       - _typeNameAndAssembly: System.Single, mscorlib
         _guid: 
-      _assemblyGUID: 137942c619128044897e32fffb3566cf
-    - _arguments:
-      - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
-        _guid: d3d4539531654c55aeb30f6fc3dc4fa1
-      _assemblyGUID: a14a7d9fe5f908246825849ce0481a4b
-    - _arguments:
-      - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
-        _guid: 
-      _assemblyGUID: 8c6db5823145e23418a29d1902b98007
-    - _arguments:
-      - _typeNameAndAssembly: System.Double, mscorlib
-        _guid: 
-      _assemblyGUID: 5fa55cca6918ba042813da2ad02e5325
+      _assemblyGUID: 6a744f12d34869243a0951b672766c45
+  - _array:
     - _arguments:
       - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
         _guid: 0a63975efa0847789c7eac2ab049fc86
-      _assemblyGUID: b2d1735e36a1b8d44a167a2022f66816
+      _assemblyGUID: 1a73e75fa72967847be33fa6415ea2f6
+    - _arguments:
+      - _typeNameAndAssembly: GridObject, Assembly-CSharp
+        _guid: a189d557cd0c42bebb4e2ef1dc861402
+      _assemblyGUID: 8d2a2aae4cca2734a8464fd2bf02837f
+    - _arguments:
+      - _typeNameAndAssembly: System.Double, mscorlib
+        _guid: 
+      _assemblyGUID: 1d772a20eece4de408fd61b1f482f791
+    - _arguments:
+      - _typeNameAndAssembly: UnityEngine.InputSystem.InputAction+CallbackContext,
+          Unity.InputSystem
+        _guid: 
+      _assemblyGUID: 59186728ae4868943b3f3643b25b8296
+    - _arguments:
+      - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
+        _guid: 
+      _assemblyGUID: 32ad1ef1a7c02324fa328e2032ce098b
   - _array: []
   - _array:
     - _arguments:
-      - _typeNameAndAssembly: System.Single, mscorlib
+      - _typeNameAndAssembly: System.Double, mscorlib
         _guid: 
-      _assemblyGUID: 9b74f1689cf906b49b2cd4f94f8c2c89
-  - _array: []
-  - _array: []
-  - _array: []
-  - _array: []
-  - _array: []
-  - _array: []
+      _assemblyGUID: 1ca06410f750e4c47b59584415ca6e82
   _genericTypeValues:
   - _array:
     - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
@@ -80,32 +82,32 @@ MonoBehaviour:
       AssemblyGUID: 
       _argNames:
       - T
+  - _array:
+    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+      _guid: 6e0691897fdd4e5894148f79dce13dbc
+      AssemblyGUID: 
+      _argNames:
+      - T
+    - _typeNameAndAssembly: ValueChangedEvent`1, Assembly-CSharp
+      _guid: 6af65c8fdd914df9b18e469b07b76b43
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+      _guid: 6e0691897fdd4e5894148f79dce13dbc
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+      _guid: 6e0691897fdd4e5894148f79dce13dbc
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
     - _typeNameAndAssembly: SerializedDataObject`1, Assembly-CSharp
       _guid: 4fb2b33abd3c49579f0b9c73ad320fb1
-      AssemblyGUID: 
-      _argNames:
-      - T
-  - _array:
-    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
-      _guid: 6e0691897fdd4e5894148f79dce13dbc
-      AssemblyGUID: 
-      _argNames:
-      - T
-  - _array:
-    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
-      _guid: 6e0691897fdd4e5894148f79dce13dbc
-      AssemblyGUID: 
-      _argNames:
-      - T
-  - _array:
-    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
-      _guid: 6e0691897fdd4e5894148f79dce13dbc
-      AssemblyGUID: 
-      _argNames:
-      - T
-  - _array:
-    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
-      _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T
@@ -131,21 +133,6 @@ MonoBehaviour:
   - _typeNameAndAssembly: UnityEditor.Rendering.Universal.Path2D.ScriptableData`1,
       Unity.RenderPipelines.Universal.Editor
     _guid: 
-    AssemblyGUID: 
-    _argNames:
-    - T
-  - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
-    _guid: 6e0691897fdd4e5894148f79dce13dbc
-    AssemblyGUID: 
-    _argNames:
-    - T
-  - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
-    _guid: 
-    AssemblyGUID: 
-    _argNames:
-    - T
-  - _typeNameAndAssembly: SerializedDataObject`1, Assembly-CSharp
-    _guid: 4fb2b33abd3c49579f0b9c73ad320fb1
     AssemblyGUID: 
     _argNames:
     - T
@@ -178,6 +165,26 @@ MonoBehaviour:
     - T
   - _typeNameAndAssembly: UnityEditor.U2D.Path.ScriptableData`1, Unity.2D.Path.Editor
     _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: SerializedDataObject`1, Assembly-CSharp
+    _guid: 4fb2b33abd3c49579f0b9c73ad320fb1
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+    _guid: 6e0691897fdd4e5894148f79dce13dbc
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: ValueChangedEvent`1, Assembly-CSharp
+    _guid: 6af65c8fdd914df9b18e469b07b76b43
     AssemblyGUID: 
     _argNames:
     - T

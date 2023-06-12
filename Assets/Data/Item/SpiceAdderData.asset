@@ -18,5 +18,5 @@ MonoBehaviour:
   _tier: 0
   _price: 50
   _type: 7
-  _prefab: {fileID: -572785721937663073, guid: 835e864d4d5ddd34fb285b6143903404, type: 3}
-  _enabledProviders: 01000001
+  _prefab: {fileID: 4158473062942529824, guid: c3c89342b47b9d54da43c4ee01805ce5, type: 3}
+  _enabledProviders: 

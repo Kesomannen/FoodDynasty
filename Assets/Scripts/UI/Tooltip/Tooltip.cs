@@ -52,12 +52,9 @@ public class Tooltip<T> : MonoBehaviour {
 
     void UpdatePosition() {
         var position = MouseHelpers.MouseScreenPosition + _mouseOffset;
-        var pivot = Vector2.one * 0.5f;
+        var pivot = new Vector2(position.x / Screen.width, 1f);
 
-        pivot.x = position.x / Screen.width;
-        pivot.y = position.y / Screen.height;
-        
-        var lockPosition = _currentLockPoint.position;
+        var lockPosition = !_currentLockX && !_currentLockY ? Vector3.zero : _currentLockPoint.position;
         if (_currentLockX) {
             position.x = lockPosition.x;
             pivot.x = lockPosition.x < position.x ? 0 : 1;

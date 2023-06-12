@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -10,6 +11,7 @@ public class InventoryController : MonoBehaviour {
     [SerializeField] GameEvent<InventoryItem> _onItemClicked;
     [SerializeField] InventoryAsset _inventoryAsset;
     [Space]
+    [SerializeField] bool _descendingOrder;
     [SerializeField] ItemSortingMode _sortingMode;
     [SerializeField] TooltipData<InventoryItemData> _tooltipData;
 
@@ -32,22 +34,27 @@ public class InventoryController : MonoBehaviour {
     }
 
     void CreateOrUpdateContainer(InventoryItem item) {
+        var created = false;
         if (!_itemContainers.TryGetValue(item.Data, out var itemContainer)) {
             itemContainer = Instantiate(_itemPrefab, _itemParent);
 
-            var interactable = itemContainer.GetOrAdd<Interactable>();
+            var interactable = itemContainer.GetOrAddComponent<Interactable>();
             interactable.OnClicked += OnItemClicked;
             interactable.OnHovered += OnItemHovered;
             
             _itemContainers.Add(item.Data, itemContainer);
+            created = true;
         }
+        
         itemContainer.SetContent(item);
+        
+        if (created) SortContainers();
     }
-    
+
     void DestroyContainer(InventoryItem item) {
         if (!_itemContainers.TryGetValue(item.Data, out var itemContainer)) return;
         
-        var interactable = itemContainer.GetOrAdd<Interactable>();
+        var interactable = itemContainer.GetOrAddComponent<Interactable>();
         interactable.OnClicked -= OnItemClicked;
         interactable.OnHovered -= OnItemHovered;
 
@@ -66,7 +73,10 @@ public class InventoryController : MonoBehaviour {
     }
 
     void SortContainers() {
-        _itemContainers.Values.SortSiblingIndices(container => container.Content.Data, ItemSortUtil.GetComparison(_sortingMode));
+        _itemContainers.Values.SortSiblingIndices(
+            container => container.Content.Data, 
+            ItemSortingUtil.GetComparison(_sortingMode, _descendingOrder)
+        );
     }
 
     void OnItemClicked(Interactable interactable, PointerEventData eventData) {

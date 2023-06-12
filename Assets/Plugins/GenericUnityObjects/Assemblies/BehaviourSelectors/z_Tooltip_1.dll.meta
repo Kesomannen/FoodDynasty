@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: afaea4dd8620fd14784d6de22fa79246
+guid: 02ca79563ddb00743b64c78238a180d5
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
   iconMap:
-    GenericUnityObjects.ConcreteClasses.ClassSelector_afaea4dd8620fd14784d6de22fa79246: {fileID: -8204150473280056172,
+    GenericUnityObjects.ConcreteClasses.ClassSelector_02ca79563ddb00743b64c78238a180d5: {fileID: -8204150473280056172,
       guid: 0000000000000000d000000000000000, type: 0}
   executionOrder: {}
   defineConstraints: []

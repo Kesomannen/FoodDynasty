@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ItemModifier : ItemMachineComponent, IInfoProvider {
     [Header("Modifier")] 
-    [SerializeField] bool _bakeSellPrice = true;
+    [SerializeField] bool _bakeSellPrice;
     [SerializeField] Modifier _sellPriceModifier;
     [SerializeField] ItemDataModifier _dataModifier;
     

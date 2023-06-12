@@ -5,11 +5,11 @@ public static class ComponentExtensions {
         component.gameObject.SetActive(active);
     }
     
-    public static T GetOrAdd<T>(this Component component) where T : Component {
-        return component.gameObject.GetOrAdd<T>();
+    public static T GetOrAddComponent<T>(this Component component) where T : Component {
+        return component.gameObject.GetOrAddComponent<T>();
     }
     
-    public static T GetOrAdd<T>(this GameObject component) where T : Component {
+    public static T GetOrAddComponent<T>(this GameObject component) where T : Component {
         return component.GetComponent<T>() ?? component.AddComponent<T>();
     }
 }

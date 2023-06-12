@@ -1,7 +1,7 @@
 ﻿using System;
 using GenericUnityObjects;
 
-[CreateGenericAssetMenu]
+[CreateGenericAssetMenu(MenuName = "Event/Game")]
 public class GameEvent<T> : GenericGameEvent {
     public event Action<T> OnRaised; 
 
