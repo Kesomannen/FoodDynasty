@@ -27,13 +27,15 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
     Vector2Int _currentPosition;
     GridRotation _currentRotation;
     
-    Renderer[] _renderers;
-    bool _currentMaterialIsValid;
+    Renderer[] _currentRenderers;
+    bool _currentMaterialValidity;
     
+    Plane _plane;
     State _state;
     
     void Awake() {
         _placeTrigger.enabled = false;
+        _plane = new Plane(Vector3.up, Vector3.zero);
     }
 
     void OnEnable() {
@@ -88,10 +90,10 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
     void SetupBlueprint(IGridObject gridObject) {
         _currentBlueprint = Instantiate(gridObject.BlueprintPrefab).transform;
         
-        _renderers = _currentBlueprint.GetComponentsInChildren<Renderer>();
-        _renderers.ApplyMaterial(_validMaterial);
+        _currentRenderers = _currentBlueprint.GetComponentsInChildren<Renderer>();
+        _currentRenderers.ApplyMaterial(_validMaterial);
         
-        _currentMaterialIsValid = true;
+        _currentMaterialValidity = true;
         UpdateBlueprint();
     }
 
@@ -147,14 +149,15 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
 
     void UpdateBlueprintValidity() {
         var valid = _gridManager.CanAdd(_currentObject, _currentPosition, _currentRotation);
-        if (valid == _currentMaterialIsValid) return;
+        if (valid == _currentMaterialValidity) return;
 
-        _currentMaterialIsValid = valid;
-        _renderers.ApplyMaterial(valid ? _validMaterial : _invalidMaterial);
+        _currentMaterialValidity = valid;
+        _currentRenderers.ApplyMaterial(valid ? _validMaterial : _invalidMaterial);
     }
 
-    static Vector3 GetWorldPos(PointerEventData eventData) {
-        return eventData.pointerCurrentRaycast.worldPosition;
+    Vector3 GetWorldPos(PointerEventData eventData) {
+        var ray = MouseHelpers.MainCamera.ScreenPointToRay(eventData.position);
+        return _plane.Raycast(ray, out var enter) ? ray.GetPoint(enter) : Vector3.zero;
     }
     
     Vector2Int GetGridPos(PointerEventData eventData) {

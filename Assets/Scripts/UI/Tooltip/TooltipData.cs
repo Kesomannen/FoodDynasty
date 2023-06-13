@@ -1,10 +1,12 @@
 ﻿using System;
+using NaughtyAttributes;
 using UnityEngine;
 
 [Serializable]
 public struct TooltipData<T> {
-    [SerializeField] Transform _tooltipLockPoint;
     [SerializeField] TooltipLockAxis _tooltipLockAxis;
+    [HideIf("_tooltipLockAxis", TooltipLockAxis.None)]
+    [SerializeField] Transform _tooltipLockPoint;
     [SerializeField] GameEvent<TooltipParams> _showTooltipEvent;
     [SerializeField] GenericGameEvent _hideTooltipEvent;
     

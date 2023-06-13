@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class InventoryItemData : ScriptableObject, IInfoProvider {
+public class InventoryItemData : ScriptableObject, IInfoProvider, IEntityData {
     [Header("Metadata")]
     [SerializeField] string _name;
     [ResizableTextArea]
-    [SerializeField] string _flavorText;
+    [FormerlySerializedAs("_flavorText")]
+    [SerializeField] string _description;
     [ShowAssetPreview]
     [SerializeField] Sprite _image;
 
@@ -15,7 +17,7 @@ public class InventoryItemData : ScriptableObject, IInfoProvider {
     [SerializeField] double _price;
     
     public string Name => _name;
-    public string FlavorText => _flavorText;
+    public string Description => _description;
     public InventoryItemTier Tier => _tier;
     public double Price => _price;
     

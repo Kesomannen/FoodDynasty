@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public static class MouseHelpers {
     static Camera _mainCam;
 
-    static Camera MainCamera {
+    public static Camera MainCamera {
         get {
             if (_mainCam == null) {
                 _mainCam = Camera.main;

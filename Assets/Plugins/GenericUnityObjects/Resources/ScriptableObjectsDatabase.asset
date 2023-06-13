@@ -31,6 +31,7 @@ MonoBehaviour:
   - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
   - _typeNameAndAssembly: ValueChangedEvent`1, Assembly-CSharp
+  - _typeNameAndAssembly: ContainerGridObjectControl`1, Assembly-CSharp
   _values:
   - _keys: []
     _values: []
@@ -89,3 +90,9 @@ MonoBehaviour:
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_1ca06410f750e4c47b59584415ca6e82,
         z_ValueChangedEvent_Double
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: SupplyBase, Assembly-CSharp
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_463d71d3765c8cc4687d32c15f86b481,
+        z_ContainerGridObjectControl_SupplyBase

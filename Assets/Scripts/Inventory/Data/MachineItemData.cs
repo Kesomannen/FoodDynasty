@@ -9,7 +9,6 @@ public class MachineItemData : InventoryItemData, IPrefabProvider<GridObject> {
     
     [Header("Machine")]
     [SerializeField] GridObject _prefab;
-    [HideInInspector]
     [SerializeField] bool[] _enabledProviders;
     
     IInfoProvider[] _cachedProviders;
@@ -37,15 +36,10 @@ public class MachineItemData : InventoryItemData, IPrefabProvider<GridObject> {
     }
 
     public void RefreshProviders() {
-        if (_prefab == null) {
-            _cachedProviders = Array.Empty<IInfoProvider>();
-            return;
-        }
-        
-        _cachedProviders = _prefab.GetComponentsInChildren<IInfoProvider>();
-        // Something has happened to the providers, so reset the enabled providers
-        if (_enabledProviders.Length != _cachedProviders.Length) {
-            _enabledProviders = Enumerable.Repeat(true, _cachedProviders.Length).ToArray();
-        }
+        _cachedProviders = _prefab == null ? Array.Empty<IInfoProvider>() : _prefab.GetComponentsInChildren<IInfoProvider>();
+
+        if (_cachedProviders.Length == _enabledProviders.Length) return;
+        Debug.Log("Resetting enabled providers", this);
+        _enabledProviders = new bool[_cachedProviders.Length];
     }
 }

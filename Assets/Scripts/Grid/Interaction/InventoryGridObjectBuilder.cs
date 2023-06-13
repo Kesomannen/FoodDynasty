@@ -18,7 +18,7 @@ public class InventoryGridObjectBuilder : MonoBehaviour {
     }
 
     void OnGridObjectDeleted(GridObject gridObject) {
-        if (!gridObject.TryGetComponent(out IItemDataProvider itemDataProvider)) return;
+        if (!gridObject.TryGetComponent(out IDataProvider<InventoryItemData> itemDataProvider)) return;
         _inventory.Add(itemDataProvider.Data);
     }
 

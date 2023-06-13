@@ -25,11 +25,13 @@ MonoBehaviour:
     _fileName: New ValueChangedEvent`1
     _menuName: Event/ValueChanged
     _order: 0
+  - _typeName: ContainerGridObjectControl`1, Assembly-CSharp
+    _fileName: New ContainerGridObjectControl`1
+    _menuName: ContainerGridObjectControl<T>
+    _order: 0
   _afterReloadEvent:
     _persistentListeners: []
     Expanded: 1
   _savedData:
-    _keys:
-    - FailedAssemblyGuids
-    _values:
-    - '{"Data":["291ecd27c4ea412408fd3378455be894","248815a51e52be74894e19030dd5d815","21e4684d3c858ae439cf5f998fc42d48","02ca79563ddb00743b64c78238a180d5"]}'
+    _keys: []
+    _values: []

@@ -18,11 +18,11 @@ public class GridObjectBuilder : MonoBehaviour {
         while (true) {
             if (!beforePlace()) break;
             
-            var (result, obj) = await Place(prefab);
-            afterPlace?.Invoke(obj, result);
+            var (result, gridObject) = await Place(prefab);
+            afterPlace?.Invoke(gridObject, result);
             if (!result.WasSuccessful) break;
             
-            placedObjects.Add(obj);
+            placedObjects.Add(gridObject);
         }
         
         return placedObjects;

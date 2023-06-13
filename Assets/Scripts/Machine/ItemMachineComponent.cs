@@ -16,7 +16,7 @@ public abstract class ItemMachineComponent : MonoBehaviour {
         _triggerEvent.OnRaised -= Trigger;
     }
 
-    void Trigger(Item item) { 
+    void Trigger(Item item) {
         if (_condition.Enabled && !_condition.Value.Check()) return;
         if (_itemFilter.Enabled && !_itemFilter.Value.Check(item)) return;
         OnTriggered(item);

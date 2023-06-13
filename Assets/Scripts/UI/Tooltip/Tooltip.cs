@@ -28,16 +28,22 @@ public class Tooltip<T> : MonoBehaviour {
         _hideTooltipEvent.OnRaisedGeneric -= Hide;
     }
 
+    protected virtual bool OnTooltipShown(T content) {
+        _tooltip.SetContent(content);
+        return true;
+    }
+
     public void Show(TooltipParams tooltipParams) {
         Show((T) tooltipParams.Content, tooltipParams.LockAxis, tooltipParams.LockPoint);
     }
     
     public void Show(T content, TooltipLockAxis lockAxis = TooltipLockAxis.None, Transform lockPoint = null) {
+        if (!OnTooltipShown(content)) return;
+        
         _currentLockX = lockAxis.HasFlag(TooltipLockAxis.X);
         _currentLockY = lockAxis.HasFlag(TooltipLockAxis.Y);
         _currentLockPoint = lockPoint;
         
-        _tooltip.SetContent(content);
         _tooltip.gameObject.SetActive(true);
     }
     
@@ -52,7 +58,7 @@ public class Tooltip<T> : MonoBehaviour {
 
     void UpdatePosition() {
         var position = MouseHelpers.MouseScreenPosition + _mouseOffset;
-        var pivot = new Vector2(position.x / Screen.width, 1f);
+        var pivot = new Vector2(position.x / Screen.width, 1);
 
         var lockPosition = !_currentLockX && !_currentLockY ? Vector3.zero : _currentLockPoint.position;
         if (_currentLockX) {

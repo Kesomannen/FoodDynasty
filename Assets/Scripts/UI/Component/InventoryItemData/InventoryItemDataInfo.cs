@@ -1,14 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 
 public class InventoryItemDataInfo : UIComponent<InventoryItemData> {
-    [Header("Text")]
-    [SerializeField] TMP_Text _nameText;
-    [SerializeField] TMP_Text _flavorText;
-    
-    [Header("Info")] 
     [SerializeField] int _infoChildIndexStart;
     [SerializeField] Transform _infoParent;
     [SerializeField] InfoContainer _infoPrefab;
@@ -16,9 +10,6 @@ public class InventoryItemDataInfo : UIComponent<InventoryItemData> {
     readonly List<InfoContainer> _infoContainers = new();
 
     public override void SetContent(InventoryItemData content) {
-        _nameText.text = content.Name;
-        _flavorText.text = content.FlavorText;
-
         var i = 0;
         var info = content.GetInfo().ToArray();
         for (; i < info.Length; i++) {

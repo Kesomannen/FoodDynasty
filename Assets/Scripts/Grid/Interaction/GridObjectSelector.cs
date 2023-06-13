@@ -3,9 +3,7 @@
 public class GridObjectSelector : MonoBehaviour {
     [SerializeField] GameEvent<GridObject> _selectObjectEvent;
     [SerializeField] GameEvent<GridObject> _deselectObjectEvent;
-    [Space]
-    [SerializeField] GameEvent<TooltipParams> _showTooltipEvent;
-    [SerializeField] GenericGameEvent _hideTooltipEvent;
+    [SerializeField] TooltipData<Entity> _tooltipData;
 
     GridObject _selectedObject;
     Outline _selectedOutline;
@@ -33,7 +31,7 @@ public class GridObjectSelector : MonoBehaviour {
         if (_selectedObject != null) {
             _selectedOutline.enabled = false;
             _selectedOutline = null;
-            _hideTooltipEvent.Raise();
+            _tooltipData.Hide();
         }
         
         _selectedObject = newSelection;
@@ -42,7 +40,7 @@ public class GridObjectSelector : MonoBehaviour {
         _selectedOutline = _selectedObject.GetOrAddComponent<Outline>();
         _selectedOutline.enabled = true;
         
-        if (!_selectedObject.TryGetComponent(out IItemDataProvider dataProvider)) return;
-        _showTooltipEvent.Raise(new TooltipParams { Content = dataProvider.Data });
+        if (!_selectedObject.TryGetComponent(out Entity entity)) return;
+        _tooltipData.Show(entity);
     }
 }

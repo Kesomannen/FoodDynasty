@@ -8,10 +8,18 @@ public class Item : MonoBehaviour, IPoolable<Item>, IInfoProvider {
     [SerializeField] GameObject _originalModel;
     [SerializeField] Vector3 _toppingOffset;
     [SerializeField] ItemDataType[] _startingData;
+    [SerializeField] Modifier _sellPriceModifier = new(multiplicative: 1f);
 
     public double BaseSellPrice => _baseSellPrice;
-    public Modifier SellPriceModifier { get; set; } = new(multiplicative: 1f);
-    
+
+    public Modifier SellPriceModifier {
+        get => _sellPriceModifier;
+        set {
+            Debug.Log($"Setting sell price modifier to {value}", this);
+            _sellPriceModifier = value;
+        }
+    }
+
     readonly Dictionary<Type, object> _data = new();
     readonly Stack<GameObject> _models = new();
     GameObject _baseModel;

@@ -25,6 +25,8 @@ MonoBehaviour:
     _guid: 
   - _typeNameAndAssembly: System.Single, mscorlib
     _guid: 
+  - _typeNameAndAssembly: SupplyBase, Assembly-CSharp
+    _guid: 9cf6bd0ed95b4144bd1677025f9bd11d
   _genericArgumentValues:
   - _array: []
   - _array: []
@@ -69,6 +71,11 @@ MonoBehaviour:
       - _typeNameAndAssembly: System.Double, mscorlib
         _guid: 
       _assemblyGUID: 1ca06410f750e4c47b59584415ca6e82
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: SupplyBase, Assembly-CSharp
+        _guid: 9cf6bd0ed95b4144bd1677025f9bd11d
+      _assemblyGUID: 463d71d3765c8cc4687d32c15f86b481
   _genericTypeValues:
   - _array:
     - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
@@ -108,6 +115,12 @@ MonoBehaviour:
   - _array:
     - _typeNameAndAssembly: SerializedDataObject`1, Assembly-CSharp
       _guid: 4fb2b33abd3c49579f0b9c73ad320fb1
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: ContainerGridObjectControl`1, Assembly-CSharp
+      _guid: 379477018aa741039e247c214d6d81f7
       AssemblyGUID: 
       _argNames:
       - T
@@ -185,6 +198,11 @@ MonoBehaviour:
     - T
   - _typeNameAndAssembly: ValueChangedEvent`1, Assembly-CSharp
     _guid: 6af65c8fdd914df9b18e469b07b76b43
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: ContainerGridObjectControl`1, Assembly-CSharp
+    _guid: 379477018aa741039e247c214d6d81f7
     AssemblyGUID: 
     _argNames:
     - T
