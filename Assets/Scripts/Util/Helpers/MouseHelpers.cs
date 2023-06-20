@@ -13,6 +13,6 @@ public static class MouseHelpers {
         }
     }
     
-    public static Vector2 MouseScreenPosition => Mouse.current.position.ReadValue();
-    public static Vector2 MouseWorldPosition => MainCamera.ScreenToWorldPoint(MouseScreenPosition);
+    public static Vector2 ScreenPosition => Mouse.current.position.ReadValue();
+    public static Vector2 WorldPosition => MainCamera.ScreenToWorldPoint(ScreenPosition);
 }

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: SpiceAdderData
   m_EditorClassIdentifier: 
   _name: Spice Adder
-  _flavorText: Applies spice to bread. Can be used once before cooking and once after
+  _description: Applies spice to bread. Can be used once before cooking and once
+    after
   _image: {fileID: 21300000, guid: 5e659f2f62ca6a74499c9e0313e8d686, type: 3}
   _tier: 0
   _price: 50
   _type: 7
   _prefab: {fileID: 4158473062942529824, guid: c3c89342b47b9d54da43c4ee01805ce5, type: 3}
-  _enabledProviders: 
+  _enabledProviders: 0100000101

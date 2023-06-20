@@ -19,7 +19,7 @@ public class GridManager : MonoBehaviour, IGridManager {
 
     public bool TryAdd(IGridObject gridObject, Vector2Int position, GridRotation rotation) {
         if (gridObject.IsPlaced) return false;
-        var rotatedSize = rotation.RotateSize(gridObject.StaticSize);
+        var rotatedSize = gridObject.StaticSize.Rotated(rotation.Steps);
         if (!CheckOverlapping(position, rotatedSize, out var overlapping)) return false;
         
         Add(gridObject, position, rotation, overlapping);
@@ -34,11 +34,11 @@ public class GridManager : MonoBehaviour, IGridManager {
     }
 
     public bool CanAdd(IGridObject gridObject, Vector2Int position, GridRotation rotation) {
-        var rotatedSize = rotation.RotateSize(gridObject.StaticSize);
+        var rotatedSize = gridObject.StaticSize.Rotated(rotation.Steps);
         return CheckOverlapping(position, rotatedSize, out _);
     }
 
-    void Add(IGridObject gridObject, Vector2Int position, GridRotation rotation, List<Cell> overlappingCells) {
+    void Add(IGridObject gridObject, Vector2Int position, GridRotation rotation, IEnumerable<Cell> overlappingCells) {
         foreach (var cell in overlappingCells) {
             cell.Inhabitants.Add(gridObject);
         }
@@ -55,8 +55,8 @@ public class GridManager : MonoBehaviour, IGridManager {
         gridObject.OnRemoved();
     }
     
-    bool CheckOverlapping(Vector2Int position, Vector2Int size, out List<Cell> overlappingCells) {
-        if (!IsWithinGrid(position, size)) {
+    bool CheckOverlapping(Vector2Int position, GridSize size, out IEnumerable<Cell> overlappingCells) {
+        if (!IsWithinGrid(position, size.Bounds)) {
             overlappingCells = null;
             return false;
         }
@@ -65,19 +65,12 @@ public class GridManager : MonoBehaviour, IGridManager {
         return overlappingCells.All(cell => cell.IsEmpty);
     }
 
-    List<Cell> GetOverlapping(Vector2Int position, Vector2Int size) {
-        var cells = new List<Cell>();
-        for (var x = position.x; x < position.x + size.x; x++) {
-            for (var y = position.y; y < position.y + size.y; y++) {
-                cells.Add(_cells[x, y]);
-            }
-        }
-
-        return cells;
+    IEnumerable<Cell> GetOverlapping(Vector2Int position, GridSize size) {
+        return size.GetBlockingPositions().Select(pos => _cells[position.x + pos.x, position.y + pos.y]);
     }
     
-    bool IsWithinGrid(Vector2Int position, Vector2Int size) {
-        return IsInGrid(position) && IsInGrid(position + size - Vector2Int.one);
+    bool IsWithinGrid(Vector2Int position, Vector2Int bounds) {
+        return IsInGrid(position) && IsInGrid(position + bounds - Vector2Int.one);
     }
     
     bool IsInGrid(Vector2Int position) {
@@ -93,16 +86,16 @@ public class GridManager : MonoBehaviour, IGridManager {
         return transform.position + new Vector3(position.x * _cellSize.x, 0, position.y * _cellSize.y);
     }
 
-    Vector3 GridToWorld(Vector2Int gridPosition, Vector2Int rotatedSize) {
-        return GridToWorld(gridPosition + (Vector2) (rotatedSize - Vector2Int.one) / 2f);
+    Vector3 GridToWorld(Vector2Int gridPosition, Vector2Int bounds) {
+        return GridToWorld(gridPosition + (Vector2) (bounds - Vector2Int.one) / 2f);
     }
     
-    public Vector3 GridToWorld(Vector2Int gridPosition, Vector2Int size, GridRotation rotation) {
-        return GridToWorld(gridPosition, rotation.RotateSize(size));
+    public Vector3 GridToWorld(Vector2Int gridPosition, GridSize size, GridRotation rotation) {
+        return GridToWorld(gridPosition, size.Rotated(rotation.Steps).Bounds);
     }
 
     public Vector3 GridToWorld(IGridObject gridObject) {
-        return GridToWorld(gridObject.GridPosition, gridObject.RotatedSize);
+        return GridToWorld(gridObject.GridPosition, gridObject.RotatedSize.Bounds);
     }
 
     Vector3 GridToWorld(int x, int y) {
@@ -139,7 +132,7 @@ public class GridManager : MonoBehaviour, IGridManager {
                 worldPosition = GridToWorld(x, y);
             }
 
-            Gizmos.DrawWireCube(worldPosition, new Vector3(_cellSize.x, 0, _cellSize.y));
+            Gizmos.DrawWireCube(worldPosition, new Vector3(_cellSize.x, 0, _cellSize.y) * 0.95f);
         }
     }
 

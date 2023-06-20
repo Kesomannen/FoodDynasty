@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: DoughDispenserData
   m_EditorClassIdentifier: 
   _name: Dough Dispenser
-  _flavorText: Dispenses dough
+  _description: Dispenses dough
   _image: {fileID: 21300000, guid: 335a954d87f203348b340c3324266c8b, type: 3}
   _tier: 0
   _price: 200
   _type: 4
   _prefab: {fileID: 9091624743615261915, guid: ec5ab356481f8d94f92efa8ec63966bf, type: 3}
-  _enabledProviders: 
+  _enabledProviders: 010101

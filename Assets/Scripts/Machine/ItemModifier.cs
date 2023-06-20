@@ -1,22 +1,14 @@
 ﻿using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class ItemModifier : ItemMachineComponent, IInfoProvider {
-    [Header("Modifier")] 
-    [SerializeField] bool _bakeSellPrice;
-    [SerializeField] Modifier _sellPriceModifier;
-    [SerializeField] ItemDataModifier _dataModifier;
-    
-    [Header("Events")]
+    [Expandable]
+    [SerializeField] ItemModifierGroup _modifierGroup;
     [SerializeField] Optional<Event<Item>> _onItemModified;
 
     protected override void OnTriggered(Item item) {
-        _dataModifier.Apply(item);
-        item.SellPriceModifier += _sellPriceModifier;
-        
-        if (_bakeSellPrice) {
-            item.SellPriceModifier.Bake();
-        }
+        _modifierGroup.Apply(item);
 
         if (_onItemModified.Enabled) {
             _onItemModified.Value.Raise(item);
@@ -24,6 +16,6 @@ public class ItemModifier : ItemMachineComponent, IInfoProvider {
     }
 
     public IEnumerable<(string Name, string Value)> GetInfo() {
-        yield return ("Multiplier", _sellPriceModifier.ToString());
+        yield return ("Multiplier", _modifierGroup.SellPriceModifier.ToString());
     }
 }

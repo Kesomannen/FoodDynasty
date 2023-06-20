@@ -1,17 +1,20 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Tooltip<T> : MonoBehaviour {
+    [Header("Settings")]
     [SerializeField] Vector2 _mouseOffset;
     [SerializeField] Container<T> _tooltip;
+
+    [Header("Events")]
     [SerializeField] GameEvent<TooltipParams> _showTooltipEvent;
     [SerializeField] GenericGameEvent _hideTooltipEvent;
+    [SerializeField] UnityEvent<T> _onTooltipShown;
 
     RectTransform _tooltipRect;
+    TooltipLockAxis _currentLockAxis;
     Transform _currentLockPoint;
-
-    bool _currentLockX;
-    bool _currentLockY;
 
     void Awake() {
         _tooltipRect = _tooltip.GetComponent<RectTransform>();
@@ -40,11 +43,11 @@ public class Tooltip<T> : MonoBehaviour {
     public void Show(T content, TooltipLockAxis lockAxis = TooltipLockAxis.None, Transform lockPoint = null) {
         if (!OnTooltipShown(content)) return;
         
-        _currentLockX = lockAxis.HasFlag(TooltipLockAxis.X);
-        _currentLockY = lockAxis.HasFlag(TooltipLockAxis.Y);
+        _currentLockAxis = lockAxis;
         _currentLockPoint = lockPoint;
         
         _tooltip.gameObject.SetActive(true);
+        _onTooltipShown.Invoke(content);
     }
     
     public void Hide() {
@@ -57,27 +60,8 @@ public class Tooltip<T> : MonoBehaviour {
     }
 
     void UpdatePosition() {
-        var position = MouseHelpers.MouseScreenPosition + _mouseOffset;
-        var pivot = new Vector2(position.x / Screen.width, 1);
-
-        var lockPosition = !_currentLockX && !_currentLockY ? Vector3.zero : _currentLockPoint.position;
-        if (_currentLockX) {
-            position.x = lockPosition.x;
-            pivot.x = lockPosition.x < position.x ? 0 : 1;
-        }
-        
-        if (_currentLockY) {
-            position.y = lockPosition.y;
-            pivot.y = lockPosition.y < position.y ? 0 : 1;
-            pivot.x = position.x / Screen.width;
-        }
-
-        if (_currentLockX) {
-            pivot.y = position.y / Screen.height;
-        }
-
-        _tooltipRect.pivot = pivot;
-        _tooltipRect.position = position;
+        var pos = MouseHelpers.ScreenPosition + _mouseOffset;
+        _tooltipRect.PositionAsTooltip(pos, _currentLockAxis, _currentLockPoint);
     }
 }
 

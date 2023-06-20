@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ItemFilterGroup")]
+[CreateAssetMenu(menuName = "Item/Filter")]
 public class ItemFilterGroup : ScriptableObject, IFilter<Item> {
     [SerializeField] AndOr _condition;
     [SerializeField] bool _defaultValue = true;

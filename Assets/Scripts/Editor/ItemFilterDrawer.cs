@@ -6,7 +6,7 @@ using UnityEngine;
 
 [CustomPropertyDrawer(typeof(ItemFilter))]
 public class ItemFilterDrawer : PropertyDrawer {
-    bool _foldout;
+    bool _foldout = true;
     
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
         var lines = 4;

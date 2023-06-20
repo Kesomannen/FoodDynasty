@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RustyConveyorData
   m_EditorClassIdentifier: 
   _name: Rusty Conveyor
-  _flavorText: Moves things
+  _description: Moves things
   _image: {fileID: 21300000, guid: 148b327cc091ed74bb6fdc145f0dc1af, type: 3}
   _tier: 0
   _price: 50

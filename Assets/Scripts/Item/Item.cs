@@ -6,7 +6,7 @@ using UnityEngine;
 public class Item : MonoBehaviour, IPoolable<Item>, IInfoProvider {
     [SerializeField] double _baseSellPrice;
     [SerializeField] GameObject _originalModel;
-    [SerializeField] Vector3 _toppingOffset;
+    [SerializeField] Transform _toppingParent;
     [SerializeField] ItemDataType[] _startingData;
     [SerializeField] Modifier _sellPriceModifier = new(multiplicative: 1f);
 
@@ -14,14 +14,11 @@ public class Item : MonoBehaviour, IPoolable<Item>, IInfoProvider {
 
     public Modifier SellPriceModifier {
         get => _sellPriceModifier;
-        set {
-            Debug.Log($"Setting sell price modifier to {value}", this);
-            _sellPriceModifier = value;
-        }
+        set => _sellPriceModifier = value;
     }
 
     readonly Dictionary<Type, object> _data = new();
-    readonly Stack<GameObject> _models = new();
+    readonly Stack<GameObject> _toppingModels = new();
     GameObject _baseModel;
 
     public event Action<Item> OnDisposed;
@@ -41,30 +38,29 @@ public class Item : MonoBehaviour, IPoolable<Item>, IInfoProvider {
         }
 
         SetBaseModel(_originalModel);
-        while (_models.Count > 0) {
-            Destroy(_models.Pop());
+        while (_toppingModels.Count > 0) {
+            Destroy(_toppingModels.Pop());
         }
     }
 
     public void SetBaseModel(GameObject model) {
-        if (_baseModel == model) return;
-        
-        if (_baseModel) {
-            Destroy(_baseModel);
+        if (_baseModel != null) {
+            if (_baseModel == _originalModel) _baseModel.SetActive(false);
+            else Destroy(_baseModel);
         }
 
         _baseModel = model;
-        SetupModel(model, ItemModelPivot.Base);
+        SetupModel(model, ItemModelType.Base);
     }
 
-    public void AddTopping(GameObject model) {
-        _models.Push(model);
-        SetupModel(model, ItemModelPivot.Topping);
+    public void AddToppingModel(GameObject model) {
+        _toppingModels.Push(model);
+        SetupModel(model, ItemModelType.Topping);
     }
 
-    void SetupModel(GameObject model, ItemModelPivot pivot) {
-        model.transform.SetParent(transform);
-        model.transform.localPosition = pivot == ItemModelPivot.Base ? Vector3.zero : _toppingOffset;
+    void SetupModel(GameObject model, ItemModelType type) {
+        model.transform.SetParent(type == ItemModelType.Base ? transform : _toppingParent);
+        model.transform.localPosition = Vector3.zero;
     }
 
     # region Data 
@@ -119,7 +115,7 @@ public class Item : MonoBehaviour, IPoolable<Item>, IInfoProvider {
     }
 }
 
-public enum ItemModelPivot {
+public enum ItemModelType {
     Base,
     Topping
 }

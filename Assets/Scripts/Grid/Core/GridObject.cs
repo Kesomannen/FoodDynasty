@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using Unity.Collections;
 using UnityEngine;
 
 public class GridObject : MonoBehaviour, IGridObject, IInfoProvider {
-    [SerializeField] Vector2Int _size = new(1, 1);
     [SerializeField] Vector3 _rotationAxis = Vector3.up;
     [SerializeField] GameObject _blueprintPrefab;
-    [SerializeField] [ReadOnly] GridRotation _rotation;
+    [SerializeField] SerializedGridSize _size;
+    
+    GridRotation _rotation;
 
     public GridRotation Rotation {
         get => _rotation;
@@ -20,8 +20,10 @@ public class GridObject : MonoBehaviour, IGridObject, IInfoProvider {
     public Vector2Int GridPosition { get; private set; }
     public bool IsPlaced { get; private set; }
 
-    public Vector2Int StaticSize => _size;
+    public GridSize StaticSize => _size.Value ;
     public GameObject BlueprintPrefab => _blueprintPrefab;
+    
+    static readonly Vector3 _previewCellSize = new(0.25f, 0, 0.25f);
     
     public void OnAdded(IGridManager gridManager, Vector2Int gridPosition, GridRotation rotation) {
         GridManager = gridManager;
@@ -35,6 +37,21 @@ public class GridObject : MonoBehaviour, IGridObject, IInfoProvider {
     }
 
     public IEnumerable<(string Name, string Value)> GetInfo() {
-        yield return ("Size", $"{_size.x}x{_size.y}");
+        yield return ("Size", $"{StaticSize.Bounds.x}x{StaticSize.Bounds.y}");
+    }
+
+    void OnDrawGizmos() {
+        if (IsPlaced) return;
+        
+        Gizmos.color = Color.magenta;
+        foreach (var cellPos in StaticSize.GetBlockingPositions()) {
+            var gridPos = cellPos - (Vector2) (StaticSize.Bounds - Vector2Int.one) / 2f;
+            
+            var worldPos = transform.position;
+            worldPos.x += gridPos.x * _previewCellSize.x;
+            worldPos.z += gridPos.y * _previewCellSize.z;
+            
+            Gizmos.DrawWireCube(worldPos, _previewCellSize);
+        }
     }
 }

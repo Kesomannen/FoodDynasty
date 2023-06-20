@@ -70,7 +70,21 @@ public struct Modifier {
     }
 
     public override string ToString() {
-        return $"x{Delta:0.##}";
+        var result = "";
+        if (Base != 0) {
+            result += $"+{Base:0.#} ";
+        }
+        if (Percentual != 0) {
+            result += $"+{Percentual * 100:P0} ";
+        }
+        if (Additive != 0) {
+            result += $"+{Additive:0.#} ";
+        }
+        if (Multiplicative != 1) {
+            result += $"x{Multiplicative:0.#} ";
+        }
+        
+        return result == "" ? "x1" : result.Trim();
     }
 }
 

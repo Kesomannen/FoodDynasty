@@ -71,6 +71,8 @@ MonoBehaviour:
           Unity.InputSystem
     - _collection:
       - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
+    - _collection:
+      - _typeNameAndAssembly: UnityEngine.InputSystem.InputAction, Unity.InputSystem
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_1a73e75fa72967847be33fa6415ea2f6,
         z_GameEvent_InventoryItem
@@ -82,6 +84,8 @@ MonoBehaviour:
         z_GameEvent_InputAction+CallbackContext
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_32ad1ef1a7c02324fa328e2032ce098b,
         z_GameEvent_TooltipParams
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_0f7d388f37a1fde4eaca183e6ee05749,
+        z_GameEvent_InputAction
   - _keys: []
     _values: []
   - _keys:

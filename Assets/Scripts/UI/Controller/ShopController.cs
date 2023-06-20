@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,6 +9,7 @@ public class ShopController : MonoBehaviour {
     [SerializeField] Transform _itemParent;
     [SerializeField] Container<InventoryItemData> _itemPrefab;
     [SerializeField] GameEvent<InventoryItem> _onItemPurchased;
+    [SerializeField] InventoryItemDataBuyControl _buyControl;
     [SerializeField] InventoryItemData[] _itemData;
     [SerializeField] MoneyManager _moneyManager;
     [Space]
@@ -63,8 +65,18 @@ public class ShopController : MonoBehaviour {
     }
 
     void OnItemClicked(Interactable interactable, PointerEventData eventData) {
-        if (eventData.button != PointerEventData.InputButton.Left) return;
-        TryBuy(GetData(interactable), 1);
+        var data = GetData(interactable);
+        
+        switch (eventData.button) {
+            case PointerEventData.InputButton.Left:
+                TryBuy(data, 1); break;
+            case PointerEventData.InputButton.Right:
+                _buyControl.Initialize(data, _moneyManager, count => TryBuy(data, count));
+                _buyControl.gameObject.SetActive(true);
+                break;
+            case PointerEventData.InputButton.Middle: break;
+            default: throw new ArgumentOutOfRangeException();
+        }
     }
     
     void OnItemHovered(Interactable interactable, bool hovered, PointerEventData eventData) {

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9becf11d67124afc8a2b2dccc5c68e48, type: 3}
+  m_Name: NuclearBreadOvenData
+  m_EditorClassIdentifier: 
+  _name: Nuclear Bread Oven
+  _description: Cooks dough into bread, multiplying its value by 100
+  _image: {fileID: 21300000, guid: a78c3f30a005b1c448d3d3ae24f4984e, type: 3}
+  _tier: 1
+  _price: 300
+  _type: 5
+  _prefab: {fileID: 1491119583155798305, guid: 4ea1f3526f08b7940a5ac9924cb1cb60, type: 3}
+  _enabledProviders: 010001

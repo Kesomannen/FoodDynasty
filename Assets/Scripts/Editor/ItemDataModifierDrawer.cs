@@ -8,8 +8,7 @@ using UnityEngine;
 public class ItemDataModifierDrawer : PropertyDrawer {
     static readonly Type[] _allowedModiferTypes = { typeof(int), typeof(float) };
     
-    int _selectedFieldIndex;
-    bool _foldout;
+    bool _foldout = true;
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
         if (!_foldout) return EditorGUIUtility.singleLineHeight;
@@ -31,6 +30,8 @@ public class ItemDataModifierDrawer : PropertyDrawer {
     }
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+        EditorGUI.BeginProperty(position, label, property);
+        
         var rect = position;
         rect.height = EditorGUIUtility.singleLineHeight;
         
@@ -50,8 +51,9 @@ public class ItemDataModifierDrawer : PropertyDrawer {
         var fields = ReflectionHelpers.GetFields(type);
         
         rect.y += EditorGUIUtility.singleLineHeight;
-        _selectedFieldIndex = EditorGUI.Popup(rect, "Field", _selectedFieldIndex, fields.Select(info => info.Name).ToArray());
-        var selectedField = fields[_selectedFieldIndex];
+        var selectedFieldIndex = Array.FindIndex(fields, info => info.Name == dataModifier.FieldName);
+        selectedFieldIndex = EditorGUI.Popup(rect, "Field", selectedFieldIndex, fields.Select(info => info.Name).ToArray());
+        var selectedField = fields[selectedFieldIndex];
         dataModifier.FieldName = selectedField.Name;
 
         if (_allowedModiferTypes.Contains(selectedField.FieldType)) {
@@ -76,7 +78,14 @@ public class ItemDataModifierDrawer : PropertyDrawer {
         }
         
         EditorGUI.indentLevel--;
-        property.serializedObject.ApplyModifiedProperties();
+        
+        var serializedObject = property.serializedObject;
+        if (GUI.changed) {
+            EditorUtility.SetDirty(serializedObject.targetObject);
+        } 
+        
+        serializedObject.ApplyModifiedProperties();
+        EditorGUI.EndProperty();
     }
 
     static SerializedProperty GetSetValueProperty(SerializedProperty property, FieldInfo field) {

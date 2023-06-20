@@ -9,8 +9,10 @@ public class MachineItemData : InventoryItemData, IPrefabProvider<GridObject> {
     
     [Header("Machine")]
     [SerializeField] GridObject _prefab;
-    [SerializeField] bool[] _enabledProviders;
     
+    [HideInInspector]
+    [SerializeField] bool[] _enabledProviders;
+     
     IInfoProvider[] _cachedProviders;
     
     public override InventoryItemType Type => _type;
@@ -39,7 +41,8 @@ public class MachineItemData : InventoryItemData, IPrefabProvider<GridObject> {
         _cachedProviders = _prefab == null ? Array.Empty<IInfoProvider>() : _prefab.GetComponentsInChildren<IInfoProvider>();
 
         if (_cachedProviders.Length == _enabledProviders.Length) return;
-        Debug.Log("Resetting enabled providers", this);
+        Debug.Log("Resetting enabled providers:" +
+                  $" cached providers ({_cachedProviders.Length}) != enabled providers ({_enabledProviders.Length})", this);
         _enabledProviders = new bool[_cachedProviders.Length];
     }
 }

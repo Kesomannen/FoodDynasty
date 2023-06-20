@@ -4,7 +4,8 @@ using UnityEngine;
 [Serializable]
 public struct GridRotation {
     [SerializeField] int _value;
-    
+
+    public int Steps => _value;
     public int Degrees => _value * 90;
     public Vector2Int Vector => _value switch {
         0 => Vector2Int.up,
@@ -41,8 +42,11 @@ public struct GridRotation {
         return vector;
     }
     
-    public Vector2Int RotateSize(Vector2Int size) {
-        return _value % 2 == 0 ? size : new Vector2Int(size.y, size.x);
+    public Vector2Int Rotate(Vector2Int vector) {
+        for (var i = 0; i < _value; i++) {
+            vector = vector.RotateCCW();
+        }
+        return vector;
     }
 
     public static GridRotation operator +(GridRotation rotation, int value) {

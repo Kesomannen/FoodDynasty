@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Supply : SupplyBase, IInfoProvider, IStatusProvider {
-    [SerializeField] bool _refillable = true;
-    [SerializeField] InventoryItemData _refillItem;
+    [SerializeField] Optional<InventoryItemData> _refillItem;
+    [SerializeField] string _refillItemNameOverride;
     [SerializeField] Optional<int> _maxSupply;
     [Space]
     [SerializeField] CheckEvent<bool> _condition;
@@ -12,6 +12,9 @@ public class Supply : SupplyBase, IInfoProvider, IStatusProvider {
 
     int _currentSupply;
 
+    bool HasNameOverride => !string.IsNullOrWhiteSpace(_refillItemNameOverride);
+    string ItemName => HasNameOverride ? _refillItemNameOverride : _refillItem.Value.Name;
+    
     public event Action<IStatusProvider> OnStatusChanged;
     public override event Action<SupplyBase> OnChanged;
     
@@ -36,8 +39,7 @@ public class Supply : SupplyBase, IInfoProvider, IStatusProvider {
         }
     }
 
-    public override bool IsRefillable => _refillable;
-    public override InventoryItemData RefillItem => _refillItem;
+    public override IOptional<InventoryItemData> RefillItem => _refillItem;
     
     bool HasSupply() => CurrentSupply > 0;
     void OnUsed() => CurrentSupply--;
@@ -56,13 +58,19 @@ public class Supply : SupplyBase, IInfoProvider, IStatusProvider {
         if (_maxSupply.Enabled) {
             yield return ("Max Supply", _maxSupply.Value.ToString());
         }
+        
+        if (_refillItem.Enabled) {
+            yield return ("Refill", ItemName);
+        }
     }
 
     public IEnumerable<(string Name, string Value)> GetStatus() {
+        if (!_refillItem.Enabled && !HasNameOverride) yield break;
+
         if (_maxSupply.Enabled) {
-            yield return (_refillItem.Name, $"{_currentSupply}/{_maxSupply.Value}");
+            yield return (ItemName, $"{_currentSupply}/{_maxSupply.Value}");
         } else {
-            yield return (_refillItem.Name, _currentSupply.ToString());
+            yield return (ItemName, _currentSupply.ToString());
         }
     }
 }

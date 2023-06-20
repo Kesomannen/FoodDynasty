@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public static class ThumbnailCreator {
     static readonly Vector2Int _size = new(512, 512);
@@ -59,8 +60,9 @@ public static class ThumbnailCreator {
         camera.aspect = aspect;
         camera.orthographic = true;
         camera.orthographicSize = CameraSize;
-        camera.clearFlags = CameraClearFlags.SolidColor;
+        camera.clearFlags = CameraClearFlags.Color;
         camera.backgroundColor = Color.clear;
+
         return camera;
     }
 

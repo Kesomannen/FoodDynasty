@@ -15,7 +15,7 @@ public class InventoryItemData : ScriptableObject, IInfoProvider, IEntityData {
     [Header("Item")]
     [SerializeField] InventoryItemTier _tier;
     [SerializeField] double _price;
-    
+
     public string Name => _name;
     public string Description => _description;
     public InventoryItemTier Tier => _tier;
@@ -45,7 +45,8 @@ public enum InventoryItemType {
 }
 
 public enum InventoryItemTier {
-    Rusty
+    Rusty,
+    Nuclear
 }
 
 public interface IInfoProvider {

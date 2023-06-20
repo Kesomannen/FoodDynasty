@@ -50,6 +50,8 @@ public class MachineItemDataEditor : Editor {
         }
         data.SetInfoProviders(providers);
 
+        if (GUI.changed) EditorUtility.SetDirty(data);
+        
         serializedObject.ApplyModifiedProperties();
     }
 

@@ -8,8 +8,8 @@ public interface IGridObject {
     GameObject BlueprintPrefab { get; }
     bool IsPlaced { get; }
     
-    Vector2Int StaticSize { get; }
-    Vector2Int RotatedSize => Rotation.RotateSize(StaticSize);
+    GridSize StaticSize { get; }
+    GridSize RotatedSize => StaticSize.Rotated(Rotation.Steps);
 
     void OnAdded(IGridManager gridManager, Vector2Int gridPosition, GridRotation rotation);
     void OnRemoved();

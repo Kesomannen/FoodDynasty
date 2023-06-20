@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class ItemDispenser : MonoBehaviour, IInfoProvider {
+    [Expandable]
     [SerializeField] DataObject<float> _spawnSpeed;
     [SerializeField] Item _prefab;
     [SerializeField] Transform _spawnPoint;

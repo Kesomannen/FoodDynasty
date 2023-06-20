@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: RustySellCrateData
   m_EditorClassIdentifier: 
   _name: Rusty Sell Crate
-  _flavorText: Sells items
+  _description: Sells items
   _image: {fileID: 21300000, guid: 07d3961c82939e145836b8a3d6c0b566, type: 3}
   _tier: 0
   _price: 50
   _type: 6
   _prefab: {fileID: 5113609570665421686, guid: b55d5a700e1d6ec4e8da83e9ac871c56, type: 3}
-  _enabledProviders: 
+  _enabledProviders: 010001

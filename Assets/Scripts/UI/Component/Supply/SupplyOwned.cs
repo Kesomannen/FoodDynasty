@@ -5,13 +5,13 @@ public class SupplyOwned : UIComponent<SupplyBase> {
     [SerializeField] GameObject[] _hideIfNotRefillable;
 
     public override void SetContent(SupplyBase content) {
-        if (content.IsRefillable) {
-            _dataComponent.SetContent(content.RefillItem);
-            return;
-        }
+        var refillable = content.RefillItem.Enabled;
 
         foreach (var obj in _hideIfNotRefillable) {
-            obj.SetActive(false);
+            obj.SetActive(refillable);
         }
+
+        if (!refillable) return;
+        _dataComponent.SetContent(content.RefillItem.Value);
     }
 }
