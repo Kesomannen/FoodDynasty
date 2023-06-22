@@ -19,5 +19,9 @@ MonoBehaviour:
     Event: {fileID: 11400000, guid: 09092c682e0a2b440979db15cd78e7b0, type: 2}
   - InputActionName: Delete
     Event: {fileID: 11400000, guid: db073d2c14ffc9c47a652406c12592c6, type: 2}
+  - InputActionName: Open Shop
+    Event: {fileID: 11400000, guid: 34ad22860349d964e908f6aad86957cc, type: 2}
+  - InputActionName: Open Inventory
+    Event: {fileID: 11400000, guid: 545ff927446f97f41822a165c64a13b8, type: 2}
   _inputActionAsset: {fileID: -944628639613478452, guid: 7e0d5536cef42c44cbc3e5bcfb46a4e6,
     type: 3}

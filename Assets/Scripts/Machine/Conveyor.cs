@@ -20,7 +20,7 @@ public class Conveyor : MonoBehaviour, IInfoProvider {
         var pos = newPosition;
         
         var localDirection = transform.rotation * _direction;
-        newPosition += localDirection * (_speed.Value * Time.fixedDeltaTime);
+        newPosition += -localDirection * (_speed.Value * Time.fixedDeltaTime);
         _rigidbody.position = newPosition;
         
         _rigidbody.MovePosition(pos);

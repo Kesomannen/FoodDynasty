@@ -4,24 +4,24 @@ using System.Linq;
 using UnityEngine;
 
 [Serializable]
-public class ItemFilter : IFilter<Item> {
+public class FoodFilter : IFilter<Food> {
     public ItemFilterType FilterType;
-    public ItemDataType DataType;
+    public FoodDataType DataType;
     [Tooltip("If false, will create a new instance of the data type if it doesn't exist on the item.")]
     public bool RequireData;
     
-    public List<ItemFieldFilter> FieldFilters;
+    public List<FoodFieldFilter> FieldFilters;
 
-    bool Has(Item item) {
+    bool Has(Food food) {
         var fieldFilters = FieldFilters;
-        var type = ItemDataUtil.GetDataType(DataType);
+        var type = FoodDataUtil.GetDataType(DataType);
         
         object data;
         if (RequireData) {
-            var found = item.RequireData(type, out data);
+            var found = food.RequireData(type, out data);
             if (!found) return false;
         } else {
-            data = item.EnforceData(type);
+            data = food.EnforceData(type);
         }
 
         var enabledFieldFilters = fieldFilters.Where(fieldFilter => fieldFilter.Enabled).ToArray();
@@ -33,10 +33,10 @@ public class ItemFilter : IFilter<Item> {
             });
     }
 
-    public bool Check(Item item) {
+    public bool Check(Food food) {
         return FilterType switch {
-            ItemFilterType.Has => Has(item),
-            ItemFilterType.DoesNotHave => !Has(item),
+            ItemFilterType.Has => Has(food),
+            ItemFilterType.DoesNotHave => !Has(food),
             _ => throw new ArgumentOutOfRangeException()
         };
     }

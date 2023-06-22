@@ -28,13 +28,16 @@ public class MoneyDeltaSpawner : MonoBehaviour {
         var rectTransform = animationText.transform as RectTransform;
         if (rectTransform == null) return;
         
-        var startColor = animationText.color;
         var startPosition = Vector2.zero;
+        
+        var startColor = animationText.color;
+        var endColor = startColor;
+        endColor.a = 0;
 
         LeanTween.value(animationText.gameObject, 0, 1f, _animationDuration)
             .setEase(_animationEaseType)
             .setOnUpdate(value => {
-                animationText.color = Color.Lerp(startColor, Color.clear, value);
+                animationText.color = Color.Lerp(startColor, endColor, value);
                 rectTransform.anchoredPosition = Vector2.Lerp(startPosition, startPosition + _animationMovement, value);
             })
             .setOnComplete(() => {

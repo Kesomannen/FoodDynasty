@@ -2,9 +2,9 @@
 using System.Reflection;
 
 [Serializable]
-public class ItemDataModifier {
-    public ItemModifierOperation OperationType;
-    public ItemDataType DataType;
+public class FoodDataModifier {
+    public FoodModifierOperation OperationType;
+    public FoodDataType DataType;
     public string FieldName;
     
     public Modifier Modifier;
@@ -13,15 +13,15 @@ public class ItemDataModifier {
     public float FloatValue;
     public bool BoolValue;
     
-    public void Apply(Item item) {
-        var type = ItemDataUtil.GetDataType(DataType);
-        var data = item.EnforceData(type);
+    public void Apply(Food food) {
+        var type = FoodDataUtil.GetDataType(DataType);
+        var data = food.EnforceData(type);
         var field = ReflectionHelpers.GetField(type, FieldName);
 
         switch (OperationType) {
-            case ItemModifierOperation.Set:
+            case FoodModifierOperation.Set:
                 SetField(field, data); break;
-            case ItemModifierOperation.Modify:
+            case FoodModifierOperation.Modify:
                 ModifyField(field, data); break;
             default: throw new ArgumentOutOfRangeException();
         }
@@ -49,7 +49,7 @@ public class ItemDataModifier {
     }
 }
 
-public enum ItemModifierOperation {
+public enum FoodModifierOperation {
     Set,
     Modify
 }

@@ -4,7 +4,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-[CustomPropertyDrawer(typeof(ItemDataModifier))]
+[CustomPropertyDrawer(typeof(FoodDataModifier))]
 public class ItemDataModifierDrawer : PropertyDrawer {
     static readonly Type[] _allowedModiferTypes = { typeof(int), typeof(float) };
     
@@ -13,11 +13,11 @@ public class ItemDataModifierDrawer : PropertyDrawer {
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
         if (!_foldout) return EditorGUIUtility.singleLineHeight;
 
-        var dataModifier = property.GetValue<ItemDataModifier>();
+        var dataModifier = property.GetValue<FoodDataModifier>();
 
         var lines = 4;
         
-        var type = ItemDataUtil.GetDataType(dataModifier.DataType);
+        var type = FoodDataUtil.GetDataType(dataModifier.DataType);
         if (!ReflectionHelpers.TryGetField(type, dataModifier.FieldName, out var field)) {
             return EditorGUIUtility.singleLineHeight * lines;
         }
@@ -40,14 +40,14 @@ public class ItemDataModifierDrawer : PropertyDrawer {
         
         EditorGUI.indentLevel++;
         
-        var dataModifier = property.GetValue<ItemDataModifier>();
+        var dataModifier = property.GetValue<FoodDataModifier>();
         
         rect.y += EditorGUIUtility.singleLineHeight;
-        var dataTypeProperty = property.Find(nameof(ItemDataModifier.DataType));
+        var dataTypeProperty = property.Find(nameof(FoodDataModifier.DataType));
         
         EditorGUI.PropertyField(rect, dataTypeProperty);
         
-        var type = ItemDataUtil.GetDataType(dataModifier.DataType);
+        var type = FoodDataUtil.GetDataType(dataModifier.DataType);
         var fields = ReflectionHelpers.GetFields(type);
         
         rect.y += EditorGUIUtility.singleLineHeight;
@@ -58,19 +58,19 @@ public class ItemDataModifierDrawer : PropertyDrawer {
 
         if (_allowedModiferTypes.Contains(selectedField.FieldType)) {
             rect.y += EditorGUIUtility.singleLineHeight;
-            dataModifier.OperationType = (ItemModifierOperation) EditorGUI.EnumPopup(rect, "Operation", dataModifier.OperationType);
+            dataModifier.OperationType = (FoodModifierOperation) EditorGUI.EnumPopup(rect, "Operation", dataModifier.OperationType);
         } else {
-            dataModifier.OperationType = ItemModifierOperation.Set;
+            dataModifier.OperationType = FoodModifierOperation.Set;
         }
 
         rect.y += EditorGUIUtility.singleLineHeight;
         switch (dataModifier.OperationType) {
-            case ItemModifierOperation.Modify: {
-                var modifierProperty = property.Find(nameof(ItemDataModifier.Modifier));
+            case FoodModifierOperation.Modify: {
+                var modifierProperty = property.Find(nameof(FoodDataModifier.Modifier));
                 EditorGUI.PropertyField(rect, modifierProperty);
                 break;
             }
-            case ItemModifierOperation.Set: {
+            case FoodModifierOperation.Set: {
                 EditorGUI.PropertyField(rect, GetSetValueProperty(property, selectedField));
                 break;
             }
@@ -90,15 +90,15 @@ public class ItemDataModifierDrawer : PropertyDrawer {
 
     static SerializedProperty GetSetValueProperty(SerializedProperty property, FieldInfo field) {
         if (field.FieldType == typeof(int)) {
-            return property.Find(nameof(ItemDataModifier.IntValue));
+            return property.Find(nameof(FoodDataModifier.IntValue));
         }
 
         if (field.FieldType == typeof(float)) {
-            return property.Find(nameof(ItemDataModifier.FloatValue));
+            return property.Find(nameof(FoodDataModifier.FloatValue));
         }
 
         if (field.FieldType == typeof(bool)) {
-            return property.Find(nameof(ItemDataModifier.BoolValue));
+            return property.Find(nameof(FoodDataModifier.BoolValue));
         }
 
         throw new ArgumentOutOfRangeException();

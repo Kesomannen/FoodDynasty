@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public abstract class ItemMachineComponent : MonoBehaviour {
-    [Header("Item Component")]
+public abstract class FoodMachineComponent : MonoBehaviour {
+    [Header("Food Component")]
     [SerializeField] FilteredItemEvent _triggerEvent;
 
-    protected abstract void OnTriggered(Item item);
+    protected abstract void OnTriggered(Food food);
 
     void OnEnable() {
         _triggerEvent.Subscribe(OnTriggered);

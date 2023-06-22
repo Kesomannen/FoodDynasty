@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using UnityEngine;
 
-public class Item : MonoBehaviour, IPoolable<Item>, IInfoProvider {
+public class Food : MonoBehaviour, IPoolable<Food>, IInfoProvider {
     [SerializeField] double _baseSellPrice;
     [SerializeField] GameObject _originalModel;
     [SerializeField] Transform _toppingParent;
-    [SerializeField] ItemDataType[] _startingData;
+    [SerializeField] FoodDataType[] _startingData;
     [SerializeField] Modifier _sellPriceModifier = new(multiplicative: 1f);
 
     public double BaseSellPrice => _baseSellPrice;
+
+    public int Id { get; set; }
 
     public Modifier SellPriceModifier {
         get => _sellPriceModifier;
@@ -21,7 +23,7 @@ public class Item : MonoBehaviour, IPoolable<Item>, IInfoProvider {
     readonly Stack<GameObject> _toppingModels = new();
     GameObject _baseModel;
 
-    public event Action<Item> OnDisposed;
+    public event Action<Food> OnDisposed;
 
     void Awake() {
         Reset();
@@ -34,7 +36,7 @@ public class Item : MonoBehaviour, IPoolable<Item>, IInfoProvider {
     void Reset() {
         _data.Clear();
         foreach (var dataType in _startingData) {
-            EnforceData(ItemDataUtil.GetDataType(dataType));
+            EnforceData(FoodDataUtil.GetDataType(dataType));
         }
 
         SetBaseModel(_originalModel);

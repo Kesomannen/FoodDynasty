@@ -4,7 +4,7 @@ public class ItemTrigger : MonoBehaviour {
     [SerializeField] FilteredItemEvent _onTriggered;
 
     void OnTriggerEnter(Collider other) {
-        if (!other.TryGetComponent(out Item item)) return;
+        if (!other.TryGetComponent(out Food item)) return;
         _onTriggered.Raise(item);
     }
 }

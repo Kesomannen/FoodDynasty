@@ -30,5 +30,5 @@ MonoBehaviour:
       data:
         _playAutomatically: 1
         _duration: 0.15
-        _easeType: 9
+        _easeType: 6
         _mode: 0

@@ -2,23 +2,23 @@
 using UnityEngine;
 
 [Serializable]
-public struct ItemFieldFilter : IFilter<object> {
+public struct FoodFieldFilter : IFilter<object> {
     public bool Enabled;
     public string FieldName;
-    public ItemFieldFilterType FilterType;
+    public FoodFieldFilterType FilterType;
     public Vector2Int IntRange;
     public bool BoolValue;
 
     public bool Check(object value) {
         return FilterType switch {
-            ItemFieldFilterType.Int => IntRange.InRange((int) value),
-            ItemFieldFilterType.Bool => (bool) value == BoolValue,
+            FoodFieldFilterType.Int => IntRange.InRange((int) value),
+            FoodFieldFilterType.Bool => (bool) value == BoolValue,
             _ => throw new ArgumentOutOfRangeException()
         };
     }
 }
 
-public enum ItemFieldFilterType {
+public enum FoodFieldFilterType {
     Int,
     Bool
 }

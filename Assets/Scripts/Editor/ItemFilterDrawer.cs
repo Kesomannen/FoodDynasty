@@ -4,7 +4,7 @@ using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 
-[CustomPropertyDrawer(typeof(ItemFilter))]
+[CustomPropertyDrawer(typeof(FoodFilter))]
 public class ItemFilterDrawer : PropertyDrawer {
     bool _foldout = true;
     
@@ -12,7 +12,7 @@ public class ItemFilterDrawer : PropertyDrawer {
         var lines = 4;
         if (!_foldout) return EditorGUIUtility.singleLineHeight * lines;
         
-        var itemFilter = property.GetValue<ItemFilter>();
+        var itemFilter = property.GetValue<FoodFilter>();
         lines += itemFilter.FieldFilters.Sum(fieldFilter => fieldFilter.Enabled ? 2 : 1);
 
         return EditorGUIUtility.singleLineHeight * lines;
@@ -21,11 +21,11 @@ public class ItemFilterDrawer : PropertyDrawer {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
         EditorGUI.BeginProperty(position, label, property);
         
-        var itemFilter = property.GetValue<ItemFilter>();
+        var itemFilter = property.GetValue<FoodFilter>();
         
-        var filterTypeProperty = property.Find(nameof(ItemFilter.FilterType));
-        var dataTypeProperty = property.Find(nameof(ItemFilter.DataType));
-        var requireDataProperty = property.Find(nameof(ItemFilter.RequireData));
+        var filterTypeProperty = property.Find(nameof(FoodFilter.FilterType));
+        var dataTypeProperty = property.Find(nameof(FoodFilter.DataType));
+        var requireDataProperty = property.Find(nameof(FoodFilter.RequireData));
         
         var rect = position;
         rect.height = EditorGUIUtility.singleLineHeight;
@@ -42,7 +42,7 @@ public class ItemFilterDrawer : PropertyDrawer {
 
         if (_foldout) {
             EditorGUI.indentLevel++;
-            var dataType = ItemDataUtil.GetDataType(itemFilter.DataType);
+            var dataType = FoodDataUtil.GetDataType(itemFilter.DataType);
             var fields = ReflectionHelpers.GetFields(dataType);
 
             var i = 0;
@@ -50,7 +50,7 @@ public class ItemFilterDrawer : PropertyDrawer {
                 var info = fields[i];
             
                 if (itemFilter.FieldFilters.Count <= i) {
-                    itemFilter.FieldFilters.Add(new ItemFieldFilter());
+                    itemFilter.FieldFilters.Add(new FoodFieldFilter());
                 }
             
                 var filter = itemFilter.FieldFilters[i];
@@ -69,7 +69,7 @@ public class ItemFilterDrawer : PropertyDrawer {
         EditorGUI.EndProperty();
     }
 
-    static ItemFieldFilter DrawFieldFilter(ItemFieldFilter filter, FieldInfo info, ref Rect rect) {
+    static FoodFieldFilter DrawFieldFilter(FoodFieldFilter filter, FieldInfo info, ref Rect rect) {
         filter.FieldName = info.Name;
 
         rect.y += EditorGUIUtility.singleLineHeight;
@@ -78,14 +78,14 @@ public class ItemFilterDrawer : PropertyDrawer {
         if (!filter.Enabled) return filter;
         EditorGUI.indentLevel++;
         
-        filter.FilterType = info.FieldType == typeof(int) ? ItemFieldFilterType.Int : ItemFieldFilterType.Bool;
+        filter.FilterType = info.FieldType == typeof(int) ? FoodFieldFilterType.Int : FoodFieldFilterType.Bool;
 
         rect.y += EditorGUIUtility.singleLineHeight;
         switch (filter.FilterType) {
-            case ItemFieldFilterType.Int:
+            case FoodFieldFilterType.Int:
                 filter.IntRange = EditorGUI.Vector2IntField(rect, new GUIContent("Range"), filter.IntRange);
                 break;
-            case ItemFieldFilterType.Bool:
+            case FoodFieldFilterType.Bool:
                 filter.BoolValue = EditorGUI.Toggle(rect, new GUIContent("Value"), filter.BoolValue);
                 break;
             default: throw new ArgumentOutOfRangeException();

@@ -2,20 +2,20 @@
 using UnityEngine;
 
 [Serializable]
-public class FilteredItemEvent : IFilter<Item> {
-    [SerializeField] Optional<Event<Item>> _event = new(null);
+public class FilteredItemEvent : IFilter<Food> {
+    [SerializeField] Optional<Event<Food>> _event = new(null);
     [SerializeField] Optional<CheckEvent<bool>> _condition;
-    [SerializeField] Optional<ItemFilterGroup> _filter;
+    [SerializeField] Optional<FoodFilterGroup> _filter;
 
-    Action<Item> _subscriberEvent;
+    Action<Food> _subscriberEvent;
     int _subscribers;
     
-    public void Raise(Item item) {
-        if (!_event.Enabled || !Check(item)) return;
-        _event.Value.Raise(item);
+    public void Raise(Food food) {
+        if (!_event.Enabled || !Check(food)) return;
+        _event.Value.Raise(food);
     }
     
-    public void Subscribe(Action<Item> action) {
+    public void Subscribe(Action<Food> action) {
         AssertEventEnabled();
         
         _subscriberEvent += action;
@@ -23,7 +23,7 @@ public class FilteredItemEvent : IFilter<Item> {
         UpdateSubscribers();
     }
     
-    public void Unsubscribe(Action<Item> trigger) {
+    public void Unsubscribe(Action<Food> trigger) {
         AssertEventEnabled();
         
         _subscriberEvent -= trigger;
@@ -40,15 +40,15 @@ public class FilteredItemEvent : IFilter<Item> {
         }
     }
 
-    void OnEventRaised(Item item) {
-        if (Check(item)) {
-            _subscriberEvent?.Invoke(item);
+    void OnEventRaised(Food food) {
+        if (Check(food)) {
+            _subscriberEvent?.Invoke(food);
         }
     }
     
-    public bool Check(Item item) {
+    public bool Check(Food food) {
         if (_condition.Enabled && !_condition.Value.Check()) return false;
-        return !_filter.Enabled || _filter.Value.Check(item);
+        return !_filter.Enabled || _filter.Value.Check(food);
     }
     
     void AssertEventEnabled() {

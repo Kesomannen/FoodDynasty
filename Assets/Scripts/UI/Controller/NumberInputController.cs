@@ -22,9 +22,11 @@ public class NumberInputController : MonoBehaviour {
     public float Value => string.IsNullOrEmpty(_inputField.text) ? 0 : float.Parse(_inputField.text);
 
     public event Action<float> OnSubmit;
+    public event Action<float> OnValueChanged;
 
     void Start() {
         _inputField.onSubmit.AddListener(_ => OnSubmit?.Invoke(Value));
+        _inputField.onValueChanged.AddListener(_ => OnValueChanged?.Invoke(Value));
     }
 
     public void Initialize(float startValue = 0, float maxValue = 0, bool integers = true, ModifyMode mode = ModifyMode.None) {

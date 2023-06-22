@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: -838393948165991145, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: _direction.z
-      value: -1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}

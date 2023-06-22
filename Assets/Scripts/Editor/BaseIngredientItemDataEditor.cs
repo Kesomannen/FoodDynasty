@@ -1,18 +1,18 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(BaseIngredientItemData))]
+[CustomEditor(typeof(FoodItemData))]
 public class BaseIngredientItemDataEditor : Editor {
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
         
-        var data = (BaseIngredientItemData) target;
+        var data = (FoodItemData) target;
         DrawImageTools(data);
 
         serializedObject.ApplyModifiedProperties();
     }
 
-    static void DrawImageTools(BaseIngredientItemData data) {
+    static void DrawImageTools(FoodItemData data) {
         EditorGUILayout.BeginHorizontal();
 
         if (GUILayout.Button("Generate Image")) {
@@ -23,7 +23,7 @@ public class BaseIngredientItemDataEditor : Editor {
             var guids = AssetDatabase.FindAssets("t:BaseIngredientItemData");
             foreach (var guid in guids) {
                 var path = AssetDatabase.GUIDToAssetPath(guid);
-                var dataAsset = AssetDatabase.LoadAssetAtPath<BaseIngredientItemData>(path);
+                var dataAsset = AssetDatabase.LoadAssetAtPath<FoodItemData>(path);
                 GenerateImage(dataAsset);
             }
         }
@@ -31,7 +31,7 @@ public class BaseIngredientItemDataEditor : Editor {
         EditorGUILayout.EndHorizontal();
     }
 
-    static void GenerateImage(BaseIngredientItemData data) {
+    static void GenerateImage(FoodItemData data) {
         if (data.Prefab == null) return;
         data.Image = ThumbnailCreator.Create(data.Prefab, data.Name);
         EditorUtility.SetDirty(data);

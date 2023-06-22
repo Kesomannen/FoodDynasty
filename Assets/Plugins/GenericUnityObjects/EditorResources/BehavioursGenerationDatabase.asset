@@ -15,7 +15,7 @@ MonoBehaviour:
   _genericArgumentKeys:
   - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
     _guid: d3d4539531654c55aeb30f6fc3dc4fa1
-  - _typeNameAndAssembly: Item, Assembly-CSharp
+  - _typeNameAndAssembly: Food, Assembly-CSharp
     _guid: 8dbbab00aaad493d81fa6e862abf0843
   - _typeNameAndAssembly: GridObject, Assembly-CSharp
     _guid: a189d557cd0c42bebb4e2ef1dc861402
@@ -25,10 +25,16 @@ MonoBehaviour:
     _guid: 7a3409246c914e6d8646fa636551bde6
   - _typeNameAndAssembly: SupplyBase, Assembly-CSharp
     _guid: 9cf6bd0ed95b4144bd1677025f9bd11d
+  - _typeNameAndAssembly: System.Int32, mscorlib
+    _guid: 
   _genericArgumentValues:
   - _array:
     - _arguments:
-      - _typeNameAndAssembly: Item, Assembly-CSharp
+      - _typeNameAndAssembly: System.Int32, mscorlib
+        _guid: 
+      _assemblyGUID: 02e358cc9711c974da010f291546bbe1
+    - _arguments:
+      - _typeNameAndAssembly: Food, Assembly-CSharp
         _guid: 8dbbab00aaad493d81fa6e862abf0843
       _assemblyGUID: 51ffa55fd3c2d8a4a99d778d29c44bb9
   - _array:
@@ -102,6 +108,13 @@ MonoBehaviour:
       - T
       _componentName: 
       _order: 0
+    - _typeNameAndAssembly: Event`1, Assembly-CSharp
+      _guid: 20b6ca5797584b78b97df411ce90faae
+      AssemblyGUID: 291ecd27c4ea412408fd3378455be894
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
   - _array:
     - _typeNameAndAssembly: MouseEventTrigger`1, Assembly-CSharp
       _guid: 318420d1009c4ad9825b98ca678d0cbd
@@ -144,6 +157,14 @@ MonoBehaviour:
     - _typeNameAndAssembly: Container`1, Assembly-CSharp
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
       AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+  - _array:
+    - _typeNameAndAssembly: Event`1, Assembly-CSharp
+      _guid: 20b6ca5797584b78b97df411ce90faae
+      AssemblyGUID: 291ecd27c4ea412408fd3378455be894
       _argNames:
       - T
       _componentName: 

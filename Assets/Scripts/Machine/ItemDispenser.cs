@@ -7,11 +7,11 @@ using UnityEngine.Events;
 public class ItemDispenser : MonoBehaviour, IInfoProvider {
     [Expandable]
     [SerializeField] DataObject<float> _spawnSpeed;
-    [SerializeField] Item _prefab;
+    [SerializeField] Food _prefab;
     [SerializeField] Transform _spawnPoint;
     [Space]
     [SerializeField] CheckEvent<bool> _condition;
-    [SerializeField] Event<Item> _onDispensed;
+    [SerializeField] Event<Food> _onDispensed;
 
     void OnEnable() {
         StartCoroutine(DispenseLoop());

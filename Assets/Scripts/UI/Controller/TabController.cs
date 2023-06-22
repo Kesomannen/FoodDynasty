@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TabController : MonoBehaviour {
     [Header("Settings")]
@@ -10,29 +11,55 @@ public class TabController : MonoBehaviour {
     [SerializeField] float _animationDuration;
     [SerializeField] Vector2 _hiddenTabSizeMultiplier;
     [SerializeField] LeanTweenType _animationEaseType;
+    
+    [Header("Events")]
+    [SerializeField] IntEvent _onTabChange;
+    [SerializeField] UnityEvent _onTabDoubleClick;
+    
+    [Serializable]
+    class IntEvent : UnityEvent<int> {}
 
     Vector2 _hiddenTabSize;
     Vector2 _defaultTabSize;
 
     int _currentTabIndex;
     int[] _tweenIds = Array.Empty<int>();
-    
+
+    void OnEnable() {
+        foreach (var tabData in _tabs) {
+            tabData.Subscribe(this);
+        }
+    }
+
+    void OnDisable() {
+        foreach (var tabData in _tabs) {
+            tabData.Unsubscribe();
+        }
+    }
+
     void Start() {
         _defaultTabSize = _tabs[0].Indicator.sizeDelta;
         _hiddenTabSize = _defaultTabSize * _hiddenTabSizeMultiplier;
         
         ChangeTab(_startTabIndex, true);
     }
-    
+
     public void ChangeTab(int index) {
         ChangeTab(index, false);
     }
 
     void ChangeTab(int index, bool force) {
-        if (!force && index == _currentTabIndex) return;
+        if (!force && index == _currentTabIndex) {
+            _onTabDoubleClick.Invoke();
+            ChangeTab(-1);
+            return;
+        }
+        
+        var indexOutOfRange = index < 0 || index >= _tabs.Length;
         
         for (var i = 0; i < _tabs.Length; i++) {
-            _tabs[i].Content.SetActive(i == index);
+            var isSelected = indexOutOfRange ? i == _currentTabIndex : i == index;
+            _tabs[i].Content.SetActive(isSelected);
         }
 
         _currentTabIndex = index;
@@ -51,11 +78,38 @@ public class TabController : MonoBehaviour {
                 .setEase(_animationEaseType)
                 .uniqueId;
         }
+
+        if (indexOutOfRange) return;
+        _onTabChange.Invoke(index);
     }
 
     [Serializable]
-    struct TabData {
-        public RectTransform Indicator;
-        public GameObject Content;
+    class TabData {
+        [SerializeField] RectTransform _indicator;
+        [SerializeField] GameObject _content;
+        [SerializeField] Optional<GenericGameEvent> _openEvent;
+        
+        public RectTransform Indicator => _indicator;
+        public GameObject Content => _content;
+
+        TabController _controller;
+        
+        public void Subscribe(TabController controller) {
+            if (!_openEvent.Enabled) return;
+            _openEvent.Value.OnRaisedGeneric += OnRaised;
+            _controller = controller;
+        }
+        
+        public void Unsubscribe() {
+            if (!_openEvent.Enabled) return;
+            _openEvent.Value.OnRaisedGeneric -= OnRaised;
+            _controller = null;
+        }
+
+        void OnRaised() {
+            if (_controller == null) return;
+            var index = Array.IndexOf(_controller._tabs, this);
+            _controller.ChangeTab(index);
+        }
     }
 }

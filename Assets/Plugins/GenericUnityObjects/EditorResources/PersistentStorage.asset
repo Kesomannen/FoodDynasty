@@ -29,6 +29,18 @@ MonoBehaviour:
     _fileName: New ContainerGridObjectControl`1
     _menuName: ContainerGridObjectControl<T>
     _order: 0
+  - _typeName: ContainerObjectPool`1, Assembly-CSharp
+    _fileName: New ContainerObjectPool`1
+    _menuName: Pooling/Container
+    _order: 0
+  - _typeName: CustomObjectPool`1, Assembly-CSharp
+    _fileName: New CustomObjectPool`1
+    _menuName: Pooling/Generic
+    _order: 0
+  - _typeName: UIObjectPool`1, Assembly-CSharp
+    _fileName: New UIObjectPool`1
+    _menuName: Pooling/UI
+    _order: 0
   _afterReloadEvent:
     _persistentListeners: []
     Expanded: 1

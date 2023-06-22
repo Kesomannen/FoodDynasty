@@ -32,6 +32,9 @@ MonoBehaviour:
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
   - _typeNameAndAssembly: ValueChangedEvent`1, Assembly-CSharp
   - _typeNameAndAssembly: ContainerGridObjectControl`1, Assembly-CSharp
+  - _typeNameAndAssembly: CustomObjectPool`1, Assembly-CSharp
+  - _typeNameAndAssembly: UIObjectPool`1, Assembly-CSharp
+  - _typeNameAndAssembly: ContainerObjectPool`1, Assembly-CSharp
   _values:
   - _keys: []
     _values: []
@@ -100,3 +103,9 @@ MonoBehaviour:
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_463d71d3765c8cc4687d32c15f86b481,
         z_ContainerGridObjectControl_SupplyBase
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []

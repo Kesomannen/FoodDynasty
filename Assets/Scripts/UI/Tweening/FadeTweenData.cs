@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class FadeTweenData : UITweenData {
     [SerializeField] Mode _mode;
 
     protected override IEnumerable<LTDescr> GetTweens(RectTransform rectTransform) {
-        var graphics = rectTransform.GetComponentsInChildren<Graphic>();
+        var graphics = rectTransform.GetComponentsInChildren<Graphic>().ToList();
         
         var (from, to) = _mode switch {
             Mode.FadeIn => (0f, 1f),
@@ -20,7 +21,15 @@ public class FadeTweenData : UITweenData {
         return new[] {
             LeanTween.value(rectTransform.gameObject, from, to, Duration)
                 .setOnUpdate(value => {
-                    foreach (var graphic in graphics) {
+                    for (var i = 0; i < graphics.Count; i++) {
+                        var graphic = graphics[i];
+
+                        if (graphic == null) {
+                            graphics.RemoveAt(i);
+                            i--;
+                            continue;
+                        }
+                        
                         var color = graphic.color;
                         color.a = value;
                         graphic.color = color;
