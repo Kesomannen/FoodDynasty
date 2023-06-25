@@ -7,10 +7,9 @@ public class InventoryAsset : MonoScriptable {
     [SerializeField] GameEvent<InventoryItem> _addItemEvent;
 
     readonly Dictionary<InventoryItemData, InventoryItem> _items = new();
-
-    public event Action<InventoryItem> OnItemChanged;
-
     public IEnumerable<InventoryItem> Items => _items.Values;
+    
+    public event Action<InventoryItem> OnItemChanged;
 
     public override void OnAwake() {
         _addItemEvent.OnRaised += Add;

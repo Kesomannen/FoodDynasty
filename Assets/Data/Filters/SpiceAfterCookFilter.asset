@@ -31,7 +31,7 @@ MonoBehaviour:
       BoolValue: 0
   - FilterType: 0
     DataType: 0
-    RequireData: 1
+    RequireData: 0
     FieldFilters:
     - Enabled: 1
       FieldName: Cooked

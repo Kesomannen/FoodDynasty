@@ -7022,7 +7022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnSpeed: {fileID: 11400000, guid: c06856c6919240748a80c860f1e994c7, type: 2}
-  _prefab: {fileID: 8179629649837785446, guid: fc616f45937903b49a1d6c30d53f2846, type: 3}
+  _pool: {fileID: 11400000, guid: 8e01162ff2cf14c499cbe194e44030f5, type: 2}
   _spawnPoint: {fileID: 4321520725805672245}
   _condition: {fileID: 7020109674481146587}
   _onDispensed: {fileID: 2350485909091822535}

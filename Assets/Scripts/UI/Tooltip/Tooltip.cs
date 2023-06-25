@@ -57,6 +57,8 @@ public class Tooltip<T> : MonoBehaviour {
         
             _tooltip.gameObject.SetActive(true);
             _onTooltipShown.Invoke(content);
+            
+            UpdatePosition();
         }
     }
 

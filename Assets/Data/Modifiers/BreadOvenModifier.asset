@@ -18,8 +18,7 @@ MonoBehaviour:
     Additive: 0
     Multiplicative: 10
   _modelModifiers:
-  - _modelPrefab: {fileID: -6920987153026122271, guid: db0e1358117bc2b4fa7685ec849d326b,
-      type: 3}
+  - _pool: {fileID: 11400000, guid: 1b9b1da70747ada4389da8c0f4fd936d, type: 2}
     _type: 0
   _dataModifiers:
   - OperationType: 0

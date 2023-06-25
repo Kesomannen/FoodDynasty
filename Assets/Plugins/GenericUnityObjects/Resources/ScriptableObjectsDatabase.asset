@@ -28,11 +28,10 @@ MonoBehaviour:
       Unity.2D.Path.Editor
   - _typeNameAndAssembly: UnityEditor.U2D.Path.ScriptableData`1, Unity.2D.Path.Editor
   - _typeNameAndAssembly: SerializedDataObject`1, Assembly-CSharp
-  - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+  - _typeNameAndAssembly: GameEvent`1, Dynasty.Util
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
-  - _typeNameAndAssembly: ValueChangedEvent`1, Assembly-CSharp
+  - _typeNameAndAssembly: ValueChangedEvent`1, Dynasty.Util
   - _typeNameAndAssembly: ContainerGridObjectControl`1, Assembly-CSharp
-  - _typeNameAndAssembly: CustomObjectPool`1, Assembly-CSharp
   - _typeNameAndAssembly: UIObjectPool`1, Assembly-CSharp
   - _typeNameAndAssembly: ContainerObjectPool`1, Assembly-CSharp
   _values:
@@ -105,7 +104,9 @@ MonoBehaviour:
         z_ContainerGridObjectControl_SupplyBase
   - _keys: []
     _values: []
-  - _keys: []
-    _values: []
-  - _keys: []
-    _values: []
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_99adfb061d5aceb4bbe3cff07055a538,
+        z_ContainerObjectPool_InventoryItem

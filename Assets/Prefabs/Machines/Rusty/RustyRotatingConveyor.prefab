@@ -4874,7 +4874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd00b81405c4ff6974c75e1bbe4e1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _direction: {x: 0, y: 0, z: -1}
+  _direction: {x: 0, y: 0, z: 1}
   _speed: {fileID: 11400000, guid: dd927c834874b6044a38511ab35023e1, type: 2}
 --- !u!1 &5889553737483363639 stripped
 GameObject:
@@ -4924,7 +4924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd00b81405c4ff6974c75e1bbe4e1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _direction: {x: 0, y: 0, z: -1}
+  _direction: {x: 0, y: 0, z: 1}
   _speed: {fileID: 11400000, guid: dd927c834874b6044a38511ab35023e1, type: 2}
 --- !u!1 &6621918678069023782 stripped
 GameObject:

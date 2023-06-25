@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: PersistentStorage
   m_EditorClassIdentifier: 
   _menuItemMethods:
-  - _typeName: SerializedDataObject`1, Assembly-CSharp
-    _fileName: New SerializedDataObject`1
-    _menuName: SerializedDataObject<T>
-    _order: 0
-  - _typeName: GameEvent`1, Assembly-CSharp
+  - _typeName: GameEvent`1, Dynasty.Util
     _fileName: New GameEvent`1
     _menuName: Event/Game
     _order: 0
-  - _typeName: ValueChangedEvent`1, Assembly-CSharp
+  - _typeName: ValueChangedEvent`1, Dynasty.Util
     _fileName: New ValueChangedEvent`1
     _menuName: Event/ValueChanged
+    _order: 0
+  - _typeName: SerializedDataObject`1, Assembly-CSharp
+    _fileName: New SerializedDataObject`1
+    _menuName: SerializedDataObject<T>
     _order: 0
   - _typeName: ContainerGridObjectControl`1, Assembly-CSharp
     _fileName: New ContainerGridObjectControl`1
@@ -32,10 +32,6 @@ MonoBehaviour:
   - _typeName: ContainerObjectPool`1, Assembly-CSharp
     _fileName: New ContainerObjectPool`1
     _menuName: Pooling/Container
-    _order: 0
-  - _typeName: CustomObjectPool`1, Assembly-CSharp
-    _fileName: New CustomObjectPool`1
-    _menuName: Pooling/Generic
     _order: 0
   - _typeName: UIObjectPool`1, Assembly-CSharp
     _fileName: New UIObjectPool`1

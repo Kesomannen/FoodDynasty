@@ -9,7 +9,7 @@ public class FoodModifierGroup : ScriptableObject {
     public Modifier SellPriceModifier => _sellPriceModifier;
     
     public void Apply(Food food) {
-        food.SellPriceModifier += _sellPriceModifier;
+        food.SellPrice += _sellPriceModifier;
         
         foreach (var modifier in _modelModifiers) {
             modifier.Apply(food);

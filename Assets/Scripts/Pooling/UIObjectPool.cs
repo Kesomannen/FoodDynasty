@@ -19,10 +19,7 @@ public class UIObjectPool<T> : CustomObjectPool<T> where T : Component, IPoolabl
     
     public T Get(Transform parent) {
         var obj = Get();
-        
         obj.transform.SetParent(parent);
-        obj.gameObject.SetActive(true);
-        
         return obj;
     }
 

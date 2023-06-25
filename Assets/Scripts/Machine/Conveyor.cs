@@ -15,7 +15,15 @@ public class Conveyor : MonoBehaviour, IInfoProvider {
         _rigidbody = GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate() {
+    void OnEnable() {
+        TickManager.AddListener(OnTick);
+    }
+    
+    void OnDisable() {
+        TickManager.RemoveListener(OnTick);
+    }
+
+    void OnTick() {
         var newPosition = _rigidbody.position;
         var pos = newPosition;
         

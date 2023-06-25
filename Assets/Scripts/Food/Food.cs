@@ -3,34 +3,30 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Food : MonoBehaviour, IPoolable<Food>, IInfoProvider {
-    [SerializeField] double _baseSellPrice;
+    [SerializeField] Modifier _baseSellPrice = new(multiplicative: 1f);
     [SerializeField] GameObject _originalModel;
     [SerializeField] Transform _toppingParent;
     [SerializeField] FoodDataType[] _startingData;
-    [SerializeField] Modifier _sellPriceModifier = new(multiplicative: 1f);
-
-    public double BaseSellPrice => _baseSellPrice;
-
-    public int Id { get; set; }
-
-    public Modifier SellPriceModifier {
-        get => _sellPriceModifier;
-        set => _sellPriceModifier = value;
+    
+    public Modifier SellPrice { get; set; }
+    
+    public double GetSellPrice() {
+        return SellPrice.Apply(_baseSellPrice.Delta);
     }
 
     readonly Dictionary<Type, object> _data = new();
-    readonly Stack<GameObject> _toppingModels = new();
-    GameObject _baseModel;
+    readonly Stack<Poolable> _toppings = new();
+    
+    Poolable _baseModel;
+    Rigidbody _rigidbody;
 
     public event Action<Food> OnDisposed;
 
     void Awake() {
+        _rigidbody = GetComponent<Rigidbody>();
         Reset();
-    }
-
-    public double GetSellPrice() {
-        return SellPriceModifier.Apply(_baseSellPrice);
     }
 
     void Reset() {
@@ -39,25 +35,37 @@ public class Food : MonoBehaviour, IPoolable<Food>, IInfoProvider {
             EnforceData(FoodDataUtil.GetDataType(dataType));
         }
 
-        SetBaseModel(_originalModel);
-        while (_toppingModels.Count > 0) {
-            Destroy(_toppingModels.Pop());
+        ReturnOriginalModel();
+        while (_toppings.Count > 0) {
+            _toppings.Pop().Dispose();
         }
+        
+        _rigidbody.velocity = Vector3.zero;
     }
 
-    public void SetBaseModel(GameObject model) {
+    public void SetBaseModel(Poolable poolable) {
         if (_baseModel != null) {
-            if (_baseModel == _originalModel) _baseModel.SetActive(false);
-            else Destroy(_baseModel);
+            _baseModel.Dispose();
         }
 
-        _baseModel = model;
-        SetupModel(model, ItemModelType.Base);
+        _baseModel = poolable;
+        SetupModel(poolable.gameObject, ItemModelType.Base);
+        
+        _originalModel.SetActive(false);
     }
 
-    public void AddToppingModel(GameObject model) {
-        _toppingModels.Push(model);
-        SetupModel(model, ItemModelType.Topping);
+    public void ReturnOriginalModel() {
+        if (_baseModel != null) {
+            _baseModel.Dispose();
+        }
+
+        _baseModel = null;
+        _originalModel.SetActive(true);
+    }
+
+    public void AddToppingModel(Poolable model) {
+        _toppings.Push(model);
+        SetupModel(model.gameObject, ItemModelType.Topping);
     }
 
     void SetupModel(GameObject model, ItemModelType type) {
@@ -67,7 +75,7 @@ public class Food : MonoBehaviour, IPoolable<Food>, IInfoProvider {
 
     # region Data 
     
-    public void SetData<T>(T data) {
+    public void SetData<T>(T data) where T : struct {
         _data[typeof(T)] = data;
     }
     
@@ -76,20 +84,19 @@ public class Food : MonoBehaviour, IPoolable<Food>, IInfoProvider {
     }
 
     public object EnforceData(Type type) {
-        var found = RequireData(type, out var value);
-        if (found) {
-            return (ValueType) value;
-        }
-
-        var obj = FormatterServices.GetUninitializedObject(type);
-        SetData(type, obj);
-        return obj;
+        var dataExists = RequireData(type, out var value);
+        if (dataExists) return value;
+        
+        var newData = FormatterServices.GetUninitializedObject(type);
+        SetData(type, newData);
+        
+        return newData;
     }
 
     public bool RequireData<T>(out T data) {
-        var found = RequireData(typeof(T), out var value);
+        var dataExists = RequireData(typeof(T), out var value);
         data = (T) value;
-        return found;
+        return dataExists;
     }
     
     public bool RequireData(Type type, out object data) {
@@ -109,11 +116,10 @@ public class Food : MonoBehaviour, IPoolable<Food>, IInfoProvider {
     }
     
     public void Dispose() {
-        SellPriceModifier = new Modifier(multiplicative: 1f);
+        SellPrice = _baseSellPrice;
         Reset();
         
         OnDisposed?.Invoke(this);
-        Destroy(gameObject);
     }
 }
 

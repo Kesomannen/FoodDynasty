@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using UnityEngine;
 
 public class FoodModifier : FoodMachineComponent, IInfoProvider {
+    [Space]
     [Expandable]
     [SerializeField] FoodModifierGroup _modifierGroup;
     [SerializeField] Optional<Event<Food>> _onItemModified;

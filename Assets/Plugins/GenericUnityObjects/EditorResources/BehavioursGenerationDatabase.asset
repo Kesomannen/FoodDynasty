@@ -27,6 +27,8 @@ MonoBehaviour:
     _guid: 9cf6bd0ed95b4144bd1677025f9bd11d
   - _typeNameAndAssembly: System.Int32, mscorlib
     _guid: 
+  - _typeNameAndAssembly: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+    _guid: 
   _genericArgumentValues:
   - _array:
     - _arguments:
@@ -77,6 +79,11 @@ MonoBehaviour:
       - _typeNameAndAssembly: Entity, Assembly-CSharp
         _guid: 7a3409246c914e6d8646fa636551bde6
       _assemblyGUID: c580e9618eb03cb46b983baf8e5ad14c
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+        _guid: 
+      _assemblyGUID: f5beab81658e82d4d86bea6ec2a5d6f1
   _genericTypeValues:
   - _array:
     - _typeNameAndAssembly: Container`1, Assembly-CSharp
@@ -101,14 +108,14 @@ MonoBehaviour:
       _componentName: 
       _order: 0
   - _array:
-    - _typeNameAndAssembly: Event`1, Assembly-CSharp
+    - _typeNameAndAssembly: Event`1, Dynasty.Util
       _guid: 20b6ca5797584b78b97df411ce90faae
       AssemblyGUID: 291ecd27c4ea412408fd3378455be894
       _argNames:
       - T
       _componentName: 
       _order: 0
-    - _typeNameAndAssembly: Event`1, Assembly-CSharp
+    - _typeNameAndAssembly: Event`1, Dynasty.Util
       _guid: 20b6ca5797584b78b97df411ce90faae
       AssemblyGUID: 291ecd27c4ea412408fd3378455be894
       _argNames:
@@ -116,7 +123,7 @@ MonoBehaviour:
       _componentName: 
       _order: 0
   - _array:
-    - _typeNameAndAssembly: MouseEventTrigger`1, Assembly-CSharp
+    - _typeNameAndAssembly: MouseEventTrigger`1, Dynasty.Util
       _guid: 318420d1009c4ad9825b98ca678d0cbd
       AssemblyGUID: 248815a51e52be74894e19030dd5d815
       _argNames:
@@ -162,22 +169,30 @@ MonoBehaviour:
       _componentName: 
       _order: 0
   - _array:
-    - _typeNameAndAssembly: Event`1, Assembly-CSharp
+    - _typeNameAndAssembly: Event`1, Dynasty.Util
       _guid: 20b6ca5797584b78b97df411ce90faae
       AssemblyGUID: 291ecd27c4ea412408fd3378455be894
       _argNames:
       - T
       _componentName: 
       _order: 0
+  - _array:
+    - _typeNameAndAssembly: PoolableComponent`1, Assembly-CSharp
+      _guid: 4d9634bd5ef144cfbaed6047c0f6b938
+      AssemblyGUID: 72dc4ca6377cb8343b4ebe569b658b49
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
   _genericTypeKeys:
-  - _typeNameAndAssembly: Event`1, Assembly-CSharp
+  - _typeNameAndAssembly: Event`1, Dynasty.Util
     _guid: 20b6ca5797584b78b97df411ce90faae
     AssemblyGUID: 291ecd27c4ea412408fd3378455be894
     _argNames:
     - T
     _componentName: 
     _order: 0
-  - _typeNameAndAssembly: MouseEventTrigger`1, Assembly-CSharp
+  - _typeNameAndAssembly: MouseEventTrigger`1, Dynasty.Util
     _guid: 318420d1009c4ad9825b98ca678d0cbd
     AssemblyGUID: 248815a51e52be74894e19030dd5d815
     _argNames:
@@ -201,6 +216,13 @@ MonoBehaviour:
   - _typeNameAndAssembly: EntityText`1, Assembly-CSharp
     _guid: 73880ec52a824ed28c77b9c835c8ab07
     AssemblyGUID: 70a2e529e20fe614cad19ded6b1e4379
+    _argNames:
+    - T
+    _componentName: 
+    _order: 0
+  - _typeNameAndAssembly: PoolableComponent`1, Assembly-CSharp
+    _guid: 4d9634bd5ef144cfbaed6047c0f6b938
+    AssemblyGUID: 72dc4ca6377cb8343b4ebe569b658b49
     _argNames:
     - T
     _componentName: 

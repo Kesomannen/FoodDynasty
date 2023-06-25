@@ -10,10 +10,9 @@ public class CameraController : MonoBehaviour {
     [SerializeField] float _smoothTime;
 
     [Header("Input")] 
-    [SerializeField] string _moveActionName = "Camera/Move";
-    [SerializeField] string _zoomActionName = "Camera/Zoom";
-    [SerializeField] InputActionAsset _inputAsset;
-    
+    [SerializeField] InputActionReference _moveAction;
+    [SerializeField] InputActionReference _zoomAction;
+
     [Header("References")]
     [SerializeField] Transform _cameraTransform;
 
@@ -25,26 +24,20 @@ public class CameraController : MonoBehaviour {
     Vector3 _targetZoom;
     Vector3 _zoomVelocity;
 
-    InputAction _moveAction;
-    InputAction _zoomAction;
-
     void Awake() {
         _transform = transform;
         _targetPos = _transform.position;
         _targetZoom = _cameraTransform.localPosition;
-        
-        _moveAction = _inputAsset.FindAction(_moveActionName);
-        _zoomAction = _inputAsset.FindAction(_zoomActionName);
     }
     
     void OnEnable() {
-        _moveAction.Enable();
-        _zoomAction.Enable();
+        _moveAction.action.Enable();
+        _zoomAction.action.Enable();
     }
     
     void OnDisable() {
-        _moveAction.Disable();
-        _zoomAction.Disable();
+        _moveAction.action.Disable();
+        _zoomAction.action.Disable();
     }
 
     void LateUpdate() {
@@ -53,7 +46,7 @@ public class CameraController : MonoBehaviour {
     }
 
     void HandleMovement() {
-        var value = _moveAction.ReadValue<Vector2>();
+        var value = _moveAction.action.ReadValue<Vector2>();
         var direction = _transform.forward * value.y + _transform.right * value.x;
         _targetPos += direction * _moveSpeed * Time.deltaTime;
 
@@ -62,7 +55,7 @@ public class CameraController : MonoBehaviour {
     }
     
     void HandleZoom() {
-        var value = Mathf.Clamp(_zoomAction.ReadValue<float>(), -1, 1);
+        var value = Mathf.Clamp(_zoomAction.action.ReadValue<float>(), -1, 1);
         _targetZoom += value * _zoomDirection * _zoomSpeed * Time.deltaTime;
         
         ClampZoom();

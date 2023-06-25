@@ -52,7 +52,13 @@ public class ItemDataModifierDrawer : PropertyDrawer {
         
         rect.y += EditorGUIUtility.singleLineHeight;
         var selectedFieldIndex = Array.FindIndex(fields, info => info.Name == dataModifier.FieldName);
-        selectedFieldIndex = EditorGUI.Popup(rect, "Field", selectedFieldIndex, fields.Select(info => info.Name).ToArray());
+        selectedFieldIndex = EditorGUI.Popup(
+            rect,
+            "Field", 
+            selectedFieldIndex, 
+            fields.Select(field => StringHelpers.FormatCamelCase(field.Name)).ToArray()
+        );
+        
         var selectedField = fields[selectedFieldIndex];
         dataModifier.FieldName = selectedField.Name;
 

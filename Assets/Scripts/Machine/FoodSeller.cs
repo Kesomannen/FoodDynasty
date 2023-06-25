@@ -7,7 +7,7 @@ public class FoodSeller : FoodMachineComponent, IInfoProvider {
     [SerializeField] Modifier _sellPriceModifier;
 
     protected override void OnTriggered(Food food) {
-        var sellPrice = (food.SellPriceModifier + _sellPriceModifier).Apply(food.BaseSellPrice);
+        var sellPrice = (food.SellPrice + _sellPriceModifier).Delta;
         _moneyManager.CurrentMoney += sellPrice;
         food.Dispose();
     }

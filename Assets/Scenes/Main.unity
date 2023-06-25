@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 89925245}
   - component: {fileID: 89925244}
   - component: {fileID: 89925247}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +494,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 92c67e9cf6e1f7549ade844dae795724, type: 2}
   - {fileID: 11400000, guid: 339e43932decdda4fb48cb08d20ebe94, type: 2}
   - {fileID: 11400000, guid: 4753e6309b11ae346b9b317c646d5954, type: 2}
-  - {fileID: 11400000, guid: ffdd675423a0b824788fbcaea6fccb3d, type: 2}
   _moneyManager: {fileID: 11400000, guid: 3aa791b48a062404caa64519d76af16b, type: 2}
   _descendingOrder: 0
   _sortingMode: 1
@@ -664,7 +663,7 @@ MonoBehaviour:
   m_Script: {fileID: -1887117046, guid: eff3e6e99893af6498083035df40fbf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delay: 0
+  _delay: 0.1
   _mouseOffset: {x: 0, y: 0}
   _tooltip: {fileID: 947180881}
   _showTooltipEvent: {fileID: 11400000, guid: 3c40716c663d502468871a23d4e10ca8, type: 2}
@@ -684,7 +683,7 @@ MonoBehaviour:
   m_Script: {fileID: 1004906587, guid: 61632d180d5648c45863bd037625c8c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delay: 0
+  _delay: 0.1
   _mouseOffset: {x: 0, y: -20}
   _tooltip: {fileID: 1283657307}
   _showTooltipEvent: {fileID: 11400000, guid: f99aea3fbdd0dbd44aaa55df123a5c39, type: 2}
@@ -1101,6 +1100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _costText: {fileID: 1672981518}
   _costFormat: Buy ({0})
+  _buyButton: {fileID: 1680361746}
   _container: {fileID: 362656865}
   _numberInput: {fileID: 4875230475896975568}
   _modifyMode: 1
@@ -1443,7 +1443,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1472420160
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -1531,7 +1531,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: 0}
+  m_AnchoredPosition: {x: -20, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!1 &476086959
@@ -1579,14 +1579,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 537b25438cb4d1d419577b4a2d6624a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _zoomRange: {x: 9, y: 60}
+  _zoomRange: {x: 8, y: 80}
   _zoomDirection: {x: 0, y: -1, z: 1}
-  _zoomSpeed: 400
+  _zoomSpeed: 600
   _moveSpeed: 10
   _smoothTime: 0.15
-  _moveActionName: Camera/Move
-  _zoomActionName: Camera/Zoom
-  _inputAsset: {fileID: -944628639613478452, guid: 7e0d5536cef42c44cbc3e5bcfb46a4e6,
+  _moveAction: {fileID: -7614399405532164862, guid: 7e0d5536cef42c44cbc3e5bcfb46a4e6,
+    type: 3}
+  _zoomAction: {fileID: 1341359257424853280, guid: 7e0d5536cef42c44cbc3e5bcfb46a4e6,
     type: 3}
   _cameraTransform: {fileID: 330585546}
 --- !u!1 &492563919
@@ -1858,7 +1858,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 87935494
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -2377,8 +2377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemParent: {fileID: 2135249106}
-  _itemPrefab: {fileID: 5881646165528987826, guid: 287cf1148ca88ef478bb15cc917bcd1a,
-    type: 3}
+  _itemPool: {fileID: 11400000, guid: b3f8cab489fdf734d9b78b6949262efc, type: 2}
   _onItemClicked: {fileID: 11400000, guid: 320cb335ee317a14d8dbd983b7ec15ac, type: 2}
   _inventoryAsset: {fileID: 11400000, guid: f5db9577760bc2e4abe3ba3d47891898, type: 2}
   _descendingOrder: 1
@@ -2726,7 +2725,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1544996001
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -2908,7 +2907,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930338812}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2920,7 +2919,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 530, y: 0}
-  m_SizeDelta: {x: 530, y: -19.999992}
+  m_SizeDelta: {x: 530, y: -40}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &930338815
 CanvasRenderer:
@@ -3420,7 +3419,7 @@ GameObject:
   - component: {fileID: 1128788155}
   - component: {fileID: 1128788154}
   m_Layer: 0
-  m_Name: Mono Scriptable Initiator
+  m_Name: Mono Scriptable Runner
   m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4097,8 +4096,8 @@ MonoBehaviour:
   _animationDuration: 1.5
   _animationMovement: {x: 0, y: 100}
   _animationEaseType: 14
-  _textPrefab: {fileID: 1921767216343291023, guid: bc074b83d922fca41b02fc8fe81b02fb,
-    type: 3}
+  _startColor: {r: 0, g: 0, b: 0, a: 0}
+  _textPool: {fileID: 11400000, guid: 03bf8a76907d7b844918a669f64ed8a3, type: 2}
   _moneyChangedEvent: {fileID: 11400000, guid: 0b407c9ea5d900d429c8a849fa2b65bc, type: 2}
 --- !u!1 &1335412120
 GameObject:
@@ -4511,22 +4510,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 362656866}
-        m_TargetAssemblyTypeName: InventoryItemDataBuyControl, Assembly-CSharp
-        m_MethodName: Buy
+      - m_Target: {fileID: 362656868}
+        m_TargetAssemblyTypeName: DraggableWindow, Assembly-CSharp
+        m_MethodName: Toggle
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 362656860}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5088,7 +5075,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 87935494
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -5284,7 +5271,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1544996001
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -5377,7 +5364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 10, y: 10}
+  m_AnchoredPosition: {x: 20, y: 20}
   m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1992276122

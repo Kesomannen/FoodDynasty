@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class InventoryController : MonoBehaviour {
     [Header("Inventory")] 
     [SerializeField] Transform _itemParent;
-    [SerializeField] Container<InventoryItem> _itemPrefab;
+    [SerializeField] ContainerObjectPool<InventoryItem> _itemPool;
     [SerializeField] GameEvent<InventoryItem> _onItemClicked;
     [SerializeField] InventoryAsset _inventoryAsset;
     [Space]
@@ -35,7 +35,7 @@ public class InventoryController : MonoBehaviour {
     void CreateOrUpdateContainer(InventoryItem item) {
         var created = false;
         if (!_itemContainers.TryGetValue(item.Data, out var itemContainer)) {
-            itemContainer = Instantiate(_itemPrefab, _itemParent);
+            itemContainer = _itemPool.Get(item, _itemParent);
 
             var interactable = itemContainer.GetOrAddComponent<Interactable>();
             interactable.OnClicked += OnItemClicked;
@@ -62,7 +62,7 @@ public class InventoryController : MonoBehaviour {
         }   
         
         _itemContainers.Remove(item.Data);
-        Destroy(itemContainer.gameObject);
+        itemContainer.Dispose();
     }
     
     void RefreshContainers() {

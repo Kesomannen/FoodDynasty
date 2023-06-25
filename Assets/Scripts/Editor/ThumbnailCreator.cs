@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
 public static class ThumbnailCreator {
-    static readonly Vector2Int _size = new(512, 512);
+    static readonly Vector2Int _imageSize = new(512, 512);
     static readonly Vector3 _position = new(0, 50, 0);
 
-    const string AssetPath = "Sprites/Thumbnails";
+    const string ImagePath = "Sprites/Thumbnails";
     const float CameraSize = 1.5f;
     const int Depth = 24;
 
@@ -25,20 +25,21 @@ public static class ThumbnailCreator {
 
         var camera = SetupCamera();
 
-        var renderTexture = new RenderTexture(_size.x, _size.y, Depth);
-        var rect = new Rect(0, 0, _size.x, _size.y);
-        var texture = new Texture2D(_size.x, _size.y, TextureFormat.RGBA32, false);
+        var renderTexture = new RenderTexture(_imageSize.x, _imageSize.y, Depth);
+        var rect = new Rect(0, 0, _imageSize.x, _imageSize.y);
+        var texture = new Texture2D(_imageSize.x, _imageSize.y, TextureFormat.RGBA32, false);
 
         camera.targetTexture = renderTexture;
         camera.Render();
 
-        var currentRenderTexture = RenderTexture.active;
+        var oldRenderTexture = RenderTexture.active;
+        
         RenderTexture.active = renderTexture;
         texture.ReadPixels(rect, 0, 0);
         texture.Apply();
         
         camera.targetTexture = null;
-        RenderTexture.active = currentRenderTexture;
+        RenderTexture.active = oldRenderTexture;
         
         Object.DestroyImmediate(renderTexture);
         Object.DestroyImmediate(camera.gameObject);
@@ -48,7 +49,7 @@ public static class ThumbnailCreator {
     }
 
     static Camera SetupCamera() {
-        var aspect = _size.x / (float)_size.y;
+        var aspect = _imageSize.x / (float)_imageSize.y;
         var cameraObject = new GameObject {
             transform = {
                 position = _position + new Vector3(-7.5f, 11f, -7.5f),
@@ -67,7 +68,7 @@ public static class ThumbnailCreator {
     }
 
     static Sprite SaveAsset(string name, Texture2D texture) {
-        var projectPath = Path.Combine(AssetPath, $"{name}.png");
+        var projectPath = Path.Combine(ImagePath, $"{name}.png");
         var absolutePath = Path.Combine(Application.dataPath, projectPath);
         projectPath = Path.Combine("Assets", projectPath);
 

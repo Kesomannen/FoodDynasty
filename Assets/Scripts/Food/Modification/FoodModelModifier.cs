@@ -1,19 +1,19 @@
 ﻿using System;
+using NaughtyAttributes;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
 [Serializable]
 public struct FoodModelModifier {
-    [SerializeField] GameObject _modelPrefab;
+    [SerializeField] CustomObjectPool<Poolable> _pool;
     [SerializeField] ItemModelType _type;
 
     public void Apply(Food food) {
-        var model = Object.Instantiate(_modelPrefab);
         switch (_type) {
             case ItemModelType.Base:
-                food.SetBaseModel(model); break;
+                food.SetBaseModel(_pool.Get()); break;
             case ItemModelType.Topping:
-                food.AddToppingModel(model); break;
+                food.AddToppingModel(_pool.Get()); break;
             default: throw new ArgumentOutOfRangeException();
         }
     }

@@ -4,10 +4,13 @@ using UnityEngine;
 #pragma warning disable 0067
 
 public class SupplyBase : MonoBehaviour {
-    public virtual int MaxSupply { get; set; }
     public virtual int CurrentSupply { get; set; }
+
+    public virtual bool IsRefillable => false;
+    public virtual InventoryItemData RefillItem => null;
+    public string RefillItemName => IsRefillable ? RefillItem.Name : ItemNameOverride;
     
-    public virtual IOptional<InventoryItemData> RefillItem { get; }
+    protected virtual string ItemNameOverride => "Unknown item";
 
     public virtual event Action<SupplyBase> OnChanged;
 }

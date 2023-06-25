@@ -6,7 +6,6 @@ public class SupplyName : UIComponent<SupplyBase> {
     [SerializeField] string _format = "{0} supply";
     
     public override void SetContent(SupplyBase content) {
-        if (!content.RefillItem.Enabled) return;
-        _text.text = string.Format(_format, content.RefillItem.Value.Name);
+        _text.text = string.Format(_format, content.RefillItemName);
     }
 }

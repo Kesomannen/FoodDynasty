@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: BehavioursDatabase
   m_EditorClassIdentifier: 
   _keys:
-  - _typeNameAndAssembly: Event`1, Assembly-CSharp
-  - _typeNameAndAssembly: MouseEventTrigger`1, Assembly-CSharp
+  - _typeNameAndAssembly: Event`1, Dynasty.Util
+  - _typeNameAndAssembly: MouseEventTrigger`1, Dynasty.Util
   - _typeNameAndAssembly: Container`1, Assembly-CSharp
   - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
   - _typeNameAndAssembly: EntityText`1, Assembly-CSharp
+  - _typeNameAndAssembly: PoolableComponent`1, Assembly-CSharp
   _values:
   - _keys:
     - _collection:
@@ -73,3 +74,9 @@ MonoBehaviour:
         z_EntityText_InventoryItemData
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_c580e9618eb03cb46b983baf8e5ad14c,
         z_EntityText_Entity
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_f5beab81658e82d4d86bea6ec2a5d6f1,
+        z_PoolableComponent_TextMeshProUGUI

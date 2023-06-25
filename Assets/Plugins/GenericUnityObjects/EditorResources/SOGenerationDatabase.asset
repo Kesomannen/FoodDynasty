@@ -83,40 +83,48 @@ MonoBehaviour:
         _guid: 9cf6bd0ed95b4144bd1677025f9bd11d
       _assemblyGUID: 463d71d3765c8cc4687d32c15f86b481
   - _array: []
-  - _array: []
-  - _array: []
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
+        _guid: 0a63975efa0847789c7eac2ab049fc86
+      _assemblyGUID: 99adfb061d5aceb4bbe3cff07055a538
   _genericTypeValues:
   - _array:
-    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+    - _typeNameAndAssembly: GameEvent`1, Dynasty.Util
+      _guid: 6e0691897fdd4e5894148f79dce13dbc
+      AssemblyGUID: 
+      _argNames:
+      - T
+    - _typeNameAndAssembly: ContainerObjectPool`1, Assembly-CSharp
+      _guid: fa25376fa5ab4d03a6ff488669baf3fa
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: GameEvent`1, Dynasty.Util
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+    - _typeNameAndAssembly: GameEvent`1, Dynasty.Util
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T
-  - _array:
-    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
-      _guid: 6e0691897fdd4e5894148f79dce13dbc
-      AssemblyGUID: 
-      _argNames:
-      - T
-    - _typeNameAndAssembly: ValueChangedEvent`1, Assembly-CSharp
+    - _typeNameAndAssembly: ValueChangedEvent`1, Dynasty.Util
       _guid: 6af65c8fdd914df9b18e469b07b76b43
       AssemblyGUID: 
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+    - _typeNameAndAssembly: GameEvent`1, Dynasty.Util
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+    - _typeNameAndAssembly: GameEvent`1, Dynasty.Util
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
@@ -134,7 +142,7 @@ MonoBehaviour:
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+    - _typeNameAndAssembly: GameEvent`1, Dynasty.Util
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
@@ -201,7 +209,7 @@ MonoBehaviour:
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: GameEvent`1, Assembly-CSharp
+  - _typeNameAndAssembly: GameEvent`1, Dynasty.Util
     _guid: 6e0691897fdd4e5894148f79dce13dbc
     AssemblyGUID: 
     _argNames:
@@ -211,18 +219,13 @@ MonoBehaviour:
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: ValueChangedEvent`1, Assembly-CSharp
+  - _typeNameAndAssembly: ValueChangedEvent`1, Dynasty.Util
     _guid: 6af65c8fdd914df9b18e469b07b76b43
     AssemblyGUID: 
     _argNames:
     - T
   - _typeNameAndAssembly: ContainerGridObjectControl`1, Assembly-CSharp
     _guid: 379477018aa741039e247c214d6d81f7
-    AssemblyGUID: 
-    _argNames:
-    - T
-  - _typeNameAndAssembly: CustomObjectPool`1, Assembly-CSharp
-    _guid: ff0e0556e21a421b8b1d5c8012297458
     AssemblyGUID: 
     _argNames:
     - T

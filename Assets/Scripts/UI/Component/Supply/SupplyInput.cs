@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SupplyInput : UIComponent<SupplyBase> {
     [SerializeField] NumberInputController _input;
@@ -9,8 +8,12 @@ public class SupplyInput : UIComponent<SupplyBase> {
     SupplyBase _content;
 
     public override void SetContent(SupplyBase content) {
+        if (!content.IsRefillable) {
+            Debug.LogWarning("SupplyBase for SupplyInput is not refillable.", content);
+        }
+        
         _content = content;
-        _input.Initialize(mode: _modifyMode, maxValue: () => _inventory.GetCount(content.RefillItem.Value));
+        _input.Initialize(mode: _modifyMode, maxValue: () => _inventory.GetCount(content.RefillItem));
     }
     
     public void AddCurrent() {
@@ -22,28 +25,23 @@ public class SupplyInput : UIComponent<SupplyBase> {
     }
 
     void Add(float value) {
-        if (_content == null || !_content.RefillItem.Enabled) return;
-
         var intValue = (int) value;
         if (intValue == 0) return; 
-        if (!_inventory.Remove(_content.RefillItem.Value, intValue)) return;
+        if (!_inventory.Remove(_content.RefillItem, intValue)) return;
         
         _content.CurrentSupply += intValue;
     }
     
     void Subtract(float value) {
-        if (_content == null || !_content.RefillItem.Enabled) return;
-        
         var intValue = (int) value;
         if (intValue == 0) return;
         if (intValue > _content.CurrentSupply) intValue = _content.CurrentSupply;
         
         _content.CurrentSupply -= intValue;
-        _inventory.Add(_content.RefillItem.Value, intValue);
+        _inventory.Add(_content.RefillItem, intValue);
     }
 
     public void Empty() {
-        if (_content == null || !_content.RefillItem.Enabled) return;
         Subtract(_content.CurrentSupply);
     }
 }
