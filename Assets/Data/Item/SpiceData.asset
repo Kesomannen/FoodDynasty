@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SpiceData
   m_EditorClassIdentifier: 
   _name: Spice
-  _flavorText: Used in a spice adder to add value to bread
+  _description: Used in a spice adder to increase value of bread.
   _image: {fileID: 0}
   _tier: 0
   _price: 5

@@ -10,20 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f89bbf86b2b54ed8b11937d3937c0e7f, type: 3}
-  m_Name: BreadOvenModifier
+  m_Name: AddSpiceAfterModifier
   m_EditorClassIdentifier: 
   _sellPriceModifier:
     Base: 0
     Percentual: 0
     Additive: 0
-    Multiplicative: 10
-  _modelModifiers:
-  - _pool: {fileID: 11400000, guid: 1b9b1da70747ada4389da8c0f4fd936d, type: 2}
-    _type: 0
+    Multiplicative: 2
+  _modelModifiers: []
   _dataModifiers:
   - OperationType: 0
-    DataType: 0
-    FieldName: Cooked
+    DataType: 1
+    FieldName: AddedAfterCooking
     Modifier:
       Base: 0
       Percentual: 0

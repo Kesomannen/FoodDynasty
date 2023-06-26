@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f89bbf86b2b54ed8b11937d3937c0e7f, type: 3}
-  m_Name: AddSpiceAfterCook
+  m_Name: SoftenBreadModifier
   m_EditorClassIdentifier: 
   _sellPriceModifier:
     Base: 0
     Percentual: 0
     Additive: 0
-    Multiplicative: 1.5
+    Multiplicative: 1.1
   _modelModifiers: []
   _dataModifiers:
-  - OperationType: 0
-    DataType: 1
-    FieldName: AddedAfterCooking
+  - OperationType: 1
+    DataType: 2
+    FieldName: Amount
     Modifier:
       Base: 0
       Percentual: 0
-      Additive: 0
-      Multiplicative: 0
+      Additive: 1
+      Multiplicative: 1
     IntValue: 0
     FloatValue: 0
     BoolValue: 1

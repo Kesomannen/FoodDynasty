@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: RustyRotatingConveyorData
   m_EditorClassIdentifier: 
   _name: Rotating Rusty Conveyor
-  _description: Moves and rotates things!
+  _description: Just like a normal conveyor, but with a twist.
   _image: {fileID: 21300000, guid: 0fab2c075d11e7f4eac1cdeb20cbd8dc, type: 3}
   _tier: 0
-  _price: 50
+  _price: 150
   _type: 3
   _prefab: {fileID: 7181724732692113356, guid: 987081d6aae96824f9bb4e60735c4ad7, type: 3}
   _enabledProviders: 010100

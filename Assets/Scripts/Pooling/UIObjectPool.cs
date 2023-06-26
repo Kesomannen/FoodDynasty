@@ -19,7 +19,10 @@ public class UIObjectPool<T> : CustomObjectPool<T> where T : Component, IPoolabl
     
     public T Get(Transform parent) {
         var obj = Get();
-        obj.transform.SetParent(parent);
+        var objTransform = obj.transform;
+        
+        objTransform.SetParent(parent);
+        objTransform.localScale = Vector3.one;
         return obj;
     }
 

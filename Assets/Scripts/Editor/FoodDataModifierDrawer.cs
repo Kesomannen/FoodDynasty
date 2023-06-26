@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomPropertyDrawer(typeof(FoodDataModifier))]
-public class ItemDataModifierDrawer : PropertyDrawer {
+public class FoodDataModifierDrawer : PropertyDrawer {
     static readonly Type[] _allowedModiferTypes = { typeof(int), typeof(float) };
     
     bool _foldout = true;
@@ -18,12 +18,17 @@ public class ItemDataModifierDrawer : PropertyDrawer {
         var lines = 4;
         
         var type = FoodDataUtil.GetDataType(dataModifier.DataType);
-        if (!ReflectionHelpers.TryGetField(type, dataModifier.FieldName, out var field)) {
-            return EditorGUIUtility.singleLineHeight * lines;
+        if (!ReflectionHelpers.TryGetField(type, dataModifier.FieldName, out var field) ||
+            !_allowedModiferTypes.Contains(field.FieldType)) 
+        {
+            return EditorGUIUtility.singleLineHeight * lines;   
         }
-        
-        if (_allowedModiferTypes.Contains(field.FieldType)) {
+
+        if (dataModifier.OperationType == FoodModifierOperation.Set) {
             lines++;
+        } else {
+            var modifierPropertyHeight = EditorGUI.GetPropertyHeight(property.Find(nameof(FoodDataModifier.Modifier)));
+            return EditorGUIUtility.singleLineHeight * lines + modifierPropertyHeight;
         }
 
         return EditorGUIUtility.singleLineHeight * lines;
@@ -73,7 +78,8 @@ public class ItemDataModifierDrawer : PropertyDrawer {
         switch (dataModifier.OperationType) {
             case FoodModifierOperation.Modify: {
                 var modifierProperty = property.Find(nameof(FoodDataModifier.Modifier));
-                EditorGUI.PropertyField(rect, modifierProperty);
+                rect.height = EditorGUI.GetPropertyHeight(modifierProperty);
+                EditorGUI.PropertyField(rect, modifierProperty, true);
                 break;
             }
             case FoodModifierOperation.Set: {

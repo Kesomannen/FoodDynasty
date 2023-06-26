@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9becf11d67124afc8a2b2dccc5c68e48, type: 3}
-  m_Name: NuclearBreadOvenData
+  m_Name: BreadSoftenerData
   m_EditorClassIdentifier: 
-  _name: Nuclear Bread Oven
-  _description: Cooks dough into bread, multiplying its value by 100
-  _image: {fileID: 21300000, guid: a78c3f30a005b1c448d3d3ae24f4984e, type: 3}
-  _tier: 1
-  _price: 300
-  _type: 5
-  _prefab: {fileID: 1491119583155798305, guid: 4ea1f3526f08b7940a5ac9924cb1cb60, type: 3}
+  _name: Bread Softener
+  _description: Softens the fibers in bread using laser technology. Can be applied
+    up to 10 times.
+  _image: {fileID: 21300000, guid: 8bfc8df31e311314889152320b69f8eb, type: 3}
+  _tier: 0
+  _price: 750
+  _type: 7
+  _prefab: {fileID: 2132514873923097243, guid: f0ab73c4e9cc7604388d93778a6988d4, type: 3}
   _enabledProviders: 010001

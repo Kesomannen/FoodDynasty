@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: DoughData
   m_EditorClassIdentifier: 
   _name: Dough
-  _flavorText: Has to be cooked into bread to make a profit
+  _description: Deposit into a dough dispenser to start making loaves of bread. Must
+    be baked to make a profit.
   _image: {fileID: 21300000, guid: 335c2a754552472468c0702a8d8d31f4, type: 3}
   _tier: 0
   _price: 5

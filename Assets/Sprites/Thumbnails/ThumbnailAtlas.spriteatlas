@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: ThumbnailAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 7fdf3a4453876fd49b1b7b25d93e57ae, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: a78c3f30a005b1c448d3d3ae24f4984e, type: 3}
+  - {fileID: 21300000, guid: 8bfc8df31e311314889152320b69f8eb, type: 3}
+  - {fileID: 21300000, guid: 335c2a754552472468c0702a8d8d31f4, type: 3}
+  - {fileID: 21300000, guid: 0fab2c075d11e7f4eac1cdeb20cbd8dc, type: 3}
+  - {fileID: 21300000, guid: 66ad3a99fa33c6545b461f84aaa05d0a, type: 3}
+  - {fileID: 21300000, guid: 07d3961c82939e145836b8a3d6c0b566, type: 3}
+  - {fileID: 21300000, guid: 148b327cc091ed74bb6fdc145f0dc1af, type: 3}
+  - {fileID: 21300000, guid: 335a954d87f203348b340c3324266c8b, type: 3}
+  - {fileID: 21300000, guid: e554505e35083e64d9014453e457f4f9, type: 3}
+  - {fileID: 21300000, guid: 5e659f2f62ca6a74499c9e0313e8d686, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Nuclear Bread Oven
+  - Bread Softener
+  - Dough
+  - Rotating Rusty Conveyor
+  - Bread Oven
+  - Rusty Sell Crate
+  - Rusty Conveyor
+  - Dough Dispenser
+  - Whole Wheat Injector
+  - Spice Adder
+  m_RenderDataMap: {}
+  m_Tag: ThumbnailAtlas
+  m_IsVariant: 0

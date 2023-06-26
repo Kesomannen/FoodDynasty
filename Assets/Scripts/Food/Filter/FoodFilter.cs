@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class FoodFilter : IFilter<Food> {
     public ItemFilterType FilterType;
     public FoodDataType DataType;
-    [Tooltip("If false, will create a new instance of the data type if it doesn't exist on the item.")]
+    [Tooltip("If false, will create a new instance of the data type if it doesn't exist on the item. Otherwise, false is returned.")]
     public bool RequireData;
     
     public List<FoodFieldFilter> FieldFilters;
@@ -29,9 +29,9 @@ public class FoodFilter : IFilter<Food> {
         
         if (enabledFieldFilters.Length == 0) return true;
         return enabledFieldFilters.All(fieldFilter => {
-                var fieldValue = ReflectionHelpers.GetFieldValue(type, fieldFilter.FieldName, data);
-                return fieldFilter.Check(fieldValue);
-            });
+            var fieldValue = ReflectionHelpers.GetFieldValue(type, fieldFilter.FieldName, data);
+            return fieldFilter.Check(fieldValue);
+        });
     }
 
     public bool Check(Food food) {

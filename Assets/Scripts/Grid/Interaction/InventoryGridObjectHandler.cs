@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class InventoryGridObjectBuilder : MonoBehaviour {
+public class InventoryGridObjectHandler : MonoBehaviour {
     [SerializeField] GridObjectBuilder _builder;
     [SerializeField] InventoryAsset _inventory;
     [Space]
@@ -19,14 +19,15 @@ public class InventoryGridObjectBuilder : MonoBehaviour {
 
     void OnGridObjectDeleted(GridObject gridObject) {
         if (!gridObject.TryGetComponent(out IDataProvider<InventoryItemData> itemDataProvider)) return;
+        foreach (var handler in gridObject.GetComponentsInChildren<IOnDeletedHandler>()) {
+            handler.OnDeleted(_inventory);
+        }
         _inventory.Add(itemDataProvider.Data);
     }
 
     async void OnItemUsed(InventoryItem item) {
         if (item.Inventory != _inventory) return;
-        
-        _builder.Cancel();
-        
+
         if (item.Data is not IPrefabProvider<GridObject> prefabProvider) return;
         await _builder.StartPlacing(prefabProvider.Prefab, BeforePlace, AfterPlace);
 

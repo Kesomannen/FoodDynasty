@@ -11,9 +11,10 @@ public class Food : MonoBehaviour, IPoolable<Food>, IInfoProvider {
     [SerializeField] FoodDataType[] _startingData;
     
     public Modifier SellPrice { get; set; }
+    bool _initialized;
     
     public double GetSellPrice() {
-        return SellPrice.Apply(_baseSellPrice.Delta);
+        return _initialized ? SellPrice.Delta : _baseSellPrice.Delta;
     }
 
     readonly Dictionary<Type, object> _data = new();
@@ -26,10 +27,14 @@ public class Food : MonoBehaviour, IPoolable<Food>, IInfoProvider {
 
     void Awake() {
         _rigidbody = GetComponent<Rigidbody>();
-        Reset();
+        ResetData();
+        
+        _initialized = true;
     }
 
-    void Reset() {
+    void ResetData() {
+        SellPrice = _baseSellPrice;
+        
         _data.Clear();
         foreach (var dataType in _startingData) {
             EnforceData(FoodDataUtil.GetDataType(dataType));
@@ -41,6 +46,7 @@ public class Food : MonoBehaviour, IPoolable<Food>, IInfoProvider {
         }
         
         _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
     }
 
     public void SetBaseModel(Poolable poolable) {
@@ -116,9 +122,7 @@ public class Food : MonoBehaviour, IPoolable<Food>, IInfoProvider {
     }
     
     public void Dispose() {
-        SellPrice = _baseSellPrice;
-        Reset();
-        
+        ResetData();
         OnDisposed?.Invoke(this);
     }
 }

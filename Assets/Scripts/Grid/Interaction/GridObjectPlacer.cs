@@ -161,7 +161,8 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
     }
     
     Vector2Int GetGridPos(PointerEventData eventData) {
-        return _gridManager.WorldToGrid(GetWorldPos(eventData)) - _currentObject.StaticSize.Bounds / 2;
+        var currentBounds = _currentObject.StaticSize.Rotated(_currentRotation.Steps).Bounds;
+        return _gridManager.WorldToGrid(GetWorldPos(eventData)) - currentBounds / 2;
     }
 
     enum State {

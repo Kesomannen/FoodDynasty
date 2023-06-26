@@ -5,8 +5,8 @@ public class TickManager : MonoBehaviour {
     int _tick;
     
     static TickManager _instance;
-    
-    public static TickManager Instance {
+
+    static TickManager Instance {
         get {
             if (_instance != null) return _instance;
             

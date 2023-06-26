@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: RustyConveyorData
   m_EditorClassIdentifier: 
   _name: Rusty Conveyor
-  _description: Moves things
+  _description: Gets stuff to where it needs to go, although not very well.
   _image: {fileID: 21300000, guid: 148b327cc091ed74bb6fdc145f0dc1af, type: 3}
   _tier: 0
-  _price: 50
+  _price: 15
   _type: 3
   _prefab: {fileID: 7181724732692113356, guid: 9969140ad9624514c859f05f89154bc7, type: 3}
   _enabledProviders: 0101

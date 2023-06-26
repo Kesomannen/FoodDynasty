@@ -22,13 +22,13 @@ MonoBehaviour:
       type: {class: ScaleTweenData, ns: , asm: Assembly-CSharp}
       data:
         _playAutomatically: 1
-        _duration: 0.15
+        _duration: 0.1
         _easeType: 27
         _startScale: 0.9
     - rid: 8853471499228282881
       type: {class: FadeTweenData, ns: , asm: Assembly-CSharp}
       data:
         _playAutomatically: 1
-        _duration: 0.15
-        _easeType: 6
+        _duration: 0.1
+        _easeType: 9
         _mode: 0

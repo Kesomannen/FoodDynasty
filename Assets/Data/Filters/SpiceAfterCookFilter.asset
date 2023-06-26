@@ -16,6 +16,10 @@ MonoBehaviour:
   _defaultValue: 1
   _filters:
   - FilterType: 0
+    DataType: 4
+    RequireData: 1
+    FieldFilters: []
+  - FilterType: 1
     DataType: 1
     RequireData: 0
     FieldFilters:
@@ -28,7 +32,7 @@ MonoBehaviour:
       FieldName: AddedAfterCooking
       FilterType: 1
       IntRange: {x: 0, y: 0}
-      BoolValue: 0
+      BoolValue: 1
   - FilterType: 0
     DataType: 0
     RequireData: 0
