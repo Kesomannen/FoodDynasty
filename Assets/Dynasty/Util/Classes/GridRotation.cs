@@ -19,6 +19,12 @@ public struct GridRotation {
         _value = Clamp(value);
     }
 
+    public GridRotation(Quaternion rotation, Vector3 axis) {
+        var forward = rotation * Vector3.forward;
+        var angle = Mathf.Atan2(Vector3.Cross(forward, axis).magnitude, Vector3.Dot(forward, axis)) * Mathf.Rad2Deg;
+        _value = Mathf.RoundToInt(angle / 90f);
+    }
+
     static int Clamp(int value) {
         if (value < 0) {
             return 4 + value % 4;
@@ -51,5 +57,9 @@ public struct GridRotation {
 
     public static GridRotation operator +(GridRotation rotation, int value) {
         return rotation.Rotated(value);
+    }
+
+    public override string ToString() {
+        return $"{Degrees}°";
     }
 }

@@ -4761,6 +4761,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5076731048625503174, guid: f905a927854bd6e4a89d31ab010e2d81,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4491705385250359134, guid: f905a927854bd6e4a89d31ab010e2d81,
         type: 3}
       propertyPath: m_Name
@@ -4786,8 +4791,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12500003, y: 0.125, z: 1.0000002}
-  m_Center: {x: 0.93750024, y: 0.0625, z: 0.5000001}
+  m_Size: {x: 0.12499997, y: 0.125, z: 0.78135246}
+  m_Center: {x: 0.93750024, y: 0.0625, z: 0.39067623}
 --- !u!1 &606486943820204742 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3425260521673869387, guid: f905a927854bd6e4a89d31ab010e2d81,
@@ -4962,5 +4967,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.125, y: 0.125, z: 1}
-  m_Center: {x: 0.4375, y: 0.0625, z: 0}
+  m_Size: {x: 0.125, y: 0.125, z: 0.7517895}
+  m_Center: {x: 0.4375, y: 0.0625, z: 0.124105245}

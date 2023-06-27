@@ -3,7 +3,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class InventoryItemData : ScriptableObject, IInfoProvider, IEntityData {
+public class ItemData : ScriptableObject, IInfoProvider, IEntityData {
     [Header("Metadata")]
     [SerializeField] string _name;
     [ResizableTextArea]
@@ -21,7 +21,7 @@ public class InventoryItemData : ScriptableObject, IInfoProvider, IEntityData {
     public InventoryItemTier Tier => _tier;
     public double Price => _price;
     
-    public virtual InventoryItemType Type => InventoryItemType.Other;
+    public virtual ItemType Type => ItemType.Other;
 
     public Sprite Image {
         get => _image;
@@ -33,7 +33,7 @@ public class InventoryItemData : ScriptableObject, IInfoProvider, IEntityData {
     }
 }
 
-public enum InventoryItemType {
+public enum ItemType {
     Other,
     BaseIngredient,
     Topping,

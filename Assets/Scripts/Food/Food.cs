@@ -76,7 +76,7 @@ public class Food : MonoBehaviour, IPoolable<Food>, IInfoProvider {
 
     void SetupModel(GameObject model, ItemModelType type) {
         model.transform.SetParent(type == ItemModelType.Base ? transform : _toppingParent);
-        model.transform.localPosition = Vector3.zero;
+        model.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
     }
 
     # region Data 

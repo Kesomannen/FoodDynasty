@@ -7,17 +7,17 @@ using UnityEngine.EventSystems;
 public class ShopController : MonoBehaviour {
     [Header("Shop")]
     [SerializeField] Transform _itemParent;
-    [SerializeField] Container<InventoryItemData> _itemPrefab;
-    [SerializeField] GameEvent<InventoryItem> _onItemPurchased;
+    [SerializeField] Container<ItemData> _itemPrefab;
+    [SerializeField] GameEvent<Item> _onItemPurchased;
     [SerializeField] InventoryItemDataBuyControl _buyControl;
-    [SerializeField] InventoryItemData[] _itemData;
+    [SerializeField] ItemData[] _itemData;
     [SerializeField] MoneyManager _moneyManager;
     [Space]
     [SerializeField] bool _descendingOrder;
     [SerializeField] ItemSortingMode _sortingMode;
-    [SerializeField] TooltipData<InventoryItemData> _tooltipData;
+    [SerializeField] TooltipData<ItemData> _tooltipData;
 
-    readonly List<(Interactable interactable, Container<InventoryItemData> container)> _items = new();
+    readonly List<(Interactable interactable, Container<ItemData> container)> _items = new();
 
     void Awake() {
         foreach (var item in _itemData.Sorted(_sortingMode, _descendingOrder)) {
@@ -50,12 +50,12 @@ public class ShopController : MonoBehaviour {
         }
     }
 
-    void TryBuy(InventoryItemData item, int count) {
+    void TryBuy(ItemData item, int count) {
         var cost = item.Price * count;
         if (_moneyManager.CurrentMoney < cost) return;
 
         _moneyManager.CurrentMoney -= cost;
-        _onItemPurchased.Raise(new InventoryItem { Count = count, Data = item });
+        _onItemPurchased.Raise(new Item { Count = count, Data = item });
     }
     
     void OnMoneyChanged(double previous, double current) {
@@ -83,7 +83,7 @@ public class ShopController : MonoBehaviour {
         _tooltipData.Show(GetData(interactable), hovered);
     }
 
-    InventoryItemData GetData(Interactable interactable) {
+    ItemData GetData(Interactable interactable) {
         return _items.First(item => item.interactable == interactable).container.Content;
     }
 }

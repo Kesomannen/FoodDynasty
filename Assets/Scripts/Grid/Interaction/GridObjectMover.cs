@@ -7,15 +7,15 @@ public class GridObjectMover : MonoBehaviour {
     [SerializeField] GameEvent<GridObject> _deleteEvent;
 
     void OnEnable() {
-        _startMovingEvent.OnRaised += OnGridObjectClicked;
+        _startMovingEvent.OnRaised += OnStartMoving;
     }
     
     void OnDisable() {
-        _startMovingEvent.OnRaised -= OnGridObjectClicked;
+        _startMovingEvent.OnRaised -= OnStartMoving;
     }
 
-    async void OnGridObjectClicked(GridObject obj) {
-        if (_placer.IsPlacing) return;
+    async void OnStartMoving(GridObject obj) {
+        if (_placer.IsPlacing || !obj.CanMove) return;
         
         var oldPosition = obj.GridPosition;
         var oldRotation = obj.Rotation;

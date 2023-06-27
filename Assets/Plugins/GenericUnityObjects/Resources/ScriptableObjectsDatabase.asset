@@ -34,6 +34,7 @@ MonoBehaviour:
   - _typeNameAndAssembly: ContainerGridObjectControl`1, Assembly-CSharp
   - _typeNameAndAssembly: UIObjectPool`1, Assembly-CSharp
   - _typeNameAndAssembly: ContainerObjectPool`1, Assembly-CSharp
+  - _typeNameAndAssembly: Lookup`1, Assembly-CSharp
   _values:
   - _keys: []
     _values: []
@@ -63,8 +64,6 @@ MonoBehaviour:
         z_SerializedDataObject_Single
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
-    - _collection:
       - _typeNameAndAssembly: GridObject, Assembly-CSharp
     - _collection:
       - _typeNameAndAssembly: System.Double, mscorlib
@@ -75,9 +74,9 @@ MonoBehaviour:
       - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
     - _collection:
       - _typeNameAndAssembly: UnityEngine.InputSystem.InputAction, Unity.InputSystem
+    - _collection:
+      - _typeNameAndAssembly: Item, Assembly-CSharp
     _values:
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_1a73e75fa72967847be33fa6415ea2f6,
-        z_GameEvent_InventoryItem
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_8d2a2aae4cca2734a8464fd2bf02837f,
         z_GameEvent_GridObject
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_1d772a20eece4de408fd61b1f482f791,
@@ -88,6 +87,8 @@ MonoBehaviour:
         z_GameEvent_TooltipParams
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_0f7d388f37a1fde4eaca183e6ee05749,
         z_GameEvent_InputAction
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_1a73e75fa72967847be33fa6415ea2f6,
+        z_GameEvent_Item
   - _keys: []
     _values: []
   - _keys:
@@ -106,7 +107,13 @@ MonoBehaviour:
     _values: []
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
+      - _typeNameAndAssembly: Item, Assembly-CSharp
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_99adfb061d5aceb4bbe3cff07055a538,
-        z_ContainerObjectPool_InventoryItem
+        z_ContainerObjectPool_Item
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: ItemData, Assembly-CSharp
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_93a8f949861c0ce4fb24f4d4d14a04e6,
+        z_Lookup_ItemData

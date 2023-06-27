@@ -2,14 +2,14 @@
 using TMPro;
 using UnityEngine;
 
-public class InventoryItemDataOwned : UIComponent<InventoryItemData> {
+public class InventoryItemDataOwned : UIComponent<ItemData> {
     [SerializeField] TMP_Text _text;
     [SerializeField] string _format = "{0}";
     [SerializeField] InventoryAsset _inventory;
     
-    InventoryItemData _content;
+    ItemData _content;
     
-    public override void SetContent(InventoryItemData content) {
+    public override void SetContent(ItemData content) {
         _content = content;
         _text.text = string.Format(_format, _inventory.GetCount(content));
     }
@@ -22,7 +22,7 @@ public class InventoryItemDataOwned : UIComponent<InventoryItemData> {
         _inventory.OnItemChanged -= OnItemChanged;
     }
 
-    void OnItemChanged(InventoryItem item) {
+    void OnItemChanged(Item item) {
         if (item.Data != _content) return;
         _text.text = string.Format(_format, item.Count);
     }

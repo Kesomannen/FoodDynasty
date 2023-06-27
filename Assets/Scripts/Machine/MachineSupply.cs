@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MachineSupply : SupplyBase, IInfoProvider, IStatusProvider {
     [SerializeField] int _requiredSupplyPerUse = 1;
-    [SerializeField] Optional<InventoryItemData> _refillItem;
+    [SerializeField] Optional<ItemData> _refillItem;
     [Foldout("Override")]
     [SerializeField] string _refillItemName;
     [Space]
@@ -31,7 +31,7 @@ public class MachineSupply : SupplyBase, IInfoProvider, IStatusProvider {
     }
 
     public override bool IsRefillable => _refillItem.Enabled;
-    public override InventoryItemData RefillItem => _refillItem.Value;
+    public override ItemData RefillItem => _refillItem.Value;
 
     bool HasSupply() => CurrentSupply >= _requiredSupplyPerUse;
     void OnUsed() => CurrentSupply -= _requiredSupplyPerUse;

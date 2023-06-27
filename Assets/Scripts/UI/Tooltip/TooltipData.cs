@@ -5,7 +5,6 @@ using UnityEngine;
 [Serializable]
 public struct TooltipData<T> {
     [SerializeField] TooltipLockAxis _tooltipLockAxis;
-    [HideIf("_tooltipLockAxis", TooltipLockAxis.None)]
     [SerializeField] Transform _tooltipLockPoint;
     [SerializeField] GameEvent<TooltipParams> _showTooltipEvent;
     [SerializeField] GenericGameEvent _hideTooltipEvent;

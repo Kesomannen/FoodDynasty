@@ -20,9 +20,9 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
     [SerializeField] Material _invalidMaterial;
 
     public bool IsPlacing { get; private set; }
-    public IGridManager GridManager => _gridManager;
+    public GridManager GridManager => _gridManager;
 
-    IGridObject _currentObject;
+    GridObject _currentObject;
     Transform _currentBlueprint;
     Vector2Int _currentPosition;
     GridRotation _currentRotation;
@@ -55,7 +55,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
         _state = State.Cancelled;
     }
 
-    public async Task<GridPlacementResult> DoPlacement(IGridObject data, bool keepRotation = true, bool keepPosition = true) {
+    public async Task<GridPlacementResult> DoPlacement(GridObject data, bool keepRotation = true, bool keepPosition = true) {
         if (IsPlacing) {
             return new GridPlacementResult { Type = GridPlacementResultType.Failed };
         }
@@ -87,7 +87,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
         };
     }
 
-    void SetupBlueprint(IGridObject gridObject) {
+    void SetupBlueprint(GridObject gridObject) {
         _currentBlueprint = Instantiate(gridObject.BlueprintPrefab).transform;
         
         _currentRenderers = _currentBlueprint.GetComponentsInChildren<Renderer>();
@@ -97,7 +97,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
         UpdateBlueprint();
     }
 
-    async Task WaitForPlacement(IGridObject gridObject) {
+    async Task WaitForPlacement(GridObject gridObject) {
         _state = State.Waiting;
 
         while (true) {

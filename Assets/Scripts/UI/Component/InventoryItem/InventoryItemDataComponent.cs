@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-public class InventoryItemDataComponent : UIComponent<InventoryItem> {
-    [SerializeField] Container<InventoryItemData> _dataContainer;
+public class InventoryItemDataComponent : UIComponent<Item> {
+    [SerializeField] Container<ItemData> _dataContainer;
 
-    public override void SetContent(InventoryItem content) {
+    public override void SetContent(Item content) {
         _dataContainer.SetContent(content.Data);
     }
 }

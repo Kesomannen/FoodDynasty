@@ -8,8 +8,10 @@ public class UITweener : MonoBehaviour {
 
     RectTransform _rectTransform;
 
-    RectTransform RectTransform => _rectTransform ??= GetComponent<RectTransform>();
-    
+    void Awake() {
+        _rectTransform = GetComponent<RectTransform>();
+    }
+
     void OnEnable() {
        PlayEnableTweens();
     }
@@ -21,8 +23,8 @@ public class UITweener : MonoBehaviour {
     void PlayTweens(IEnumerable<UITweenData> tweens, bool automatic) {
         foreach (var tweenData in tweens) {
             if (automatic && !tweenData.PlayAutomatically) continue;
-            tweenData.Setup(RectTransform);
-            tweenData.Play(RectTransform);
+            tweenData.Setup(_rectTransform);
+            tweenData.Play(_rectTransform);
         }
     }
 }

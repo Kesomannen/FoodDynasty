@@ -1,7 +1,6 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventoryItemDataBuyControl : MonoBehaviour {
@@ -9,7 +8,7 @@ public class InventoryItemDataBuyControl : MonoBehaviour {
     [SerializeField] string _costFormat = "Buy ({0})";
     [SerializeField] Button _buyButton;
     [Space]
-    [SerializeField] Container<InventoryItemData> _container;
+    [SerializeField] Container<ItemData> _container;
     [SerializeField] NumberInputController _numberInput;
     [SerializeField] NumberInputController.ModifyMode _modifyMode;
 
@@ -43,9 +42,15 @@ public class InventoryItemDataBuyControl : MonoBehaviour {
         _buyButton.interactable = _moneyManager.CurrentMoney >= price;
     }
 
-    public void Initialize(InventoryItemData content, MoneyManager moneyManager, Action<int> callback) {
+    public void Initialize(ItemData content, MoneyManager moneyManager, Action<int> callback) {
         _callback = callback;
+
+        if (_moneyManager != null) {
+            _moneyManager.OnMoneyChanged -= OnMoneyChanged;
+        }
+        
         _moneyManager = moneyManager;
+        _moneyManager.OnMoneyChanged += OnMoneyChanged;
 
         _numberInput.Initialize(
             startValue: 0,
@@ -63,6 +68,10 @@ public class InventoryItemDataBuyControl : MonoBehaviour {
             if (max > int.MaxValue) return int.MaxValue;
             return (int)max;
         }
+    }
+
+    void OnMoneyChanged(double prev, double current) {
+        UpdateElements(_numberInput.Value);
     }
 
     public void Buy() {

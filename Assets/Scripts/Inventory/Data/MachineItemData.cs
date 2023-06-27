@@ -4,8 +4,8 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Inventory/Machine Item")]
-public class MachineItemData : InventoryItemData, IPrefabProvider<GridObject> {
-    [SerializeField] InventoryItemType _type;
+public class MachineItemData : ItemData, IPrefabProvider<GridObject> {
+    [SerializeField] ItemType _type;
     
     [Header("Machine")]
     [SerializeField] GridObject _prefab;
@@ -15,7 +15,7 @@ public class MachineItemData : InventoryItemData, IPrefabProvider<GridObject> {
      
     IInfoProvider[] _cachedProviders;
     
-    public override InventoryItemType Type => _type;
+    public override ItemType Type => _type;
     public GridObject Prefab => _prefab;
 
     public (IInfoProvider Provider, bool Enabled)[] GetInfoProviders() {

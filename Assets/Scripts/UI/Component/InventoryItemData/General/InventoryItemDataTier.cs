@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryItemDataTier : UIComponent<InventoryItemData> {
+public class InventoryItemDataTier : UIComponent<ItemData> {
     [SerializeField] Optional<TMP_Text> _displayText;
     [SerializeField] Graphic[] _graphicsToColor;
 
-    public override void SetContent(InventoryItemData content) {
+    public override void SetContent(ItemData content) {
         var tier = content.Tier;
         
         if (_displayText.Enabled) {

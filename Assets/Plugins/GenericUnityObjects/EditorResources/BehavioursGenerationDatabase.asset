@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: BehavioursGenerationDatabase
   m_EditorClassIdentifier: 
   _genericArgumentKeys:
-  - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
+  - _typeNameAndAssembly: ItemData, Assembly-CSharp
     _guid: d3d4539531654c55aeb30f6fc3dc4fa1
   - _typeNameAndAssembly: Food, Assembly-CSharp
     _guid: 8dbbab00aaad493d81fa6e862abf0843
   - _typeNameAndAssembly: GridObject, Assembly-CSharp
     _guid: a189d557cd0c42bebb4e2ef1dc861402
-  - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
+  - _typeNameAndAssembly: Item, Assembly-CSharp
     _guid: 0a63975efa0847789c7eac2ab049fc86
   - _typeNameAndAssembly: Entity, Assembly-CSharp
     _guid: 7a3409246c914e6d8646fa636551bde6
@@ -46,14 +46,6 @@ MonoBehaviour:
       _assemblyGUID: c36452e95c0c3b845ab55aa88fbd4dc3
   - _array:
     - _arguments:
-      - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
-        _guid: d3d4539531654c55aeb30f6fc3dc4fa1
-      _assemblyGUID: 753676d98d8e00946ab3cc596b2a3714
-    - _arguments:
-      - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
-        _guid: 0a63975efa0847789c7eac2ab049fc86
-      _assemblyGUID: a07511d51b0d145418e48fe384fe8af4
-    - _arguments:
       - _typeNameAndAssembly: Entity, Assembly-CSharp
         _guid: 7a3409246c914e6d8646fa636551bde6
       _assemblyGUID: df7bf43c3ee77704796922a82fc22b90
@@ -61,24 +53,32 @@ MonoBehaviour:
       - _typeNameAndAssembly: SupplyBase, Assembly-CSharp
         _guid: 9cf6bd0ed95b4144bd1677025f9bd11d
       _assemblyGUID: 8ef2487655e06a34b909cb81b96a6e8a
-  - _array:
     - _arguments:
-      - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
+      - _typeNameAndAssembly: Item, Assembly-CSharp
+        _guid: 0a63975efa0847789c7eac2ab049fc86
+      _assemblyGUID: a07511d51b0d145418e48fe384fe8af4
+    - _arguments:
+      - _typeNameAndAssembly: ItemData, Assembly-CSharp
         _guid: d3d4539531654c55aeb30f6fc3dc4fa1
-      _assemblyGUID: eff3e6e99893af6498083035df40fbf4
+      _assemblyGUID: 753676d98d8e00946ab3cc596b2a3714
+  - _array:
     - _arguments:
       - _typeNameAndAssembly: Entity, Assembly-CSharp
         _guid: 7a3409246c914e6d8646fa636551bde6
       _assemblyGUID: 61632d180d5648c45863bd037625c8c3
-  - _array:
     - _arguments:
-      - _typeNameAndAssembly: InventoryItemData, Assembly-CSharp
+      - _typeNameAndAssembly: ItemData, Assembly-CSharp
         _guid: d3d4539531654c55aeb30f6fc3dc4fa1
-      _assemblyGUID: 461b10b82024c6c4c997b41676c9e548
+      _assemblyGUID: eff3e6e99893af6498083035df40fbf4
+  - _array:
     - _arguments:
       - _typeNameAndAssembly: Entity, Assembly-CSharp
         _guid: 7a3409246c914e6d8646fa636551bde6
       _assemblyGUID: c580e9618eb03cb46b983baf8e5ad14c
+    - _arguments:
+      - _typeNameAndAssembly: ItemData, Assembly-CSharp
+        _guid: d3d4539531654c55aeb30f6fc3dc4fa1
+      _assemblyGUID: 461b10b82024c6c4c997b41676c9e548
   - _array:
     - _arguments:
       - _typeNameAndAssembly: TMPro.TextMeshProUGUI, Unity.TextMeshPro
@@ -107,6 +107,27 @@ MonoBehaviour:
       - T
       _componentName: 
       _order: 0
+    - _typeNameAndAssembly: Container`1, Assembly-CSharp
+      _guid: bc7fd065c7114f949ac90aaca54ac6c0
+      AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+    - _typeNameAndAssembly: EntityText`1, Assembly-CSharp
+      _guid: 73880ec52a824ed28c77b9c835c8ab07
+      AssemblyGUID: 70a2e529e20fe614cad19ded6b1e4379
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+    - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
+      _guid: 4addc1cb99f34fd0af74184bdb5e98fe
+      AssemblyGUID: 02ca79563ddb00743b64c78238a180d5
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
   - _array:
     - _typeNameAndAssembly: Event`1, Dynasty.Util
       _guid: 20b6ca5797584b78b97df411ce90faae
@@ -131,6 +152,13 @@ MonoBehaviour:
       _componentName: 
       _order: 0
   - _array:
+    - _typeNameAndAssembly: Container`1, Assembly-CSharp
+      _guid: bc7fd065c7114f949ac90aaca54ac6c0
+      AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
     - _typeNameAndAssembly: Container`1, Assembly-CSharp
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
       AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48

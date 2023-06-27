@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,11 +19,15 @@ public class CameraController : MonoBehaviour {
 
     Transform _transform;
     
-    Vector3 _movementVelocity;
-    Vector3 _targetPos;
-    
-    Vector3 _targetZoom;
-    Vector3 _zoomVelocity;
+    [Header("Debug")]
+    [ReadOnly] [AllowNesting]
+    [SerializeField] Vector3 _movementVelocity;
+    [ReadOnly] [AllowNesting]
+    [SerializeField] Vector3 _targetPos;
+    [ReadOnly] [AllowNesting]
+    [SerializeField] Vector3 _targetZoom;
+    [ReadOnly] [AllowNesting]
+    [SerializeField] Vector3 _zoomVelocity;
 
     void Awake() {
         _transform = transform;

@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-public class GridManager : MonoBehaviour, IGridManager {
+public class GridManager : MonoBehaviour {
     [SerializeField] Vector2 _cellSize;
     [SerializeField] Vector2Int _gridSize;
 
@@ -17,7 +17,7 @@ public class GridManager : MonoBehaviour, IGridManager {
         }
     }
 
-    public bool TryAdd(IGridObject gridObject, Vector2Int position, GridRotation rotation) {
+    public bool TryAdd(GridObject gridObject, Vector2Int position, GridRotation rotation) {
         if (gridObject.IsPlaced) return false;
         var rotatedSize = gridObject.StaticSize.Rotated(rotation.Steps);
         if (!CheckOverlapping(position, rotatedSize, out var overlapping)) return false;
@@ -26,19 +26,19 @@ public class GridManager : MonoBehaviour, IGridManager {
         return true;
     }
 
-    public bool TryRemove(IGridObject gridObject) {
+    public bool TryRemove(GridObject gridObject) {
         if (!BelongsToGrid(gridObject)) return false;
         
         Remove(gridObject);
         return true;
     }
 
-    public bool CanAdd(IGridObject gridObject, Vector2Int position, GridRotation rotation) {
+    public bool CanAdd(GridObject gridObject, Vector2Int position, GridRotation rotation) {
         var rotatedSize = gridObject.StaticSize.Rotated(rotation.Steps);
         return CheckOverlapping(position, rotatedSize, out _);
     }
 
-    void Add(IGridObject gridObject, Vector2Int position, GridRotation rotation, IEnumerable<Cell> overlappingCells) {
+    void Add(GridObject gridObject, Vector2Int position, GridRotation rotation, IEnumerable<Cell> overlappingCells) {
         foreach (var cell in overlappingCells) {
             cell.Inhabitants.Add(gridObject);
         }
@@ -46,7 +46,7 @@ public class GridManager : MonoBehaviour, IGridManager {
         gridObject.OnAdded(this, position, rotation);
     }
 
-    void Remove(IGridObject gridObject) {
+    void Remove(GridObject gridObject) {
         var cells = GetOverlapping(gridObject.GridPosition, gridObject.RotatedSize);
         foreach (var inhabitants in cells.Select(cell => cell.Inhabitants)) {
             inhabitants.Remove(gridObject);
@@ -78,8 +78,21 @@ public class GridManager : MonoBehaviour, IGridManager {
                position.y >= 0 && position.y < _gridSize.y;
     }
     
-    bool BelongsToGrid(IGridObject gridObject) {
-        return gridObject.IsPlaced && gridObject.GridManager is GridManager manager && manager == this;
+    bool BelongsToGrid(GridObject gridObject) {
+        return gridObject.IsPlaced && gridObject.GridManager is { } manager && manager == this;
+    }
+
+    public IEnumerable<GridObject> GetAllObjects() {
+        var objects = new HashSet<GridObject>();
+
+        foreach (var cell in _cells) {
+            if (cell.IsEmpty) continue;
+            foreach (var inhabitant in cell.Inhabitants.Where(obj => !objects.Contains(obj))) {
+                objects.Add(inhabitant);
+            }
+        }
+        
+        return objects;
     }
 
     Vector3 GridToWorld(Vector2 position) {
@@ -94,7 +107,7 @@ public class GridManager : MonoBehaviour, IGridManager {
         return GridToWorld(gridPosition, size.Rotated(rotation.Steps).Bounds);
     }
 
-    public Vector3 GridToWorld(IGridObject gridObject) {
+    public Vector3 GridToWorld(GridObject gridObject) {
         return GridToWorld(gridObject.GridPosition, gridObject.RotatedSize.Bounds);
     }
 
@@ -139,13 +152,13 @@ public class GridManager : MonoBehaviour, IGridManager {
     readonly struct Cell {
         public readonly Vector2Int GridPosition;
         public readonly Vector3 WorldPosition;
-        public readonly List<IGridObject> Inhabitants;
+        public readonly List<GridObject> Inhabitants;
         public bool IsEmpty => Inhabitants.Count == 0;
 
         public Cell(Vector2Int gridPosition, Vector3 worldPosition) {
             GridPosition = gridPosition;
             WorldPosition = worldPosition;
-            Inhabitants = new List<IGridObject>();
+            Inhabitants = new List<GridObject>();
         }
     }
 }

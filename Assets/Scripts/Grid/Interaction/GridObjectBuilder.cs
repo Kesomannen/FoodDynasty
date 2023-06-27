@@ -6,26 +6,19 @@ using UnityEngine;
 public class GridObjectBuilder : MonoBehaviour {
     [SerializeField] GridObjectPlacer _placer;
 
-    public void Cancel() {
-        _placer.Cancel();
-    }
-    
-    public async Task<List<GridObject>> StartPlacing(GridObject prefab, Func<bool> beforePlace = null, Action<GridObject, GridPlacementResult> afterPlace = null) {
-        var placedObjects = new List<GridObject>();
+    public async Task StartPlacing(
+        GridObject prefab,
+        Func<bool> beforePlace = null, 
+        Action<GridObject, GridPlacementResult> afterPlace = null) 
+    {
         beforePlace ??= () => true;
         _placer.Cancel();
         
-        while (true) {
-            if (!beforePlace()) break;
-            
+        while (beforePlace()) {
             var (result, gridObject) = await Place(prefab);
             afterPlace?.Invoke(gridObject, result);
-            if (!result.WasSuccessful) break;
-            
-            placedObjects.Add(gridObject);
+            if (!result.WasSuccessful) return;
         }
-        
-        return placedObjects;
     }
 
     async Task<(GridPlacementResult Result, GridObject Object)> Place(GridObject prefab) {

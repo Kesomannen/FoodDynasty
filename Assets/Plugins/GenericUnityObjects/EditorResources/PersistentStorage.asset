@@ -37,6 +37,10 @@ MonoBehaviour:
     _fileName: New UIObjectPool`1
     _menuName: Pooling/UI
     _order: 0
+  - _typeName: Lookup`1, Assembly-CSharp
+    _fileName: New Lookup`1
+    _menuName: Saving/Lookup
+    _order: 0
   _afterReloadEvent:
     _persistentListeners: []
     Expanded: 1

@@ -3,11 +3,11 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Inventory/Food")]
-public class FoodItemData : InventoryItemData, IPrefabProvider<Food> {
+public class FoodItemData : ItemData, IPrefabProvider<Food> {
     [Header("Base Ingredient")]
     [SerializeField] Food _prefab;
 
-    public override InventoryItemType Type => InventoryItemType.BaseIngredient;
+    public override ItemType Type => ItemType.BaseIngredient;
     public Food Prefab => _prefab;
 
     public override IEnumerable<(string Name, string Value)> GetInfo() {

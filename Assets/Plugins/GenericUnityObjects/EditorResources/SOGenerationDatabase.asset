@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SOGenerationDatabase
   m_EditorClassIdentifier: 
   _genericArgumentKeys:
-  - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
+  - _typeNameAndAssembly: Item, Assembly-CSharp
     _guid: 0a63975efa0847789c7eac2ab049fc86
   - _typeNameAndAssembly: GridObject, Assembly-CSharp
     _guid: a189d557cd0c42bebb4e2ef1dc861402
@@ -29,6 +29,8 @@ MonoBehaviour:
     _guid: 9cf6bd0ed95b4144bd1677025f9bd11d
   - _typeNameAndAssembly: UnityEngine.InputSystem.InputAction, Unity.InputSystem
     _guid: 
+  - _typeNameAndAssembly: ItemData, Assembly-CSharp
+    _guid: d3d4539531654c55aeb30f6fc3dc4fa1
   _genericArgumentValues:
   - _array: []
   - _array: []
@@ -46,10 +48,6 @@ MonoBehaviour:
         _guid: 
       _assemblyGUID: 6a744f12d34869243a0951b672766c45
   - _array:
-    - _arguments:
-      - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
-        _guid: 0a63975efa0847789c7eac2ab049fc86
-      _assemblyGUID: 1a73e75fa72967847be33fa6415ea2f6
     - _arguments:
       - _typeNameAndAssembly: GridObject, Assembly-CSharp
         _guid: a189d557cd0c42bebb4e2ef1dc861402
@@ -71,6 +69,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: UnityEngine.InputSystem.InputAction, Unity.InputSystem
         _guid: 
       _assemblyGUID: 0f7d388f37a1fde4eaca183e6ee05749
+    - _arguments:
+      - _typeNameAndAssembly: Item, Assembly-CSharp
+        _guid: 0a63975efa0847789c7eac2ab049fc86
+      _assemblyGUID: 1a73e75fa72967847be33fa6415ea2f6
   - _array: []
   - _array:
     - _arguments:
@@ -85,9 +87,14 @@ MonoBehaviour:
   - _array: []
   - _array:
     - _arguments:
-      - _typeNameAndAssembly: InventoryItem, Assembly-CSharp
+      - _typeNameAndAssembly: Item, Assembly-CSharp
         _guid: 0a63975efa0847789c7eac2ab049fc86
       _assemblyGUID: 99adfb061d5aceb4bbe3cff07055a538
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: ItemData, Assembly-CSharp
+        _guid: d3d4539531654c55aeb30f6fc3dc4fa1
+      _assemblyGUID: 93a8f949861c0ce4fb24f4d4d14a04e6
   _genericTypeValues:
   - _array:
     - _typeNameAndAssembly: GameEvent`1, Dynasty.Util
@@ -97,6 +104,16 @@ MonoBehaviour:
       - T
     - _typeNameAndAssembly: ContainerObjectPool`1, Assembly-CSharp
       _guid: fa25376fa5ab4d03a6ff488669baf3fa
+      AssemblyGUID: 
+      _argNames:
+      - T
+    - _typeNameAndAssembly: ContainerObjectPool`1, Assembly-CSharp
+      _guid: fa25376fa5ab4d03a6ff488669baf3fa
+      AssemblyGUID: 
+      _argNames:
+      - T
+    - _typeNameAndAssembly: GameEvent`1, Dynasty.Util
+      _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T
@@ -144,6 +161,17 @@ MonoBehaviour:
   - _array:
     - _typeNameAndAssembly: GameEvent`1, Dynasty.Util
       _guid: 6e0691897fdd4e5894148f79dce13dbc
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: Lookup`1, Assembly-CSharp
+      _guid: acc6722fc23b40c9b9793f8fe38c014f
+      AssemblyGUID: 
+      _argNames:
+      - T
+    - _typeNameAndAssembly: Lookup`1, Assembly-CSharp
+      _guid: acc6722fc23b40c9b9793f8fe38c014f
       AssemblyGUID: 
       _argNames:
       - T
@@ -236,6 +264,11 @@ MonoBehaviour:
     - T
   - _typeNameAndAssembly: ContainerObjectPool`1, Assembly-CSharp
     _guid: fa25376fa5ab4d03a6ff488669baf3fa
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: Lookup`1, Assembly-CSharp
+    _guid: acc6722fc23b40c9b9793f8fe38c014f
     AssemblyGUID: 
     _argNames:
     - T

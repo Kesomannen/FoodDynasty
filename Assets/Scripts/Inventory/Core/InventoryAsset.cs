@@ -4,14 +4,15 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "Inventory/Inventory Asset")]
 public class InventoryAsset : MonoScriptable {
-    [SerializeField] GameEvent<InventoryItem> _addItemEvent;
+    [SerializeField] GameEvent<Item> _addItemEvent;
 
-    readonly Dictionary<InventoryItemData, InventoryItem> _items = new();
-    public IEnumerable<InventoryItem> Items => _items.Values;
+    readonly Dictionary<ItemData, Item> _items = new();
+    public IEnumerable<Item> Items => _items.Values;
     
-    public event Action<InventoryItem> OnItemChanged;
+    public event Action<Item> OnItemChanged;
 
     public override void OnAwake() {
+        _items.Clear();
         _addItemEvent.OnRaised += Add;
     }
 
@@ -19,19 +20,19 @@ public class InventoryAsset : MonoScriptable {
         _addItemEvent.OnRaised -= Add;
     }
 
-    public bool TryGet(InventoryItemData data, out InventoryItem item) {
+    public bool TryGet(ItemData data, out Item item) {
         return _items.TryGetValue(data, out item);
     }
     
-    public int GetCount(InventoryItemData data) {
+    public int GetCount(ItemData data) {
         return TryGet(data, out var item) ? item.Count : 0;
     }
 
-    public void Add(InventoryItem item) {
+    public void Add(Item item) {
         Add(item.Data, item.Count);
     }
     
-    public void Add(InventoryItemData data, int count = 1) {
+    public void Add(ItemData data, int count = 1) {
         var item = GetOrAdd(data);
         item.Count += count;
         _items[data] = item;
@@ -39,11 +40,11 @@ public class InventoryAsset : MonoScriptable {
         OnItemChanged?.Invoke(item);
     }
     
-    public bool Remove(InventoryItem item) {
+    public bool Remove(Item item) {
         return Remove(item.Data, item.Count);
     }
 
-    public bool Remove(InventoryItemData data, int count = 1) {
+    public bool Remove(ItemData data, int count = 1) {
         var item = GetOrAdd(data);
         if (item.Count < count) return false;
         
@@ -56,9 +57,9 @@ public class InventoryAsset : MonoScriptable {
         return true;
     }
     
-    InventoryItem GetOrAdd(InventoryItemData data) {
+    Item GetOrAdd(ItemData data) {
         if (TryGet(data, out var item)) return item;
-        return _items[data] = new InventoryItem {
+        return _items[data] = new Item {
             Count = 0,
             Data = data,
             Inventory = this

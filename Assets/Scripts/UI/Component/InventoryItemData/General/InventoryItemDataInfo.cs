@@ -2,14 +2,14 @@
 using System.Linq;
 using UnityEngine;
 
-public class InventoryItemDataInfo : UIComponent<InventoryItemData> {
+public class InventoryItemDataInfo : UIComponent<ItemData> {
     [SerializeField] int _infoChildIndexStart;
     [SerializeField] Transform _infoParent;
     [SerializeField] InfoContainer _infoPrefab;
 
     readonly List<InfoContainer> _infoContainers = new();
 
-    public override void SetContent(InventoryItemData content) {
+    public override void SetContent(ItemData content) {
         var i = 0;
         var info = content.GetInfo().ToArray();
         for (; i < info.Length; i++) {

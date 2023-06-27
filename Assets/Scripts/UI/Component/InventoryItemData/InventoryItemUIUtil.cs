@@ -6,15 +6,15 @@ public static class InventoryItemUIUtil {
     const string FallbackIconUnicode = "eb8b";
     static readonly Color _fallbackColor = Color.white;
 
-    static readonly Dictionary<InventoryItemType, string> _iconUnicodeLookup = new() {
-        { InventoryItemType.Cooker, "ef55" },
-        { InventoryItemType.Conveyor, "ea50" },
-        { InventoryItemType.Dispenser, "f181" },
-        { InventoryItemType.Modifier, "e86b" },
-        { InventoryItemType.Other, "eb8b" },
-        { InventoryItemType.Seller, "e227"},
-        { InventoryItemType.Topping, "f00c" },
-        { InventoryItemType.BaseIngredient, "e57a" }
+    static readonly Dictionary<ItemType, string> _iconUnicodeLookup = new() {
+        { ItemType.Cooker, "ef55" },
+        { ItemType.Conveyor, "ea50" },
+        { ItemType.Dispenser, "f181" },
+        { ItemType.Modifier, "e86b" },
+        { ItemType.Other, "eb8b" },
+        { ItemType.Seller, "e227"},
+        { ItemType.Topping, "f00c" },
+        { ItemType.BaseIngredient, "e57a" }
     };
     
     static readonly Dictionary<InventoryItemTier, Color> _colorLookup = new() {
@@ -22,11 +22,11 @@ public static class InventoryItemUIUtil {
         { InventoryItemTier.Nuclear, new Color(0, 1, 0) }
     };
 
-    public static void SetFromItemType(this MaterialIcon icon, InventoryItemType type) {
+    public static void SetFromItemType(this MaterialIcon icon, ItemType type) {
         icon.iconUnicode = GetIconUnicode(type);
     }
 
-    public static string GetIconUnicode(InventoryItemType type) {
+    public static string GetIconUnicode(ItemType type) {
         return _iconUnicodeLookup.TryGetValue(type, out var value) ? value : FallbackIconUnicode;
     }
     

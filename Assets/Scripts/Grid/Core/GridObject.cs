@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
+using NaughtyAttributes;
 using UnityEngine;
 
-public class GridObject : MonoBehaviour, IGridObject, IInfoProvider {
-    [SerializeField] Vector3 _rotationAxis = Vector3.up;
+public class GridObject : MonoBehaviour, IInfoProvider {
+    [SerializeField] bool _canMove = true;
+    [ShowIf("_canMove")] [AllowNesting]
     [SerializeField] GameObject _blueprintPrefab;
+    [SerializeField] Vector3 _rotationAxis = Vector3.up;
     [SerializeField] SerializedGridSize _size;
     
     GridRotation _rotation;
@@ -15,17 +18,21 @@ public class GridObject : MonoBehaviour, IGridObject, IInfoProvider {
             transform.rotation = _rotation.ToQuaternion(_rotationAxis);
         }
     }
-
-    public IGridManager GridManager { get; private set; }
+    
+    public GridManager GridManager { get; private set; }
     public Vector2Int GridPosition { get; private set; }
     public bool IsPlaced { get; private set; }
 
-    public GridSize StaticSize => _size.Value ;
+    public GridSize StaticSize => _size.Value;
+    public GridSize RotatedSize => StaticSize.Rotated(Rotation.Steps);
+    
     public GameObject BlueprintPrefab => _blueprintPrefab;
+    public Vector3 RotationAxis => _rotationAxis;
+    public bool CanMove => _canMove;
     
     static readonly Vector3 _previewCellSize = new(0.25f, 0, 0.25f);
     
-    public void OnAdded(IGridManager gridManager, Vector2Int gridPosition, GridRotation rotation) {
+    public void OnAdded(GridManager gridManager, Vector2Int gridPosition, GridRotation rotation) {
         GridManager = gridManager;
         GridPosition = gridPosition;
         Rotation = rotation;

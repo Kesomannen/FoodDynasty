@@ -6,16 +6,16 @@ using UnityEngine.EventSystems;
 public class InventoryController : MonoBehaviour {
     [Header("Inventory")] 
     [SerializeField] Transform _itemParent;
-    [SerializeField] ContainerObjectPool<InventoryItem> _itemPool;
-    [SerializeField] GameEvent<InventoryItem> _onItemClicked;
+    [SerializeField] ContainerObjectPool<Item> _itemPool;
+    [SerializeField] GameEvent<Item> _onItemClicked;
     [SerializeField] InventoryAsset _inventoryAsset;
     [Space]
     [SerializeField] bool _descendingOrder;
     [SerializeField] ItemSortingMode _sortingMode;
-    [SerializeField] TooltipData<InventoryItemData> _tooltipData;
+    [SerializeField] TooltipData<ItemData> _tooltipData;
 
-    readonly Dictionary<InventoryItemData, Container<InventoryItem>> _itemContainers = new();
-    Container<InventoryItem> _selectedContainer;
+    readonly Dictionary<ItemData, Container<Item>> _itemContainers = new();
+    Container<Item> _selectedContainer;
 
     void OnEnable() {
         _inventoryAsset.OnItemChanged += OnItemChanged;
@@ -27,12 +27,12 @@ public class InventoryController : MonoBehaviour {
         _inventoryAsset.OnItemChanged -= OnItemChanged;
     }
 
-    void OnItemChanged(InventoryItem item) {
+    void OnItemChanged(Item item) {
         if (item.Count <= 0) DestroyContainer(item);
         else CreateOrUpdateContainer(item);
     }
 
-    void CreateOrUpdateContainer(InventoryItem item) {
+    void CreateOrUpdateContainer(Item item) {
         var created = false;
         if (!_itemContainers.TryGetValue(item.Data, out var itemContainer)) {
             itemContainer = _itemPool.Get(item, _itemParent);
@@ -50,7 +50,7 @@ public class InventoryController : MonoBehaviour {
         if (created) SortContainers();
     }
 
-    void DestroyContainer(InventoryItem item) {
+    void DestroyContainer(Item item) {
         if (!_itemContainers.TryGetValue(item.Data, out var itemContainer)) return;
         
         var interactable = itemContainer.GetOrAddComponent<Interactable>();
@@ -89,7 +89,7 @@ public class InventoryController : MonoBehaviour {
         _selectedContainer = hovered ? container : null;
     }
 
-    Container<InventoryItem> GetContainer(Component obj) {
+    Container<Item> GetContainer(Component obj) {
         return _itemContainers.Values.First(container => container.gameObject == obj.gameObject);
     }
 }

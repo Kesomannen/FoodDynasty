@@ -23,5 +23,7 @@ MonoBehaviour:
     Event: {fileID: 11400000, guid: 34ad22860349d964e908f6aad86957cc, type: 2}
   - InputActionName: Open Inventory
     Event: {fileID: 11400000, guid: 545ff927446f97f41822a165c64a13b8, type: 2}
+  - InputActionName: Open Options
+    Event: {fileID: 11400000, guid: 77a066c3e87689845bba9b289337b5d1, type: 2}
   _inputActionAsset: {fileID: -944628639613478452, guid: 7e0d5536cef42c44cbc3e5bcfb46a4e6,
     type: 3}
