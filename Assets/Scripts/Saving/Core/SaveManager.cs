@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(menuName = "Saving/Manager")]
 public class SaveManager : MonoScriptable {
@@ -19,41 +20,52 @@ public class SaveManager : MonoScriptable {
     public IReadOnlyDictionary<string, object> State => _state;
     
     public event Action OnBeforeSave;
-    public event Action<bool> OnAfterLoad;
 
     public override async void OnAwake() {
-        await LoadCurrent(true);
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+        
+        await LoadFromCurrent();
     }
 
     public override async void OnDestroy() {
-        await SaveCurrent();
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
+        
+        await SaveToCurrent();
     }
 
-    public async Task LoadCurrent(bool isFirstLoad = false) {
-        _state = await _loader.Load(_currentSaveSlot);
+    async void OnSceneUnloaded(Scene scene) {
+        await SaveToCurrent();
+    }
 
-        if (isFirstLoad) {
-            foreach (var interpreter in _interpreters) {
-                if (_state.TryGetValue(interpreter.SaveKey, out var saveData)) {
-                    interpreter.OnAfterLoad(saveData);
-                }
-                else {
-                    interpreter.OnSaveNotFound();
-                }
-            }
-        }
-
-        OnAfterLoad?.Invoke(isFirstLoad);
+    async Task LoadFromCurrent() {
+        await Load(_currentSaveSlot);
     }
     
-    public async Task SaveCurrent() {
+    async Task Load(int slotIndex) {
+        _state = await _loader.Load(slotIndex);
+
+        foreach (var interpreter in _interpreters) {
+            if (_state.TryGetValue(interpreter.SaveKey, out var saveData)) {
+                interpreter.OnAfterLoad(saveData);
+            }
+            else {
+                interpreter.OnSaveNotFound();
+            }
+        }
+    }
+    
+    public async Task SaveToCurrent() {
+        await Save(_currentSaveSlot);
+    }
+    
+    public async Task Save(int slotIndex) {
         OnBeforeSave?.Invoke();
         
         foreach (var interpreter in _interpreters) {
             _state[interpreter.SaveKey] = interpreter.OnBeforeSave();
         }
 
-        await _loader.Save(_state, _currentSaveSlot);
+        await _loader.Save(_state, slotIndex);
     }
     
     public async void DeleteSlot(int slotIndex) {

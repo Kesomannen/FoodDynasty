@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250398290711449649}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.185, z: -0.035}
+  m_LocalPosition: {x: 0, y: 0.151, z: -0.035}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42,8 +42,7 @@ GameObject:
   - component: {fileID: 3287610082135513341}
   - component: {fileID: 3015091041743848844}
   - component: {fileID: 8179629649837785446}
-  - component: {fileID: 1362125225781410100}
-  - component: {fileID: 3608368658867443786}
+  - component: {fileID: 2196648166920202581}
   m_Layer: 0
   m_Name: Dough
   m_TagString: Untagged
@@ -104,7 +103,7 @@ MonoBehaviour:
   _originalModel: {fileID: 2206189962380032586}
   _toppingParent: {fileID: 2409362971342492979}
   _startingData: 04000000
---- !u!65 &1362125225781410100
+--- !u!65 &2196648166920202581
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,21 +114,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.1875, z: 0.4375}
-  m_Center: {x: 0, y: 0.09375, z: -0.03125}
---- !u!114 &3608368658867443786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6954741140823871486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebfc489af0ff4ecbbc30e8440d302b1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: 062ac854b9f159c4f9ab9d424ba2808b, type: 2}
+  m_Size: {x: 0.18623066, y: 0.15642227, z: 0.2965218}
+  m_Center: {x: 0.0014903545, y: 0.07601149, z: -0.029808417}
 --- !u!1001 &103091097238259627
 PrefabInstance:
   m_ObjectHideFlags: 0

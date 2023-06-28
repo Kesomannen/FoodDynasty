@@ -17,9 +17,9 @@ public static class InventoryItemUIUtil {
         { ItemType.BaseIngredient, "e57a" }
     };
     
-    static readonly Dictionary<InventoryItemTier, Color> _colorLookup = new() {
-        { InventoryItemTier.Rusty, new Color(0.62f, 0.3f, 0.25f) },
-        { InventoryItemTier.Nuclear, new Color(0, 1, 0) }
+    static readonly Dictionary<ItemTier, Color> _colorLookup = new() {
+        { ItemTier.Rusty, new Color(0.62f, 0.3f, 0.25f) },
+        { ItemTier.Metallic, new Color(0.6f, 0.6f, 0.6f) }
     };
 
     public static void SetFromItemType(this MaterialIcon icon, ItemType type) {
@@ -30,7 +30,7 @@ public static class InventoryItemUIUtil {
         return _iconUnicodeLookup.TryGetValue(type, out var value) ? value : FallbackIconUnicode;
     }
     
-    public static Color GetColor(InventoryItemTier tier) {
+    public static Color GetColor(ItemTier tier) {
         return _colorLookup.TryGetValue(tier, out var color) ? color : _fallbackColor;
     }
 }

@@ -107,6 +107,28 @@
                 },
                 {
                     "name": "",
+                    "id": "f98b8ce9-12d2-4623-8555-c764ebb9bfa5",
+                    "path": "<Keyboard>/backspace",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Delete",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1275aa09-2c8b-4e32-ad21-37cb5eb2e239",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Delete",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "111037df-5ffe-4704-ab3a-460ff4cac2e5",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -157,6 +179,15 @@
                     "name": "Zoom",
                     "type": "Value",
                     "id": "dcb2ebf7-79d7-4da5-a52d-ecc387172b7a",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Rotate",
+                    "type": "Value",
+                    "id": "334698f7-9e61-4692-98aa-e5f71212876c",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -304,6 +335,39 @@
                     "processors": "",
                     "groups": "",
                     "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "EQ",
+                    "id": "0bb6afbe-3349-4f07-9717-fc7ec75134d9",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "59b39e91-e37f-4c95-b5fe-88420c5b0807",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "4419d8e4-3394-4f23-a357-e240b645d52b",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

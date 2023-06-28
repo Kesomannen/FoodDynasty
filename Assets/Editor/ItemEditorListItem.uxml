@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1; flex-direction: row; min-width: auto; min-height: auto; background-image: none; -unity-background-image-tint-color: rgba(0, 0, 0, 0); -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; background-color: rgba(0, 0, 0, 0.15); padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 1px; margin-right: 1px; margin-top: 1px; margin-bottom: 1px; -unity-text-outline-width: 0;">
+        <ui:VisualElement name="item-icon" style="width: 35px; height: 35px; margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; -unity-text-outline-width: 0;" />
+        <ui:Label text="Label" display-tooltip-when-elided="true" name="item-name" style="width: auto; justify-content: center; align-items: center; -unity-text-align: middle-left; padding-right: 10px; padding-left: 5px; -unity-font-style: normal; font-size: 12px;" />
+    </ui:VisualElement>
+</ui:UXML>

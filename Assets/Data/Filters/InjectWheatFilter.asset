@@ -28,7 +28,7 @@ MonoBehaviour:
       FilterType: 1
       IntRange: {x: 0, y: 0}
       BoolValue: 1
-  - FilterType: 0
+  - FilterType: 1
     DataType: 0
     RequireData: 0
     FieldFilters:

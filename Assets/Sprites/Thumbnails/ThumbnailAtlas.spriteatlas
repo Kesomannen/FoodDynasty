@@ -50,7 +50,7 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: a78c3f30a005b1c448d3d3ae24f4984e, type: 3}
+  - {fileID: 21300000, guid: 923d4d604e414c242aafe365626fca5f, type: 3}
   - {fileID: 21300000, guid: 8bfc8df31e311314889152320b69f8eb, type: 3}
   - {fileID: 21300000, guid: 335c2a754552472468c0702a8d8d31f4, type: 3}
   - {fileID: 21300000, guid: 0fab2c075d11e7f4eac1cdeb20cbd8dc, type: 3}
@@ -61,7 +61,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e554505e35083e64d9014453e457f4f9, type: 3}
   - {fileID: 21300000, guid: 5e659f2f62ca6a74499c9e0313e8d686, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Nuclear Bread Oven
+  - Metallic Conveyor
   - Bread Softener
   - Dough
   - Rotating Rusty Conveyor

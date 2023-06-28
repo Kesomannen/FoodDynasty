@@ -33,7 +33,7 @@ public class GridObjectSelector : MonoBehaviour {
             _selectedOutline = null;
             _tooltipData.Hide();
         }
-        
+
         _selectedObject = newSelection;
         if (_selectedObject == null) return;
 

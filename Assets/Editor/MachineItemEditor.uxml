@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/Editor/DefaultStyle.uss?fileID=7433441132597879392&amp;guid=d59968f40f654e14bba489f40f543ae4&amp;type=3#DefaultStyle" />
+    <ui:VisualElement name="editor-machine">
+        <ui:Label text="Machine" display-tooltip-when-elided="true" name="Header" />
+        <uie:ObjectField label="Prefab" name="machine-prefab" binding-path="_prefab" allow-scene-objects="false" />
+    </ui:VisualElement>
+</ui:UXML>

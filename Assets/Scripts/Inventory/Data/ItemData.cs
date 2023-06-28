@@ -13,12 +13,12 @@ public class ItemData : ScriptableObject, IInfoProvider, IEntityData {
     [SerializeField] Sprite _image;
 
     [Header("Item")]
-    [SerializeField] InventoryItemTier _tier;
+    [SerializeField] ItemTier _tier;
     [SerializeField] double _price;
 
     public string Name => _name;
     public string Description => _description;
-    public InventoryItemTier Tier => _tier;
+    public ItemTier Tier => _tier;
     public double Price => _price;
     
     public virtual ItemType Type => ItemType.Other;
@@ -44,9 +44,9 @@ public enum ItemType {
     Modifier
 }
 
-public enum InventoryItemTier {
+public enum ItemTier {
     Rusty,
-    Nuclear
+    Metallic
 }
 
 public interface IInfoProvider {

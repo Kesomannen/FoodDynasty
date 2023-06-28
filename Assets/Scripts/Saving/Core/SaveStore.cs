@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public abstract class SaveStore<T> : MonoBehaviour {
     [SerializeField] string _saveKey;
@@ -12,7 +13,15 @@ public abstract class SaveStore<T> : MonoBehaviour {
         OnAfterLoad(_saveManager.LoadData(_saveKey, DefaultValue));
     }
 
-    protected virtual void OnDisable() {
+    void OnEnable() {
+        _saveManager.OnBeforeSave += Save;
+    }
+    
+    void OnDisable() {
+        _saveManager.OnBeforeSave -= Save;
+    }
+
+    void Save() {
         _saveManager.SaveData(_saveKey, GetSaveData());
     }
 }

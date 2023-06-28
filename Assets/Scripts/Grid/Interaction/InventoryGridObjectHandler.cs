@@ -18,11 +18,11 @@ public class InventoryGridObjectHandler : MonoBehaviour {
     }
 
     void OnGridObjectDeleted(GridObject gridObject) {
-        if (!gridObject.TryGetComponent(out IDataProvider<ItemData> itemDataProvider)) return;
+        if (!gridObject.TryGetComponent(out IDataProvider<MachineItemData> machineProvider)) return;
         foreach (var handler in gridObject.GetComponentsInChildren<IOnDeletedHandler>()) {
             handler.OnDeleted(_inventory);
         }
-        _inventory.Add(itemDataProvider.Data);
+        _inventory.Add(machineProvider.Data);
     }
 
     async void OnStartBuilding(Item item) {
