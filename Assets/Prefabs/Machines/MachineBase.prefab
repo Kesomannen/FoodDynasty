@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6683153179909623582}
+  - component: {fileID: 8785312333286062716}
   - component: {fileID: 8092926146817743006}
   - component: {fileID: 325729448198090091}
   - component: {fileID: -572785721937663073}
   - component: {fileID: -838393948165991145}
   - component: {fileID: 6328609926739982568}
-  - component: {fileID: 8785312333286062716}
   m_Layer: 0
   m_Name: MachineBase
   m_TagString: Machine
@@ -37,6 +37,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8785312333286062716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6934147759885031633}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 0.75
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!54 &8092926146817743006
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -90,11 +108,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a189d557cd0c42bebb4e2ef1dc861402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _size: {x: 4, y: 4}
-  _rotationAxis: {x: 0, y: 1, z: 0}
+  _canMove: 1
   _blueprintPrefab: {fileID: 0}
-  _rotation:
-    _value: 0
+  _rotationAxis: {x: 0, y: 1, z: 0}
+  _size:
+    _customMatrix: []
+    _gridSize:
+      Type: 0
+      Bounds: {x: 0, y: 0}
 --- !u!114 &-838393948165991145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd00b81405c4ff6974c75e1bbe4e1d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _direction: {x: 0, y: 0, z: 1}
   _speed: {fileID: 0}
 --- !u!114 &6328609926739982568
 MonoBehaviour:
@@ -121,21 +143,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data: {fileID: 0}
---- !u!114 &8785312333286062716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6934147759885031633}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 0.75
-  precomputeOutline: 1
-  bakeKeys: []
-  bakeValues: []

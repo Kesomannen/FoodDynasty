@@ -2,6 +2,7 @@
 using UnityEngine;
 
 public class YieldInputFood : FoodMachineComponent, IInfoProvider {
+    [Space]
     [SerializeField] int _yieldPerItem;
     [SerializeField] Modifier _sellPriceModifier = new(multiplicative: 1f);
     [SerializeField] SupplyBase _supply;

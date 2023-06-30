@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: c51328999e59c624db14de2cb4c98fcd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _mainUxml: {fileID: 9197481963319205126, guid: f05d7f0e5dc78e34eb39319d760e4b4b,
+      type: 3}
+  - _listItemUxml: {fileID: 9197481963319205126, guid: d32d14cd15c47274c96042d0d1eb5f66,
+      type: 3}
+  - _machineEditorUxml: {fileID: 9197481963319205126, guid: 26535823d394cc7408ba7b9e0c61b32f,
+      type: 3}
+  - _componentEditorUxml: {fileID: 9197481963319205126, guid: 6a8dff5a6df5b0e4d90334c6b07b3897,
+      type: 3}
+  - m_ViewDataDictionary: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -2,6 +2,7 @@
 using UnityEngine;
 
 public class FoodSeller : FoodMachineComponent, IInfoProvider {
+    [Space]
     [SerializeField] MoneyManager _moneyManager;
     [SerializeField] Modifier _sellPriceModifier;
 

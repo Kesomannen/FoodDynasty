@@ -16,7 +16,11 @@ public class MachineItemData : ItemData, IPrefabProvider<GridObject> {
     IInfoProvider[] _cachedProviders;
     
     public override ItemType Type => _type;
-    public GridObject Prefab => _prefab;
+    
+    public GridObject Prefab {
+        get => _prefab;
+        set => _prefab = value;
+    }
 
     public (IInfoProvider Provider, bool Enabled)[] GetInfoProviders() {
         if (_cachedProviders == null) {

@@ -14,12 +14,12 @@ public class ConditionalEnabling : MonoBehaviour {
 
     IEnumerator UpdateLoop() {
         while (enabled) {
-            Update();
+            UpdateState();
             yield return CoroutineHelpers.Wait(_updateEvery);
         }
     }
 
-    void Update() {
+    void UpdateState() {
         var active = _conditional.Check();
         
         foreach (var behaviour in _behaviours) {

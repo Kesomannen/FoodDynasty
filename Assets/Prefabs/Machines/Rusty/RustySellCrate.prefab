@@ -2198,9 +2198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerEvent:
-    _event:
-      _enabled: 1
-      _value: {fileID: 665652520168750360}
+    _event: {fileID: 665652520168750360}
     _condition:
       _enabled: 0
       _value: {fileID: 0}
@@ -2226,9 +2224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onTriggered:
-    _event:
-      _enabled: 1
-      _value: {fileID: 665652520168750360}
+    _event: {fileID: 665652520168750360}
     _condition:
       _enabled: 0
       _value: {fileID: 0}

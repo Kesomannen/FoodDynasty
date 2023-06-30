@@ -1,9 +1,10 @@
 ﻿using UnityEditor;
 using UnityEngine;
- 
+using UnityEngine.UIElements;
+
 [CustomPropertyDrawer(typeof(SerializedGridSize))]
 public class SerializedGridSizeDrawer : PropertyDrawer {
-    bool _foldout = true;
+    bool _foldout;
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
         var lines = 1;

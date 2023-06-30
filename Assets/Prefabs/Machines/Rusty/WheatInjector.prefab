@@ -68485,15 +68485,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onTriggered:
-    _event:
-      _enabled: 1
-      _value: {fileID: 8169549670898147513}
-    _condition:
-      _enabled: 1
-      _value: {fileID: 6715930379788113697}
-    _filter:
-      _enabled: 1
-      _value: {fileID: 11400000, guid: c1b28c9340f20314da5fdbe993469d60, type: 2}
+    _event: {fileID: 8169549670898147513}
+    _condition: {fileID: 0}
+    _filter: {fileID: 11400000, guid: c1b28c9340f20314da5fdbe993469d60, type: 2}
 --- !u!114 &8169549670898147513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68519,15 +68513,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerEvent:
-    _event:
-      _enabled: 1
-      _value: {fileID: 8169549670898147513}
-    _condition:
-      _enabled: 0
-      _value: {fileID: 0}
-    _filter:
-      _enabled: 0
-      _value: {fileID: 0}
+    _event: {fileID: 8169549670898147513}
+    _condition: {fileID: 0}
+    _filter: {fileID: 0}
   _modifierGroup: {fileID: 11400000, guid: fe12401e7218ed74cb6227b2da0f4f2c, type: 2}
   _onItemModified:
     _enabled: 1

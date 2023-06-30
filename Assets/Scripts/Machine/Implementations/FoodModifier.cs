@@ -3,14 +3,15 @@ using NaughtyAttributes;
 using UnityEngine;
 
 public class FoodModifier : FoodMachineComponent, IInfoProvider {
+    [Space]
     [SerializeField] FoodModifierGroup _modifierGroup;
-    [SerializeField] Optional<Event<Food>> _onItemModified;
+    [SerializeField] Event<Food> _onItemModified;
 
     protected override void OnTriggered(Food food) {
         _modifierGroup.Apply(food);
 
-        if (_onItemModified.Enabled) {
-            _onItemModified.Value.Raise(food);
+        if (_onItemModified != null) {
+            _onItemModified.Raise(food);
         }
     }
 

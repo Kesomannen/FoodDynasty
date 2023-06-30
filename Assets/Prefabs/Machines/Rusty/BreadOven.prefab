@@ -336,6 +336,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
+      propertyPath: _rotationAxis.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
       propertyPath: _size._bounds.x
       value: 6
       objectReference: {fileID: 0}
@@ -5334,15 +5339,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerEvent:
-    _event:
-      _enabled: 1
-      _value: {fileID: 5991461734866708036}
-    _condition:
-      _enabled: 0
-      _value: {fileID: 0}
-    _filter:
-      _enabled: 0
-      _value: {fileID: 11400000, guid: d21d35ab19c171d479fe2b747b45b7bd, type: 2}
+    _event: {fileID: 5991461734866708036}
+    _condition: {fileID: 0}
+    _filter: {fileID: 0}
   _modifierGroup: {fileID: 11400000, guid: 01619ffce44a1c1458ab72aae113a510, type: 2}
   _onItemModified:
     _enabled: 0
@@ -5360,15 +5359,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onTriggered:
-    _event:
-      _enabled: 1
-      _value: {fileID: 5991461734866708036}
-    _condition:
-      _enabled: 0
-      _value: {fileID: 0}
-    _filter:
-      _enabled: 1
-      _value: {fileID: 11400000, guid: d21d35ab19c171d479fe2b747b45b7bd, type: 2}
+    _event: {fileID: 5991461734866708036}
+    _condition: {fileID: 0}
+    _filter: {fileID: 11400000, guid: d21d35ab19c171d479fe2b747b45b7bd, type: 2}
 --- !u!114 &5991461734866708036
 MonoBehaviour:
   m_ObjectHideFlags: 0

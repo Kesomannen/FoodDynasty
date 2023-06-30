@@ -73376,19 +73376,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerEvent:
-    _event:
-      _enabled: 1
-      _value: {fileID: 8169549670898147513}
-    _condition:
-      _enabled: 0
-      _value: {fileID: 0}
-    _filter:
-      _enabled: 1
-      _value: {fileID: 11400000, guid: 37500dd79194c5b4c8209850489a1bcc, type: 2}
+    _event: {fileID: 8169549670898147513}
+    _condition: {fileID: 0}
+    _filter: {fileID: 11400000, guid: 37500dd79194c5b4c8209850489a1bcc, type: 2}
   _modifierGroup: {fileID: 11400000, guid: adee786ac12a8d84dbec764920851d2a, type: 2}
-  _onItemModified:
-    _enabled: 1
-    _value: {fileID: 9023395621601448786}
+  _onItemModified: {fileID: 9023395621601448786}
 --- !u!114 &6715930379788113697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73432,15 +73424,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onTriggered:
-    _event:
-      _enabled: 1
-      _value: {fileID: 8169549670898147513}
-    _condition:
-      _enabled: 1
-      _value: {fileID: 6715930379788113697}
-    _filter:
-      _enabled: 0
-      _value: {fileID: 0}
+    _event: {fileID: 8169549670898147513}
+    _condition: {fileID: 6715930379788113697}
+    _filter: {fileID: 0}
 --- !u!114 &8169549670898147513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73466,19 +73452,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _triggerEvent:
-    _event:
-      _enabled: 1
-      _value: {fileID: 8169549670898147513}
-    _condition:
-      _enabled: 0
-      _value: {fileID: 0}
-    _filter:
-      _enabled: 1
-      _value: {fileID: 11400000, guid: 7b5ec0ad36ecde4429ecaabf54b9365c, type: 2}
+    _event: {fileID: 8169549670898147513}
+    _condition: {fileID: 0}
+    _filter: {fileID: 11400000, guid: 7b5ec0ad36ecde4429ecaabf54b9365c, type: 2}
   _modifierGroup: {fileID: 11400000, guid: 2287d48ad77bf2d4f85c5c006a4fb923, type: 2}
-  _onItemModified:
-    _enabled: 1
-    _value: {fileID: 9023395621601448786}
+  _onItemModified: {fileID: 9023395621601448786}
 --- !u!114 &8801797232500538520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73492,9 +73470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _requiredSupplyPerUse: 1
-  _refillItem:
-    _enabled: 1
-    _value: {fileID: 11400000, guid: 92c67e9cf6e1f7549ade844dae795724, type: 2}
+  _refillItem: {fileID: 11400000, guid: 92c67e9cf6e1f7549ade844dae795724, type: 2}
   _refillItemName: 
   _condition: {fileID: 6715930379788113697}
   _onUsed: {fileID: 9023395621601448786}

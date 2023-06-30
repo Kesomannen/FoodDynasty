@@ -16,11 +16,26 @@ public class ItemData : ScriptableObject, IInfoProvider, IEntityData {
     [SerializeField] ItemTier _tier;
     [SerializeField] double _price;
 
-    public string Name => _name;
-    public string Description => _description;
-    public ItemTier Tier => _tier;
-    public double Price => _price;
-    
+    public string Name {
+        get => _name;
+        set => _name = value;
+    }
+
+    public string Description {
+        get => _description;
+        set => _description = value;
+    }
+
+    public ItemTier Tier {
+        get => _tier;
+        set => _tier = value;
+    }
+
+    public double Price {
+        get => _price;
+        set => _price = value;
+    }
+
     public virtual ItemType Type => ItemType.Other;
 
     public Sprite Image {

@@ -26,7 +26,11 @@ public class GridObject : MonoBehaviour, IInfoProvider {
     public GridSize StaticSize => _size.Value;
     public GridSize RotatedSize => StaticSize.Rotated(Rotation.Steps);
     
-    public GameObject BlueprintPrefab => _blueprintPrefab;
+    public GameObject BlueprintPrefab {
+        get => _blueprintPrefab;
+        set => _blueprintPrefab = value;
+    }
+
     public Vector3 RotationAxis => _rotationAxis;
     public bool CanMove => _canMove;
     

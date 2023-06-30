@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MachineSupply : SupplyBase, IInfoProvider, IStatusProvider{
     [SerializeField] int _requiredSupplyPerUse = 1;
-    [SerializeField] Optional<ItemData> _refillItem;
+    [SerializeField] ItemData _refillItem;
     [SerializeField] string _refillItemName;
     [SerializeField] CheckEvent<bool> _condition;
     [SerializeField] GenericEvent _onUsed;
@@ -28,8 +28,8 @@ public class MachineSupply : SupplyBase, IInfoProvider, IStatusProvider{
         }
     }
 
-    public override bool IsRefillable => _refillItem.Enabled;
-    public override ItemData RefillItem => _refillItem.Value;
+    public override bool IsRefillable => _refillItem != null;
+    public override ItemData RefillItem => _refillItem;
 
     bool HasSupply() => CurrentSupply >= _requiredSupplyPerUse;
     void OnUsed() => CurrentSupply -= _requiredSupplyPerUse;
@@ -45,7 +45,7 @@ public class MachineSupply : SupplyBase, IInfoProvider, IStatusProvider{
     }
 
     public IEnumerable<(string Name, string Value)> GetInfo() {
-        if (_refillItem.Enabled) {
+        if (_refillItem != null) {
             yield return ("Refill", RefillItemName);
         }
     }
