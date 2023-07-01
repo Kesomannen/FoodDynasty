@@ -84,6 +84,7 @@ MonoBehaviour:
       - _typeNameAndAssembly: TMPro.TextMeshProUGUI, Unity.TextMeshPro
         _guid: 
       _assemblyGUID: f5beab81658e82d4d86bea6ec2a5d6f1
+  - _array: []
   _genericTypeValues:
   - _array:
     - _typeNameAndAssembly: Container`1, Assembly-CSharp
@@ -251,6 +252,13 @@ MonoBehaviour:
   - _typeNameAndAssembly: PoolableComponent`1, Assembly-CSharp
     _guid: 4d9634bd5ef144cfbaed6047c0f6b938
     AssemblyGUID: 72dc4ca6377cb8343b4ebe569b658b49
+    _argNames:
+    - T
+    _componentName: 
+    _order: 0
+  - _typeNameAndAssembly: Singleton`1, Dynasty.Util
+    _guid: 
+    AssemblyGUID: 76c95c8cb9685cf4cbdf6674368f086b
     _argNames:
     - T
     _componentName: 

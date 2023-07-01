@@ -27,7 +27,7 @@ public class GridObjectMover : MonoBehaviour {
         var result = await _placer.DoPlacement(obj);
         
         obj.SetActive(true);
-        switch (result.Type) {
+        switch (result.ResultType) {
             case GridPlacementResultType.Successful:
                 obj.AddAndPosition(_placer.GridManager, result.GridPosition, result.Rotation); break;
             case GridPlacementResultType.Failed:

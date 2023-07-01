@@ -9,8 +9,8 @@ public class GridObjectBuilder : MonoBehaviour {
     public async Task StartPlacing(
         GridObject prefab,
         Func<bool> beforePlace = null, 
-        Action<GridObject, GridPlacementResult> afterPlace = null) 
-    {
+        Action<GridObject, GridPlacementResult> afterPlace = null
+    ) {
         beforePlace ??= () => true;
         _placer.Cancel();
         
@@ -33,8 +33,6 @@ public class GridObjectBuilder : MonoBehaviour {
             return (result, gridObject);
         }
         
-        Destroy(gridObject);
-        result.Type = GridPlacementResultType.Failed;
-        return (result, null);
+        throw new Exception("Failed to add grid object even though placement was successful");
     }
 }

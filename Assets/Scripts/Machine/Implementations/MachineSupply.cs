@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MachineSupply : SupplyBase, IInfoProvider, IStatusProvider{
     [SerializeField] int _requiredSupplyPerUse = 1;
     [SerializeField] ItemData _refillItem;
     [SerializeField] string _refillItemName;
     [SerializeField] CheckEvent<bool> _condition;
-    [SerializeField] GenericEvent _onUsed;
+    [FormerlySerializedAs("_onUsed")]
+    [SerializeField] GenericEvent _useEvent;
 
     int _currentSupply;
-
-    protected override string ItemNameOverride => _refillItemName;
-
-    public event Action<IStatusProvider> OnStatusChanged;
-    public override event Action<SupplyBase> OnChanged;
 
     public override int CurrentSupply {
         get => _currentSupply;
@@ -27,25 +24,42 @@ public class MachineSupply : SupplyBase, IInfoProvider, IStatusProvider{
             OnChanged?.Invoke(this);
         }
     }
+    
+    public override ItemData RefillItem {
+        get => _refillItem;
+        set => _refillItem = value;
+    }
 
-    public override bool IsRefillable => _refillItem != null;
-    public override ItemData RefillItem => _refillItem;
+    public CheckEvent<bool> Condition {
+        get => _condition;
+        set => _condition = value;
+    }
+    
+    public GenericEvent UseEvent {
+        get => _useEvent;
+        set => _useEvent = value;
+    }
 
-    bool HasSupply() => CurrentSupply >= _requiredSupplyPerUse;
-    void OnUsed() => CurrentSupply -= _requiredSupplyPerUse;
+    protected override string ItemNameOverride => _refillItemName;
+
+    public event Action<IStatusProvider> OnStatusChanged;
+    public override event Action<SupplyBase> OnChanged;
     
     void OnEnable() {
         _condition.AddCondition(HasSupply);
-        _onUsed.OnRaisedGeneric += OnUsed;
+        _useEvent.OnRaisedGeneric += OnUsed;
     }
     
     void OnDisable() {
         _condition.RemoveCondition(HasSupply);
-        _onUsed.OnRaisedGeneric -= OnUsed;
+        _useEvent.OnRaisedGeneric -= OnUsed;
     }
+    
+    bool HasSupply() => CurrentSupply >= _requiredSupplyPerUse;
+    void OnUsed() => CurrentSupply -= _requiredSupplyPerUse;
 
     public IEnumerable<(string Name, string Value)> GetInfo() {
-        if (_refillItem != null) {
+        if (IsRefillable) {
             yield return ("Refill", RefillItemName);
         }
     }

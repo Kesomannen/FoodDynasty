@@ -7,10 +7,13 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
 
 public class ItemMachineEditor : IDisposable {
     readonly VisualElement _root;
     readonly ObjectField _prefabField;
+    
+    MachineItemData _currentItem;
     
     Event<Food>[] _events;
     CheckEvent<bool>[] _checkEvents;
@@ -30,7 +33,7 @@ public class ItemMachineEditor : IDisposable {
             },
             actionOnRelease: element => {
                 _activeComponentEditors.Remove(element);
-                
+
                 var childrenToRemove = element.Q(name: "component-properties").Children().Skip(1).ToArray();
                 foreach (var child in childrenToRemove) {
                     child.RemoveFromHierarchy();
@@ -43,11 +46,10 @@ public class ItemMachineEditor : IDisposable {
     }
 
     public void Show(MachineItemData item) {
+        _currentItem = item;
         Cleanup();
         
         _root.style.display = DisplayStyle.Flex;
-        Selection.activeObject = item.Prefab;
-        
         _prefabField.objectType = typeof(GridObject);
         _root.Bind(new SerializedObject(item));
 
@@ -57,11 +59,16 @@ public class ItemMachineEditor : IDisposable {
     }
     
     public void Hide() {
+        _currentItem = null;
         Cleanup();
         
         _root.style.display = DisplayStyle.None;
     }
-    
+
+    public IEnumerable<Object> GetObjectsForDeletion() {
+        return _currentItem == null ? Enumerable.Empty<Object>() : FindScriptableAssets(_currentItem.Prefab.gameObject);
+    }
+
     void Cleanup() {
         while (_activeComponentEditors.Count > 0) {
             _componentEditorPool.Release(_activeComponentEditors[0]);
@@ -125,7 +132,7 @@ public class ItemMachineEditor : IDisposable {
 
     VisualElement CreateGenericField(SerializedProperty property) {
         var type = property.GetObjectType();
-        return type == typeof(FilteredItemEvent) ? CreateFilteredItemEvent(property) : null;
+        return type == typeof(FilteredFoodEvent) ? CreateFilteredItemEvent(property) : null;
     }
 
     VisualElement CreateObjectField(SerializedProperty property) {
@@ -179,6 +186,31 @@ public class ItemMachineEditor : IDisposable {
             name => name == "None" ? null : _events[name[^1] - '1'], 
             _events
         );
+    }
+    
+    static IEnumerable<ScriptableObject> FindScriptableAssets(GameObject prefab) {
+        HashSet<ScriptableObject> assets = new();
+
+        foreach (var component in prefab.GetComponentsInChildren<IMachineComponent>().Select(c => c.Component)) {
+            var serializedObject = new SerializedObject(component);
+            var property = serializedObject.GetIterator();
+
+            while (property.NextVisible(true)) {
+                if (property.propertyType != SerializedPropertyType.ObjectReference) continue;
+                
+                var value = property.objectReferenceValue;
+                if (value == null || value is not ScriptableObject scriptableObject) continue;
+                    
+                var type = value.GetType();
+                    
+                if (type == typeof(FoodModifierGroup)) Add();
+                else if (type == typeof(FoodFilterGroup)) Add();
+
+                void Add() => assets.Add(scriptableObject);
+            }
+        }
+        
+        return assets;
     }
 
     public void Dispose() {

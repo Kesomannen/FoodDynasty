@@ -9,6 +9,11 @@ public class Conveyor : MonoBehaviour, IInfoProvider, IMachineComponent {
     [SerializeField] DataObject<float> _speed;
     
     Rigidbody _rigidbody;
+    
+    public DataObject<float> Speed {
+        get => _speed;
+        set => _speed = value;
+    }
 
     void Awake() {
         _rigidbody = GetComponent<Rigidbody>();

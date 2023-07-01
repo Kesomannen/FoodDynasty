@@ -6,8 +6,11 @@ public class FoodModifierGroup : ScriptableObject {
     [SerializeField] FoodModelModifier[] _modelModifiers;
     [SerializeField] FoodDataModifier[] _dataModifiers;
     
-    public Modifier SellPriceModifier => _sellPriceModifier;
-    
+    public Modifier SellPriceModifier {
+        get => _sellPriceModifier;
+        set => _sellPriceModifier = value;
+    }
+
     public void Apply(Food food) {
         food.SellPrice += _sellPriceModifier;
         

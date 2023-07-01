@@ -8978,9 +8978,7 @@ MonoBehaviour:
     _condition: {fileID: 0}
     _filter: {fileID: 0}
   _modifierGroup: {fileID: 11400000, guid: 463f61ef0b278e446a97966ad7f15585, type: 2}
-  _onItemModified:
-    _enabled: 0
-    _value: {fileID: 0}
+  _onItemModified: {fileID: 0}
 --- !u!114 &203226431
 MonoBehaviour:
   m_ObjectHideFlags: 0

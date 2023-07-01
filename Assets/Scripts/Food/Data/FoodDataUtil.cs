@@ -7,7 +7,8 @@ public static class FoodDataUtil {
         { FoodDataType.Spice, typeof(Spice) },
         { FoodDataType.Softened, typeof(Softened) },
         { FoodDataType.WholeWheat, typeof(WholeWheat) },
-        { FoodDataType.Bread, typeof(Bread) }
+        { FoodDataType.Bread, typeof(Bread) },
+        { FoodDataType.Cleaned, typeof(Cleaned) }
     };
     
     public static Type GetDataType(FoodDataType type) {
@@ -20,5 +21,6 @@ public enum FoodDataType {
     Spice,
     Softened,
     WholeWheat,
-    Bread
+    Bread,
+    Cleaned
 }

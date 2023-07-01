@@ -9,7 +9,7 @@ public class ShopController : MonoBehaviour {
     [SerializeField] Transform _itemParent;
     [SerializeField] Container<ItemData> _itemPrefab;
     [SerializeField] GameEvent<Item> _onItemPurchased;
-    [SerializeField] InventoryItemDataBuyControl _buyControl;
+    [SerializeField] ItemDataBuyControl _buyControl;
     [SerializeField] ItemData[] _itemData;
     [SerializeField] MoneyManager _moneyManager;
     [Space]

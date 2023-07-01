@@ -9,6 +9,10 @@ public class ItemCreatorPopupWindow : PopupWindowContent {
     readonly List<IItemModifier> _modifiers = new();
     readonly CreateMode _createMode;
     
+    ObjectField _modelField;
+    TextField _nameField;
+    EnumField _tierField;
+    
     public event Action OnItemCreated;
 
     public ItemCreatorPopupWindow(CreateMode createMode) {
@@ -20,37 +24,51 @@ public class ItemCreatorPopupWindow : PopupWindowContent {
     }
 
     public override void OnGUI(Rect rect) { }
+    public override void OnClose() { }
 
     public override void OnOpen() {
         var root = editorWindow.rootVisualElement;
-        CreateGeneralEditor(root);
+        CreateGeneralEditor();
+        
+        
+        root.Add(CreateCreateButton());
     }
 
-    void CreateGeneralEditor(VisualElement container) {
-        LoadUxml("General").CloneTree(container);
+    void CreateGeneralEditor() {
+        var container = CreateEditor(CreateMode.Machine_General);
         AddFieldModifier<string>("description-field", (description, item) => item.Description = description);
+        
+        _modelField = container.Q<ObjectField>("model-field");
+        _nameField = container.Q<TextField>("name-field");
+        _tierField = container.Q<EnumField>("tier-field");
+        
+        var conveyorSpeedField = container.Q<ObjectField>("conveyor-speed-field");
+        conveyorSpeedField.objectType = typeof(DataObject<float>);
+        AddFieldModifier(conveyorSpeedField, (speed, item) => {
+            if (item is not IPrefabProvider<GridObject> provider) return;
+            if (!provider.Prefab.TryGetComponent(out Conveyor conveyor)) return;
+            conveyor.Speed = (DataObject<float>) speed;
+        });
 
-        var modelField = container.Q<ObjectField>("model-field");
-        var nameField = container.Q<TextField>("name-field");
-        var tierField = container.Q<EnumField>("tier-field");
-        tierField.Init(ItemTier.Rusty);
+        _tierField.Init(ItemTier.Rusty);
+    }
 
+    Button CreateCreateButton() {
         var createButton = new Button(() => {
-            var model = modelField.value as GameObject;
+            var model = _modelField.value as GameObject;
             if (model == null) return;
             
-            var name = nameField.value;
+            var name = _nameField.value;
             if (string.IsNullOrWhiteSpace(name)) return;
             
-            var tier = (ItemTier) tierField.value;
-
+            var tier = (ItemTier) _tierField.value;
             var item = _createMode switch {
                 CreateMode.Machine_General => ItemCreator.CreateGenericMachine(name, model, tier),
+                CreateMode.Machine_ModifierWithoutSupply => ItemCreator.CreateModifierMachine(name, model, tier),
+                CreateMode.Machine_ModifierWithSupply => ItemCreator.CreateModifierMachineWithSupply(name, model, tier),
                 CreateMode.Machine_Sell => null,
                 CreateMode.Machine_Deposit => null,
                 CreateMode.Machine_Split => null,
-                CreateMode.Machine_ModifierWithoutSupply => null,
-                CreateMode.Machine_ModifierWithSupply => null,
                 _ => throw new ArgumentOutOfRangeException()
             };
                 
@@ -62,12 +80,8 @@ public class ItemCreatorPopupWindow : PopupWindowContent {
         }) {
             text = "Create"
         };
-
-        container.Add(createButton);
-    }
-
-    public override void OnClose() {
         
+        return createButton;
     }
 
     void AddFieldModifier<T>(string name, Action<T, ItemData> modifier) {
@@ -77,9 +91,19 @@ public class ItemCreatorPopupWindow : PopupWindowContent {
     void AddFieldModifier<T>(INotifyValueChanged<T> field, Action<T, ItemData> modifier) {
         _modifiers.Add(new FieldModifier<T>(field, modifier));
     }
+
+    VisualElement CreateCurrentEditor() {
+        return CreateEditor(_createMode);
+    }
     
-    static VisualTreeAsset LoadUxml(string name) {
-        return AssetDatabase.LoadAssetAtPath<VisualTreeAsset>($"Assets/Editor/ItemCreator/{name}.uxml");
+    VisualElement CreateEditor(CreateMode createMode) {
+        var editor = LoadUxml(createMode).CloneTree();
+        editorWindow.rootVisualElement.Add(editor);
+        return editor;
+    }
+    
+    static VisualTreeAsset LoadUxml(CreateMode createMode) {
+        return AssetDatabase.LoadAssetAtPath<VisualTreeAsset>($"Assets/Editor/ItemCreator/{createMode}.uxml");
     }
 
     interface IItemModifier {

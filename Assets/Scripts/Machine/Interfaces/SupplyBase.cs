@@ -6,8 +6,13 @@ using UnityEngine;
 public class SupplyBase : MonoBehaviour, IOnDeletedHandler, IAdditionalSaveData, IMachineComponent {
     public virtual int CurrentSupply { get; set; }
 
-    public virtual bool IsRefillable => false;
-    public virtual ItemData RefillItem => null;
+    public bool IsRefillable => RefillItem != null;
+
+    public virtual ItemData RefillItem {
+        get => null;
+        set => throw new NotImplementedException();
+    }
+
     public string RefillItemName => IsRefillable ? RefillItem.Name : ItemNameOverride;
     
     protected virtual string ItemNameOverride => "Unknown item";

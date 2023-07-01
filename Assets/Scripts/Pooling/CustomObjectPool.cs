@@ -1,8 +1,8 @@
-﻿using GenericUnityObjects;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Pool;
 
-public abstract class CustomObjectPool<T> : ScriptableObject where T : Component, IPoolable<T> {
+public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where T : Component, IPoolable<T> {
     [Header("Object Pool")]
     [SerializeField] T _prefab;
     [SerializeField] bool _collectionCheck = true;
@@ -39,7 +39,11 @@ public abstract class CustomObjectPool<T> : ScriptableObject where T : Component
         obj.OnDisposed -= Release;
         Destroy(obj.gameObject);
     }
-    
-    protected void Release(T obj) => Pool.Release(obj);
+
+    public virtual void Dispose() {
+        _pool?.Dispose();
+    }
+
+    void Release(T obj) => Pool.Release(obj);
     public T Get() => Pool.Get();
 }

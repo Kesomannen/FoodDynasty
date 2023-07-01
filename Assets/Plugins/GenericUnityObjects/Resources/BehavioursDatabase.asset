@@ -19,6 +19,7 @@ MonoBehaviour:
   - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
   - _typeNameAndAssembly: EntityText`1, Assembly-CSharp
   - _typeNameAndAssembly: PoolableComponent`1, Assembly-CSharp
+  - _typeNameAndAssembly: Singleton`1, Dynasty.Util
   _values:
   - _keys:
     - _collection:
@@ -80,3 +81,5 @@ MonoBehaviour:
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_f5beab81658e82d4d86bea6ec2a5d6f1,
         z_PoolableComponent_TextMeshProUGUI
+  - _keys: []
+    _values: []

@@ -2,7 +2,7 @@
 
 public class GridObjectSelector : MonoBehaviour {
     [SerializeField] GameEvent<GridObject> _selectObjectEvent;
-    [SerializeField] GameEvent<GridObject> _deselectObjectEvent;
+    [SerializeField] GameEvent<GridObject>[] _deselectObjectEvents;
     [SerializeField] TooltipData<Entity> _tooltipData;
 
     GridObject _selectedObject;
@@ -10,12 +10,16 @@ public class GridObjectSelector : MonoBehaviour {
     
     void OnEnable() {
         _selectObjectEvent.OnRaised += OnObjectSelected;
-        _deselectObjectEvent.OnRaised += OnObjectDeselected;
+        foreach (var deselectEvent in _deselectObjectEvents) {
+            deselectEvent.OnRaised += OnObjectDeselected;
+        }
     }
     
     void OnDisable() {
         _selectObjectEvent.OnRaised -= OnObjectSelected;
-        _deselectObjectEvent.OnRaised -= OnObjectDeselected;
+        foreach (var deselectEvent in _deselectObjectEvents) {
+            deselectEvent.OnRaised -= OnObjectDeselected;
+        }
     }
 
     void OnObjectSelected(GridObject obj) {
@@ -34,7 +38,7 @@ public class GridObjectSelector : MonoBehaviour {
             _tooltipData.Hide();
         }
 
-        _selectedObject = newSelection;
+        _selectedObject = newSelection; 
         if (_selectedObject == null) return;
 
         _selectedOutline = _selectedObject.GetOrAddComponent<Outline>();

@@ -2,7 +2,7 @@
 using NaughtyAttributes;
 using UnityEngine;
 
-public class Container<T> : MonoBehaviour, IPoolable<Container<T>> {
+public class Container<T> : UIComponent<T>, IPoolable<Container<T>> {
     [Header("Container")]
     [SerializeField] bool _autoDetectComponents;
     [HideIf("_autoDetectComponents")]
@@ -16,7 +16,7 @@ public class Container<T> : MonoBehaviour, IPoolable<Container<T>> {
         _components = GetComponentsInChildren<UIComponent<T>>();
     }
 
-    public void SetContent(T content) {
+    public override void SetContent(T content) {
         foreach (var component in _components) {
             component.SetContent(content);
         }

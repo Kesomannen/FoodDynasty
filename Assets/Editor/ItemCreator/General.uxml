@@ -1,8 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <ui:VisualElement style="margin-left: 5px; margin-right: 5px; margin-top: 5px; margin-bottom: 5px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;">
-        <ui:TextField picking-mode="Ignore" label="Name" name="name-field" />
-        <ui:TextField picking-mode="Ignore" label="Description" name="description-field" />
-        <uie:EnumField label="Enum" include-obsolete-values="false" name="tier-field" />
-        <uie:ObjectField label="Model" name="model-field" type="UnityEngine.GameObject, UnityEngine.CoreModule" allow-scene-objects="false" />
-    </ui:VisualElement>
-</ui:UXML>

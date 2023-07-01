@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
 
 public abstract class FoodMachineComponent : MonoBehaviour, IMachineComponent {
-    [SerializeField] FilteredItemEvent _triggerEvent;
+    [SerializeField] FilteredFoodEvent _triggerEvent;
+
+    public FilteredFoodEvent TriggerEvent {
+        get => _triggerEvent;
+        set => _triggerEvent = value;
+    }
 
     protected abstract void OnTriggered(Food food);
 

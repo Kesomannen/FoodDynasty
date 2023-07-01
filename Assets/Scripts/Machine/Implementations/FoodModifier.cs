@@ -7,6 +7,11 @@ public class FoodModifier : FoodMachineComponent, IInfoProvider {
     [SerializeField] FoodModifierGroup _modifierGroup;
     [SerializeField] Event<Food> _onItemModified;
 
+    public FoodModifierGroup ModifierGroup {
+        get => _modifierGroup;
+        set => _modifierGroup = value;
+    }
+    
     protected override void OnTriggered(Food food) {
         _modifierGroup.Apply(food);
 

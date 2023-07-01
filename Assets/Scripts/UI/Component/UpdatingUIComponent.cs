@@ -1,19 +1,21 @@
 ﻿public abstract class UpdatingUIComponent<T> : UIComponent<T> {
-    protected T Content { get; private set; }
+    T _content;
+    bool _isSubscribed;
     
     public sealed override void SetContent(T content) {
-        if (Content != null) {
-            Unsubscribe(Content);
+        if (_isSubscribed && _content != null) {
+            Unsubscribe(_content);
         }
-        
-        Content = content;
-        Subscribe(Content);
+
+        _content = content;
+        Subscribe(_content);
+        _isSubscribed = true;
     }
 
-    void OnDisable() {
-        if (Content == null) return;
-        Unsubscribe(Content);
-        Content = default;
+    protected virtual void OnDisable() {
+        if (!_isSubscribed || _content == null) return;
+        Unsubscribe(_content);
+        _isSubscribed = false;
     }
 
     protected abstract void Subscribe(T content);

@@ -57,6 +57,8 @@ public class FoodDataModifierDrawer : PropertyDrawer {
         
         rect.y += EditorGUIUtility.singleLineHeight;
         var selectedFieldIndex = Array.FindIndex(fields, info => info.Name == dataModifier.FieldName);
+        if (selectedFieldIndex == -1) selectedFieldIndex = 0;
+        
         selectedFieldIndex = EditorGUI.Popup(
             rect,
             "Field", 

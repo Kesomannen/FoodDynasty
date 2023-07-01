@@ -16,7 +16,11 @@ public class MachineItemData : ItemData, IPrefabProvider<GridObject> {
     IInfoProvider[] _cachedProviders;
     
     public override ItemType Type => _type;
-    
+
+    public void SetType(ItemType value) {
+        _type = value;
+    }
+
     public GridObject Prefab {
         get => _prefab;
         set => _prefab = value;
@@ -44,9 +48,13 @@ public class MachineItemData : ItemData, IPrefabProvider<GridObject> {
     public void RefreshProviders() {
         _cachedProviders = _prefab == null ? Array.Empty<IInfoProvider>() : _prefab.GetComponentsInChildren<IInfoProvider>();
 
-        if (_cachedProviders.Length == _enabledProviders.Length) return;
-        Debug.Log("Resetting enabled providers:" +
-                  $" cached providers ({_cachedProviders.Length}) != enabled providers ({_enabledProviders.Length})", this);
+        if (_enabledProviders != null && _cachedProviders.Length == _enabledProviders.Length) return;
         _enabledProviders = new bool[_cachedProviders.Length];
     }
+
+    void Reset() {
+        RefreshProviders();
+    }
+    
+    
 }

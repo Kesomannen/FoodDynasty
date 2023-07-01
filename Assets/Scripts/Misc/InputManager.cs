@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoScriptable {
     [SerializeField] ActionData[] _actions;
     [SerializeField] InputActionAsset _inputActionAsset;
+    [SerializeField] string _inputActionMapName;
 
     readonly Dictionary<InputAction, GameEvent<InputAction.CallbackContext>> _boundActions = new();
 
@@ -50,7 +51,7 @@ public class InputManager : MonoScriptable {
     }
 
     bool GetInputAction(ActionData action, out InputAction inputAction) {
-        inputAction = _inputActionAsset.FindAction(action.InputActionName);
+        inputAction = _inputActionAsset.FindAction($"{_inputActionMapName}/{action.InputActionName}");
         if (inputAction != null) return true;
         
         Debug.LogWarning($"Input action {action.InputActionName} not found", this);

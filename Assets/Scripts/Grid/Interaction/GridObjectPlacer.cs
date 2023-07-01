@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMoveHandler {
-    [Header("References")]
+public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
+    [Header("References")] 
+    [SerializeField] CustomObjectPool<Poolable> _arrowPool;
     [SerializeField] GridManager _gridManager;
     [SerializeField] Collider _placeTrigger;
     
@@ -22,11 +24,13 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
     public bool IsPlacing { get; private set; }
     public GridManager GridManager => _gridManager;
 
+    readonly Queue<Poolable> _currentArrows = new();
+    
     GridObject _currentObject;
     Transform _currentBlueprint;
     Vector2Int _currentPosition;
     GridRotation _currentRotation;
-    
+
     Renderer[] _currentRenderers;
     bool _currentMaterialValidity;
     
@@ -36,6 +40,12 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
     void Awake() {
         _placeTrigger.enabled = false;
         _plane = new Plane(Vector3.up, Vector3.zero);
+    }
+
+    void Update() {
+        if (!IsPlacing) return;
+        _currentPosition = GetMouseGridPos();
+        UpdateBlueprint();
     }
 
     void OnEnable() {
@@ -57,7 +67,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
 
     public async Task<GridPlacementResult> DoPlacement(GridObject data, bool keepRotation = true, bool keepPosition = true) {
         if (IsPlacing) {
-            return new GridPlacementResult { Type = GridPlacementResultType.Failed };
+            return GridPlacementResult.Failed;
         }
         
         _currentObject = data;
@@ -72,23 +82,36 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
 
         IsPlacing = false;
         _placeTrigger.enabled = false;
+
+        while (_currentArrows.Count > 0) {
+            _currentArrows.Dequeue().Dispose();
+        }
         Destroy(_currentBlueprint.gameObject);
 
         return _state switch {
-            State.Cancelled => new GridPlacementResult { Type = GridPlacementResultType.Failed },
-            State.Deleted => new GridPlacementResult { Type = GridPlacementResultType.Deleted },
-            State.Placed => new GridPlacementResult {
-                GridPosition = _currentPosition,
-                Rotation = _currentRotation,
-                Type = GridPlacementResultType.Successful
-            },
-            State.Waiting => throw new InvalidOperationException(),
+            State.Cancelled => GridPlacementResult.Failed,
+            State.Deleted => GridPlacementResult.Deleted,
+            State.Placed => new GridPlacementResult (_currentPosition, _currentRotation, GridPlacementResultType.Successful),
+            State.Waiting => throw new Exception("Should not be waiting after placement"),
             _ => throw new ArgumentOutOfRangeException()
         };
     }
 
     void SetupBlueprint(GridObject gridObject) {
         _currentBlueprint = Instantiate(gridObject.BlueprintPrefab).transform;
+        
+        foreach (var child in gridObject.transform.GetChildren()) {
+            if (!child.CompareTag("DirectionMarker")) continue;
+            if (!child.gameObject.activeSelf) continue;
+            
+            var arrow = _arrowPool.Get();
+            
+            var arrowTransform = arrow.transform;
+            arrowTransform.SetParent(_currentBlueprint, false);
+            arrowTransform.SetLocalPositionAndRotation(child.localPosition, child.localRotation);
+            
+            _currentArrows.Enqueue(arrow);
+        }
         
         _currentRenderers = _currentBlueprint.GetComponentsInChildren<Renderer>();
         _currentRenderers.ApplyMaterial(_validMaterial);
@@ -117,12 +140,6 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
         if (!IsPlacing) return;
         if (!_allowedButtons.Contains(eventData.button)) return;
         _state = State.Placed;
-    }
-
-    public void OnPointerMove(PointerEventData eventData) {
-        if (!IsPlacing) return;
-        _currentPosition = GetGridPos(eventData);
-        UpdateBlueprint();
     }
 
     void OnDelete() {
@@ -155,14 +172,14 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
         _currentRenderers.ApplyMaterial(valid ? _validMaterial : _invalidMaterial);
     }
 
-    Vector3 GetWorldPos(PointerEventData eventData) {
-        var ray = MouseHelpers.MainCamera.ScreenPointToRay(eventData.position);
+    Vector3 GetMouseWorldPos() {
+        var ray = MouseHelpers.MainCamera.ScreenPointToRay(MouseHelpers.ScreenPosition);
         return _plane.Raycast(ray, out var enter) ? ray.GetPoint(enter) : Vector3.zero;
     }
     
-    Vector2Int GetGridPos(PointerEventData eventData) {
+    Vector2Int GetMouseGridPos() {
         var currentBounds = _currentObject.StaticSize.Rotated(_currentRotation.Steps).Bounds;
-        return _gridManager.WorldToGrid(GetWorldPos(eventData)) - currentBounds / 2;
+        return _gridManager.WorldToGrid(GetMouseWorldPos()) - currentBounds / 2;
     }
 
     enum State {
@@ -173,11 +190,22 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler, IPointerMov
     }
 }
 
-public struct GridPlacementResult {
-    public Vector2Int GridPosition;
-    public GridRotation Rotation;
-    public GridPlacementResultType Type;
-    public bool WasSuccessful => Type == GridPlacementResultType.Successful;
+public readonly struct GridPlacementResult {
+    public readonly Vector2Int GridPosition;
+    public readonly GridRotation Rotation;
+    public readonly GridPlacementResultType ResultType;
+    public bool WasSuccessful => ResultType == GridPlacementResultType.Successful;
+    
+    public GridPlacementResult(Vector2Int gridPosition, GridRotation rotation, GridPlacementResultType resultType) {
+        GridPosition = gridPosition;
+        Rotation = rotation;
+        ResultType = resultType;
+    }
+    
+    public static implicit operator bool(GridPlacementResult result) => result.WasSuccessful;
+    
+    public static GridPlacementResult Failed => new(Vector2Int.zero, new GridRotation(), GridPlacementResultType.Failed);
+    public static GridPlacementResult Deleted => new(Vector2Int.zero, new GridRotation(), GridPlacementResultType.Deleted);
 }
 
 public enum GridPlacementResultType {

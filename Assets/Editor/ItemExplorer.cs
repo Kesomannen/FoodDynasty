@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
 using PopupWindow = UnityEditor.PopupWindow;
 
 public class ItemExplorer : EditorWindow {
@@ -21,7 +23,7 @@ public class ItemExplorer : EditorWindow {
         var window = GetWindow<ItemExplorer>();
         
         window.titleContent = new GUIContent("Item Explorer");
-        window.minSize = new Vector2(500, 300);
+        window.minSize = new Vector2(1000, 600);
     }
 
     public void CreateGUI() {
@@ -31,6 +33,21 @@ public class ItemExplorer : EditorWindow {
         root.Q<Button>(name: "generate-image-button").clicked += () => {
             if (_selectedItem == null || _selectedItem is not IPrefabProvider<GridObject> prefabProvider) return;
             _selectedItem.Image = ThumbnailCreator.Create(prefabProvider.Prefab, _selectedItem.Name);
+        };
+        
+        root.Q<Button>(name: "delete-item-button").clicked += () => {
+            if (_selectedItem == null) return;
+            if (!EditorUtility.DisplayDialog("Delete Item", $"Are you sure you want to delete {_selectedItem.Name}?", "Yes", "No")) return;
+            
+            var objectsToDelete = new List<Object> { _selectedItem, _selectedItem.Image };
+            objectsToDelete.AddRange(_machineEditor?.GetObjectsForDeletion() ?? Array.Empty<Object>());
+            
+            foreach (var path in objectsToDelete.Select(AssetDatabase.GetAssetPath)) {
+                AssetDatabase.DeleteAsset(path);
+            }
+
+            RefreshItems();
+            SelectItem(_items.FirstOrDefault());
         };
 
         var createMenu = root.Q<ToolbarMenu>("item-create-menu");
@@ -43,14 +60,32 @@ public class ItemExplorer : EditorWindow {
     }
 
     void RefreshItems() {
-        _items = EditorUtil.FetchAll<ItemData>().ToList();
+        var newItems = EditorUtil.FetchAll<ItemData>().ToList();
+        
+        if (_items != null) {
+            var newItemsSet = new HashSet<ItemData>(newItems);
+            var oldItemsSet = new HashSet<ItemData>(_items);
+            
+            var addedItems = newItemsSet.Except(oldItemsSet);
+            var removedItems = oldItemsSet.Except(newItemsSet);
+
+            foreach (var item in addedItems) {
+                _items.Add(item);
+            }
+            
+            foreach (var item in removedItems) {
+                _items.Remove(item);
+            }
+        } else {
+            _items = newItems;
+        }
     }
 
     void ConfigureCreateMenu(DropdownMenu menu, Rect pos) {
         foreach (var createOption in EnumHelpers.GetValues<ItemCreatorPopupWindow.CreateMode>()) {
             var displayName = EditorUtil.FormatDisplay(createOption.ToString().Replace("_", "/"));
             
-            menu.AppendAction(displayName, _ => {
+            menu.AppendAction(displayName, _ => {   
                 var popup = new ItemCreatorPopupWindow(createOption);
                 popup.OnItemCreated += RefreshItems;
             
@@ -83,6 +118,7 @@ public class ItemExplorer : EditorWindow {
     void SelectItem(ItemData itemData) {
         if (itemData == null) return;
         _selectedItem = itemData;
+        Selection.activeObject = itemData;
 
         var generateImageButton = rootVisualElement.Q<Button>(name: "generate-image-button");
         generateImageButton.SetEnabled(itemData is IPrefabProvider<GridObject>);

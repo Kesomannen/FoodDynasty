@@ -8,7 +8,11 @@ public class ToppingItemData : ItemData {
     [SerializeField] MachineItemData _associatedMachine;
     [HideInInspector] public List<string> InheritedInfo = new() { "Multiplier" };
     
-    public MachineItemData AssociatedMachine => _associatedMachine;
+    public MachineItemData AssociatedMachine {
+        get => _associatedMachine;
+        set => _associatedMachine = value;
+    }
+
     public override ItemType Type => ItemType.Topping;
 
     public override IEnumerable<(string Name, string Value)> GetInfo() {

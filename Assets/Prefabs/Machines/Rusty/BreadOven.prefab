@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3459854539557250464}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &61080458
 Light:
@@ -140,12 +140,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5849916942731000356}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.002, y: 0.413, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3459854539557250464}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3985266923925031920
 BoxCollider:
@@ -158,8 +158,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7474933, y: 0.6890885, z: 0.0625}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.75, y: 0.75, z: 0.1}
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!1001 &512391613345122955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -790,6 +790,16 @@ PrefabInstance:
       propertyPath: _size._customMatrix.Array.data[5].Values.Array.data[5]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2059985905203872251, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2059985905203872251, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.999
+      objectReference: {fileID: 0}
     - target: {fileID: 6328609926739982568, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: _data
@@ -855,6 +865,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BreadOven
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434878137366661505, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434878137366661505, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.991
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
@@ -5343,9 +5363,7 @@ MonoBehaviour:
     _condition: {fileID: 0}
     _filter: {fileID: 0}
   _modifierGroup: {fileID: 11400000, guid: 01619ffce44a1c1458ab72aae113a510, type: 2}
-  _onItemModified:
-    _enabled: 0
-    _value: {fileID: 0}
+  _onItemModified: {fileID: 0}
 --- !u!114 &5112051441785007879
 MonoBehaviour:
   m_ObjectHideFlags: 0

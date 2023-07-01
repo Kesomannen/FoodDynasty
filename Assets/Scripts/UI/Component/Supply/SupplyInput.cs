@@ -9,7 +9,7 @@ public class SupplyInput : UIComponent<SupplyBase> {
 
     public override void SetContent(SupplyBase content) {
         if (!content.IsRefillable) {
-            Debug.LogWarning("SupplyBase for SupplyInput is not refillable.", content);
+            Debug.LogWarning("Content Supply for SupplyInput is not refillable.", content);
         }
         
         _content = content;

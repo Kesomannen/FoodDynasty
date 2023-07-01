@@ -38,4 +38,9 @@ public class UIObjectPool<T> : CustomObjectPool<T> where T : Component, IPoolabl
         obj.transform.SetParent(StorageParent);
         return obj;
     }
+
+    public override void Dispose() {
+        base.Dispose();
+        Destroy(_storageParent.gameObject);
+    }
 }

@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7081183415948066807}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &6242255431605992220
 BoxCollider:
@@ -234,6 +234,16 @@ PrefabInstance:
       propertyPath: _size._customMatrix.Array.data[9].Values.Array.data[0]
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2059985905203872251, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2164646671913039323, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6328609926739982568, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: _data
@@ -299,6 +309,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RustySellCrate
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434878137366661505, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
@@ -2199,12 +2214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _triggerEvent:
     _event: {fileID: 665652520168750360}
-    _condition:
-      _enabled: 0
-      _value: {fileID: 0}
-    _filter:
-      _enabled: 0
-      _value: {fileID: 0}
+    _condition: {fileID: 0}
+    _filter: {fileID: 0}
   _moneyManager: {fileID: 11400000, guid: 3aa791b48a062404caa64519d76af16b, type: 2}
   _sellPriceModifier:
     Base: 0
@@ -2225,12 +2236,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _onTriggered:
     _event: {fileID: 665652520168750360}
-    _condition:
-      _enabled: 0
-      _value: {fileID: 0}
-    _filter:
-      _enabled: 0
-      _value: {fileID: 0}
+    _condition: {fileID: 0}
+    _filter: {fileID: 0}
 --- !u!4 &7081183415948066807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,

@@ -27,3 +27,4 @@ MonoBehaviour:
     Event: {fileID: 11400000, guid: 77a066c3e87689845bba9b289337b5d1, type: 2}
   _inputActionAsset: {fileID: -944628639613478452, guid: 7e0d5536cef42c44cbc3e5bcfb46a4e6,
     type: 3}
+  _inputActionMapName: Default
