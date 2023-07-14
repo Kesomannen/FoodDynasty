@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Dynasty.Library.Classes;
+using TMPro;
 using UnityEngine;
 
 public class EntityText<T> : UIComponent<T> where T : IEntityData {

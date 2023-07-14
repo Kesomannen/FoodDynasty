@@ -1,4 +1,6 @@
 ﻿using System;
+using Dynasty.Library.Events;
+using Dynasty.Library.Extensions;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -44,7 +46,7 @@ public static class ItemCreator {
             var refillItem = ScriptableObject.CreateInstance<ToppingItemData>();
             refillItem.name = refillItem.Name = $"{item.Name} Refill";
             refillItem.AssociatedMachine = item;
-            refillItem.Image = item.Image;
+            refillItem.Icon = item.Icon;
             SaveData(refillItem, "Items");
 
             var useEvent = prefab.GetComponent<Event<Food>>();
@@ -85,7 +87,7 @@ public static class ItemCreator {
         gridObject.BlueprintPrefab = modelPrefab;
 
         var itemData = ScriptableObject.CreateInstance<MachineItemData>();
-        itemData.Image = ThumbnailCreator.Create(modelPrefab, name);
+        itemData.Icon = ThumbnailCreator.Create(modelPrefab, name);
         itemData.name = itemData.Name = name;
 
         prefabSource.GetOrAddComponent<MachineEntity>().Data = itemData;
@@ -139,8 +141,8 @@ public static class ItemCreator {
         return AttachSupply(prefab, prefab.AddComponent<Condition>(), useEvent, refillItem).Condition;
     }
     
-    static MachineSupply AttachSupply(GameObject prefab, CheckEvent<bool> checkEvent, GenericEvent useEvent, ItemData refillItem) {
-        var supply = prefab.AddComponent<MachineSupply>();
+    static Supply AttachSupply(GameObject prefab, CheckEvent<bool> checkEvent, GenericEvent useEvent, ItemData refillItem) {
+        var supply = prefab.AddComponent<Supply>();
         
         supply.RefillItem = refillItem;
         supply.Condition = checkEvent;

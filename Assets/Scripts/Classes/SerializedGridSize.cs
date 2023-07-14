@@ -1,4 +1,5 @@
 ﻿using System;
+using Dynasty.Library.Classes;
 using UnityEngine;
 
 [Serializable]

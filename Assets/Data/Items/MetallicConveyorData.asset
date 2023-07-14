@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Metallic Conveyor
   _description: Sturdier and faster, what's not to like?
-  _image: {fileID: 21300000, guid: 923d4d604e414c242aafe365626fca5f, type: 3}
+  _icon: {fileID: 21300000, guid: 923d4d604e414c242aafe365626fca5f, type: 3}
   _tier: 1
   _price: 1000
   _type: 3

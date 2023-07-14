@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Dynasty.Library.Classes;
 using UnityEngine;
 
 public class MachinesSaveStore : SaveStore<MachinesSaveData> {
+    [Space]
     [SerializeField] GridManager _gridManager;
     [SerializeField] Lookup<ItemData> _itemLookup;
 
@@ -20,7 +22,7 @@ public class MachinesSaveStore : SaveStore<MachinesSaveData> {
             if (itemData is not IPrefabProvider<GridObject> provider) continue;
             
             var gridObject = Instantiate(provider.Prefab);
-            gridObject.AddAndPosition(_gridManager, saveData.Positions[i].ToVector2Int(), saveData.Rotations[i]);
+            gridObject.AddAndPosition(_gridManager, saveData.Positions[i], saveData.Rotations[i]);
             
             var dataComponents = gridObject.GetComponentsInChildren<IAdditionalSaveData>();
             if (dataComponents.Length == 0) continue;
@@ -35,7 +37,7 @@ public class MachinesSaveStore : SaveStore<MachinesSaveData> {
     protected override MachinesSaveData GetSaveData() {
         var entities = new List<(MachineItemData ItemData, GridObject GridObject)>();
         foreach (var gridObject in _gridManager.GetAllObjects()) {
-                if (!gridObject.TryGetComponent(out MachineEntity entity)) continue;
+            if (!gridObject.TryGetComponent(out MachineEntity entity)) continue;
             entities.Add((entity.Data, gridObject));
         }
 

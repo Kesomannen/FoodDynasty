@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Dough
   _description: Deposit into a dough dispenser to start making loaves of bread. Must
     be baked to make a profit.
-  _image: {fileID: 21300000, guid: 335c2a754552472468c0702a8d8d31f4, type: 3}
+  _icon: {fileID: 21300000, guid: 335c2a754552472468c0702a8d8d31f4, type: 3}
   _tier: 0
   _price: 5
   _prefab: {fileID: 8179629649837785446, guid: fc616f45937903b49a1d6c30d53f2846, type: 3}

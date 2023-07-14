@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Bread Derustifiter
   _description: 
-  _image: {fileID: 21300000, guid: 6df1c902574850d42a4934fd27637476, type: 3}
+  _icon: {fileID: 21300000, guid: 6df1c902574850d42a4934fd27637476, type: 3}
   _tier: 0
   _price: 0
   _type: 7
   _prefab: {fileID: 7851868560026573922, guid: 085fc549247496244aede8d6f2bb8575, type: 3}
-  _enabledProviders: 
+  _enabledProviders: 000000

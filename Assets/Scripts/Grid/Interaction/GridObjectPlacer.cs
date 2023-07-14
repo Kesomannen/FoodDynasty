@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dynasty.Library.Classes;
+using Dynasty.Library.Events;
+using Dynasty.Library.Extensions;
+using Dynasty.Library.Helpers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -16,8 +20,11 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     [SerializeField] GenericGameEvent _cancelEvent;
     [SerializeField] GenericGameEvent _deleteEvent;
     [SerializeField] PointerEventData.InputButton[] _allowedButtons = { PointerEventData.InputButton.Left };
-    
-    [Header("Effects & Animations")]
+
+    [Header("Effects & Animations")] 
+    [SerializeField] float _moveTime = 0.05f;
+    [SerializeField] float _tweenTime = 0.2f;
+    [SerializeField] LeanTweenType _tweenType;
     [SerializeField] Material _validMaterial;
     [SerializeField] Material _invalidMaterial;
 
@@ -28,12 +35,17 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     
     GridObject _currentObject;
     Transform _currentBlueprint;
-    Vector2Int _currentPosition;
-    GridRotation _currentRotation;
+    Vector2Int _currentGridPosition;
+    GridRotation _currentGridRotation;
 
     Renderer[] _currentRenderers;
     bool _currentMaterialValidity;
     
+    Vector3 _moveTarget;
+    Vector3 _moveVelocity;
+    Quaternion _rotateTarget;
+    int _rotateTweenId;
+
     Plane _plane;
     State _state;
     
@@ -44,20 +56,21 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
 
     void Update() {
         if (!IsPlacing) return;
-        _currentPosition = GetMouseGridPos();
-        UpdateBlueprint();
-    }
-
-    void OnEnable() {
-        _rotateEvent.OnRaisedGeneric += OnRotate;
-        _deleteEvent.OnRaisedGeneric += OnDelete;
-        _cancelEvent.OnRaisedGeneric += Cancel;
+        
+        _currentGridPosition = GetMouseGridPos();
+        UpdateBlueprint(true);
     }
     
-    void OnDisable() {
-        _rotateEvent.OnRaisedGeneric -= OnRotate;
-        _deleteEvent.OnRaisedGeneric -= OnDelete;
-        _cancelEvent.OnRaisedGeneric -= Cancel;
+    void StartListeningToInput() {
+        _rotateEvent.AddListener(OnRotate);
+        _deleteEvent.AddListener(OnDelete);
+        _cancelEvent.AddListener(Cancel);
+    }
+    
+    void StopListeningToInput() {
+        _rotateEvent.RemoveListener(OnRotate);
+        _deleteEvent.RemoveListener(OnDelete);
+        _cancelEvent.RemoveListener(Cancel);
     }
 
     public void Cancel() {
@@ -69,16 +82,18 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
         if (IsPlacing) {
             return GridPlacementResult.Failed;
         }
-        
+
         _currentObject = data;
-        if (keepRotation) _currentRotation = data.Rotation;
-        if (keepPosition) _currentPosition = data.GridPosition;
+        if (keepRotation) _currentGridRotation = data.Rotation;
+        if (keepPosition) _currentGridPosition = data.GridPosition;
 
         IsPlacing = true;
         _placeTrigger.enabled = true;
         SetupBlueprint(data);
         
+        StartListeningToInput();
         await WaitForPlacement(data);
+        StopListeningToInput();
 
         IsPlacing = false;
         _placeTrigger.enabled = false;
@@ -86,12 +101,14 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
         while (_currentArrows.Count > 0) {
             _currentArrows.Dequeue().Dispose();
         }
+
+        LeanTween.cancel(_rotateTweenId);
         Destroy(_currentBlueprint.gameObject);
 
         return _state switch {
             State.Cancelled => GridPlacementResult.Failed,
             State.Deleted => GridPlacementResult.Deleted,
-            State.Placed => new GridPlacementResult (_currentPosition, _currentRotation, GridPlacementResultType.Successful),
+            State.Placed => new GridPlacementResult(GridPlacementResultType.Successful, _currentGridPosition, _currentGridRotation),
             State.Waiting => throw new Exception("Should not be waiting after placement"),
             _ => throw new ArgumentOutOfRangeException()
         };
@@ -100,6 +117,10 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     void SetupBlueprint(GridObject gridObject) {
         _currentBlueprint = Instantiate(gridObject.BlueprintPrefab).transform;
         
+        _moveTarget = Vector3.zero;
+        _rotateTarget = Quaternion.identity;
+
+        // Create arrows as direction markers
         foreach (var child in gridObject.transform.GetChildren()) {
             if (!child.CompareTag("DirectionMarker")) continue;
             if (!child.gameObject.activeSelf) continue;
@@ -117,7 +138,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
         _currentRenderers.ApplyMaterial(_validMaterial);
         
         _currentMaterialValidity = true;
-        UpdateBlueprint();
+        UpdateBlueprint(false);
     }
 
     async Task WaitForPlacement(GridObject gridObject) {
@@ -128,7 +149,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
                 if (_state is State.Cancelled or State.Deleted) break;
 
                 if (_state == State.Placed) {
-                    if (_gridManager.CanAdd(gridObject, _currentPosition, _currentRotation)) break;
+                    if (_gridManager.CanAdd(gridObject, _currentGridPosition, _currentGridRotation)) break;
                     _state = State.Waiting;
                 }
             }
@@ -149,23 +170,49 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
 
     void OnRotate() {
         if (!IsPlacing) return;
-        _currentRotation += 1;
-        UpdateBlueprint();
+        _currentGridRotation += 1;
+        UpdateBlueprint(true);
     }
 
-    void UpdateBlueprint() {
-        _currentBlueprint.rotation = _currentRotation.ToQuaternion(Vector3.up);
+    void UpdateBlueprint(bool tween) {
+        MoveBlueprint(tween);
+        RotateBlueprint(tween);
+    }
+
+    void RotateBlueprint(bool tween) {
+        var newRot = _currentGridRotation.ToQuaternion(Vector3.up);
         
-        var newPos = _gridManager.GridToWorld(_currentPosition, _currentObject.StaticSize, _currentRotation);
-        if (_currentBlueprint.position != newPos) {
+        if (_rotateTarget == newRot) return;
+        _rotateTarget = newRot;
+
+        if (tween) {
+            LeanTween.cancel(_rotateTweenId);
+            _rotateTweenId = LeanTween
+                .rotate(_currentBlueprint.gameObject, newRot.eulerAngles, _tweenTime)
+                .setEase(_tweenType)
+                .uniqueId;
+        } else {
+            _currentBlueprint.rotation = newRot;
+        }
+    }
+
+    void MoveBlueprint(bool tween) {
+        var newTarget = _gridManager.GridToWorld(_currentGridPosition, _currentObject.StaticSize, _currentGridRotation);
+        var currentPos = _currentBlueprint.position;
+
+        if (_moveTarget != newTarget) {
+            _moveTarget = newTarget;
             UpdateBlueprintValidity();
         }
         
-        _currentBlueprint.position = newPos;
+        if (currentPos == _moveTarget) return;
+        _currentBlueprint.position = tween ? 
+            Vector3.SmoothDamp(currentPos, _moveTarget, ref _moveVelocity, _moveTime)
+            : _moveTarget;
     }
 
     void UpdateBlueprintValidity() {
-        var valid = _gridManager.CanAdd(_currentObject, _currentPosition, _currentRotation);
+        var valid = _gridManager.CanAdd(_currentObject, _currentGridPosition, _currentGridRotation);
         if (valid == _currentMaterialValidity) return;
 
         _currentMaterialValidity = valid;
@@ -178,7 +225,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     }
     
     Vector2Int GetMouseGridPos() {
-        var currentBounds = _currentObject.StaticSize.Rotated(_currentRotation.Steps).Bounds;
+        var currentBounds = _currentObject.StaticSize.Rotated(_currentGridRotation.Steps).Bounds;
         return _gridManager.WorldToGrid(GetMouseWorldPos()) - currentBounds / 2;
     }
 
@@ -196,7 +243,7 @@ public readonly struct GridPlacementResult {
     public readonly GridPlacementResultType ResultType;
     public bool WasSuccessful => ResultType == GridPlacementResultType.Successful;
     
-    public GridPlacementResult(Vector2Int gridPosition, GridRotation rotation, GridPlacementResultType resultType) {
+    public GridPlacementResult(GridPlacementResultType resultType, Vector2Int gridPosition = default, GridRotation rotation = default) {
         GridPosition = gridPosition;
         Rotation = rotation;
         ResultType = resultType;
@@ -204,8 +251,8 @@ public readonly struct GridPlacementResult {
     
     public static implicit operator bool(GridPlacementResult result) => result.WasSuccessful;
     
-    public static GridPlacementResult Failed => new(Vector2Int.zero, new GridRotation(), GridPlacementResultType.Failed);
-    public static GridPlacementResult Deleted => new(Vector2Int.zero, new GridRotation(), GridPlacementResultType.Deleted);
+    public static GridPlacementResult Failed => new(GridPlacementResultType.Failed);
+    public static GridPlacementResult Deleted => new(GridPlacementResultType.Deleted);
 }
 
 public enum GridPlacementResultType {

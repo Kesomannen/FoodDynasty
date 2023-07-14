@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Dynasty.Library.Classes;
+using Dynasty.Library.Events;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -20,7 +22,7 @@ public class FoodModifier : FoodMachineComponent, IInfoProvider {
         }
     }
 
-    public IEnumerable<(string Name, string Value)> GetInfo() {
-        yield return ("Multiplier", _modifierGroup.SellPriceModifier.ToString());
+    public IEnumerable<EntityInfo> GetInfo() {
+        yield return new EntityInfo("Multiplier", _modifierGroup.SellPriceModifier.ToString());
     }
 }

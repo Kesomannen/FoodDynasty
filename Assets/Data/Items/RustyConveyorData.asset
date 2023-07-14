@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Rusty Conveyor
   _description: Gets stuff to where it needs to go, although not very well.
-  _image: {fileID: 21300000, guid: 148b327cc091ed74bb6fdc145f0dc1af, type: 3}
+  _icon: {fileID: 21300000, guid: 148b327cc091ed74bb6fdc145f0dc1af, type: 3}
   _tier: 0
   _price: 15
   _type: 3

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Dynasty.Library.Helpers;
 using UnityEditor;
 using UnityEngine;
 
@@ -74,17 +75,17 @@ public class MachineItemDataEditor : Editor {
         EditorGUILayout.EndHorizontal();
     }
 
-    static void DrawInfo(IEnumerable<(string Name, string Value)> info) {
-        foreach (var (infoName, value) in info) {
+    static void DrawInfo(IEnumerable<EntityInfo> infos) {
+        foreach (var info in infos) {
             EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField(infoName, value);
+            EditorGUILayout.LabelField(info.Name, info.Value);
             EditorGUILayout.EndHorizontal();
         }
     }
     
     static void GenerateImage(MachineItemData data) {
         if (data.Prefab == null) return;
-        data.Image = ThumbnailCreator.Create(data.Prefab, data.Name);
+        data.Icon = ThumbnailCreator.Create(data.Prefab, data.Name);
         EditorUtility.SetDirty(data);
     }
 }

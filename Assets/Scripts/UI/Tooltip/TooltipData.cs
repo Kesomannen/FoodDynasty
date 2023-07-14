@@ -1,4 +1,6 @@
 ﻿using System;
+using Dynasty.Library.Classes;
+using Dynasty.Library.Events;
 using NaughtyAttributes;
 using UnityEngine;
 

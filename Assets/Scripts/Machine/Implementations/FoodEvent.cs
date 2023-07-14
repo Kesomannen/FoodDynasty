@@ -1,1 +1,3 @@
-﻿public class FoodEvent : Event<Food> { }
+﻿using Dynasty.Library.Events;
+
+public class FoodEvent : Event<Food> { }

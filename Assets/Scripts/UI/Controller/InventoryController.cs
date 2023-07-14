@@ -1,17 +1,28 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using Dynasty.Library.Classes;
+using Dynasty.Library.Events;
+using Dynasty.Library.Extensions;
+using Dynasty.Library.Helpers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class InventoryController : MonoBehaviour {
-    [Header("Inventory")] 
+    [Header("References")] 
+    [SerializeField] InventoryAsset _inventoryAsset;
+    [SerializeField] MoneyManager _moneyManager;
+
+    [Header("Items")]
     [SerializeField] Transform _itemParent;
     [SerializeField] ContainerObjectPool<Item> _itemPool;
     [SerializeField] GameEvent<Item> _onItemClicked;
-    [SerializeField] InventoryAsset _inventoryAsset;
     [Space]
     [SerializeField] bool _descendingOrder;
     [SerializeField] ItemSortingMode _sortingMode;
+    
+    [Header("Tooltip")]
+    [SerializeField] ItemSellControl _sellControl;
     [SerializeField] TooltipData<ItemData> _tooltipData;
 
     readonly Dictionary<ItemData, Container<Item>> _itemContainers = new();
@@ -40,7 +51,7 @@ public class InventoryController : MonoBehaviour {
             var interactable = itemContainer.GetOrAddComponent<Interactable>();
             interactable.OnClicked += OnItemClicked;
             interactable.OnHovered += OnItemHovered;
-            
+
             _itemContainers.Add(item.Data, itemContainer);
             created = true;
         }
@@ -79,10 +90,25 @@ public class InventoryController : MonoBehaviour {
     }
 
     void OnItemClicked(Interactable interactable, PointerEventData eventData) {
-        if (eventData.button != PointerEventData.InputButton.Left) return;
-        _onItemClicked.Raise(GetContainer(interactable).Content);
+        var item = GetContainer(interactable).Content;
+        
+        switch (eventData.button) {
+            case PointerEventData.InputButton.Left:
+                _onItemClicked.Raise(item); break;
+            case PointerEventData.InputButton.Right:
+                _sellControl.Initialize(item, count => TrySell(item.Data, count));
+                _sellControl.gameObject.SetActive(true);
+                break;
+            case PointerEventData.InputButton.Middle: break;
+            default: throw new ArgumentOutOfRangeException();
+        }
     }
-    
+
+    void TrySell(ItemData data, int count) {
+        if (!_inventoryAsset.Remove(data, count)) return;
+        _moneyManager.CurrentMoney += data.Price * count;
+    }
+
     void OnItemHovered(Interactable interactable, bool hovered, PointerEventData eventData) {
         var container = GetContainer(interactable);
         _tooltipData.Show(container.Content.Data, hovered);

@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actions:
   - InputActionName: Rotate
-    Event: {fileID: 11400000, guid: 69e97abaac5ceed4d832552124c10c90, type: 2}
+    Event: {fileID: 11400000, guid: b0ed4e59501f4154d99bc57664abba07, type: 2}
   - InputActionName: Cancel
-    Event: {fileID: 11400000, guid: 09092c682e0a2b440979db15cd78e7b0, type: 2}
+    Event: {fileID: 11400000, guid: 87e7770d3a0d07d46a06e8306e5b69f2, type: 2}
   - InputActionName: Delete
-    Event: {fileID: 11400000, guid: db073d2c14ffc9c47a652406c12592c6, type: 2}
+    Event: {fileID: 11400000, guid: bc56e7d5ad34da44895450e72b442ded, type: 2}
   - InputActionName: Open Shop
-    Event: {fileID: 11400000, guid: 34ad22860349d964e908f6aad86957cc, type: 2}
+    Event: {fileID: 11400000, guid: 5ffbee01b4cddf74bbd509e424e69a36, type: 2}
   - InputActionName: Open Inventory
-    Event: {fileID: 11400000, guid: 545ff927446f97f41822a165c64a13b8, type: 2}
+    Event: {fileID: 11400000, guid: fbbfd23dde381f64eb035fd15c74cf09, type: 2}
   - InputActionName: Open Options
-    Event: {fileID: 11400000, guid: 77a066c3e87689845bba9b289337b5d1, type: 2}
+    Event: {fileID: 11400000, guid: e987bd299afd42641826ed75a270726c, type: 2}
   _inputActionAsset: {fileID: -944628639613478452, guid: 7e0d5536cef42c44cbc3e5bcfb46a4e6,
     type: 3}
   _inputActionMapName: Default

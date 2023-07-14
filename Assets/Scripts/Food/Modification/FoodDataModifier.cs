@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Reflection;
+using Dynasty.Library.Classes;
+using Dynasty.Library.Helpers;
 
 [Serializable]
 public class FoodDataModifier {

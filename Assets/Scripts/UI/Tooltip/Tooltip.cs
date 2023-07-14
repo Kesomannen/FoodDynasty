@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections;
+using Dynasty.Library.Classes;
+using Dynasty.Library.Events;
+using Dynasty.Library.Helpers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -25,13 +28,13 @@ public class Tooltip<T> : MonoBehaviour {
     }
 
     void OnEnable() {
-        _showTooltipEvent.OnRaised += Show;
-        _hideTooltipEvent.OnRaisedGeneric += Hide;
+        _showTooltipEvent.AddListener(Show);
+        _hideTooltipEvent.AddListener(Hide);
     }
     
     void OnDisable() {
-        _showTooltipEvent.OnRaised -= Show;
-        _hideTooltipEvent.OnRaisedGeneric -= Hide;
+        _showTooltipEvent.RemoveListener(Show);
+        _hideTooltipEvent.RemoveListener(Hide);
     }
     
     void Update() {

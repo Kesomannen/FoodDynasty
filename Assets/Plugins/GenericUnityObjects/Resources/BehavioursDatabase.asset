@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: BehavioursDatabase
   m_EditorClassIdentifier: 
   _keys:
-  - _typeNameAndAssembly: Event`1, Dynasty.Util
-  - _typeNameAndAssembly: MouseEventTrigger`1, Dynasty.Util
+  - _typeNameAndAssembly: Dynasty.Library.Events.Event`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.Events.MouseEventTrigger`1, Dynasty.Library
   - _typeNameAndAssembly: Container`1, Assembly-CSharp
   - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
   - _typeNameAndAssembly: EntityText`1, Assembly-CSharp
   - _typeNameAndAssembly: PoolableComponent`1, Assembly-CSharp
-  - _typeNameAndAssembly: Singleton`1, Dynasty.Util
+  - _typeNameAndAssembly: EntityIcon`1, Assembly-CSharp
+  - _typeNameAndAssembly: EntityInfo`1, Assembly-CSharp
   _values:
   - _keys:
     - _collection:
@@ -41,20 +42,24 @@ MonoBehaviour:
     - _collection:
       - _typeNameAndAssembly: Entity, Assembly-CSharp
     - _collection:
-      - _typeNameAndAssembly: SupplyBase, Assembly-CSharp
-    - _collection:
       - _typeNameAndAssembly: Item, Assembly-CSharp
     - _collection:
       - _typeNameAndAssembly: ItemData, Assembly-CSharp
+    - _collection:
+      - _typeNameAndAssembly: EntityInfo, Assembly-CSharp
+    - _collection:
+      - _typeNameAndAssembly: Supply, Assembly-CSharp
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_df7bf43c3ee77704796922a82fc22b90,
         z_Container_Entity
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_8ef2487655e06a34b909cb81b96a6e8a,
-        z_Container_SupplyBase
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_a07511d51b0d145418e48fe384fe8af4,
         z_Container_Item
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_753676d98d8e00946ab3cc596b2a3714,
         z_Container_ItemData
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_a2fd2cc3e9f938247ad410de51bd8be3,
+        z_Container_EntityInfo
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_c4b42a068bc858c48af54ee321f9c3a4,
+        z_Container_Supply
   - _keys:
     - _collection:
       - _typeNameAndAssembly: Entity, Assembly-CSharp
@@ -81,5 +86,15 @@ MonoBehaviour:
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_f5beab81658e82d4d86bea6ec2a5d6f1,
         z_PoolableComponent_TextMeshProUGUI
-  - _keys: []
-    _values: []
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: Entity, Assembly-CSharp
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_a2d4ecfc6268d7c47b05da360d81532e,
+        z_EntityIcon_Entity
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: ItemData, Assembly-CSharp
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_2f12c7e7f23178d4699ac4e3b45fd2b8,
+        z_EntityInfo_ItemData

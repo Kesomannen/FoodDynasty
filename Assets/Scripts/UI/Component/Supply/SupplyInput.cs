@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-public class SupplyInput : UIComponent<SupplyBase> {
+public class SupplyInput : UIComponent<Supply> {
     [SerializeField] NumberInputController _input;
     [SerializeField] InventoryAsset _inventory;
     [SerializeField] NumberInputController.ModifyMode _modifyMode;
 
-    SupplyBase _content;
+    Supply _content;
 
-    public override void SetContent(SupplyBase content) {
+    public override void SetContent(Supply content) {
         if (!content.IsRefillable) {
             Debug.LogWarning("Content Supply for SupplyInput is not refillable.", content);
         }

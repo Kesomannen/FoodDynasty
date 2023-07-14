@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Dynasty.Library.Helpers;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -32,14 +33,14 @@ public class ItemExplorer : EditorWindow {
 
         root.Q<Button>(name: "generate-image-button").clicked += () => {
             if (_selectedItem == null || _selectedItem is not IPrefabProvider<GridObject> prefabProvider) return;
-            _selectedItem.Image = ThumbnailCreator.Create(prefabProvider.Prefab, _selectedItem.Name);
+            _selectedItem.Icon = ThumbnailCreator.Create(prefabProvider.Prefab, _selectedItem.Name);
         };
         
         root.Q<Button>(name: "delete-item-button").clicked += () => {
             if (_selectedItem == null) return;
             if (!EditorUtility.DisplayDialog("Delete Item", $"Are you sure you want to delete {_selectedItem.Name}?", "Yes", "No")) return;
             
-            var objectsToDelete = new List<Object> { _selectedItem, _selectedItem.Image };
+            var objectsToDelete = new List<Object> { _selectedItem, _selectedItem.Icon };
             objectsToDelete.AddRange(_machineEditor?.GetObjectsForDeletion() ?? Array.Empty<Object>());
             
             foreach (var path in objectsToDelete.Select(AssetDatabase.GetAssetPath)) {
@@ -111,7 +112,7 @@ public class ItemExplorer : EditorWindow {
 
         void BindItem(VisualElement e, int i) {
             e.Q<Label>().text = _items[i].Name;
-            e.Q(name: "item-icon").style.backgroundImage = _items[i].Image.texture;
+            e.Q(name: "item-icon").style.backgroundImage = _items[i].Icon.texture;
         }
     }
 

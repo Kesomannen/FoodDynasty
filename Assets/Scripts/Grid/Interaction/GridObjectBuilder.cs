@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GridObjectBuilder : MonoBehaviour {
     [SerializeField] GridObjectPlacer _placer;
+    [SerializeField] ParticleSystem _placementParticles;
 
     public async Task StartPlacing(
         GridObject prefab,
@@ -29,10 +30,11 @@ public class GridObjectBuilder : MonoBehaviour {
         var gridManager = _placer.GridManager;
         var gridObject = Instantiate(prefab);
 
-        if (gridObject.AddAndPosition(gridManager, result.GridPosition, result.Rotation)) {
-            return (result, gridObject);
-        }
+        if (!gridObject.AddAndPosition(gridManager, result.GridPosition, result.Rotation))
+            throw new Exception("Failed to add grid object even though placement was successful");
         
-        throw new Exception("Failed to add grid object even though placement was successful");
+        _placementParticles.transform.position = gridObject.transform.position;
+        _placementParticles.Play();
+        return (result, gridObject);
     }
 }

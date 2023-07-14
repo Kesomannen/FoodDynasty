@@ -1,4 +1,6 @@
 ﻿using System;
+using Dynasty.Library.Classes;
+using Dynasty.Library.Events;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -96,13 +98,13 @@ public class TabController : MonoBehaviour {
         
         public void Subscribe(TabController controller) {
             if (!_openEvent.Enabled) return;
-            _openEvent.Value.OnRaisedGeneric += OnRaised;
+            _openEvent.Value.AddListener(OnRaised);
             _controller = controller;
         }
         
         public void Unsubscribe() {
             if (!_openEvent.Enabled) return;
-            _openEvent.Value.OnRaisedGeneric -= OnRaised;
+            _openEvent.Value.RemoveListener(OnRaised);
             _controller = null;
         }
 

@@ -1482,7 +1482,8 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 21300000, guid: 2c0816f11b5de404c8daa663b54ed320, type: 3}
+    - sprite: {fileID: 7234876733756446972, guid: 18f486637066b58449d3f02af31d62e9,
+        type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -5048,20 +5049,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpiceAdder
       objectReference: {fileID: 0}
-    - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
+    - target: {fileID: 7434878137366661505, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
-      propertyPath: precomputeOutline
-      value: 1
+      propertyPath: m_RootOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: bakeKeys.Array.size
-      value: 17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: bakeValues.Array.size
-      value: 17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
@@ -73473,7 +73474,7 @@ MonoBehaviour:
   _refillItem: {fileID: 11400000, guid: 92c67e9cf6e1f7549ade844dae795724, type: 2}
   _refillItemName: 
   _condition: {fileID: 6715930379788113697}
-  _onUsed: {fileID: 9023395621601448786}
+  _useEvent: {fileID: 9023395621601448786}
 --- !u!114 &9023395621601448786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73518,6 +73519,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5771169208520367733, guid: 7e948a1e1bbaf8e499df904050b2de83,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 102bfec407719d74895f8adc74d2fd0d, type: 2}
     - target: {fileID: -5246965436867438775, guid: 7e948a1e1bbaf8e499df904050b2de83,
         type: 3}
       propertyPath: m_IsActive
@@ -73698,6 +73704,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1802906391145203140, guid: 7e948a1e1bbaf8e499df904050b2de83,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802906391145203140, guid: 7e948a1e1bbaf8e499df904050b2de83,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802906391145203140, guid: 7e948a1e1bbaf8e499df904050b2de83,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1880288114393393339, guid: 7e948a1e1bbaf8e499df904050b2de83,
         type: 3}
       propertyPath: m_IsActive
@@ -73818,6 +73839,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7988790031674039878, guid: 7e948a1e1bbaf8e499df904050b2de83,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8159623403996848009, guid: 7e948a1e1bbaf8e499df904050b2de83,
         type: 3}

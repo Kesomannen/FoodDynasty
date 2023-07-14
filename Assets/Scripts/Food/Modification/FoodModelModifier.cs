@@ -11,9 +11,9 @@ public struct FoodModelModifier {
     public void Apply(Food food) {
         switch (_type) {
             case ItemModelType.Base:
-                food.SetBaseModel(_pool.Get()); break;
+                food.ModelProvider.SetBaseModel(_pool.Get()); break;
             case ItemModelType.Topping:
-                food.AddToppingModel(_pool.Get()); break;
+                food.ModelProvider.AddToppingModel(_pool.Get()); break;
             default: throw new ArgumentOutOfRangeException();
         }
     }

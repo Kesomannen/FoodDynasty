@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Dynasty.Library.Classes;
+using Dynasty.Library.Events;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -34,8 +36,8 @@ public class FoodDispenser : MonoBehaviour, IInfoProvider, IMachineComponent {
         _onDispensed.Raise(food);
     }
 
-    public IEnumerable<(string Name, string Value)> GetInfo() {
-        yield return ("Speed", $"{_spawnSpeed.Value:0.#}");
+    public IEnumerable<EntityInfo> GetInfo() {
+        yield return new EntityInfo("Speed", $"{_spawnSpeed.Value:0.#}");
     }
     
     public Component Component => this;

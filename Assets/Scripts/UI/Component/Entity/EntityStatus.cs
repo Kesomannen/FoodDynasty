@@ -4,70 +4,42 @@ using UnityEngine;
 
 public class EntityStatus : UIComponent<Entity> {
     [SerializeField] int _statusChildIndexStart;
-    [SerializeField] InfoContainer _containerPrefab;
+    [SerializeField] ContainerObjectPool<EntityInfo> _pool;
     [SerializeField] Transform _containerParent;
 
-    readonly Dictionary<IStatusProvider, InfoContainer[]> _providerToContainers = new();
-    readonly List<InfoContainer> _unUsedContainers = new();
+    readonly Dictionary<IStatusProvider, Container<EntityInfo>[]> _providerToContainer = new();
 
     public override void SetContent(Entity content) {
-        if (_providerToContainers != null) {
-            ClearProviders();
-        }
+        Clear();
         
         var providers = content.GetComponents<IStatusProvider>();
-        if (providers.Length != 0) {
-            foreach (var provider in providers) {
-                provider.OnStatusChanged += OnStatusChanged;
-                _providerToContainers!.Add(provider, GetContainers(provider));
-            }   
+        if (providers.Length == 0) return;
+
+        for (var i = 0; i < providers.Length; i++) {
+            var provider = providers[i];
+            
+            provider.OnStatusChanged += OnStatusChanged;
+            var containers = provider.GetStatus()
+                .Select(status => _pool.Get(status, _containerParent, _statusChildIndexStart + i)).ToArray();
+
+            _providerToContainer.Add(provider, containers);
         }
-         
-        ClearContainers();
     }
 
-    InfoContainer[] GetContainers(IStatusProvider provider) {
-        var statuses = provider.GetStatus().ToArray();
-        var containers = new InfoContainer[statuses.Length];
-
-        for (var i = 0; i < statuses.Length; i++) {
-            if (_unUsedContainers.Count == 0) {
-                var obj = Instantiate(_containerPrefab, _containerParent);
-                obj.transform.SetSiblingIndex(_statusChildIndexStart);
-                _unUsedContainers.Add(obj);
-            }
-
-            containers[i] = _unUsedContainers[0];
-            containers[i].SetContent(statuses[i]);
-            _unUsedContainers.RemoveAt(0);
-        }
-
-        return containers;
-    }
-
-    void ClearProviders() {
-        foreach (var (provider, containers) in _providerToContainers) {
+    void Clear() {
+        foreach (var (provider, containers) in _providerToContainer) {
             provider.OnStatusChanged -= OnStatusChanged;
-            _unUsedContainers.AddRange(containers);
+            foreach (var container in containers) {
+                container.Dispose();
+            }
         }
-        _providerToContainers.Clear();
-    }
-    
-    void ClearContainers() {
-        foreach (var container in _unUsedContainers) {
-            Destroy(container.gameObject);
-        }
-        _unUsedContainers.Clear();
-    }
-
-    void OnDisable() {
-        ClearProviders();
-        ClearContainers();
+        
+        _providerToContainer.Clear();
     }
 
     void OnStatusChanged(IStatusProvider provider) {
         var statuses = provider.GetStatus().ToArray();
-        var containers = _providerToContainers[provider];
+        var containers = _providerToContainer[provider];
         
         for (var i = 0; i < containers.Length; i++) {
             containers[i].SetContent(statuses[i]);

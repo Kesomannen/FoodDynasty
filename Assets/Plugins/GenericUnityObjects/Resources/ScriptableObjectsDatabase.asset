@@ -28,9 +28,9 @@ MonoBehaviour:
       Unity.2D.Path.Editor
   - _typeNameAndAssembly: UnityEditor.U2D.Path.ScriptableData`1, Unity.2D.Path.Editor
   - _typeNameAndAssembly: SerializedDataObject`1, Assembly-CSharp
-  - _typeNameAndAssembly: GameEvent`1, Dynasty.Util
+  - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
-  - _typeNameAndAssembly: ValueChangedEvent`1, Dynasty.Util
+  - _typeNameAndAssembly: Dynasty.Library.Events.ValueChangedEvent`1, Dynasty.Library
   - _typeNameAndAssembly: ContainerGridObjectControl`1, Assembly-CSharp
   - _typeNameAndAssembly: UIObjectPool`1, Assembly-CSharp
   - _typeNameAndAssembly: ContainerObjectPool`1, Assembly-CSharp
@@ -99,18 +99,22 @@ MonoBehaviour:
         z_ValueChangedEvent_Double
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: SupplyBase, Assembly-CSharp
+      - _typeNameAndAssembly: Supply, Assembly-CSharp
     _values:
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_463d71d3765c8cc4687d32c15f86b481,
-        z_ContainerGridObjectControl_SupplyBase
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_daa11c788b44c0947a49cecf876e94c5,
+        z_ContainerGridObjectControl_Supply
   - _keys: []
     _values: []
   - _keys:
     - _collection:
       - _typeNameAndAssembly: Item, Assembly-CSharp
+    - _collection:
+      - _typeNameAndAssembly: EntityInfo, Assembly-CSharp
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_99adfb061d5aceb4bbe3cff07055a538,
         z_ContainerObjectPool_Item
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_70d94f9d535d50944aea40b48f70569e,
+        z_ContainerObjectPool_EntityInfo
   - _keys:
     - _collection:
       - _typeNameAndAssembly: ItemData, Assembly-CSharp

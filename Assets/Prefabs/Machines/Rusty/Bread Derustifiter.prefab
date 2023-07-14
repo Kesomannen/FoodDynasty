@@ -143,12 +143,12 @@ PrefabInstance:
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: bakeKeys.Array.size
-      value: 17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: bakeValues.Array.size
-      value: 17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
@@ -30219,6 +30219,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5207615658237720803}
     m_Modifications:
+    - target: {fileID: -5771169208520367733, guid: 7e948a1e1bbaf8e499df904050b2de83,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 102bfec407719d74895f8adc74d2fd0d, type: 2}
+    - target: {fileID: 1802906391145203140, guid: 7e948a1e1bbaf8e499df904050b2de83,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802906391145203140, guid: 7e948a1e1bbaf8e499df904050b2de83,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802906391145203140, guid: 7e948a1e1bbaf8e499df904050b2de83,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3494759307452029683, guid: 7e948a1e1bbaf8e499df904050b2de83,
         type: 3}
       propertyPath: m_Name

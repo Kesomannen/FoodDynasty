@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Dynasty.Library.Classes;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Food/Modifier")]
 public class FoodModifierGroup : ScriptableObject {

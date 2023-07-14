@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Dynasty.Library.Helpers;
+using TMPro;
 using UnityEngine;
 
 public class ItemDataPrice : UIComponent<ItemData> {

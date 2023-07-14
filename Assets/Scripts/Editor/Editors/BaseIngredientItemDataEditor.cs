@@ -33,7 +33,7 @@ public class BaseIngredientItemDataEditor : Editor {
 
     static void GenerateImage(FoodItemData data) {
         if (data.Prefab == null) return;
-        data.Image = ThumbnailCreator.Create(data.Prefab, data.Name);
+        data.Icon = ThumbnailCreator.Create(data.Prefab, data.Name);
         EditorUtility.SetDirty(data);
     }
 }

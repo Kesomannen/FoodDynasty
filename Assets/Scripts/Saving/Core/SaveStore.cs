@@ -5,8 +5,8 @@ using UnityEngine;
 public abstract class SaveStore<T> : MonoBehaviour {
     [SerializeField] string _saveKey;
     [SerializeField] SaveManager _saveManager;
-    [Space]
-    [SerializeField] [ReadOnly] string _guid = Guid.NewGuid().ToString();
+    [ReadOnly] [AllowNesting]
+    [SerializeField] string _guid = Guid.NewGuid().ToString();
     
     protected abstract T DefaultValue { get; }
     protected abstract void OnAfterLoad(T saveData);

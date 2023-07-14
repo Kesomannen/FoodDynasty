@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Dynasty.Library.Classes;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -47,8 +48,8 @@ public class GridObject : MonoBehaviour, IInfoProvider {
         IsPlaced = false;
     }
 
-    public IEnumerable<(string Name, string Value)> GetInfo() {
-        yield return ("Size", $"{StaticSize.Bounds.x}x{StaticSize.Bounds.y}");
+    public IEnumerable<EntityInfo> GetInfo() {
+        yield return new EntityInfo("Size", $"{StaticSize.Bounds.x}x{StaticSize.Bounds.y}");
     }
 
     void OnDrawGizmos() {

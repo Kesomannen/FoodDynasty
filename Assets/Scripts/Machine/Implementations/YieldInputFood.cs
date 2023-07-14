@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
+using Dynasty.Library.Classes;
+using Dynasty.Library.Events;
 using UnityEngine;
 
 public class YieldInputFood : FoodMachineComponent, IInfoProvider {
     [Space]
     [SerializeField] int _yieldPerItem;
     [SerializeField] Modifier _sellPriceModifier = new(multiplicative: 1f);
-    [SerializeField] SupplyBase _supply;
+    [SerializeField] Supply _supply;
     [SerializeField] Event<Food> _applyEvent;
 
     readonly Queue<double> _yieldedPrices = new();
@@ -42,8 +44,8 @@ public class YieldInputFood : FoodMachineComponent, IInfoProvider {
     }
 
 
-    public IEnumerable<(string Name, string Value)> GetInfo() {
-        yield return ("Yield", _yieldPerItem.ToString());
-        yield return ("Multiplier", _sellPriceModifier.ToString());
+    public IEnumerable<EntityInfo> GetInfo() {
+        yield return new EntityInfo("Yield", _yieldPerItem.ToString());
+        yield return new EntityInfo("Multiplier", _sellPriceModifier.ToString());
     }
 }

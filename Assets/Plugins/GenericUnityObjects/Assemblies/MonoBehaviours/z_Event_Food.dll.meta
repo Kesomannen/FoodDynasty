@@ -4,8 +4,8 @@ PluginImporter:
   externalObjects: {}
   serializedVersion: 2
   iconMap:
-    GenericUnityObjects.ConcreteClasses.ConcreteClass_51ffa55fd3c2d8a4a99d778d29c44bb9: {fileID: -8204150473280056172,
-      guid: 0000000000000000d000000000000000, type: 0}
+    GenericUnityObjects.ConcreteClasses.ConcreteClass_51ffa55fd3c2d8a4a99d778d29c44bb9: {fileID: 2800000,
+      guid: eb3c5af4a6e4d3f49a39e7f9f425a251, type: 3}
   executionOrder: {}
   defineConstraints: []
   isPreloaded: 0

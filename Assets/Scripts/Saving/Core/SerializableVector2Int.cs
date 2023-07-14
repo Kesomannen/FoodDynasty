@@ -10,10 +10,12 @@ public struct SerializableVector2Int {
         X = vector.x;
         Y = vector.y;
     }
-    
-    public Vector2Int ToVector2Int() => new(X, Y);
 
     public override string ToString() {
         return $"({X}, {Y})";
+    }
+    
+    public static implicit operator Vector2Int(SerializableVector2Int vector) {
+        return new Vector2Int(vector.X, vector.Y);
     }
 }

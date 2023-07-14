@@ -1,7 +1,6 @@
-using System;
-using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class CameraController : MonoBehaviour {
     [Header("Settings")]
@@ -12,8 +11,10 @@ public class CameraController : MonoBehaviour {
     [SerializeField] float _moveSpeed;
     [SerializeField] float _rotateSpeed;
     [Space]
-    [SerializeField] float _moveDragSpeed;
-    [SerializeField] float _rotateDragSpeed;
+    [FormerlySerializedAs("_moveDragSpeed")]
+    [SerializeField] float _panSpeed;
+    [FormerlySerializedAs("_rotateDragSpeed")]
+    [SerializeField] float _spinSpeed;
     [Space]
     [SerializeField] float _smoothTime;
 
@@ -37,10 +38,10 @@ public class CameraController : MonoBehaviour {
     float _rotationVelocity;
     float _targetRotation;
     
-    Plane _dragPlane;
-    Vector3 _moveDragStartPos;
-    bool _isMoveDragging;
-    bool _isRotateDragging;
+    Plane _raycastPlane;
+    Vector3 _panDragPos;
+    bool _isPanning;
+    bool _isSpinning;
 
     void Awake() {
         _transform = transform;
@@ -50,7 +51,7 @@ public class CameraController : MonoBehaviour {
         _targetZoom = _cameraTransform.localPosition;
         _targetRotation = _transform.eulerAngles.y;
         
-        _dragPlane = new Plane(Vector3.up, Vector3.zero);
+        _raycastPlane = new Plane(Vector3.up, Vector3.zero);
     }
     
     void LateUpdate() {
@@ -99,43 +100,45 @@ public class CameraController : MonoBehaviour {
         var mousePosition = Mouse.current.position.ReadValue();
         var mouseDelta = context.ReadValue<Vector2>();
         
-        if (_isMoveDragging) {
+        if (_isPanning) {
             var currentRay = _camera.ScreenPointToRay(mousePosition);
-
-            if (!_dragPlane.Raycast(currentRay, out var entry)) return;
-            var offset = _moveDragStartPos - currentRay.GetPoint(entry);
-            Debug.Log($"Drag offset {offset}");
-            _targetPos += offset * _moveDragSpeed;
-        } else if (_isRotateDragging) {
-            _targetRotation += mouseDelta.x * _rotateDragSpeed;
+            if (!_raycastPlane.Raycast(currentRay, out var entry)) return;
+            
+            var currentPos = currentRay.GetPoint(entry);
+            _targetPos += (_panDragPos - currentPos) * _panSpeed;
+            
+            _panDragPos = currentPos;
+        } else if (_isSpinning) {
+            _targetRotation += mouseDelta.x * _spinSpeed;
         }
     }
     
-    public void OnDragMove(InputAction.CallbackContext context) {
+    public void OnPan(InputAction.CallbackContext context) {
         if (context.started) {
             var mousePosition = Mouse.current.position.ReadValue();
             var startRay = _camera.ScreenPointToRay(mousePosition);
             
-            if (_dragPlane.Raycast(startRay, out var entry)) {
-                _moveDragStartPos = startRay.GetPoint(entry);
-                Debug.Log($"Start drag at {_moveDragStartPos}");
+            if (_raycastPlane.Raycast(startRay, out var entry)) {
+                _panDragPos = startRay.GetPoint(entry);
             }
         }
         
-        _isMoveDragging = context.started || context.performed;
+        _isPanning = context.started || context.performed;
     }
     
-    public void OnDragRotate(InputAction.CallbackContext context) {
-        _isRotateDragging = context.started || context.performed;
+    public void OnSpin(InputAction.CallbackContext context) {
+        _isSpinning = context.started || context.performed;
     }
 
     void ClampZoom() {
         var zoomLevel = _targetZoom.magnitude;
-        
+
         if (zoomLevel < _zoomRange.x) {
-            _targetZoom = _targetZoom.normalized * _zoomRange.x;
+            _targetZoom = _zoomDirection.normalized * _zoomRange.x;
+            _zoomVelocity = Vector3.zero;
         } else if (zoomLevel > _zoomRange.y) {
-            _targetZoom = _targetZoom.normalized * _zoomRange.y;
+            _targetZoom = _zoomDirection.normalized * _zoomRange.y;
+            _zoomVelocity = Vector3.zero;
         }
     }
 }

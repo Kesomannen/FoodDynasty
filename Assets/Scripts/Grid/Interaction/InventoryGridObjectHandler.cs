@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Dynasty.Library.Events;
+using UnityEngine;
 
 public class InventoryGridObjectHandler : MonoBehaviour {
     [SerializeField] GridObjectBuilder _builder;
@@ -8,13 +9,13 @@ public class InventoryGridObjectHandler : MonoBehaviour {
     [SerializeField] GameEvent<Item> _startBuildingEvent;
 
     void OnEnable() {
-        _deleteObjectEvent.OnRaised += OnGridObjectDeleted;
-        _startBuildingEvent.OnRaised += OnStartBuilding;
+        _deleteObjectEvent.AddListener(OnGridObjectDeleted);
+        _startBuildingEvent.AddListener(OnStartBuilding);
     }
     
     void OnDisable() {
-        _deleteObjectEvent.OnRaised -= OnGridObjectDeleted;
-        _startBuildingEvent.OnRaised -= OnStartBuilding;
+        _deleteObjectEvent.RemoveListener(OnGridObjectDeleted);
+        _startBuildingEvent.RemoveListener(OnStartBuilding);
     }
 
     void OnGridObjectDeleted(GridObject gridObject) {

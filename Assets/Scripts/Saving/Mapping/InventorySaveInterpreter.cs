@@ -11,8 +11,7 @@ public class InventorySaveInterpreter : SaveInterpreter<InventorySaveData> {
         new() { ItemIds = Array.Empty<int>(), ItemCounts = Array.Empty<int>() };
 
     protected override void OnAfterLoad(InventorySaveData saveData) {
-        var itemCount = saveData.ItemIds.Length;
-        for (var i = 0; i < itemCount; i++) {
+        for (var i = 0; i < saveData.ItemIds.Length; i++) {
             _inventoryAsset.Add(_itemLookup.GetFromId(saveData.ItemIds[i]), saveData.ItemCounts[i]);
         }
     }

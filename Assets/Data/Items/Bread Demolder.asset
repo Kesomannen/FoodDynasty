@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Bread Demolder
   _description: Demolds bread epically
-  _image: {fileID: 21300000, guid: b9d5af72d6320c748b52f6185b0e09e4, type: 3}
+  _icon: {fileID: 21300000, guid: b9d5af72d6320c748b52f6185b0e09e4, type: 3}
   _tier: 0
   _price: 10000
   _type: 7

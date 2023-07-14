@@ -1,4 +1,5 @@
 ﻿using System;
+using Dynasty.Library.Classes;
 using UnityEngine;
 
 public class TickManager : Singleton<TickManager> {

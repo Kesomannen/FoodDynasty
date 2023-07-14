@@ -227,6 +227,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: RustyOven
       objectReference: {fileID: 0}
+    - target: {fileID: 4616066539732593557, guid: 89468df527c10d94fbd02ded17cc66e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616066539732593557, guid: 89468df527c10d94fbd02ded17cc66e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4616066539732593557, guid: 89468df527c10d94fbd02ded17cc66e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5889380289260618888, guid: 89468df527c10d94fbd02ded17cc66e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 102bfec407719d74895f8adc74d2fd0d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 8686905464242370237, guid: 89468df527c10d94fbd02ded17cc66e2,
     type: 3}
@@ -879,12 +899,12 @@ PrefabInstance:
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: bakeKeys.Array.size
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: bakeValues.Array.size
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}

@@ -85,39 +85,6 @@
                 },
                 {
                     "name": "",
-                    "id": "c035751f-8a34-449b-a90c-8011484927a9",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Cancel",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "551c701f-970e-4592-a2f0-24567b02810a",
-                    "path": "<Keyboard>/delete",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Delete",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f98b8ce9-12d2-4623-8555-c764ebb9bfa5",
-                    "path": "<Keyboard>/backspace",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "Delete",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "1275aa09-2c8b-4e32-ad21-37cb5eb2e239",
                     "path": "<Keyboard>/x",
                     "interactions": "",
@@ -203,7 +170,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "DragMove",
+                    "name": "Pan",
                     "type": "Button",
                     "id": "f8e03fe6-a92f-4691-a3ba-08600bd73022",
                     "expectedControlType": "Button",
@@ -212,7 +179,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "DragRotate",
+                    "name": "Spin",
                     "type": "Button",
                     "id": "1cee42dd-eba2-403c-a707-9761e11ddc6f",
                     "expectedControlType": "Button",
@@ -416,7 +383,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
-                    "action": "DragMove",
+                    "action": "Pan",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -427,7 +394,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
-                    "action": "DragRotate",
+                    "action": "Spin",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Dynasty.Library.Classes;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 

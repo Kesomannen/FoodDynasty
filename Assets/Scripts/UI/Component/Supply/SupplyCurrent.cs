@@ -1,19 +1,19 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class SupplyCurrent : UpdatingUIComponent<SupplyBase> {
+public class SupplyCurrent : UpdatingUIComponent<Supply> {
     [SerializeField] TMP_Text _text;
 
-    protected override void Subscribe(SupplyBase content) {
+    protected override void Subscribe(Supply content) {
         content.OnChanged += UpdateText;
         UpdateText(content);
     }
 
-    protected override void Unsubscribe(SupplyBase content) {
+    protected override void Unsubscribe(Supply content) {
         content.OnChanged -= UpdateText;
     }
 
-    void UpdateText(SupplyBase content) {
+    void UpdateText(Supply content) {
         _text.text = content.CurrentSupply.ToString();
     }
 }

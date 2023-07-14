@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
+using Dynasty.Library.Events;
+using Dynasty.Library.Helpers;
 using UnityEngine;
 
 public class ConditionalEnabling : MonoBehaviour {
     [SerializeField] float _updateEvery = 1f;
-    [SerializeField] Condition _conditional;
+    [SerializeField] CheckEvent<bool> _conditional;
     [SerializeField] Behaviour[] _behaviours;
     [SerializeField] ParticleSystem[] _particleSystems;
 

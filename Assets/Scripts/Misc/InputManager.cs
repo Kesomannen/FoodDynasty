@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Dynasty.Library.Events;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -21,9 +22,7 @@ public class InputManager : MonoScriptable {
     
     void EnableActions() {
         _boundActions.Clear();
-        for (var i = 0; i < _actions.Length; i++) {
-            var action = _actions[i];
-            
+        foreach (var action in _actions) {
             if (!AssertHasEvent(action)) continue;
             if (!GetInputAction(action, out var inputAction)) continue;
 
@@ -31,7 +30,6 @@ public class InputManager : MonoScriptable {
             inputAction.Enable();
 
             _boundActions.Add(inputAction, action.Event);
-            _actions[i] = action;
         }
     }
 
@@ -59,7 +57,7 @@ public class InputManager : MonoScriptable {
     }
 
     [Serializable]
-    struct ActionData {
+    class ActionData {
         public string InputActionName;
         public GameEvent<InputAction.CallbackContext> Event;
     }

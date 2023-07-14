@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Bread Oven
   _description: Bakes dough, turning it into bread and increasing its value significantly.
-  _image: {fileID: 21300000, guid: 66ad3a99fa33c6545b461f84aaa05d0a, type: 3}
+  _icon: {fileID: 21300000, guid: 66ad3a99fa33c6545b461f84aaa05d0a, type: 3}
   _tier: 0
   _price: 50
   _type: 5

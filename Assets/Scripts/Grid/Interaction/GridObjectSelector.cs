@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Dynasty.Library.Events;
+using Dynasty.Library.Extensions;
+using UnityEngine;
 
 public class GridObjectSelector : MonoBehaviour {
     [SerializeField] GameEvent<GridObject> _selectObjectEvent;
@@ -9,16 +11,16 @@ public class GridObjectSelector : MonoBehaviour {
     Outline _selectedOutline;
     
     void OnEnable() {
-        _selectObjectEvent.OnRaised += OnObjectSelected;
+        _selectObjectEvent.AddListener(OnObjectSelected);
         foreach (var deselectEvent in _deselectObjectEvents) {
-            deselectEvent.OnRaised += OnObjectDeselected;
+            deselectEvent.AddListener(OnObjectDeselected);
         }
     }
     
     void OnDisable() {
-        _selectObjectEvent.OnRaised -= OnObjectSelected;
+        _selectObjectEvent.RemoveListener(OnObjectSelected);
         foreach (var deselectEvent in _deselectObjectEvents) {
-            deselectEvent.OnRaised -= OnObjectDeselected;
+            deselectEvent.RemoveListener(OnObjectDeselected);
         }
     }
 

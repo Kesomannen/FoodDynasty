@@ -15,16 +15,16 @@ public class ToppingItemDataEditor : Editor {
         EditorGUILayout.LabelField("Inherited Info", EditorStyles.boldLabel);
         
         var machineInfo = associatedMachine.GetInfo();
-        foreach (var (infoName, value) in machineInfo) {
+        foreach (var info in machineInfo) {
             EditorGUILayout.BeginHorizontal();
             
-            var inherited = inheritedInfo.Any(info => info == infoName);
-            var enabled = EditorGUILayout.Toggle($"{infoName} {value}", inherited);
+            var inherited = inheritedInfo.Any(inherited => info.Name == inherited);
+            var enabled = EditorGUILayout.Toggle($"{info.Name} {info.Value}", inherited);
             switch (enabled) {
                 case true when !inherited:
-                    inheritedInfo.Add(infoName); break;
+                    inheritedInfo.Add(info.Name); break;
                 case false when inherited:
-                    inheritedInfo.Remove(infoName); break;
+                    inheritedInfo.Remove(info.Name); break;
             }
             
             EditorGUILayout.EndHorizontal();

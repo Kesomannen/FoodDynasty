@@ -38,8 +38,8 @@ public class Conveyor : MonoBehaviour, IInfoProvider, IMachineComponent {
         _rigidbody.MovePosition(pos);
     }
 
-    public IEnumerable<(string Name, string Value)> GetInfo() {
-        yield return ("Speed", $"{_speed.Value:0.#}");
+    public IEnumerable<EntityInfo> GetInfo() {
+        yield return new EntityInfo("Speed", $"{_speed.Value:0.#}");
     }
 
     void OnDrawGizmosSelected() {

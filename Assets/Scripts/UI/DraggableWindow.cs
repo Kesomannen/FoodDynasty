@@ -1,4 +1,6 @@
 ﻿using System;
+using Dynasty.Library.Events;
+using Dynasty.Library.Helpers;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -28,11 +30,11 @@ public class DraggableWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             _rectTransform.PositionAsTooltip(mousePos);
         }
         
-        _closeEvent.OnRaisedGeneric += OnClose;
+        _closeEvent.AddListener(OnClose);
     }
 
     void OnDisable() {
-        _closeEvent.OnRaisedGeneric -= OnClose;
+        _closeEvent.RemoveListener(OnClose);
     }
 
     void OnClose() {

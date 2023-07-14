@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 3015091041743848844}
   - component: {fileID: 8179629649837785446}
   - component: {fileID: 2196648166920202581}
+  - component: {fileID: 8388212352163963437}
   m_Layer: 0
   m_Name: Dough
   m_TagString: Untagged
@@ -95,13 +96,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dbbab00aaad493d81fa6e862abf0843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _modelProvider: {fileID: 8388212352163963437}
   _baseSellPrice:
     Base: 1
     Percentual: 0
     Additive: 0
     Multiplicative: 1
-  _originalModel: {fileID: 2206189962380032586}
-  _toppingParent: {fileID: 2409362971342492979}
+  _isSellable: 1
   _startingData: 04000000
 --- !u!65 &2196648166920202581
 BoxCollider:
@@ -116,6 +117,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.18623066, y: 0.15642227, z: 0.2965218}
   m_Center: {x: 0.0014903545, y: 0.07601149, z: -0.029808417}
+--- !u!114 &8388212352163963437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6954741140823871486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2130d4b48296470b983f4505108547d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _originalModel: {fileID: 2206189962380032586}
+  _toppingParent: {fileID: 2409362971342492979}
 --- !u!1001 &103091097238259627
 PrefabInstance:
   m_ObjectHideFlags: 0
