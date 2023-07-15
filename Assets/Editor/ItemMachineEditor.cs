@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Dynasty.Library.Classes;
+using Dynasty.Core.Grid;
+using Dynasty.Core.Inventory;
+using Dynasty.Food.Filtering;
+using Dynasty.Food.Modification;
+using Dynasty.Food.Instance;
 using Dynasty.Library.Events;
+using Dynasty.Machine.Components;
+using Dynasty.Machine.Internal;
 using SolidUtilities.Editor;
 using UnityEditor;
 using UnityEditor.UIElements;
@@ -17,7 +23,7 @@ public class ItemMachineEditor : IDisposable {
     
     MachineItemData _currentItem;
     
-    Event<Food>[] _events;
+    Event<FoodBehaviour>[] _events;
     CheckEvent<bool>[] _checkEvents;
 
     readonly List<VisualElement> _activeComponentEditors = new();
@@ -80,7 +86,7 @@ public class ItemMachineEditor : IDisposable {
     void SetupEditor(MachineItemData item, Component prefab) {
         if (prefab.TryGetComponent(out MachineEntity entity)) entity.Data = item;
 
-        _events = prefab.GetComponentsInChildren<Event<Food>>();
+        _events = prefab.GetComponentsInChildren<Event<FoodBehaviour>>();
         _checkEvents = prefab.GetComponentsInChildren<CheckEvent<bool>>();
 
         var machineComponents = new List<Component> { prefab };
@@ -140,7 +146,7 @@ public class ItemMachineEditor : IDisposable {
     VisualElement CreateObjectField(SerializedProperty property) {
         var type = property.GetObjectType();
         
-        if (type == typeof(Event<Food>) || type == typeof(GenericEvent)) {
+        if (type == typeof(Event<FoodBehaviour>) || type == typeof(GenericEvent)) {
             return CreateEventDropdown(property, property.displayName);
         }
         if (type == typeof(CheckEvent<bool>)) {

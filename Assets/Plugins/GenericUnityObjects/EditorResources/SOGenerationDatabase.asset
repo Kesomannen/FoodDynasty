@@ -13,25 +13,25 @@ MonoBehaviour:
   m_Name: SOGenerationDatabase
   m_EditorClassIdentifier: 
   _genericArgumentKeys:
-  - _typeNameAndAssembly: Item, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
     _guid: 0a63975efa0847789c7eac2ab049fc86
-  - _typeNameAndAssembly: GridObject, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Core.Grid.GridObject, Dynasty.Core
     _guid: a189d557cd0c42bebb4e2ef1dc861402
   - _typeNameAndAssembly: System.Double, mscorlib
     _guid: 
   - _typeNameAndAssembly: UnityEngine.InputSystem.InputAction+CallbackContext, Unity.InputSystem
     _guid: 
-  - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
-    _guid: 
+  - _typeNameAndAssembly: Dynasty.Core.Tooltip.TooltipParams, Dynasty.Core
+    _guid: e39868c212504dd3a076db9037b3d28a
   - _typeNameAndAssembly: System.Single, mscorlib
     _guid: 
   - _typeNameAndAssembly: UnityEngine.InputSystem.InputAction, Unity.InputSystem
     _guid: 
-  - _typeNameAndAssembly: ItemData, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
     _guid: d3d4539531654c55aeb30f6fc3dc4fa1
-  - _typeNameAndAssembly: EntityInfo, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Library.Entity.EntityInfo, Dynasty.Library
     _guid: 399b7c9786f14daa800c57cd93a05d23
-  - _typeNameAndAssembly: Supply, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
     _guid: b3fbd445d03d46cabc7b868fd2447205
   _genericArgumentValues:
   - _array: []
@@ -51,7 +51,7 @@ MonoBehaviour:
       _assemblyGUID: 6a744f12d34869243a0951b672766c45
   - _array:
     - _arguments:
-      - _typeNameAndAssembly: GridObject, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Grid.GridObject, Dynasty.Core
         _guid: a189d557cd0c42bebb4e2ef1dc861402
       _assemblyGUID: 8d2a2aae4cca2734a8464fd2bf02837f
     - _arguments:
@@ -64,15 +64,15 @@ MonoBehaviour:
         _guid: 
       _assemblyGUID: 59186728ae4868943b3f3643b25b8296
     - _arguments:
-      - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
-        _guid: 
+      - _typeNameAndAssembly: Dynasty.Core.Tooltip.TooltipParams, Dynasty.Core
+        _guid: e39868c212504dd3a076db9037b3d28a
       _assemblyGUID: 32ad1ef1a7c02324fa328e2032ce098b
     - _arguments:
       - _typeNameAndAssembly: UnityEngine.InputSystem.InputAction, Unity.InputSystem
         _guid: 
       _assemblyGUID: 0f7d388f37a1fde4eaca183e6ee05749
     - _arguments:
-      - _typeNameAndAssembly: Item, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
         _guid: 0a63975efa0847789c7eac2ab049fc86
       _assemblyGUID: 1a73e75fa72967847be33fa6415ea2f6
   - _array: []
@@ -81,26 +81,26 @@ MonoBehaviour:
       - _typeNameAndAssembly: System.Double, mscorlib
         _guid: 
       _assemblyGUID: 1ca06410f750e4c47b59584415ca6e82
-  - _array:
-    - _arguments:
-      - _typeNameAndAssembly: Supply, Assembly-CSharp
-        _guid: b3fbd445d03d46cabc7b868fd2447205
-      _assemblyGUID: daa11c788b44c0947a49cecf876e94c5
   - _array: []
   - _array:
     - _arguments:
-      - _typeNameAndAssembly: Item, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
         _guid: 0a63975efa0847789c7eac2ab049fc86
       _assemblyGUID: 99adfb061d5aceb4bbe3cff07055a538
     - _arguments:
-      - _typeNameAndAssembly: EntityInfo, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Library.Entity.EntityInfo, Dynasty.Library
         _guid: 399b7c9786f14daa800c57cd93a05d23
       _assemblyGUID: 70d94f9d535d50944aea40b48f70569e
   - _array:
     - _arguments:
-      - _typeNameAndAssembly: ItemData, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
         _guid: d3d4539531654c55aeb30f6fc3dc4fa1
       _assemblyGUID: 93a8f949861c0ce4fb24f4d4d14a04e6
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
+        _guid: b3fbd445d03d46cabc7b868fd2447205
+      _assemblyGUID: 5dd9873d32b80d04189418bb5e86e59b
   _genericTypeValues:
   - _array:
     - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
@@ -108,12 +108,12 @@ MonoBehaviour:
       AssemblyGUID: 
       _argNames:
       - T
-    - _typeNameAndAssembly: ContainerObjectPool`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Miscellaneous.ContainerObjectPool`1, Dynasty.UI
       _guid: fa25376fa5ab4d03a6ff488669baf3fa
       AssemblyGUID: 
       _argNames:
       - T
-    - _typeNameAndAssembly: ContainerObjectPool`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Miscellaneous.ContainerObjectPool`1, Dynasty.UI
       _guid: fa25376fa5ab4d03a6ff488669baf3fa
       AssemblyGUID: 
       _argNames:
@@ -153,7 +153,7 @@ MonoBehaviour:
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: SerializedDataObject`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.Core.Data.SerializedDataObject`1, Dynasty.Core
       _guid: 4fb2b33abd3c49579f0b9c73ad320fb1
       AssemblyGUID: 
       _argNames:
@@ -165,24 +165,24 @@ MonoBehaviour:
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: Lookup`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.Persistent.Mapping.Lookup`1, Dynasty.Persistent
       _guid: acc6722fc23b40c9b9793f8fe38c014f
       AssemblyGUID: 
       _argNames:
       - T
-    - _typeNameAndAssembly: Lookup`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.Persistent.Mapping.Lookup`1, Dynasty.Persistent
       _guid: acc6722fc23b40c9b9793f8fe38c014f
       AssemblyGUID: 
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: ContainerObjectPool`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Miscellaneous.ContainerObjectPool`1, Dynasty.UI
       _guid: fa25376fa5ab4d03a6ff488669baf3fa
       AssemblyGUID: 
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: ContainerGridObjectControl`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Controls.ContainerGridObjectControl`1, Dynasty.UI
       _guid: 379477018aa741039e247c214d6d81f7
       AssemblyGUID: 
       _argNames:
@@ -244,7 +244,7 @@ MonoBehaviour:
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: SerializedDataObject`1, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Core.Data.SerializedDataObject`1, Dynasty.Core
     _guid: 4fb2b33abd3c49579f0b9c73ad320fb1
     AssemblyGUID: 
     _argNames:
@@ -264,23 +264,23 @@ MonoBehaviour:
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: ContainerGridObjectControl`1, Assembly-CSharp
-    _guid: 379477018aa741039e247c214d6d81f7
-    AssemblyGUID: 
-    _argNames:
-    - T
-  - _typeNameAndAssembly: UIObjectPool`1, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Library.Pooling.UIObjectPool`1, Dynasty.Library
     _guid: 628363fbc9c84d579b86b7a583717ec2
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: ContainerObjectPool`1, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.UI.Miscellaneous.ContainerObjectPool`1, Dynasty.UI
     _guid: fa25376fa5ab4d03a6ff488669baf3fa
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: Lookup`1, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Persistent.Mapping.Lookup`1, Dynasty.Persistent
     _guid: acc6722fc23b40c9b9793f8fe38c014f
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: Dynasty.UI.Controls.ContainerGridObjectControl`1, Dynasty.UI
+    _guid: 379477018aa741039e247c214d6d81f7
     AssemblyGUID: 
     _argNames:
     - T

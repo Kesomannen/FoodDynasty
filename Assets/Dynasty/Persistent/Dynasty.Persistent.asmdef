@@ -1,0 +1,19 @@
+{
+    "name": "Dynasty.Persistent",
+    "rootNamespace": "",
+    "references": [
+        "GUID:776d03a35f1b52c4a9aed9f56d7b4229",
+        "GUID:9168b41b563c2d84b94cfe84212541a9",
+        "GUID:f5b907779bf4028479fb9d98761b4147",
+        "GUID:ab7a54624e024284ae2ab9afa212b146"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

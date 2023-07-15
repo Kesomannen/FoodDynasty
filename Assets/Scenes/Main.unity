@@ -970,7 +970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controlsParent: {fileID: 1135087119}
   _controls:
-  - {fileID: 11400000, guid: 921a8bcd4d1f74e4a9faa28c9c956c45, type: 2}
+  - {fileID: 11400000, guid: d79fb71557670704fb73f5d94cad58d1, type: 2}
   _showControlsEvent: {fileID: 11400000, guid: 9fe78e6e78cb2b04a8e1e4d4f3c00d23, type: 2}
 --- !u!1 &222111331
 GameObject:

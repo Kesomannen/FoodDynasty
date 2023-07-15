@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Dynasty.Core.Data;
+using Dynasty.Core.Grid;
+using Dynasty.Core.Inventory;
+using Dynasty.Machine.Components;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;

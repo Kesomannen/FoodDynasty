@@ -13,23 +13,23 @@ MonoBehaviour:
   m_Name: BehavioursGenerationDatabase
   m_EditorClassIdentifier: 
   _genericArgumentKeys:
-  - _typeNameAndAssembly: ItemData, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
     _guid: d3d4539531654c55aeb30f6fc3dc4fa1
-  - _typeNameAndAssembly: Food, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Food.Instance.FoodBehaviour, Dynasty.Food
     _guid: 8dbbab00aaad493d81fa6e862abf0843
-  - _typeNameAndAssembly: GridObject, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Core.Grid.GridObject, Dynasty.Core
     _guid: a189d557cd0c42bebb4e2ef1dc861402
-  - _typeNameAndAssembly: Item, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
     _guid: 0a63975efa0847789c7eac2ab049fc86
-  - _typeNameAndAssembly: Entity, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
     _guid: 7a3409246c914e6d8646fa636551bde6
   - _typeNameAndAssembly: System.Int32, mscorlib
     _guid: 
   - _typeNameAndAssembly: TMPro.TextMeshProUGUI, Unity.TextMeshPro
     _guid: 
-  - _typeNameAndAssembly: EntityInfo, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Library.Entity.EntityInfo, Dynasty.Library
     _guid: 399b7c9786f14daa800c57cd93a05d23
-  - _typeNameAndAssembly: Supply, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
     _guid: b3fbd445d03d46cabc7b868fd2447205
   _genericArgumentValues:
   - _array:
@@ -38,51 +38,51 @@ MonoBehaviour:
         _guid: 
       _assemblyGUID: 02e358cc9711c974da010f291546bbe1
     - _arguments:
-      - _typeNameAndAssembly: Food, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Food.Instance.FoodBehaviour, Dynasty.Food
         _guid: 8dbbab00aaad493d81fa6e862abf0843
       _assemblyGUID: 51ffa55fd3c2d8a4a99d778d29c44bb9
   - _array:
     - _arguments:
-      - _typeNameAndAssembly: GridObject, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Grid.GridObject, Dynasty.Core
         _guid: a189d557cd0c42bebb4e2ef1dc861402
       _assemblyGUID: c36452e95c0c3b845ab55aa88fbd4dc3
   - _array:
     - _arguments:
-      - _typeNameAndAssembly: Entity, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
         _guid: 7a3409246c914e6d8646fa636551bde6
       _assemblyGUID: df7bf43c3ee77704796922a82fc22b90
     - _arguments:
-      - _typeNameAndAssembly: Item, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
         _guid: 0a63975efa0847789c7eac2ab049fc86
       _assemblyGUID: a07511d51b0d145418e48fe384fe8af4
     - _arguments:
-      - _typeNameAndAssembly: ItemData, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
         _guid: d3d4539531654c55aeb30f6fc3dc4fa1
       _assemblyGUID: 753676d98d8e00946ab3cc596b2a3714
     - _arguments:
-      - _typeNameAndAssembly: EntityInfo, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Library.Entity.EntityInfo, Dynasty.Library
         _guid: 399b7c9786f14daa800c57cd93a05d23
       _assemblyGUID: a2fd2cc3e9f938247ad410de51bd8be3
     - _arguments:
-      - _typeNameAndAssembly: Supply, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
         _guid: b3fbd445d03d46cabc7b868fd2447205
       _assemblyGUID: c4b42a068bc858c48af54ee321f9c3a4
   - _array:
     - _arguments:
-      - _typeNameAndAssembly: Entity, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
         _guid: 7a3409246c914e6d8646fa636551bde6
       _assemblyGUID: 61632d180d5648c45863bd037625c8c3
     - _arguments:
-      - _typeNameAndAssembly: ItemData, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
         _guid: d3d4539531654c55aeb30f6fc3dc4fa1
       _assemblyGUID: eff3e6e99893af6498083035df40fbf4
   - _array:
     - _arguments:
-      - _typeNameAndAssembly: Entity, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
         _guid: 7a3409246c914e6d8646fa636551bde6
       _assemblyGUID: c580e9618eb03cb46b983baf8e5ad14c
     - _arguments:
-      - _typeNameAndAssembly: ItemData, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
         _guid: d3d4539531654c55aeb30f6fc3dc4fa1
       _assemblyGUID: 461b10b82024c6c4c997b41676c9e548
   - _array:
@@ -92,66 +92,62 @@ MonoBehaviour:
       _assemblyGUID: f5beab81658e82d4d86bea6ec2a5d6f1
   - _array:
     - _arguments:
-      - _typeNameAndAssembly: Entity, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
         _guid: 7a3409246c914e6d8646fa636551bde6
       _assemblyGUID: a2d4ecfc6268d7c47b05da360d81532e
-  - _array:
-    - _arguments:
-      - _typeNameAndAssembly: ItemData, Assembly-CSharp
-        _guid: d3d4539531654c55aeb30f6fc3dc4fa1
-      _assemblyGUID: 2f12c7e7f23178d4699ac4e3b45fd2b8
+  - _array: []
   _genericTypeValues:
   - _array:
-    - _typeNameAndAssembly: Container`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
-      AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
+      AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
       _argNames:
       - T
       _componentName: 
       _order: 0
-    - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Tooltip.Tooltip`1, Dynasty.UI
       _guid: 4addc1cb99f34fd0af74184bdb5e98fe
-      AssemblyGUID: 02ca79563ddb00743b64c78238a180d5
+      AssemblyGUID: 365bcf74a27049e4694aa3fd6a850c80
       _argNames:
       - T
       _componentName: 
       _order: 0
-    - _typeNameAndAssembly: EntityText`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Components.EntityText`1, Dynasty.UI
       _guid: 73880ec52a824ed28c77b9c835c8ab07
-      AssemblyGUID: 70a2e529e20fe614cad19ded6b1e4379
+      AssemblyGUID: f43aef367ef96d842b66ea5d24c078a5
       _argNames:
       - T
       _componentName: 
       _order: 0
-    - _typeNameAndAssembly: Container`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
-      AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
+      AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
       _argNames:
       - T
       _componentName: 
       _order: 0
-    - _typeNameAndAssembly: EntityText`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Components.EntityText`1, Dynasty.UI
       _guid: 73880ec52a824ed28c77b9c835c8ab07
-      AssemblyGUID: 70a2e529e20fe614cad19ded6b1e4379
+      AssemblyGUID: f43aef367ef96d842b66ea5d24c078a5
       _argNames:
       - T
       _componentName: 
       _order: 0
-    - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Tooltip.Tooltip`1, Dynasty.UI
       _guid: 4addc1cb99f34fd0af74184bdb5e98fe
-      AssemblyGUID: 02ca79563ddb00743b64c78238a180d5
-      _argNames:
-      - T
-      _componentName: 
-      _order: 0
-    - _typeNameAndAssembly: EntityInfo`1, Assembly-CSharp
-      _guid: 
-      AssemblyGUID: 8497a9a49c00ab745b84c80cba7e3892
+      AssemblyGUID: 365bcf74a27049e4694aa3fd6a850c80
       _argNames:
       - T
       _componentName: 
       _order: 0
   - _array:
+    - _typeNameAndAssembly: Dynasty.Library.Events.Event`1, Dynasty.Library
+      _guid: 20b6ca5797584b78b97df411ce90faae
+      AssemblyGUID: dad775be797a57749975907e02e69756
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
     - _typeNameAndAssembly: Dynasty.Library.Events.Event`1, Dynasty.Library
       _guid: 20b6ca5797584b78b97df411ce90faae
       AssemblyGUID: dad775be797a57749975907e02e69756
@@ -175,45 +171,45 @@ MonoBehaviour:
       _componentName: 
       _order: 0
   - _array:
-    - _typeNameAndAssembly: Container`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
-      AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
+      AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
       _argNames:
       - T
       _componentName: 
       _order: 0
-    - _typeNameAndAssembly: Container`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
-      AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
+      AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
       _argNames:
       - T
       _componentName: 
       _order: 0
   - _array:
-    - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Tooltip.Tooltip`1, Dynasty.UI
       _guid: 4addc1cb99f34fd0af74184bdb5e98fe
-      AssemblyGUID: 02ca79563ddb00743b64c78238a180d5
+      AssemblyGUID: 365bcf74a27049e4694aa3fd6a850c80
       _argNames:
       - T
       _componentName: 
       _order: 0
-    - _typeNameAndAssembly: EntityText`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Components.EntityText`1, Dynasty.UI
       _guid: 73880ec52a824ed28c77b9c835c8ab07
-      AssemblyGUID: 70a2e529e20fe614cad19ded6b1e4379
+      AssemblyGUID: f43aef367ef96d842b66ea5d24c078a5
       _argNames:
       - T
       _componentName: 
       _order: 0
-    - _typeNameAndAssembly: Container`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
-      AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
+      AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
       _argNames:
       - T
       _componentName: 
       _order: 0
-    - _typeNameAndAssembly: EntityIcon`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Components.EntityIcon`1, Dynasty.UI
       _guid: cd708368a8cd438caa1ee06858a934d6
-      AssemblyGUID: 2793808a9425c2d4aaec101f76b9812f
+      AssemblyGUID: 78788313a64b2fd46922af52a9f80b42
       _argNames:
       - T
       _componentName: 
@@ -227,25 +223,25 @@ MonoBehaviour:
       _componentName: 
       _order: 0
   - _array:
-    - _typeNameAndAssembly: PoolableComponent`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.Library.Pooling.PoolableComponent`1, Dynasty.Library
       _guid: 4d9634bd5ef144cfbaed6047c0f6b938
-      AssemblyGUID: 72dc4ca6377cb8343b4ebe569b658b49
+      AssemblyGUID: 3f8d0f86f2b777d4fbfa096eec4f7653
       _argNames:
       - T
       _componentName: 
       _order: 0
   - _array:
-    - _typeNameAndAssembly: Container`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
-      AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
+      AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
       _argNames:
       - T
       _componentName: 
       _order: 0
   - _array:
-    - _typeNameAndAssembly: Container`1, Assembly-CSharp
+    - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
-      AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
+      AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
       _argNames:
       - T
       _componentName: 
@@ -265,44 +261,44 @@ MonoBehaviour:
     - T
     _componentName: 
     _order: 0
-  - _typeNameAndAssembly: Container`1, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
     _guid: bc7fd065c7114f949ac90aaca54ac6c0
-    AssemblyGUID: 21e4684d3c858ae439cf5f998fc42d48
+    AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
     _argNames:
     - T
     _componentName: 
     _order: 0
-  - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.UI.Tooltip.Tooltip`1, Dynasty.UI
     _guid: 4addc1cb99f34fd0af74184bdb5e98fe
-    AssemblyGUID: 02ca79563ddb00743b64c78238a180d5
+    AssemblyGUID: 365bcf74a27049e4694aa3fd6a850c80
     _argNames:
     - T
     _componentName: 
     _order: 0
-  - _typeNameAndAssembly: EntityText`1, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.UI.Components.EntityText`1, Dynasty.UI
     _guid: 73880ec52a824ed28c77b9c835c8ab07
-    AssemblyGUID: 70a2e529e20fe614cad19ded6b1e4379
+    AssemblyGUID: f43aef367ef96d842b66ea5d24c078a5
     _argNames:
     - T
     _componentName: 
     _order: 0
-  - _typeNameAndAssembly: PoolableComponent`1, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Library.Pooling.PoolableComponent`1, Dynasty.Library
     _guid: 4d9634bd5ef144cfbaed6047c0f6b938
-    AssemblyGUID: 72dc4ca6377cb8343b4ebe569b658b49
+    AssemblyGUID: 3f8d0f86f2b777d4fbfa096eec4f7653
     _argNames:
     - T
     _componentName: 
     _order: 0
-  - _typeNameAndAssembly: EntityIcon`1, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.UI.Components.EntityIcon`1, Dynasty.UI
     _guid: cd708368a8cd438caa1ee06858a934d6
-    AssemblyGUID: 2793808a9425c2d4aaec101f76b9812f
+    AssemblyGUID: 78788313a64b2fd46922af52a9f80b42
     _argNames:
     - T
     _componentName: 
     _order: 0
-  - _typeNameAndAssembly: EntityInfo`1, Assembly-CSharp
-    _guid: 
-    AssemblyGUID: 8497a9a49c00ab745b84c80cba7e3892
+  - _typeNameAndAssembly: Dynasty.UI.Components.EntityInfo`1, Dynasty.UI
+    _guid: 01fa876e91584b37b14d69a07605e4ad
+    AssemblyGUID: 2c5087b1243ea5742a29041785881fbc
     _argNames:
     - T
     _componentName: 

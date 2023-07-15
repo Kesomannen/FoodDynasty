@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using Dynasty.Food.Data;
+using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(FoodItemData))]

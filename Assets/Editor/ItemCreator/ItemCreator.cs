@@ -1,6 +1,12 @@
 ﻿using System;
+using Dynasty.Core.Grid;
+using Dynasty.Core.Inventory;
+using Dynasty.Food.Modification;
+using Dynasty.Food.Instance;
 using Dynasty.Library.Events;
 using Dynasty.Library.Extensions;
+using Dynasty.Machine.Components;
+using Dynasty.Machine.Internal;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -49,7 +55,7 @@ public static class ItemCreator {
             refillItem.Icon = item.Icon;
             SaveData(refillItem, "Items");
 
-            var useEvent = prefab.GetComponent<Event<Food>>();
+            var useEvent = prefab.GetComponent<Event<FoodBehaviour>>();
             var checkEvent = AttachSupply(prefab.gameObject, useEvent, refillItem);
             foreach (var foodMachineComponent in prefab.GetComponentsInChildren<FoodMachineComponent>()) {
                 foodMachineComponent.TriggerEvent.Condition = checkEvent;
@@ -105,7 +111,7 @@ public static class ItemCreator {
         SaveData(item, "Items");
     }
 
-    static FoodModifier AttachModifier(Event<Food> triggerEvent, string modifierName) {
+    static FoodModifier AttachModifier(Event<FoodBehaviour> triggerEvent, string modifierName) {
         var modifier = triggerEvent.gameObject.AddComponent<FoodModifier>();
         modifier.TriggerEvent = new FilteredFoodEvent(triggerEvent);
         
@@ -121,7 +127,7 @@ public static class ItemCreator {
         return AttachModifier(AttachTrigger(prefab), modifierName);
     }
 
-    static Event<Food> AttachTrigger(GameObject prefab) {
+    static Event<FoodBehaviour> AttachTrigger(GameObject prefab) {
         var trigger = new GameObject("Trigger");
         trigger.transform.SetParent(prefab.transform);
         trigger.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);

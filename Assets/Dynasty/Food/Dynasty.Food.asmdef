@@ -1,0 +1,17 @@
+{
+    "name": "Dynasty.Food",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f5b907779bf4028479fb9d98761b4147",
+        "GUID:ab7a54624e024284ae2ab9afa212b146"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

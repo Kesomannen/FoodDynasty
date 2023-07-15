@@ -15,40 +15,40 @@ MonoBehaviour:
   _keys:
   - _typeNameAndAssembly: Dynasty.Library.Events.Event`1, Dynasty.Library
   - _typeNameAndAssembly: Dynasty.Library.Events.MouseEventTrigger`1, Dynasty.Library
-  - _typeNameAndAssembly: Container`1, Assembly-CSharp
-  - _typeNameAndAssembly: Tooltip`1, Assembly-CSharp
-  - _typeNameAndAssembly: EntityText`1, Assembly-CSharp
-  - _typeNameAndAssembly: PoolableComponent`1, Assembly-CSharp
-  - _typeNameAndAssembly: EntityIcon`1, Assembly-CSharp
-  - _typeNameAndAssembly: EntityInfo`1, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
+  - _typeNameAndAssembly: Dynasty.UI.Tooltip.Tooltip`1, Dynasty.UI
+  - _typeNameAndAssembly: Dynasty.UI.Components.EntityText`1, Dynasty.UI
+  - _typeNameAndAssembly: Dynasty.Library.Pooling.PoolableComponent`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.UI.Components.EntityIcon`1, Dynasty.UI
+  - _typeNameAndAssembly: Dynasty.UI.Components.EntityInfo`1, Dynasty.UI
   _values:
   - _keys:
     - _collection:
       - _typeNameAndAssembly: System.Int32, mscorlib
     - _collection:
-      - _typeNameAndAssembly: Food, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Food.Instance.FoodBehaviour, Dynasty.Food
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_02e358cc9711c974da010f291546bbe1,
         z_Event_Int32
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_51ffa55fd3c2d8a4a99d778d29c44bb9,
-        z_Event_Food
+        z_Event_FoodBehaviour
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: GridObject, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Grid.GridObject, Dynasty.Core
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_c36452e95c0c3b845ab55aa88fbd4dc3,
         z_MouseEventTrigger_GridObject
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: Entity, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
     - _collection:
-      - _typeNameAndAssembly: Item, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
     - _collection:
-      - _typeNameAndAssembly: ItemData, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
     - _collection:
-      - _typeNameAndAssembly: EntityInfo, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Library.Entity.EntityInfo, Dynasty.Library
     - _collection:
-      - _typeNameAndAssembly: Supply, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_df7bf43c3ee77704796922a82fc22b90,
         z_Container_Entity
@@ -62,9 +62,9 @@ MonoBehaviour:
         z_Container_Supply
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: Entity, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
     - _collection:
-      - _typeNameAndAssembly: ItemData, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_61632d180d5648c45863bd037625c8c3,
         z_Tooltip_Entity
@@ -72,9 +72,9 @@ MonoBehaviour:
         z_Tooltip_ItemData
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: Entity, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
     - _collection:
-      - _typeNameAndAssembly: ItemData, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_c580e9618eb03cb46b983baf8e5ad14c,
         z_EntityText_Entity
@@ -88,13 +88,9 @@ MonoBehaviour:
         z_PoolableComponent_TextMeshProUGUI
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: Entity, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_a2d4ecfc6268d7c47b05da360d81532e,
         z_EntityIcon_Entity
-  - _keys:
-    - _collection:
-      - _typeNameAndAssembly: ItemData, Assembly-CSharp
-    _values:
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_2f12c7e7f23178d4699ac4e3b45fd2b8,
-        z_EntityInfo_ItemData
+  - _keys: []
+    _values: []

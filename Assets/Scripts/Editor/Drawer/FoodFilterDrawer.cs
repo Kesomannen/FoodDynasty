@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Dynasty.Food.Data;
+using Dynasty.Food.Filtering;
 using Dynasty.Library.Helpers;
 using UnityEditor;
 using UnityEngine;
@@ -81,7 +83,7 @@ public class FoodFilterDrawer : PropertyDrawer {
             var info = fields[i];
 
             if (itemFilter.FieldFilters.Count <= i) {
-                itemFilter.FieldFilters.Add(new FoodFieldFilter());
+                itemFilter.FieldFilters.Add(new FieldFilter());
             }
 
             var filter = itemFilter.FieldFilters[i];
@@ -91,7 +93,7 @@ public class FoodFilterDrawer : PropertyDrawer {
         EditorGUI.indentLevel--;
     }
 
-    static FoodFieldFilter DrawFieldFilter(FoodFieldFilter filter, FieldInfo info, ref Rect rect) {
+    static FieldFilter DrawFieldFilter(FieldFilter filter, FieldInfo info, ref Rect rect) {
         filter.FieldName = info.Name;
 
         rect.y += EditorGUIUtility.singleLineHeight;

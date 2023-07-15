@@ -27,14 +27,14 @@ MonoBehaviour:
   - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePathInspector`2,
       Unity.2D.Path.Editor
   - _typeNameAndAssembly: UnityEditor.U2D.Path.ScriptableData`1, Unity.2D.Path.Editor
-  - _typeNameAndAssembly: SerializedDataObject`1, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Core.Data.SerializedDataObject`1, Dynasty.Core
   - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
   - _typeNameAndAssembly: Dynasty.Library.Events.ValueChangedEvent`1, Dynasty.Library
-  - _typeNameAndAssembly: ContainerGridObjectControl`1, Assembly-CSharp
-  - _typeNameAndAssembly: UIObjectPool`1, Assembly-CSharp
-  - _typeNameAndAssembly: ContainerObjectPool`1, Assembly-CSharp
-  - _typeNameAndAssembly: Lookup`1, Assembly-CSharp
+  - _typeNameAndAssembly: Dynasty.Library.Pooling.UIObjectPool`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.UI.Miscellaneous.ContainerObjectPool`1, Dynasty.UI
+  - _typeNameAndAssembly: Dynasty.Persistent.Mapping.Lookup`1, Dynasty.Persistent
+  - _typeNameAndAssembly: Dynasty.UI.Controls.ContainerGridObjectControl`1, Dynasty.UI
   _values:
   - _keys: []
     _values: []
@@ -64,18 +64,18 @@ MonoBehaviour:
         z_SerializedDataObject_Single
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: GridObject, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Grid.GridObject, Dynasty.Core
     - _collection:
       - _typeNameAndAssembly: System.Double, mscorlib
     - _collection:
       - _typeNameAndAssembly: UnityEngine.InputSystem.InputAction+CallbackContext,
           Unity.InputSystem
     - _collection:
-      - _typeNameAndAssembly: TooltipParams, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Tooltip.TooltipParams, Dynasty.Core
     - _collection:
       - _typeNameAndAssembly: UnityEngine.InputSystem.InputAction, Unity.InputSystem
     - _collection:
-      - _typeNameAndAssembly: Item, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_8d2a2aae4cca2734a8464fd2bf02837f,
         z_GameEvent_GridObject
@@ -97,19 +97,13 @@ MonoBehaviour:
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_1ca06410f750e4c47b59584415ca6e82,
         z_ValueChangedEvent_Double
-  - _keys:
-    - _collection:
-      - _typeNameAndAssembly: Supply, Assembly-CSharp
-    _values:
-    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_daa11c788b44c0947a49cecf876e94c5,
-        z_ContainerGridObjectControl_Supply
   - _keys: []
     _values: []
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: Item, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
     - _collection:
-      - _typeNameAndAssembly: EntityInfo, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Library.Entity.EntityInfo, Dynasty.Library
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_99adfb061d5aceb4bbe3cff07055a538,
         z_ContainerObjectPool_Item
@@ -117,7 +111,13 @@ MonoBehaviour:
         z_ContainerObjectPool_EntityInfo
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: ItemData, Assembly-CSharp
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_93a8f949861c0ce4fb24f4d4d14a04e6,
         z_Lookup_ItemData
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_5dd9873d32b80d04189418bb5e86e59b,
+        z_ContainerGridObjectControl_Supply

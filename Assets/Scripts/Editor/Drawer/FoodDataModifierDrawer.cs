@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using Dynasty.Food.Data;
+using Dynasty.Food.Modification;
 using Dynasty.Library.Helpers;
 using UnityEditor;
 using UnityEngine;
