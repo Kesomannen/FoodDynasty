@@ -70,9 +70,9 @@ public class ItemCreatorPopupWindow : PopupWindowContent {
                 CreateMode.Machine_General => ItemCreator.CreateGenericMachine(name, model, tier),
                 CreateMode.Machine_ModifierWithoutSupply => ItemCreator.CreateModifierMachine(name, model, tier),
                 CreateMode.Machine_ModifierWithSupply => ItemCreator.CreateModifierMachineWithSupply(name, model, tier),
-                CreateMode.Machine_Sell => null,
-                CreateMode.Machine_Deposit => null,
-                CreateMode.Machine_Split => null,
+                CreateMode.Machine_Seller => ItemCreator.CreateSellMachine(name, model, tier),
+                CreateMode.Machine_Depositer => ItemCreator.CreateDepositMachine(name, model, tier),
+                CreateMode.Machine_Splitter => ItemCreator.CreateSplitMachine(name, model, tier),
                 _ => throw new ArgumentOutOfRangeException()
             };
                 
@@ -132,8 +132,8 @@ public class ItemCreatorPopupWindow : PopupWindowContent {
         Machine_General,
         Machine_ModifierWithoutSupply,
         Machine_ModifierWithSupply,
-        Machine_Sell,
-        Machine_Deposit,
-        Machine_Split
+        Machine_Seller,
+        Machine_Depositer,
+        Machine_Splitter
     }
 }

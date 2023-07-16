@@ -13,11 +13,22 @@ public class FoodDispenser : MonoBehaviour, IInfoProvider, IMachineComponent {
     [SerializeField] DataObject<float> _spawnSpeed;
     [SerializeField] CustomObjectPool<FoodBehaviour> _pool;
     [SerializeField] Transform _spawnPoint;
+    [SerializeField] Vector3 _randomSpawnOffset;
     [SerializeField] CheckEvent<bool> _condition;
     [SerializeField] Event<FoodBehaviour> _onDispensed;
 
     float _lastDispenseTime = float.MinValue;
     
+    public CheckEvent<bool> Condition {
+        get => _condition;
+        set => _condition = value;
+    }
+    
+    public Event<FoodBehaviour> DispenseEvent {
+        get => _onDispensed;
+        set => _onDispensed = value;
+    }
+
     void OnEnable() {
         TickManager.AddListener(UpdateDispenseTimer);
     }
@@ -36,12 +47,20 @@ public class FoodDispenser : MonoBehaviour, IInfoProvider, IMachineComponent {
         if (!_condition.Check()) return;
 
         var food = _pool.Get();
-        food.transform.SetPositionAndRotation(_spawnPoint.position, _spawnPoint.rotation);
+
+        var position = _spawnPoint.position;
+        if (_randomSpawnOffset != Vector3.zero) {
+            position.x += Random.Range(-_randomSpawnOffset.x, _randomSpawnOffset.x);
+            position.y += Random.Range(-_randomSpawnOffset.y, _randomSpawnOffset.y);
+            position.z += Random.Range(-_randomSpawnOffset.z, _randomSpawnOffset.z);
+        }
+        food.transform.SetPositionAndRotation(position, _spawnPoint.rotation);
         _onDispensed.Raise(food);
     }
 
     public IEnumerable<EntityInfo> GetInfo() {
-        yield return new EntityInfo("Speed", $"{_spawnSpeed.Value:0.#}");
+        var speed = _spawnSpeed == null ? "N/A" : $"{_spawnSpeed.Value:0.#}";
+        yield return new EntityInfo("Speed", speed);
     }
     
     public Component Component => this;

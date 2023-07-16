@@ -30,10 +30,10 @@ public class MachinesSaveStore : SaveStore<MachinesSaveData> {
             var gridObject = Instantiate(provider.Prefab);
             gridObject.AddAndPosition(_gridManager, saveData.Positions[i], saveData.Rotations[i]);
             
-            var dataComponents = gridObject.GetComponentsInChildren<IAdditionalSaveData>();
-            if (dataComponents.Length == 0) continue;
-            
             var savedData = saveData.AdditionalData[i];
+            if (savedData.Length == 0) continue;
+            
+            var dataComponents = gridObject.GetComponentsInChildren<IAdditionalSaveData>();
             for (var j = 0; j < dataComponents.Length; j++) {
                 dataComponents[j].OnAfterLoad(savedData[j]);
             }

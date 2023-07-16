@@ -3,7 +3,7 @@ using Dynasty.Core.Inventory;
 using Dynasty.Library.Events;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid.Interaction {
+namespace Dynasty.Core.Grid {
 
 public class InventoryGridObjectHandler : MonoBehaviour {
     [SerializeField] GridObjectBuilder _builder;

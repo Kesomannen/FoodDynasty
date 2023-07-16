@@ -5115,7 +5115,8 @@ PrefabInstance:
         type: 3}
       propertyPath: _blueprintPrefab
       value: 
-      objectReference: {fileID: 13411743877881159}
+      objectReference: {fileID: -9169054484412467784, guid: db3ee49ef86b86b408fbadb18ff83f1c,
+        type: 3}
     - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: _size._gridSize.Bounds.x

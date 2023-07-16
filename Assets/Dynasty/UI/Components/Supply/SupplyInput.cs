@@ -13,20 +13,14 @@ public class SupplyInput : UIComponent<Supply> {
     Supply _content;
 
     public override void SetContent(Supply content) {
-        if (!content.IsRefillable) {
-            Debug.LogWarning("Content Supply for SupplyInput is not refillable.", content);
-        }
-        
         _content = content;
+
+        if (!_content.IsRefillable) return;
         _input.Initialize(mode: _modifyMode, maxValue: () => _inventory.GetCount(content.RefillItem));
     }
     
     public void AddCurrent() {
         Add(_input.Value);
-    }
-    
-    public void SubtractCurrent() {
-        Subtract(_input.Value);
     }
 
     void Add(float value) {

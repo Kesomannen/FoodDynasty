@@ -3,7 +3,7 @@ using Dynasty.Library.Events;
 using Dynasty.Library.Extensions;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid.Interaction {
+namespace Dynasty.Core.Grid {
 
 public class GridObjectSelector : MonoBehaviour {
     [SerializeField] GameEvent<GridObject> _selectObjectEvent;

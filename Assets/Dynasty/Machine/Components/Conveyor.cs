@@ -42,7 +42,8 @@ public class Conveyor : MonoBehaviour, IInfoProvider, IMachineComponent {
     }
 
     public IEnumerable<EntityInfo> GetInfo() {
-        yield return new EntityInfo("Speed", $"{_speed.Value:0.#}");
+        var speed = _speed == null ? "N/A" : $"{_speed.Value:0.#}";
+        yield return new EntityInfo("Speed", speed);
     }
 
     void OnDrawGizmosSelected() {

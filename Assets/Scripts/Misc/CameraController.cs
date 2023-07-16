@@ -22,6 +22,10 @@ public class CameraController : MonoBehaviour {
     [SerializeField] InputActionReference _moveAction;
     [SerializeField] InputActionReference _zoomAction;
     [SerializeField] InputActionReference _rotateAction;
+    [Space]
+    [SerializeField] InputActionReference _panAction;
+    [SerializeField] InputActionReference _spinAction;
+    [SerializeField] InputActionReference _moveMouseAction;
     
     [Header("References")] 
     [SerializeField] Camera _camera;
@@ -53,7 +57,31 @@ public class CameraController : MonoBehaviour {
         
         _raycastPlane = new Plane(Vector3.up, Vector3.zero);
     }
+
+    void OnEnable() {
+        _moveAction.action.actionMap.Enable();
+
+        _panAction.action.started += OnPanStarted;
+        _spinAction.action.started += OnSpinStarted;
+        
+        _panAction.action.canceled += OnPanEnded;
+        _spinAction.action.canceled += OnSpinEnded;
+        
+        _moveMouseAction.action.performed += OnMouseMoved;
+    }
     
+    void OnDisable() {
+        _moveAction.action.actionMap.Disable();
+        
+        _panAction.action.started -= OnPanStarted;
+        _spinAction.action.started -= OnSpinStarted;
+        
+        _panAction.action.canceled -= OnPanEnded;
+        _spinAction.action.canceled -= OnSpinEnded;
+        
+        _moveMouseAction.action.performed -= OnMouseMoved;
+    }
+
     void LateUpdate() {
         GetMovementInput();
         GetZoomInput();
@@ -96,7 +124,7 @@ public class CameraController : MonoBehaviour {
         _targetRotation += value * _rotateSpeed * Time.deltaTime;
     }
 
-    public void OnMouseMove(InputAction.CallbackContext context) {
+    void OnMouseMoved(InputAction.CallbackContext context) {
         var mousePosition = Mouse.current.position.ReadValue();
         var mouseDelta = context.ReadValue<Vector2>();
         
@@ -112,22 +140,28 @@ public class CameraController : MonoBehaviour {
             _targetRotation += mouseDelta.x * _spinSpeed;
         }
     }
-    
-    public void OnPan(InputAction.CallbackContext context) {
-        if (context.started) {
-            var mousePosition = Mouse.current.position.ReadValue();
-            var startRay = _camera.ScreenPointToRay(mousePosition);
+
+    void OnPanStarted(InputAction.CallbackContext context) {
+        var mousePosition = Mouse.current.position.ReadValue();
+        var startRay = _camera.ScreenPointToRay(mousePosition);
             
-            if (_raycastPlane.Raycast(startRay, out var entry)) {
-                _panDragPos = startRay.GetPoint(entry);
-            }
+        if (_raycastPlane.Raycast(startRay, out var entry)) {
+            _panDragPos = startRay.GetPoint(entry);
         }
-        
-        _isPanning = context.started || context.performed;
+
+        _isPanning = true;
+    }
+
+    void OnSpinStarted(InputAction.CallbackContext context) {
+        _isSpinning = true;
     }
     
-    public void OnSpin(InputAction.CallbackContext context) {
-        _isSpinning = context.started || context.performed;
+    void OnPanEnded(InputAction.CallbackContext context) {
+        _isPanning = false;
+    }
+    
+    void OnSpinEnded(InputAction.CallbackContext context) {
+        _isSpinning = false;
     }
 
     void ClampZoom() {

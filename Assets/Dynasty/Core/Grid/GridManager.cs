@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Dynasty.Library.Classes;
 using UnityEngine;
 
 namespace Dynasty.Core.Grid {
@@ -15,7 +14,7 @@ public class GridManager : MonoBehaviour {
         _cells = new Cell[_gridSize.x, _gridSize.y];
         for (var x = 0; x < _gridSize.x; x++) {
             for (var y = 0; y < _gridSize.y; y++) {
-                _cells[x, y] = new Cell(new Vector2Int(x, y), GridToWorld(x, y));
+                _cells[x, y] = new Cell(GridToWorld(x, y));
             }
         }
     }
@@ -153,13 +152,11 @@ public class GridManager : MonoBehaviour {
     }
 
     readonly struct Cell {
-        public readonly Vector2Int GridPosition;
         public readonly Vector3 WorldPosition;
         public readonly List<GridObject> Inhabitants;
         public bool IsEmpty => Inhabitants.Count == 0;
 
-        public Cell(Vector2Int gridPosition, Vector3 worldPosition) {
-            GridPosition = gridPosition;
+        public Cell(Vector3 worldPosition) {
             WorldPosition = worldPosition;
             Inhabitants = new List<GridObject>();
         }

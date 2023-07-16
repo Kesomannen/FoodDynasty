@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9becf11d67124afc8a2b2dccc5c68e48, type: 3}
-  m_Name: BreadSoftenerData
+  m_Name: Rusty Rotating Conveyor
   m_EditorClassIdentifier: 
-  _name: Bread Softener
-  _description: Softens the fibers in bread using laser technology. Can be applied
-    up to 10 times.
-  _icon: {fileID: 21300000, guid: 8bfc8df31e311314889152320b69f8eb, type: 3}
+  _name: Rotating Rusty Conveyor
+  _description: Just like a normal conveyor, but with a twist.
+  _icon: {fileID: 21300000, guid: 0fab2c075d11e7f4eac1cdeb20cbd8dc, type: 3}
   _tier: 0
-  _price: 750
-  _type: 7
-  _prefab: {fileID: 2132514873923097243, guid: f0ab73c4e9cc7604388d93778a6988d4, type: 3}
-  _enabledProviders: 010001
+  _price: 150
+  _type: 3
+  _prefab: {fileID: 7181724732692113356, guid: 987081d6aae96824f9bb4e60735c4ad7, type: 3}
+  _enabledProviders: 010100

@@ -11,7 +11,6 @@ namespace Dynasty.UI.Displays {
 public class KeybindsDisplay : MonoBehaviour {
     [SerializeField] Transform _keybindParent;
     [SerializeField] ContainerObjectPool<IKeybind> _keybindPool;
-    [SerializeField] InputManager _inputManager;
 
     readonly List<Container<IKeybind>> _currentKeybinds = new();
 

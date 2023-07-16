@@ -116,19 +116,19 @@ MonoBehaviour:
   m_Script: {fileID: -1425871319, guid: c36452e95c0c3b845ab55aa88fbd4dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventData: {fileID: 0}
+  EventData: {fileID: -572785721937663073}
   _clickGameEvent:
-    _enabled: 0
-    _value: {fileID: 0}
+    _enabled: 1
+    _value: {fileID: 11400000, guid: f89ebaceed574364890e39afbb87a348, type: 2}
   _rightClickGameEvent:
-    _enabled: 0
-    _value: {fileID: 0}
+    _enabled: 1
+    _value: {fileID: 11400000, guid: 9fe78e6e78cb2b04a8e1e4d4f3c00d23, type: 2}
   _enterGameEvent:
-    _enabled: 0
-    _value: {fileID: 0}
+    _enabled: 1
+    _value: {fileID: 11400000, guid: ab57c526c86f0e74e9f8c34ff27a0719, type: 2}
   _exitGameEvent:
-    _enabled: 0
-    _value: {fileID: 0}
+    _enabled: 1
+    _value: {fileID: 11400000, guid: 5a847fa09b918aa4f971cf40242e00de, type: 2}
 --- !u!114 &-572785721937663073
 MonoBehaviour:
   m_ObjectHideFlags: 0

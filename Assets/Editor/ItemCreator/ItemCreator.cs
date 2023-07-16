@@ -1,12 +1,15 @@
 ﻿using System;
 using Dynasty.Core.Grid;
 using Dynasty.Core.Inventory;
+using Dynasty.Food.Data;
 using Dynasty.Food.Modification;
 using Dynasty.Food.Instance;
+using Dynasty.Library.Entity;
 using Dynasty.Library.Events;
 using Dynasty.Library.Extensions;
 using Dynasty.Machine.Components;
 using Dynasty.Machine.Internal;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -27,10 +30,13 @@ public static class ItemCreator {
             return _baseMachinePrefab;
         }
     }
-
-    static MachineFactory _genericMachineFactory;
-    static MachineFactory _modifierMachineFactory;
-    static MachineFactory _modifierMachineSupplyFactory;
+    
+    static MachineFactory _genericFactory;
+    static MachineFactory _modifierFactory;
+    static MachineFactory _modifierWithSupplyFactory;
+    static MachineFactory _sellFactory;
+    static MachineFactory _splitFactory;
+    static MachineFactory _dispenseFactory;
     
     const string DataPath = "Assets/Data";
     const string FoodPrefabPath = "Assets/Prefabs/Food";
@@ -40,45 +46,103 @@ public static class ItemCreator {
         if (_initialized) return;
         _initialized = true;
 
-        _genericMachineFactory = new MachineFactory();
+        _genericFactory = new MachineFactory();
         
-        _modifierMachineFactory = new MachineFactory((item, prefab) => {
+        _modifierFactory = new MachineFactory((item, prefab) => {
             item.SetType(ItemType.Modifier);
             AttachModifier(prefab.gameObject, item.Name);
         });
         
-        _modifierMachineSupplyFactory = new MachineFactory((item, prefab) => {
-            
-            var refillItem = ScriptableObject.CreateInstance<ToppingItemData>();
-            refillItem.name = refillItem.Name = $"{item.Name} Refill";
-            refillItem.AssociatedMachine = item;
-            refillItem.Icon = item.Icon;
-            SaveData(refillItem, "Items");
+        _modifierWithSupplyFactory = new MachineFactory((item, prefab) => {
+            AttachSupplyWithTopping(item, prefab, out var checkEvent, out _);
 
-            var useEvent = prefab.GetComponent<Event<FoodBehaviour>>();
-            var checkEvent = AttachSupply(prefab.gameObject, useEvent, refillItem);
             foreach (var foodMachineComponent in prefab.GetComponentsInChildren<FoodMachineComponent>()) {
                 foodMachineComponent.TriggerEvent.Condition = checkEvent;
             }
+        }, _modifierFactory);
+        
+        _sellFactory = new MachineFactory((item, prefab) => {
+            item.SetType(ItemType.Seller);
+            prefab.AddComponent<FoodSeller>().TriggerEvent = new FilteredFoodEvent(AttachTrigger(prefab.gameObject));
+        });
+        
+        _splitFactory = new MachineFactory((_, prefab) => {
+            var dispenseEvent = prefab.AddComponent<FoodEvent>();
+            var condition = prefab.AddComponent<Condition>();
+            var foodTriggerEvent = AttachTrigger(prefab.gameObject);
             
-        }, _modifierMachineFactory);
+            var supply = prefab.AddComponent<Supply>();
+            var dispenser = prefab.AddComponent<FoodDispenser>();
+            var splitter = prefab.AddComponent<FoodSplitter>();
+            
+            supply.UseEvent = dispenseEvent;
+            supply.Condition = condition;
+            
+            dispenser.DispenseEvent = dispenseEvent;
+            dispenser.Condition = condition;
+            
+            splitter.TriggerEvent = new FilteredFoodEvent(foodTriggerEvent);
+            splitter.ApplyEvent = dispenseEvent;
+            splitter.Supply = supply;
+        });
+
+        _dispenseFactory = new MachineFactory((item, prefab) => {
+            var useEvent = AttachSupplyWithItem<FoodItemData>(item, prefab, out var checkEvent, out _);
+            var dispenser = prefab.AddComponent<FoodDispenser>();
+            
+            dispenser.DispenseEvent = useEvent;
+            dispenser.Condition = checkEvent;
+        });
+    }
+
+    static Event<FoodBehaviour> AttachSupplyWithTopping(MachineItemData machine, Component prefab, out CheckEvent<bool> checkEvent, out ToppingItemData refillItem) {
+        var useEvent = AttachSupplyWithItem(machine, prefab, out checkEvent, out refillItem);
+        refillItem.AssociatedMachine = machine;
+        return useEvent;
+    }
+    
+    static Event<FoodBehaviour> AttachSupplyWithItem<T>(IEntityData entity, Component prefab, out CheckEvent<bool> checkEvent, out T refillItem) where T : ItemData {
+        refillItem = ScriptableObject.CreateInstance<T>();
+        refillItem.name = refillItem.Name = $"{entity.Name} Refill";
+        refillItem.Icon = entity.Icon;
+
+        var useEvent = prefab.AddComponent<Event<FoodBehaviour>>();
+        checkEvent = AttachSupply(prefab.gameObject, useEvent, refillItem);
+
+        SaveData(refillItem, "Items");
+        return useEvent;
     }
 
     #region Machine Creation
+    
+    public static MachineItemData CreateSplitMachine(string name, GameObject modelPrefab, ItemTier tier) {
+        CheckInitialized();
+        return _splitFactory.Create(name, modelPrefab, tier);
+    }
 
+    public static MachineItemData CreateDepositMachine(string name, GameObject modelPrefab, ItemTier tier) {
+        CheckInitialized();
+        return _dispenseFactory.Create(name, modelPrefab, tier);
+    }
+    
+    public static MachineItemData CreateSellMachine(string name, GameObject modelPrefab, ItemTier tier) {
+        CheckInitialized();
+        return _sellFactory.Create(name, modelPrefab, tier);
+    }
+    
     public static MachineItemData CreateModifierMachineWithSupply(string name, GameObject modelPrefab, ItemTier tier) {
         CheckInitialized();
-        return _modifierMachineSupplyFactory.Create(name, modelPrefab, tier);
+        return _modifierWithSupplyFactory.Create(name, modelPrefab, tier);
     }
     
     public static MachineItemData CreateModifierMachine(string name, GameObject modelPrefab, ItemTier tier) {
         CheckInitialized();
-        return _modifierMachineFactory.Create(name, modelPrefab, tier);
+        return _modifierFactory.Create(name, modelPrefab, tier);
     }
     
     public static MachineItemData CreateGenericMachine(string name, GameObject modelPrefab, ItemTier tier) {
         CheckInitialized();
-        return _genericMachineFactory.Create(name, modelPrefab, tier);
+        return _genericFactory.Create(name, modelPrefab, tier);
     }
 
     #endregion
@@ -156,7 +220,7 @@ public static class ItemCreator {
 
         return supply;
     }
-
+    
     static string GetMachinePath(ItemTier tier) => $"{MachinePrefabPath}/{tier}";
 
     static GameObject SavePrefab(Component prefab, string path) {

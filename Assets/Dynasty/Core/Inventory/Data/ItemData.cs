@@ -62,7 +62,9 @@ public enum ItemType {
     Dispenser,
     Cooker,
     Seller,
-    Modifier
+    Modifier,
+    Splitter,
+    Merger
 }
 
 public enum ItemTier {

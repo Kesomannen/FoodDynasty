@@ -11,7 +11,7 @@ using Dynasty.Library.Pooling;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Dynasty.Core.Grid.Interaction {
+namespace Dynasty.Core.Grid {
 
 public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     [Header("References")] 

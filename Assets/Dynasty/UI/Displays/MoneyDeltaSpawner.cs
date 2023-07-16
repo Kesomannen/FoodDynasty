@@ -3,6 +3,7 @@ using Dynasty.Library.Helpers;
 using Dynasty.Library.Pooling;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Dynasty.UI.Displays {
 

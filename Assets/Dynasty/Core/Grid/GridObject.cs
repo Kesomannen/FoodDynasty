@@ -10,7 +10,7 @@ public class GridObject : MonoBehaviour, IInfoProvider {
     [ShowIf("_canMove")] [AllowNesting]
     [SerializeField] GameObject _blueprintPrefab;
     [SerializeField] Vector3 _rotationAxis = Vector3.up;
-    [SerializeField] SerializedGridSize _size;
+    [SerializeField] SerializedGridSize _size = new(4, 4);
     
     GridRotation _rotation;
 

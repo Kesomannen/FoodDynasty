@@ -31,7 +31,7 @@ public class DefaultModelProvider : ModelProvider {
         _baseModel = null;
         _originalModel.SetActive(true);
         
-        while (_toppings.Count > 0) {
+        while (_toppings.Count > 0) { 
             _toppings.Pop().Dispose();
         }
     }

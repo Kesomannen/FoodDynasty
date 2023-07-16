@@ -7,7 +7,15 @@ namespace Dynasty.Core.Grid {
 public class SerializedGridSize : ISerializationCallbackReceiver {
     [SerializeField] Row[] _customMatrix;
     [SerializeField] GridSize _gridSize;
+
+    public SerializedGridSize(int x, int y) {
+        _gridSize = new GridSize(new Vector2Int(x, y));
+    }
     
+    public SerializedGridSize(GridSize gridSize) {
+        _gridSize = gridSize;
+    }
+
     public GridSize Value {
         get => _gridSize;
         set => _gridSize = value;

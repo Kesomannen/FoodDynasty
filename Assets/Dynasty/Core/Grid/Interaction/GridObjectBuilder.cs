@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid.Interaction {
+namespace Dynasty.Core.Grid {
 
 public class GridObjectBuilder : MonoBehaviour {
     [SerializeField] GridObjectPlacer _placer;

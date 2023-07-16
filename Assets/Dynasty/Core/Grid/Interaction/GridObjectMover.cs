@@ -4,7 +4,7 @@ using Dynasty.Library.Events;
 using Dynasty.Library.Extensions;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid.Interaction {
+namespace Dynasty.Core.Grid {
 
 public class GridObjectMover : MonoBehaviour {
     [SerializeField] GridObjectPlacer _placer;

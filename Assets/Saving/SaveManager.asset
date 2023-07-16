@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9dc922749e44589a94492b00de0a16, type: 3}
   m_Name: SaveManager
   m_EditorClassIdentifier: 
-  _currentSaveSlot: 1
+  _currentSaveSlot: 0
   _loader: {fileID: 11400000, guid: 074bac50abaf2d5479607570307ec860, type: 2}
   _interpreters:
   - {fileID: 11400000, guid: beba6d35b050ce5438de2b5e02f4d047, type: 2}
