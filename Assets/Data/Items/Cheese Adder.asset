@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9becf11d67124afc8a2b2dccc5c68e48, type: 3}
+  m_Name: Cheese Adder
+  m_EditorClassIdentifier: 
+  _name: Cheese Adder
+  _description: New Item Description
+  _icon: {fileID: 21300000, guid: 8f5933017d0faf74b90c2cff4dd1324e, type: 3}
+  _tier: 1
+  _price: 1000
+  _type: 7
+  _prefab: {fileID: 8520642587195211989, guid: 1d31bfd4dc0181e4ab28ed11156fda0d, type: 3}
+  _enabledProviders: 01010101

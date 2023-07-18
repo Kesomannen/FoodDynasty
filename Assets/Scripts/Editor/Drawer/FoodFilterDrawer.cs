@@ -1,121 +1,65 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using Dynasty.Food.Data;
 using Dynasty.Food.Filtering;
-using Dynasty.Library.Helpers;
+using Dynasty.Food.Modification;
 using UnityEditor;
 using UnityEngine;
 
 [CustomPropertyDrawer(typeof(FoodFilter))]
 public class FoodFilterDrawer : PropertyDrawer {
-    bool _foldout = true;
-    
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
-        var lines = 2;
+        var traitProperty = property.Find("_trait");
+        var traitHashProperty = traitProperty.Find("_hash");
         
-        var foodFilter = property.GetValue<FoodFilter>();
-        var dataType = FoodDataUtil.GetDataType(foodFilter.DataType);
-        var fields = ReflectionHelpers.GetFields(dataType);
-
-        if (fields.Length == 0) {
-            return EditorGUIUtility.singleLineHeight * lines;
-        }
-
-        lines += 2;
-
-        if (!_foldout) {
-            return EditorGUIUtility.singleLineHeight * lines;
+        var height = EditorGUIUtility.singleLineHeight + 3;
+        height += EditorGUI.GetPropertyHeight(traitProperty);
+        
+        var database = FoodTraitDatabase.Singleton;
+        var validTrait = database.TryGetEntry(traitHashProperty.intValue, out var selectedTrait);
+        
+        if (validTrait && selectedTrait.Type != FoodTraitType.Tag) {
+            height += EditorGUIUtility.singleLineHeight + 3;
         }
         
-        lines += foodFilter.FieldFilters.Sum(fieldFilter => fieldFilter.Enabled ? 2 : 1);
-
-        return EditorGUIUtility.singleLineHeight * lines;
+        return height;
     }
 
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
         EditorGUI.BeginProperty(position, label, property);
         
-        var foodFilter = property.GetValue<FoodFilter>();
-        
-        var filterTypeProperty = property.Find(nameof(FoodFilter.FilterType));
-        var dataTypeProperty = property.Find(nameof(FoodFilter.DataType));
-        var requireDataProperty = property.Find(nameof(FoodFilter.RequireData));
+        var typeProperty = property.Find("_type");
+        var traitProperty = property.Find("_trait");
+        var traitHashProperty = traitProperty.Find("_hash");
+
+        var database = FoodTraitDatabase.Singleton;
+        var validTrait = database.TryGetEntry(traitHashProperty.intValue, out var selectedTrait);
         
         var rect = position;
         rect.height = EditorGUIUtility.singleLineHeight;
-        EditorGUI.PropertyField(rect, filterTypeProperty);
+        EditorGUI.PropertyField(rect, typeProperty);
         
-        rect.y += EditorGUIUtility.singleLineHeight;
-        EditorGUI.PropertyField(rect, dataTypeProperty);
-        
-        var dataType = FoodDataUtil.GetDataType(foodFilter.DataType);
-        var fields = ReflectionHelpers.GetFields(dataType);
+        rect.y += rect.height + 3;
+        rect.height = EditorGUI.GetPropertyHeight(traitProperty);
+        EditorGUI.PropertyField(rect, traitProperty);
 
-        if (fields.Length == 0) {
-            foodFilter.RequireData = true;
-        } else {
-            rect.y += EditorGUIUtility.singleLineHeight;
-            EditorGUI.PropertyField(rect, requireDataProperty);
-            
-            DrawFieldsSection(ref rect, fields, foodFilter);
-        }
-        
-        // Trim extra field filters
-        while (foodFilter.FieldFilters.Count > fields.Length) {
-            foodFilter.FieldFilters.RemoveAt(foodFilter.FieldFilters.Count - 1);
+        if (validTrait) {
+            rect.y += rect.height + 3;
+            DrawValueField(property, selectedTrait, rect);
         }
 
-        property.serializedObject.ApplyModifiedProperties();
         EditorGUI.EndProperty();
     }
 
-    void DrawFieldsSection(ref Rect rect, IReadOnlyList<FieldInfo> fields, FoodFilter itemFilter) {
-        rect.y += EditorGUIUtility.singleLineHeight;
-        _foldout = EditorGUI.Foldout(rect, _foldout, "Fields", true);
-
-        if (!_foldout) return;
-        
-        EditorGUI.indentLevel++;
-        
-        for (var i = 0; i < fields.Count; i++) {
-            var info = fields[i];
-
-            if (itemFilter.FieldFilters.Count <= i) {
-                itemFilter.FieldFilters.Add(new FieldFilter());
-            }
-
-            var filter = itemFilter.FieldFilters[i];
-            itemFilter.FieldFilters[i] = DrawFieldFilter(filter, info, ref rect);
-        }
-
-        EditorGUI.indentLevel--;
-    }
-
-    static FieldFilter DrawFieldFilter(FieldFilter filter, FieldInfo info, ref Rect rect) {
-        filter.FieldName = info.Name;
-
-        rect.y += EditorGUIUtility.singleLineHeight;
-        filter.Enabled = EditorGUI.Toggle(rect, StringHelpers.FormatCamelCase(info.Name), filter.Enabled);
-
-        if (!filter.Enabled) return filter;
-        EditorGUI.indentLevel++;
-        
-        filter.FilterType = info.FieldType == typeof(int) ? FoodFieldFilterType.Int : FoodFieldFilterType.Bool;
-
-        rect.y += EditorGUIUtility.singleLineHeight;
-        switch (filter.FilterType) {
-            case FoodFieldFilterType.Int:
-                filter.IntRange = EditorGUI.Vector2IntField(rect, new GUIContent("Range"), filter.IntRange);
-                break;
-            case FoodFieldFilterType.Bool:
-                filter.BoolValue = EditorGUI.Toggle(rect, new GUIContent("Value"), filter.BoolValue);
-                break;
+    static void DrawValueField(SerializedProperty property, FoodTraitDatabase.Entry trait, Rect rect) {
+        switch (trait.Type) {
+            case FoodTraitType.Int:
+                EditorGUI.PropertyField(rect, property.Find("_intRange"), new GUIContent("Range")); break;
+            case FoodTraitType.Float:
+                EditorGUI.PropertyField(rect, property.Find("_floatRange"), new GUIContent("Range")); break;
+            case FoodTraitType.Bool:
+                EditorGUI.PropertyField(rect, property.Find("_boolValue"), new GUIContent("Value")); break;
+            case FoodTraitType.Tag: break;
             default: throw new ArgumentOutOfRangeException();
         }
-        
-        EditorGUI.indentLevel--;
-        return filter;
     }
 }

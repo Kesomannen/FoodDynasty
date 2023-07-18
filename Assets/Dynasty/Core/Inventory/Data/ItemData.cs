@@ -56,7 +56,7 @@ public class ItemData : ScriptableObject, IEntityData, IInfoProvider {
 
 public enum ItemType {
     Other,
-    BaseIngredient,
+    Food,
     Topping,
     Conveyor,
     Dispenser,

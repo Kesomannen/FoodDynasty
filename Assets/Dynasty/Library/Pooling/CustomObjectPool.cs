@@ -13,6 +13,11 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
     
     ObjectPool<T> _pool;
 
+    public T Prefab {
+        get => _prefab;
+        set => _prefab = value;
+    }
+
     protected virtual ObjectPool<T> Pool => _pool ??= new ObjectPool<T>(
         Create, OnGet, OnRelease, Destroy, 
         _collectionCheck, 

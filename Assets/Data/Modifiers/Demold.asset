@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f89bbf86b2b54ed8b11937d3937c0e7f, type: 3}
+  m_Name: Demold
+  m_EditorClassIdentifier: 
+  _sellPriceModifier:
+    Base: 0
+    Percentual: 0
+    Additive: 0
+    Multiplicative: 1.5
+  _modelModifiers: []
+  _traitModifiers:
+  - _trait:
+      _value: Demolded
+      _hash: 2124598384
+    _operation: 0
+    _modifier:
+      Base: 0
+      Percentual: 0
+      Additive: 0
+      Multiplicative: 0
+    _intValue: 0
+    _floatValue: 0
+    _boolValue: 0

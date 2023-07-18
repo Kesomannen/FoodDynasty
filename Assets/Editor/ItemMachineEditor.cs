@@ -74,7 +74,9 @@ public class ItemMachineEditor : IDisposable {
     }
 
     public IEnumerable<Object> GetObjectsForDeletion() {
-        return _currentItem == null ? Enumerable.Empty<Object>() : FindScriptableAssets(_currentItem.Prefab.gameObject);
+        return _currentItem == null 
+            ? Enumerable.Empty<Object>() 
+            : FindAssets(_currentItem.Prefab.gameObject).Append(_currentItem.Prefab);
     }
 
     void Cleanup() {
@@ -196,7 +198,7 @@ public class ItemMachineEditor : IDisposable {
         );
     }
     
-    static IEnumerable<ScriptableObject> FindScriptableAssets(GameObject prefab) {
+    static IEnumerable<Object> FindAssets(GameObject prefab) {
         HashSet<ScriptableObject> assets = new();
 
         foreach (var component in prefab.GetComponentsInChildren<IMachineComponent>().Select(c => c.Component)) {

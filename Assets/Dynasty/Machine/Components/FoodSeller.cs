@@ -12,6 +12,11 @@ public class FoodSeller : FoodMachineComponent, IInfoProvider {
     [Space]
     [SerializeField] MoneyManager _moneyManager;
     [SerializeField] Modifier _sellPriceModifier;
+    
+    public Modifier SellPriceModifier {
+        get => _sellPriceModifier;
+        set => _sellPriceModifier = value;
+    }
 
     protected override void OnTriggered(FoodBehaviour food) {
         if (!food.IsSellable) return;

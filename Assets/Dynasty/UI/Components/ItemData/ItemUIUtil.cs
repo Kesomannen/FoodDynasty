@@ -16,7 +16,7 @@ public static class ItemUIUtil {
         { ItemType.Other, "eb8b" },
         { ItemType.Seller, "e227"},
         { ItemType.Topping, "f00c" },
-        { ItemType.BaseIngredient, "e57a" },
+        { ItemType.Food, "e57a" },
         
     };
     

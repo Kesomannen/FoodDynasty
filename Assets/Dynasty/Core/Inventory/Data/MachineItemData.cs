@@ -53,7 +53,7 @@ public class MachineItemData : ItemData, IPrefabProvider<GridObject> {
         _cachedInfoProviders = _prefab == null ? Array.Empty<IInfoProvider>() : _prefab.GetComponentsInChildren<IInfoProvider>();
 
         if (_enabledProviders != null && _cachedInfoProviders.Length == _enabledProviders.Length) return;
-        _enabledProviders = new bool[_cachedInfoProviders.Length];
+        _enabledProviders = Enumerable.Repeat(true, _cachedInfoProviders.Length).ToArray();
     }
 
     void Reset() {

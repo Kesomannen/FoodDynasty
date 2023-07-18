@@ -103,7 +103,13 @@ MonoBehaviour:
     Additive: 0
     Multiplicative: 1
   _isSellable: 1
-  _startingData: 04000000
+  _startingTraits:
+  - _selection:
+      _value: Dough
+      _hash: -1530337891
+    _intValue: 0
+    _floatValue: 0
+    _boolValue: 0
 --- !u!65 &2196648166920202581
 BoxCollider:
   m_ObjectHideFlags: 0

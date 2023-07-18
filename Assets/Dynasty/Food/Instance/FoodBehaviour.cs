@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using Dynasty.Food.Data;
 using Dynasty.Library.Entity;
 using Dynasty.Library.Classes;
@@ -15,15 +14,16 @@ public class FoodBehaviour : MonoBehaviour, IPoolable<FoodBehaviour>, IInfoProvi
     [SerializeField] ModelProvider _modelProvider;
     [SerializeField] Modifier _baseSellPrice = new(multiplicative: 1f);
     [SerializeField] bool _isSellable = true;
-    [SerializeField] FoodDataType[] _startingData;
+    [SerializeField] FoodTraitValue[] _startingTraits;
 
     public Modifier SellPrice { get; set; }
     
     public bool IsSellable => _isSellable;
     public ModelProvider ModelProvider => _modelProvider;
 
-    readonly Dictionary<Type, object> _data = new();
-    
+    readonly Dictionary<int, object> _traits = new();
+    readonly List<int> _tags = new();
+
     bool _initialized;
     Rigidbody _rigidbody;
 
@@ -31,65 +31,62 @@ public class FoodBehaviour : MonoBehaviour, IPoolable<FoodBehaviour>, IInfoProvi
 
     void Awake() {
         _rigidbody = GetComponent<Rigidbody>();
-        ResetData();
-        
+    }
+
+    void Start() {
+        ResetState();
         _initialized = true;
     }
 
-    void ResetData() {
+    public double GetSellPrice() {
+        return _initialized ? SellPrice.Delta : _baseSellPrice.Delta;
+    }
+
+    void ResetState() {
         SellPrice = _baseSellPrice;
-        
-        _data.Clear();
-        foreach (var dataType in _startingData) {
-            EnforceData(FoodDataUtil.GetDataType(dataType));
-        }
 
         _modelProvider.ReturnOriginalModel();
 
         _rigidbody.velocity = Vector3.zero;
         _rigidbody.angularVelocity = Vector3.zero;
-    }
-    
-    # region Data 
-    
-    public void SetData<T>(T data) where T : struct {
-        _data[typeof(T)] = data;
-    }
-    
-    public void SetData(Type type, object data) {
-        _data[type] = data;
-    }
-
-    public object EnforceData(Type type) {
-        var dataExists = RequireData(type, out var value);
-        if (dataExists) return value;
         
-        var newData = FormatterServices.GetUninitializedObject(type);
-        SetData(type, newData);
+        _traits.Clear();
+        _tags.Clear();
         
-        return newData;
-    }
-
-    public bool RequireData<T>(out T data) {
-        var dataExists = RequireData(typeof(T), out var value);
-        data = (T) value;
-        return dataExists;
-    }
-    
-    public bool RequireData(Type type, out object data) {
-        if (_data.TryGetValue(type, out var value)) {
-            data = value;
-            return true;
+        foreach (var starting in _startingTraits) {
+            if (starting.Get(out var hash, out var value) == FoodTraitType.Tag) AddTag(hash);
+            else SetTrait(hash, value);
         }
-
-        data = default;
-        return false;
     }
     
-    # endregion
+    public void AddTag(int hash) {
+        if (!_tags.Contains(hash)) {
+            _tags.Add(hash);
+        }
+    }
+    
+    public void SetTrait<T>(int hash, T value) {
+        _traits[hash] = value;
+    }
 
-    public double GetSellPrice() {
-        return _initialized ? SellPrice.Delta : _baseSellPrice.Delta;
+    public void SetTrait(int hash, FoodTraitType type, object value) {
+        if (type == FoodTraitType.Tag) AddTag(hash);
+        else SetTrait(hash, value);
+    }
+    
+    public bool HasTag(int hash) {
+        return _tags.Contains(hash);
+    }
+    
+    public T GetTrait<T>(int hash) {
+        TryGetTrait(hash, out T value);
+        return value;
+    }
+    
+    public bool TryGetTrait<T>(int hash, out T value) {
+        var success = _traits.TryGetValue(hash, out var objValue);
+        value = (T) objValue;
+        return success;
     }
     
     public IEnumerable<EntityInfo> GetInfo() {
@@ -97,7 +94,7 @@ public class FoodBehaviour : MonoBehaviour, IPoolable<FoodBehaviour>, IInfoProvi
     }
     
     public void Dispose() {
-        ResetData();
+        ResetState();
         OnDisposed?.Invoke(this);
     }
 }

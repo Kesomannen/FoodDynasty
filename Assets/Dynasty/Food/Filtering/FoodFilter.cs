@@ -1,55 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using Dynasty.Food.Data;
 using Dynasty.Food.Instance;
-using Dynasty.Library.Helpers;
+using Dynasty.Library.Extensions;
 using UnityEngine;
 
 namespace Dynasty.Food.Filtering {
 
 [Serializable]
 public class FoodFilter {
-    public ItemFilterType FilterType;
-    public FoodDataType DataType;
-    [Tooltip("If false, will create a new instance of the data type if it doesn't exist on the item. Otherwise, false is returned.")]
-    public bool RequireData;
-    
-    public List<FieldFilter> FieldFilters;
+    [SerializeField] ItemFilterType _type;
+    [SerializeField] FoodTraitSelection _trait;
+
+    [SerializeField] bool _boolValue;
+    [Tooltip("Inclusive")]
+    [SerializeField] Vector2 _floatRange;
+    [Tooltip("Inclusive")]
+    [SerializeField] Vector2Int _intRange;
 
     bool Has(FoodBehaviour food) {
-        var fieldFilters = FieldFilters;
-        var type = FoodDataUtil.GetDataType(DataType);
-        
-        object data;
-        if (RequireData) {
-            var found = food.RequireData(type, out data);
-            if (!found) return false;
-        } else {
-            data = food.EnforceData(type);
-        }
+        _trait.GetEntry(out var entry);
 
-        var enabledFieldFilters = fieldFilters.Where(fieldFilter => fieldFilter.Enabled).ToArray();
-        
-        if (enabledFieldFilters.Length == 0) return true;
-        return enabledFieldFilters.All(fieldFilter => {
-            var fieldValue = ReflectionHelpers.GetFieldValue(type, fieldFilter.FieldName, data);
-            return fieldFilter.Check(fieldValue);
-        });
+        return entry.Type switch {
+            FoodTraitType.Int => _intRange.InRange(food.GetTrait<int>(entry.Hash)),
+            FoodTraitType.Float => _floatRange.InRange(food.GetTrait<float>(entry.Hash)),
+            FoodTraitType.Bool => _boolValue == food.GetTrait<bool>(entry.Hash),
+            FoodTraitType.Tag => food.HasTag(entry.Hash),
+            _ => throw new ArgumentOutOfRangeException()
+        };
     }
 
     public bool Check(FoodBehaviour food) {
-        return FilterType switch {
+        return _type switch {
             ItemFilterType.Has => Has(food),
             ItemFilterType.DoesNotHave => !Has(food),
             _ => throw new ArgumentOutOfRangeException()
         };
     }
+    
+    public enum ItemFilterType {
+        Has,
+        DoesNotHave
+    }
 }
 
-}
-
-public enum ItemFilterType {
-    Has,
-    DoesNotHave
 }

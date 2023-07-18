@@ -10,6 +10,11 @@ public struct FoodModelModifier {
     [SerializeField] CustomObjectPool<Poolable> _pool;
     [SerializeField] ItemModelType _type;
 
+    public FoodModelModifier(CustomObjectPool<Poolable> pool, ItemModelType type) {
+        _pool = pool;
+        _type = type;
+    }
+    
     public void Apply(FoodBehaviour food) {
         switch (_type) {
             case ItemModelType.Base:

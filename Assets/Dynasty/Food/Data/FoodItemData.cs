@@ -12,7 +12,7 @@ public class FoodItemData : ItemData, IPrefabProvider<FoodBehaviour> {
     [Header("Base Ingredient")]
     [SerializeField] FoodBehaviour _prefab;
 
-    public override ItemType Type => ItemType.BaseIngredient;
+    public override ItemType Type => ItemType.Food;
     public FoodBehaviour Prefab => _prefab;
 
     public override IEnumerable<EntityInfo> GetInfo() {

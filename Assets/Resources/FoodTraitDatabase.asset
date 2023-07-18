@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35c77f813aa8424390190e5e4b7e022d, type: 3}
+  m_Name: FoodTraitDatabase
+  m_EditorClassIdentifier: 
+  _entries:
+  - Name: Dough
+    Hash: -1530337891
+    Type: 0
+  - Name: Softened
+    Hash: 1017447092
+    Type: 1
+  - Name: Stability
+    Hash: 605704453
+    Type: 2
+  - Name: Baked
+    Hash: -1779161523
+    Type: 0
+  - Name: Demolded
+    Hash: 2124598384
+    Type: 0
+  - Name: Whole Wheat
+    Hash: 548977062
+    Type: 0
+  - Name: Sandwich
+    Hash: -1428350895
+    Type: 0
+  - Name: Spice Before Baking
+    Hash: 1380736281
+    Type: 0
+  - Name: Spice After Baking
+    Hash: 1604723740
+    Type: 0
+  - Name: Cheese
+    Hash: 1326298449
+    Type: 0
+  - Name: Derusted
+    Hash: 1157448286
+    Type: 0

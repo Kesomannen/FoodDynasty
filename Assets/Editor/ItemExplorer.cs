@@ -114,7 +114,8 @@ public class ItemExplorer : EditorWindow {
 
         void BindItem(VisualElement e, int i) {
             e.Q<Label>().text = _items[i].Name;
-            e.Q(name: "item-icon").style.backgroundImage = _items[i].Icon.texture;
+            if (_items[i].Icon != null) 
+                e.Q(name: "item-icon").style.backgroundImage = _items[i].Icon.texture;
         }
     }
 

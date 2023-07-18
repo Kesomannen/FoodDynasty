@@ -18,6 +18,11 @@ public class FoodModifier : FoodMachineComponent, IInfoProvider {
         set => _modifierGroup = value;
     }
     
+    public Event<FoodBehaviour> ItemModifiedEvent {
+        get => _onItemModified;
+        set => _onItemModified = value;
+    }
+    
     protected override void OnTriggered(FoodBehaviour food) {
         _modifierGroup.Apply(food);
 
@@ -27,7 +32,7 @@ public class FoodModifier : FoodMachineComponent, IInfoProvider {
     }
 
     public IEnumerable<EntityInfo> GetInfo() {
-        yield return new EntityInfo("Multiplier", _modifierGroup.SellPriceModifier.ToString());
+        yield return new EntityInfo("Multiplier", _modifierGroup == null ? "N/A" : _modifierGroup.name);
     }
 }
 

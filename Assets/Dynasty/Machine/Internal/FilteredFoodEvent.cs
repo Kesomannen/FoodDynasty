@@ -30,9 +30,13 @@ public class FilteredFoodEvent {
         set => _filter = value;
     }
 
-    public FilteredFoodEvent(Event<FoodBehaviour> @event) {
+    public FilteredFoodEvent(Event<FoodBehaviour> @event, CheckEvent<bool> condition = null, FoodFilterGroup filter = null) {
         _event = @event;
+        _condition = condition;
+        _filter = filter;
     }
+    
+    public FilteredFoodEvent(Event<FoodBehaviour> @event, FoodFilterGroup filter) : this(@event, null, filter) { }
 
     public void Raise(FoodBehaviour food) {
         if (!Check(food)) return;

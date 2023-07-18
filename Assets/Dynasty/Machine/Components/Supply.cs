@@ -29,7 +29,7 @@ public class Supply : MonoBehaviour, IStatusProvider, IInfoProvider, IAdditional
         set => _condition = value;
     }
     
-    public GenericEvent UseEvent {
+    public GenericEvent ConsumeEvent {
         get => _useEvent;
         set => _useEvent = value;
     }
@@ -46,7 +46,10 @@ public class Supply : MonoBehaviour, IStatusProvider, IInfoProvider, IAdditional
     }
     
     public bool IsRefillable => RefillItem != null;
-    public string RefillItemName => IsRefillable ? RefillItem.Name : _refillItemName;
+    public string RefillItemName {
+        get => IsRefillable ? RefillItem.Name : _refillItemName;
+        set => _refillItemName = value;
+    }
 
     public event Action<IStatusProvider> OnStatusChanged;
     public event Action<Supply> OnChanged;

@@ -26,8 +26,12 @@ public class GridObject : MonoBehaviour, IInfoProvider {
     public Vector2Int GridPosition { get; private set; }
     public bool IsPlaced { get; private set; }
 
-    public GridSize StaticSize => _size.Value;
     public GridSize RotatedSize => StaticSize.Rotated(Rotation.Steps);
+    
+    public GridSize StaticSize {
+        get => _size.Value;
+        set => _size.Value = value;
+    }
     
     public GameObject BlueprintPrefab {
         get => _blueprintPrefab;

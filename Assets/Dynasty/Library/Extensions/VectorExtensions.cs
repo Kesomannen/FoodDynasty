@@ -24,6 +24,12 @@ public static class VectorExtensions {
             value >= range.x && value <= range.y 
             : value > range.x && value < range.y;
     }
+
+    public static bool InRange(this Vector2 range, float value, bool inclusive = true) {
+        return inclusive
+            ? value >= range.x && value <= range.y
+            : value > range.x && value < range.y;
+    }
 }
 
 }

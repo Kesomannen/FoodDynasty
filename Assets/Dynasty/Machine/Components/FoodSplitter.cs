@@ -17,7 +17,7 @@ public class FoodSplitter : FoodMachineComponent, IInfoProvider, IAdditionalSave
     [SerializeField] Supply _supply;
     [SerializeField] Event<FoodBehaviour> _applyEvent;
 
-    Queue<double> _input = new();
+    Queue<double> _input = new(); 
     int _splitsLeft;
 
     public Supply Supply {
@@ -57,7 +57,6 @@ public class FoodSplitter : FoodMachineComponent, IInfoProvider, IAdditionalSave
     
     protected override void OnTriggered(FoodBehaviour food) {
         _supply.CurrentSupply += _splitsPerItem;
-        
         _input.Enqueue(_sellPriceModifier.Apply(food.GetSellPrice()));
         food.Dispose();
     }

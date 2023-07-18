@@ -9,7 +9,6 @@ namespace Dynasty.Food.Filtering {
 [CreateAssetMenu(menuName = "Food/Filter")]
 public class FoodFilterGroup : ScriptableObject {
     [SerializeField] AndOr _condition;
-    [SerializeField] bool _defaultValue = true;
     [SerializeField] FoodFilter[] _filters;
 
     public bool Check(FoodBehaviour food) {
@@ -17,7 +16,7 @@ public class FoodFilterGroup : ScriptableObject {
     }
 
     bool Check(IReadOnlyCollection<FoodFilter> conditions, FoodBehaviour food) {
-        if (conditions.Count == 0) return _defaultValue;
+        if (conditions.Count == 0) return true;
         
         return _condition switch {
             AndOr.And => conditions.All(condition => condition.Check(food)),

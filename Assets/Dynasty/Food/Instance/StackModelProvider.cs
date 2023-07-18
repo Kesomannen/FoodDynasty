@@ -12,6 +12,11 @@ public class StackModelProvider : ModelProvider {
     readonly Stack<Poolable> _toppings = new();
     
     Poolable _baseModel;
+    Vector3 _originalTopPosition;
+    
+    void Awake() {
+        _originalTopPosition = _top.localPosition;
+    }
     
     public override void SetBaseModel(Poolable poolable) {
         if (_baseModel != null) {
@@ -40,29 +45,33 @@ public class StackModelProvider : ModelProvider {
         while (_toppings.Count > 0) { 
             _toppings.Pop().Dispose();
         }
+        _top.localPosition = _originalTopPosition;
     }
 
     public override void AddToppingModel(Poolable model) {
-        _toppings.Push(model);
         SetupToppingModel(model.gameObject);
+        _toppings.Push(model);
     }
 
     void SetupToppingModel(GameObject model) {
-        var colliders = model.GetComponentsInChildren<Collider>();
+        var renderers = model.GetComponentsInChildren<Renderer>();
         var maxY = float.MinValue;
         var minY = float.MaxValue;
         
-        foreach (var col in colliders) {
-            var bounds = col.bounds;
+        foreach (var renderer in renderers) {
+            var bounds = renderer.bounds;
             maxY = Mathf.Max(maxY, bounds.max.y);
             minY = Mathf.Min(minY, bounds.min.y);
         }
-        
-        var localPos = _toppings.Peek().transform.localPosition + Vector3.up * (maxY - minY);
+
+        var height = Vector3.up * (maxY - minY) * 1.2f;
+        var previous = _toppings.Count > 0 ? _toppings.Peek().transform.localPosition : Vector3.zero;
+
         var modelTransform = model.transform;
-        
         modelTransform.SetParent(_bottom);
-        modelTransform.SetLocalPositionAndRotation(localPos, Quaternion.identity);
+        modelTransform.SetLocalPositionAndRotation(previous + height, Quaternion.identity);
+        
+        _top.localPosition += height;
     }
 }
 

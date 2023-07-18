@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 
 [CustomEditor(typeof(FoodItemData))]
-public class BaseIngredientItemDataEditor : Editor {
+public class BaseIngredientItemDataEditor : UnityEditor.Editor {
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
         
