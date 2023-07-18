@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Cheese Adder
   m_EditorClassIdentifier: 
   _name: Cheese Adder
-  _description: New Item Description
+  _description: Applies cheese to sandwiches. Increases value.
   _icon: {fileID: 21300000, guid: 8f5933017d0faf74b90c2cff4dd1324e, type: 3}
   _tier: 1
   _price: 1000
   _type: 7
   _prefab: {fileID: 8520642587195211989, guid: 1d31bfd4dc0181e4ab28ed11156fda0d, type: 3}
-  _enabledProviders: 01010101
+  _enabledProviders: 01000001

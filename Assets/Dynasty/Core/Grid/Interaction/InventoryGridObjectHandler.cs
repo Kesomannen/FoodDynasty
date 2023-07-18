@@ -5,11 +5,19 @@ using UnityEngine;
 
 namespace Dynasty.Core.Grid {
 
+/// <summary>
+/// Handles interaction between <see cref="InventoryAsset"/> and <see cref="GridObject"/>s.
+/// </summary>
 public class InventoryGridObjectHandler : MonoBehaviour {
     [SerializeField] GridObjectBuilder _builder;
     [SerializeField] InventoryAsset _inventory;
+    
     [Space]
+    
+    [Tooltip("When raised, adds the given object back to the inventory.")]
     [SerializeField] GameEvent<GridObject> _deleteObjectEvent;
+    
+    [Tooltip("When raised, attempts to start building the given item.")]
     [SerializeField] GameEvent<Item> _startBuildingEvent;
 
     void OnEnable() {

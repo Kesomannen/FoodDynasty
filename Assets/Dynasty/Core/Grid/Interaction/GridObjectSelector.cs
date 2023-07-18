@@ -5,9 +5,17 @@ using UnityEngine;
 
 namespace Dynasty.Core.Grid {
 
+/// <summary>
+/// Applies an outline to <see cref="GridObject"/>s and shows a tooltip.
+/// </summary>
 public class GridObjectSelector : MonoBehaviour {
+    [Tooltip("When raised, selects the given grid object.")]
     [SerializeField] GameEvent<GridObject> _selectObjectEvent;
+    
+    [Tooltip("When any are raised, deselects the given grid object.")]
     [SerializeField] GameEvent<GridObject>[] _deselectObjectEvents;
+    
+    [Tooltip("Shown when selecting a grid object.")]
     [SerializeField] TooltipData<Library.Entity.Entity> _tooltipData;
 
     GridObject _selectedObject;

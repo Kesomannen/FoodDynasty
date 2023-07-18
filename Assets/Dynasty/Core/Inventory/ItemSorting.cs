@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Dynasty.Core.Inventory {
 
+/// <summary>
+/// Utility class for sorting items.
+/// </summary>
 public static class SortingUtil {
     public static IEnumerable<T> Sort<T>(IEnumerable<T> enumerable, Func<T, ItemData> dataGetter, ItemSortingMode mode, bool descending = false) {
         var list = new List<T>(enumerable);

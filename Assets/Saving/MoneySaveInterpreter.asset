@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MoneySaveInterpreter
   m_EditorClassIdentifier: 
   _saveKey: money
-  _startingMoney: 1000000
+  _startingMoney: 200
   _moneyManager: {fileID: 11400000, guid: 3aa791b48a062404caa64519d76af16b, type: 2}

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Cheese
   m_EditorClassIdentifier: 
   _name: Cheese
-  _description: 
-  _icon: {fileID: 0}
-  _tier: 0
-  _price: 0
+  _description: Used in a cheese adder to increase value of sandwiches.
+  _icon: {fileID: 21300000, guid: bc1557c61da6caf4fbc483c49b20d3ca, type: 3}
+  _tier: 1
+  _price: 50
   _associatedMachine: {fileID: 11400000, guid: d1035672e9f9e1944b8a8ddc86e2192d, type: 2}
   InheritedInfo:
   - Multiplier

@@ -32,7 +32,7 @@ public class FoodModifier : FoodMachineComponent, IInfoProvider {
     }
 
     public IEnumerable<EntityInfo> GetInfo() {
-        yield return new EntityInfo("Multiplier", _modifierGroup == null ? "N/A" : _modifierGroup.name);
+        yield return new EntityInfo("Multiplier", _modifierGroup == null ? "N/A" : _modifierGroup.SellPriceModifier.ToString());
     }
 }
 

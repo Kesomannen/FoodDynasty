@@ -4,8 +4,14 @@ using UnityEngine;
 
 namespace Dynasty.Core.Grid {
 
+/// <summary>
+/// Manages a grid of grid objects, and provides methods for adding and removing them.
+/// </summary>
 public class GridManager : MonoBehaviour {
+    [Tooltip("World size of a single grid cell.")]
     [SerializeField] Vector2 _cellSize;
+    
+    [Tooltip("Size of the grid in cells.")]
     [SerializeField] Vector2Int _gridSize;
 
     Cell[,] _cells;
@@ -19,6 +25,14 @@ public class GridManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Attempts to add a grid object to the grid.
+    /// </summary>
+    /// <param name="gridObject">The grid object.</param>
+    /// <param name="position">Grid position of the object.</param>
+    /// <param name="rotation">Grid rotation of the object.</param>
+    /// <returns>True if the placement was unobstructed.</returns>
+    /// <remarks>Does not move object transform. See <see cref="GridUtil.AddAndPosition"/></remarks>
     public bool TryAdd(GridObject gridObject, Vector2Int position, GridRotation rotation) {
         if (gridObject.IsPlaced) return false;
         var rotatedSize = gridObject.StaticSize.Rotated(rotation.Steps);
@@ -28,6 +42,11 @@ public class GridManager : MonoBehaviour {
         return true;
     }
 
+    /// <summary>
+    /// Attempts to remove a grid object from the grid.
+    /// </summary>
+    /// <returns>True if the object was successfully removed.</returns>
+    /// <remarks>Does not destroy or modify object's transform.</remarks>
     public bool TryRemove(GridObject gridObject) {
         if (!BelongsToGrid(gridObject)) return false;
         
@@ -35,6 +54,9 @@ public class GridManager : MonoBehaviour {
         return true;
     }
 
+    /// <summary>
+    /// Determines whether a grid object can be added to the grid at the given position and rotation.
+    /// </summary>
     public bool CanAdd(GridObject gridObject, Vector2Int position, GridRotation rotation) {
         var rotatedSize = gridObject.StaticSize.Rotated(rotation.Steps);
         return CheckOverlapping(position, rotatedSize, out _);
@@ -84,6 +106,10 @@ public class GridManager : MonoBehaviour {
         return gridObject.IsPlaced && gridObject.GridManager is { } manager && manager == this;
     }
 
+    /// <summary>
+    /// Retrieves all objects present in the grid.
+    /// </summary>
+    /// <remarks>Performance intensive; do not use in game loops.</remarks>
     public IEnumerable<GridObject> GetAllObjects() {
         var objects = new HashSet<GridObject>();
 
@@ -105,10 +131,16 @@ public class GridManager : MonoBehaviour {
         return GridToWorld(gridPosition + (Vector2) (bounds - Vector2Int.one) / 2f);
     }
     
+    /// <summary>
+    /// Converts a grid position along with a size and rotation to the corresponding world position.
+    /// </summary>
     public Vector3 GridToWorld(Vector2Int gridPosition, GridSize size, GridRotation rotation) {
         return GridToWorld(gridPosition, size.Rotated(rotation.Steps).Bounds);
     }
 
+    /// <summary>
+    /// Converts a grid object's position, rotation and size to the corresponding world position.
+    /// </summary>
     public Vector3 GridToWorld(GridObject gridObject) {
         return GridToWorld(gridObject.GridPosition, gridObject.RotatedSize.Bounds);
     }
@@ -117,10 +149,16 @@ public class GridManager : MonoBehaviour {
         return GridToWorld(new Vector2(x, y));
     }
     
+    /// <summary>
+    /// Converts a grid position to the corresponding world position, ignoring rotation and size.
+    /// </summary>
     public Vector3 GridToWorld(Vector2Int gridPosition) {
         return GridToWorld((Vector2) gridPosition);
     }
 
+    /// <summary>
+    /// Converts a world position to the corresponding grid position.
+    /// </summary>
     public Vector2Int WorldToGrid(Vector3 worldPosition) {
         var localPos = worldPosition - transform.position;
         return new Vector2Int(Mathf.RoundToInt(localPos.x / _cellSize.x), Mathf.RoundToInt(localPos.z / _cellSize.y));

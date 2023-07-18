@@ -3,14 +3,25 @@ using Dynasty.Core.Grid;
 using Dynasty.Library.Events;
 using Dynasty.Library.Extensions;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Dynasty.Core.Grid {
 
+/// <summary>
+/// Allows moving a <see cref="GridObject"/> by placing it again.
+/// </summary>
 public class GridObjectMover : MonoBehaviour {
     [SerializeField] GridObjectPlacer _placer;
+    
+    [Tooltip("Played when a grid object is placed.")]
     [SerializeField] ParticleSystem _placeEffect;
+    
+    [Tooltip("When raised, starts moving the given grid object.")]
     [SerializeField] GameEvent<GridObject> _startMovingEvent;
-    [SerializeField] GameEvent<GridObject> _deleteEvent;
+    
+    [FormerlySerializedAs("_deleteEvent")]
+    [Tooltip("Raised when a grid object is deleted.")]
+    [SerializeField] GameEvent<GridObject> _onDelete;
 
     void OnEnable() {
         _startMovingEvent.AddListener(OnStartMoving);
@@ -43,7 +54,7 @@ public class GridObjectMover : MonoBehaviour {
                 oldGridManager.TryAdd(obj, oldPosition, oldRotation);
                 break;
             case GridPlacementResultType.Deleted:
-                _deleteEvent.Raise(obj);
+                _onDelete.Raise(obj);
                 Destroy(obj.gameObject);
                 break;
             default: throw new ArgumentOutOfRangeException();

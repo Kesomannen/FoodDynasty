@@ -7,12 +7,17 @@ using UnityEngine.Serialization;
 
 namespace Dynasty.Core.Inventory {
 
+/// <summary>
+/// Base class for items.
+/// </summary>
 public class ItemData : ScriptableObject, IEntityData, IInfoProvider {
     [Header("Metadata")]
     [SerializeField] string _name;
+    
     [ResizableTextArea]
     [FormerlySerializedAs("_flavorText")]
     [SerializeField] string _description;
+    
     [ShowAssetPreview]
     [SerializeField] Sprite _icon;
 

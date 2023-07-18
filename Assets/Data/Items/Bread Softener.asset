@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Bread Softener
   _description: Softens the fibers in bread using laser technology. Can be applied
-    up to 10 times.
+    up to 10 times after baking.
   _icon: {fileID: 21300000, guid: 8bfc8df31e311314889152320b69f8eb, type: 3}
   _tier: 0
   _price: 750

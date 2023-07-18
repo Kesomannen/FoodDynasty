@@ -6,13 +6,24 @@ using UnityEngine;
 
 namespace Dynasty.Core.Inventory {
 
+/// <summary>
+/// Manages a collection of items.
+/// </summary>
 [CreateAssetMenu(menuName = "Inventory/Inventory Asset")]
 public class InventoryAsset : MonoScriptable {
+    [Tooltip("When raised, adds the given item to the inventory.")]
     [SerializeField] GameEvent<Item> _addItemEvent;
 
     readonly Dictionary<ItemData, Item> _items = new();
+    
+    /// <summary>
+    /// The items in the inventory.
+    /// </summary>
     public IEnumerable<Item> Items => _items.Values;
     
+    /// <summary>
+    /// Raised when an item's count changes, is added, or is removed.
+    /// </summary>
     public event Action<Item> OnItemChanged;
 
     public override void OnAwake() {
@@ -24,18 +35,27 @@ public class InventoryAsset : MonoScriptable {
         _addItemEvent.RemoveListener(Add);
     }
 
-    public bool TryGet(ItemData data, out Item item) {
+    bool TryGet(ItemData data, out Item item) {
         return _items.TryGetValue(data, out item);
     }
     
+    /// <summary>
+    /// Gets the count of the given item data.
+    /// </summary>
     public int GetCount(ItemData data) {
         return TryGet(data, out var item) ? item.Count : 0;
     }
 
+    /// <summary>
+    /// Adds the given item to the inventory.
+    /// </summary>
     public void Add(Item item) {
         Add(item.Data, item.Count);
     }
     
+    /// <summary>
+    /// Adds the given item data to the inventory, with the given count.
+    /// </summary>
     public void Add(ItemData data, int count = 1) {
         var item = GetOrAdd(data);
         item.Count += count;
@@ -44,10 +64,11 @@ public class InventoryAsset : MonoScriptable {
         OnItemChanged?.Invoke(item);
     }
     
-    public bool Remove(Item item) {
-        return Remove(item.Data, item.Count);
-    }
 
+    /// <summary>
+    /// Removes a number of the given item data from the inventory. If there are not enough items, nothing is removed.
+    /// </summary>
+    /// <returns>Whether or not there were enough items to remove.</returns>
     public bool Remove(ItemData data, int count = 1) {
         var item = GetOrAdd(data);
         if (item.Count < count) return false;

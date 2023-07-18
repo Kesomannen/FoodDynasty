@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Dynasty.Core.Data;
 using Dynasty.Core.Grid;
 using Dynasty.Core.Inventory;
 using Dynasty.Library.Helpers;

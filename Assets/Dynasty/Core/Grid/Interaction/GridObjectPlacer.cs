@@ -13,25 +13,51 @@ using UnityEngine.EventSystems;
 
 namespace Dynasty.Core.Grid {
 
+/// <summary>
+/// Handles the placement of <see cref="GridObject"/>s on a <see cref="GridManager"/> using player input.
+/// </summary>
 public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     [Header("References")] 
+    [Tooltip("Used for directional markers.")]
     [SerializeField] CustomObjectPool<Poolable> _arrowPool;
+
     [SerializeField] GridManager _gridManager;
+    
+    [Tooltip("The trigger to detect mouse clicks on. Should not be blocked by other colliders.")]
     [SerializeField] Collider _placeTrigger;
     
     [Header("Input")]
+    [Tooltip("When raised and the placer is active, rotates the current object.")]
     [SerializeField] GenericGameEvent _rotateEvent;
+    
+    [Tooltip("When raised and the placer is active, cancels the current placement.")]
     [SerializeField] GenericGameEvent _cancelEvent;
+    
+    [Tooltip("When raised and the placer is active, deletes the current object.")]
     [SerializeField] GenericGameEvent _deleteEvent;
+    
+    [Tooltip("Buttons to accept mouse input from.")]
     [SerializeField] PointerEventData.InputButton[] _allowedButtons = { PointerEventData.InputButton.Left };
 
-    [Header("Effects & Animations")] 
+    [Header("Effects & Animations")]
+    [Tooltip("Seconds to move an object to the mouse position.")]
     [SerializeField] float _moveTime = 0.05f;
+    
+    [Tooltip("Seconds to rotate an object to target rotation.")]
     [SerializeField] float _tweenTime = 0.2f;
+    
+    [Tooltip("Used when rotating an object.")]
     [SerializeField] LeanTweenType _tweenType;
+    
+    [Tooltip("Applied when the current placement is valid.")]
     [SerializeField] Material _validMaterial;
+    
+    [Tooltip("Applied when the current placement is invalid.")]
     [SerializeField] Material _invalidMaterial;
 
+    /// <summary>
+    /// Is the placer currently placing an object?
+    /// </summary>
     public bool IsPlacing { get; private set; }
     public GridManager GridManager => _gridManager;
 
@@ -82,6 +108,12 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
         _state = State.Cancelled;
     }
 
+    /// <summary>
+    /// Starts the placement of a <see cref="GridObject"/>.
+    /// </summary>
+    /// <param name="data">Used for data gathering. Will not be instantiated.</param>
+    /// <param name="keepRotation">Whether or not to begin placement from the data's current rotation.</param>
+    /// <param name="keepPosition">Whether or not to begin placement from the data's current position.</param>
     public async Task<GridPlacementResult> DoPlacement(GridObject data, bool keepRotation = true, bool keepPosition = true) {
         if (IsPlacing) {
             return GridPlacementResult.Failed;

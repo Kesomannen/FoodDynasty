@@ -5,27 +5,35 @@ using UnityEngine;
 namespace Dynasty.Core.Grid {
 
 /// <summary>
-/// Represents a 2d rotation in 90 degree steps.
+/// Represents a 2D rotation in 90 degree steps.
 /// </summary>
 [Serializable]
 public struct GridRotation {
+    [Tooltip("The number of 90 degree steps on this rotation.")]
     [SerializeField] int _value;
 
+    /// <summary>
+    /// The number of 90 degree steps on this rotation.
+    /// </summary>
     public int Steps => _value;
+    
+    /// <summary>
+    /// The number of degrees on this rotation.
+    /// </summary>
     public int Degrees => _value * 90;
 
-    public Vector2Int Vector => _value switch {
-        0 => Vector2Int.up,
-        1 => Vector2Int.right,
-        2 => Vector2Int.down,
-        3 => Vector2Int.left,
-        _ => Vector2Int.zero
-    };
-
+    /// <summary>
+    /// Constructs a new rotation with the given 90 degree steps applied.
+    /// </summary>
     public GridRotation(int value) {
         _value = Clamp(value);
     }
 
+    /// <summary>
+    /// Constructs a new rotation.
+    /// </summary>
+    /// <param name="rotation">The rotation to convert.</param>
+    /// <param name="axis">The axis to get rotation from.</param>
     public GridRotation(Quaternion rotation, Vector3 axis) {
         var forward = rotation * Vector3.forward;
         var angle = Mathf.Atan2(Vector3.Cross(forward, axis).magnitude, Vector3.Dot(forward, axis)) * Mathf.Rad2Deg;
@@ -40,14 +48,23 @@ public struct GridRotation {
         return value % 4;
     }
 
+    /// <summary>
+    /// Returns a copy with the given 90 degree steps added.
+    /// </summary>
     public GridRotation Rotated(int steps) {
         return new GridRotation(_value + steps);
     }
 
+    /// <summary>
+    /// Constructs a quaternion from this rotation, rotating around the given axis.
+    /// </summary>
     public Quaternion ToQuaternion(Vector3 axis) {
         return Quaternion.AngleAxis(Degrees, axis);
     }
 
+    /// <summary>
+    /// Rotates the given vector according to this rotation.
+    /// </summary>
     public Vector2 Rotate(Vector2 vector) {
         for (var i = 0; i < _value; i++) {
             vector = vector.RotateCCW();
@@ -56,6 +73,9 @@ public struct GridRotation {
         return vector;
     }
 
+    /// <summary>
+    /// Rotates the given vector according to this rotation.
+    /// </summary>
     public Vector2Int Rotate(Vector2Int vector) {
         for (var i = 0; i < _value; i++) {
             vector = vector.RotateCCW();
@@ -64,6 +84,9 @@ public struct GridRotation {
         return vector;
     }
 
+    /// <summary>
+    /// Adds the given 90 degree steps to this rotation.
+    /// </summary>
     public static GridRotation operator +(GridRotation rotation, int value) {
         return rotation.Rotated(value);
     }

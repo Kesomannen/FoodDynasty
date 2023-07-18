@@ -3,19 +3,28 @@ using UnityEngine;
 
 namespace Dynasty.Core.Grid {
 
+/// <summary>
+/// Serializable wrapper for <see cref="GridSize"/>.
+/// </summary>
 [Serializable]
 public class SerializedGridSize : ISerializationCallbackReceiver {
     [SerializeField] Row[] _customMatrix;
     [SerializeField] GridSize _gridSize;
 
+    /// <summary>
+    /// Constructs a new wrapper for a filled grid size with the given bounds.
+    /// </summary>
     public SerializedGridSize(int x, int y) {
         _gridSize = new GridSize(new Vector2Int(x, y));
     }
     
+    /// <summary>
+    /// Constructs a new wrapper for the given grid size.
+    /// </summary>
     public SerializedGridSize(GridSize gridSize) {
         _gridSize = gridSize;
     }
-
+    
     public GridSize Value {
         get => _gridSize;
         set => _gridSize = value;
