@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Dynasty.Core.Data;
+using Dynasty.Library.Data;
 using Dynasty.Core.Grid;
 using Dynasty.Core.Inventory;
 using Dynasty.Persistent.Core;
@@ -14,21 +14,29 @@ public class MachinesSaveStore : SaveStore<MachinesSaveData> {
     [Space]
     [SerializeField] GridManager _gridManager;
     [SerializeField] Lookup<ItemData> _itemLookup;
+    [Space]
+    [SerializeField] StartingMachine[] _startingMachines;
 
-    protected override MachinesSaveData DefaultValue => new() {
-        ItemIds = Array.Empty<int>(),
-        Positions = Array.Empty<SerializableVector2Int>(),
-        Rotations = Array.Empty<GridRotation>(),
-        AdditionalData = Array.Empty<object[]>()
-    };
-    
+    protected override MachinesSaveData GetDefaultData() {
+        return new MachinesSaveData {
+            ItemIds = _startingMachines.Select(machine => _itemLookup.GetId(machine.ItemData)).ToArray(),
+            Positions = _startingMachines.Select(machine => machine.Position).ToArray(),
+            Rotations = _startingMachines.Select(machine => machine.Rotation).ToArray(),
+            AdditionalData = _startingMachines.Select(_ => Array.Empty<object>()).ToArray()
+        };
+    }
+
     protected override void OnAfterLoad(MachinesSaveData saveData) {
         for (var i = 0; i < saveData.ItemIds.Length; i++) {
             var itemData = _itemLookup.GetFromId(saveData.ItemIds[i]);
             if (itemData is not IPrefabProvider<GridObject> provider) continue;
             
             var gridObject = Instantiate(provider.Prefab);
-            gridObject.AddAndPosition(_gridManager, saveData.Positions[i], saveData.Rotations[i]);
+            if (!gridObject.AddAndPosition(_gridManager, saveData.Positions[i], saveData.Rotations[i])) {
+                Debug.LogWarning($"Failed to load machine {itemData.Name} at {saveData.Positions[i]}");
+                Destroy(gridObject.gameObject);
+                continue;
+            }
             
             var savedData = saveData.AdditionalData[i];
             if (savedData.Length == 0) continue;
@@ -42,7 +50,7 @@ public class MachinesSaveStore : SaveStore<MachinesSaveData> {
 
     protected override MachinesSaveData GetSaveData() {
         var entities = new List<(MachineItemData ItemData, GridObject GridObject)>();
-        foreach (var gridObject in _gridManager.GetAllObjects()) {
+        foreach (var gridObject in _gridManager.GridObjects) {
             if (!gridObject.TryGetComponent(out MachineEntity entity)) continue;
             entities.Add((entity.Data, gridObject));
         }
@@ -69,6 +77,17 @@ public class MachinesSaveStore : SaveStore<MachinesSaveData> {
             Rotations = entities.Select(tuple => tuple.GridObject.Rotation).ToArray(),
             AdditionalData = additionalData.ToArray()
         };
+    }
+    
+    [Serializable]
+    struct StartingMachine {
+        [SerializeField] MachineItemData _itemData;
+        [SerializeField] Vector2Int _position;
+        [SerializeField] GridRotation _rotation;
+        
+        public MachineItemData ItemData => _itemData;
+        public SerializableVector2Int Position => new(_position);
+        public GridRotation Rotation => _rotation;
     }
 }
 

@@ -18,13 +18,11 @@ public class FoodFilter {
     [SerializeField] Vector2Int _intRange;
 
     bool Has(FoodBehaviour food) {
-        _trait.GetEntry(out var entry);
-
-        return entry.Type switch {
-            FoodTraitType.Int => _intRange.InRange(food.GetTrait<int>(entry.Hash)),
-            FoodTraitType.Float => _floatRange.InRange(food.GetTrait<float>(entry.Hash)),
-            FoodTraitType.Bool => _boolValue == food.GetTrait<bool>(entry.Hash),
-            FoodTraitType.Tag => food.HasTag(entry.Hash),
+        return _trait.Type switch {
+            FoodTraitType.Int => _intRange.InRange(food.GetTrait<int>(_trait.Hash)),
+            FoodTraitType.Float => _floatRange.InRange(food.GetTrait<float>(_trait.Hash)),
+            FoodTraitType.Bool => _boolValue == food.GetTrait<bool>(_trait.Hash),
+            FoodTraitType.Tag => food.HasTag(_trait.Hash),
             _ => throw new ArgumentOutOfRangeException()
         };
     }

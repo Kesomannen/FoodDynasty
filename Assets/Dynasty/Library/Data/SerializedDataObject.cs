@@ -1,7 +1,7 @@
 ﻿using GenericUnityObjects;
 using UnityEngine;
 
-namespace Dynasty.Core.Data {
+namespace Dynasty.Library.Data {
 
 /// <summary>
 /// A <see cref="DataObject{T}"/> exposing its value as a serialized field.

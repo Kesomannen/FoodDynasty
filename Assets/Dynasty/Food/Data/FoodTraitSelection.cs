@@ -7,10 +7,10 @@ namespace Dynasty.Food.Data {
 public struct FoodTraitSelection {
     [SerializeField] string _value;
     [SerializeField] int _hash;
+    [SerializeField] FoodTraitType _type;
 
-    public bool GetEntry(out FoodTraitDatabase.Entry entry) {
-        return FoodTraitDatabase.Singleton.TryGetEntry(_hash, out entry);
-    }
+    public int Hash => _hash;
+    public FoodTraitType Type => _type;
 }
 
 }

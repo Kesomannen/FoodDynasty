@@ -153,7 +153,7 @@ MonoBehaviour:
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: Dynasty.Core.Data.SerializedDataObject`1, Dynasty.Core
+    - _typeNameAndAssembly: Dynasty.Library.Data.SerializedDataObject`1, Dynasty.Library
       _guid: 4fb2b33abd3c49579f0b9c73ad320fb1
       AssemblyGUID: 
       _argNames:
@@ -244,7 +244,7 @@ MonoBehaviour:
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: Dynasty.Core.Data.SerializedDataObject`1, Dynasty.Core
+  - _typeNameAndAssembly: Dynasty.Library.Data.SerializedDataObject`1, Dynasty.Library
     _guid: 4fb2b33abd3c49579f0b9c73ad320fb1
     AssemblyGUID: 
     _argNames:

@@ -10,11 +10,11 @@ public abstract class CheckEvent<T> : MonoBehaviour {
 
     public abstract T Check();
     
-    public virtual void AddCondition(Func<T> condition) {
+    public virtual void AddCriterion(Func<T> condition) {
         _conditions.Add(condition);
     }
     
-    public virtual void RemoveCondition(Func<T> condition) {
+    public virtual void RemoveCriterion(Func<T> condition) {
         _conditions.Remove(condition);
     }
 }

@@ -81,7 +81,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     
     void Awake() {
         _placeTrigger.enabled = false;
-        _plane = new Plane(Vector3.up, Vector3.zero);
+        _plane = new Plane(Vector3.up, transform.position);
     }
 
     void Update() {

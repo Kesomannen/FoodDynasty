@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Dynasty.Core.Data;
+using Dynasty.Library.Data;
 using Dynasty.Core.Inventory;
 using Dynasty.Library.Entity;
 using Dynasty.Library.Events;
@@ -55,12 +55,12 @@ public class Supply : MonoBehaviour, IStatusProvider, IInfoProvider, IAdditional
     public event Action<Supply> OnChanged;
 
     void OnEnable() {
-        _condition.AddCondition(HasSupply);
+        _condition.AddCriterion(HasSupply);
         _useEvent.OnRaisedGeneric += OnUsed;
     }
     
     void OnDisable() {
-        _condition.RemoveCondition(HasSupply);
+        _condition.RemoveCriterion(HasSupply);
         _useEvent.OnRaisedGeneric -= OnUsed;
     }
     

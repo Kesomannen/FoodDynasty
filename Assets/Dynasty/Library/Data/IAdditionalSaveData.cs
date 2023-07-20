@@ -1,4 +1,4 @@
-﻿namespace Dynasty.Core.Data {
+﻿namespace Dynasty.Library.Data {
 
 /// <summary>
 /// Implement this interface to create persistent data on your machine component.

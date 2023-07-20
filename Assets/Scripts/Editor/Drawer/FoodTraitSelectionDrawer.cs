@@ -21,10 +21,10 @@ public class FoodTraitSelectionDrawer : PropertyDrawer {
         EditorGUI.BeginProperty(position, label, property);
         
         var database = FoodTraitDatabase.Singleton;
-        var options = new[] {"<None>"}.Concat(database.Entries.Select(entry => entry.Name)).ToArray();
 
         var valueProperty = property.FindPropertyRelative("_value");
         var hashProperty = property.FindPropertyRelative("_hash");
+        var typeProperty = property.FindPropertyRelative("_type");
 
         var rect = position;
         rect.width -= 120;
@@ -33,8 +33,15 @@ public class FoodTraitSelectionDrawer : PropertyDrawer {
         EditorGUI.PropertyField(rect, valueProperty, label);
         
         var value = valueProperty.stringValue;
-        var validValue = options.Contains(value);
-        hashProperty.intValue = validValue ? database.Entries.FirstOrDefault(entry => entry.Name == value).Hash : 0;
+        var validValue = database.TryGetEntry(value.GetHashCode(), out var selectedEntry);
+
+        if (validValue) {
+            hashProperty.intValue = selectedEntry.Hash;
+            typeProperty.enumValueIndex = (int) selectedEntry.Type;
+        } else {
+            hashProperty.intValue = 0;
+            typeProperty.enumValueIndex = 0;
+        }
 
         rect.x += rect.width + 5;
         rect.width = 75;
@@ -84,7 +91,7 @@ public class FoodTraitSelectionDrawer : PropertyDrawer {
             
             EditorGUI.HelpBox(rect, "Invalid value. Use Add button to make new entry in trait database.", MessageType.Warning);
         }
-        
+
         EditorGUI.EndProperty();
     }
 }

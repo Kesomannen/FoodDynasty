@@ -10,14 +10,14 @@ public abstract class SaveStore<T> : MonoBehaviour {
     [ReadOnly] [AllowNesting]
     [SerializeField] string _guid = Guid.NewGuid().ToString();
     
-    protected abstract T DefaultValue { get; }
+    protected abstract T GetDefaultData();
     protected abstract void OnAfterLoad(T saveData);
     protected abstract T GetSaveData();
 
     string SaveKey => $"{_saveKey}_{_guid}";
 
     protected virtual void Start() {
-        OnAfterLoad(_saveManager.LoadData(SaveKey, DefaultValue));
+        OnAfterLoad(_saveManager.LoadData(SaveKey, GetDefaultData()));
     }
 
     protected virtual void OnEnable() => _saveManager.OnBeforeSave += Save;

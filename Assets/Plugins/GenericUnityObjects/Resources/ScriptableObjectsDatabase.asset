@@ -27,7 +27,7 @@ MonoBehaviour:
   - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePathInspector`2,
       Unity.2D.Path.Editor
   - _typeNameAndAssembly: UnityEditor.U2D.Path.ScriptableData`1, Unity.2D.Path.Editor
-  - _typeNameAndAssembly: Dynasty.Core.Data.SerializedDataObject`1, Dynasty.Core
+  - _typeNameAndAssembly: Dynasty.Library.Data.SerializedDataObject`1, Dynasty.Library
   - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
   - _typeNameAndAssembly: Dynasty.Library.Events.ValueChangedEvent`1, Dynasty.Library

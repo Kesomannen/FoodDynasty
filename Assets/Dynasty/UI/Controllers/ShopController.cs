@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Core.Inventory;
 using Dynasty.Core.Tooltip;
-using Dynasty.Library.Classes;
 using Dynasty.Library.Events;
 using Dynasty.Library.Extensions;
 using Dynasty.UI.Components;
 using Dynasty.UI.Controls;
-using Dynasty.UI.Tooltip;
 using UnityEngine;
 using UnityEngine.EventSystems;
 

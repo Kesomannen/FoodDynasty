@@ -11,7 +11,12 @@ public static class GridUtil {
     /// </summary>
     public static bool AddAndPosition(this GridObject gridObject, GridManager gridManager, Vector2Int position, GridRotation rotation) {
         if (!gridManager.TryAdd(gridObject, position, rotation)) return false;
-        gridObject.transform.position = gridManager.GridToWorld(position, gridObject.StaticSize, rotation);
+        
+        var transform = gridObject.transform;
+        
+        transform.position = gridManager.GridToWorld(position, gridObject.StaticSize, rotation);
+        transform.SetParent(gridManager.transform, true);
+        
         return true;
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Dynasty.Core.Data;
+using Dynasty.Library.Data;
 using Dynasty.Food.Instance;
 using Dynasty.Library;
 using Dynasty.Library.Entity;
@@ -37,7 +37,7 @@ public class FoodDispenser : MonoBehaviour, IInfoProvider, IMachineComponent {
         TickManager.RemoveListener(UpdateDispenseTimer);
     }
 
-    void UpdateDispenseTimer() {
+    void UpdateDispenseTimer(float delta) {
         if (Time.time - _lastDispenseTime < 1 / _spawnSpeed.Value) return;
         _lastDispenseTime = Time.time;
         Dispense();

@@ -14,7 +14,7 @@ public class FoodTraitDatabase : ScriptableObject {
     public static FoodTraitDatabase Singleton {
         get {
             if (_singleton == null) {
-                _singleton = Resources.Load<FoodTraitDatabase>("FoodTraitDatabase");
+                _singleton = Resources.Load<FoodTraitDatabase>("Food Trait Database");
             }
 
             return _singleton;

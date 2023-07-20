@@ -17,22 +17,21 @@ public class FoodTraitModifier {
     [SerializeField] bool _boolValue;
     
     public void Apply(FoodBehaviour food) {
-        _trait.GetEntry(out var trait);
-        if (trait.Type == FoodTraitType.Tag) {
-            food.AddTag(trait.Hash);
+        if (_trait.Type == FoodTraitType.Tag) {
+            food.AddTag(_trait.Hash);
             return;
         }
 
         switch (_operation) {
             case Operation.Set:
-                SetTrait(food, trait); break;
+                SetTrait(food, _trait); break;
             case Operation.Modify:
-                ModifyTrait(food, trait); break;
+                ModifyTrait(food, _trait); break;
             default: throw new ArgumentOutOfRangeException();
         }
     }
 
-    void SetTrait(FoodBehaviour food, FoodTraitDatabase.Entry trait) {
+    void SetTrait(FoodBehaviour food, FoodTraitSelection trait) {
         switch (trait.Type) {
             case FoodTraitType.Int:
                 food.SetTrait(trait.Hash, _intValue); break;
@@ -45,7 +44,7 @@ public class FoodTraitModifier {
         }
     }
 
-    void ModifyTrait(FoodBehaviour food, FoodTraitDatabase.Entry trait) {
+    void ModifyTrait(FoodBehaviour food, FoodTraitSelection trait) {
         switch (trait.Type) {
             case FoodTraitType.Float:
                 var value = food.GetTrait<float>(trait.Hash); 

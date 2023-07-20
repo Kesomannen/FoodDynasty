@@ -17,6 +17,7 @@ public static class MouseHelpers {
     
     public static Vector2 ScreenPosition => Mouse.current.position.ReadValue();
     public static Vector2 WorldPosition => MainCamera.ScreenToWorldPoint(ScreenPosition);
+    public static Ray ScreenRay => MainCamera.ScreenPointToRay(ScreenPosition);
 }
 
 }

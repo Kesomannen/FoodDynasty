@@ -6,6 +6,7 @@ using Dynasty.Library.Classes;
 using Dynasty.Library.Helpers;
 using Dynasty.Library.Pooling;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 namespace Dynasty.Food.Instance {
 
@@ -54,8 +55,7 @@ public class FoodBehaviour : MonoBehaviour, IPoolable<FoodBehaviour>, IInfoProvi
         _tags.Clear();
         
         foreach (var starting in _startingTraits) {
-            if (starting.Get(out var hash, out var value) == FoodTraitType.Tag) AddTag(hash);
-            else SetTrait(hash, value);
+            starting.Apply(this);
         }
     }
     
@@ -66,12 +66,26 @@ public class FoodBehaviour : MonoBehaviour, IPoolable<FoodBehaviour>, IInfoProvi
     }
     
     public void SetTrait<T>(int hash, T value) {
+        if (value is null) {
+            _traits.Remove(hash);
+            return;
+        }
+        
         _traits[hash] = value;
     }
 
     public void SetTrait(int hash, FoodTraitType type, object value) {
-        if (type == FoodTraitType.Tag) AddTag(hash);
-        else SetTrait(hash, value);
+        if (type == FoodTraitType.Tag) {
+            AddTag(hash);
+            return;
+        }
+
+        if (value is null) {
+            _traits.Remove(hash);
+            return;
+        }
+        
+        SetTrait(hash, value);
     }
     
     public bool HasTag(int hash) {

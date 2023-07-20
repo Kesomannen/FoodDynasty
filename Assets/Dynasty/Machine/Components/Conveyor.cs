@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Dynasty.Core.Data;
+using Dynasty.Library.Data;
 using Dynasty.Library;
 using Dynasty.Library.Entity;
 using UnityEngine;
@@ -30,12 +30,12 @@ public class Conveyor : MonoBehaviour, IInfoProvider, IMachineComponent {
         TickManager.RemoveListener(OnTick);
     }
 
-    void OnTick() {
+    void OnTick(float delta) {
         var newPosition = _rigidbody.position;
         var pos = newPosition;
         
         var localDirection = transform.rotation * _direction;
-        newPosition += -localDirection * (_speed.Value * Time.fixedDeltaTime);
+        newPosition += -localDirection * _speed.Value * delta;
         _rigidbody.position = newPosition;
         
         _rigidbody.MovePosition(pos);

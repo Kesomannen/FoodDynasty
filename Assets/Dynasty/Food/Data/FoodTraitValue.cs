@@ -11,24 +11,21 @@ public struct FoodTraitValue {
     [SerializeField] float _floatValue;
     [SerializeField] bool _boolValue;
 
-    public FoodTraitType Get(out int hash, out object value) {
-        _selection.GetEntry(out var entry);
-        hash = entry.Hash;
-
-        value = entry.Type switch {
-            FoodTraitType.Tag => null,
+    public int Hash => _selection.Hash;
+    public FoodTraitType Type => _selection.Type;
+    
+    public object GetValue() {
+        return Type switch {
             FoodTraitType.Int => _intValue,
             FoodTraitType.Float => _floatValue,
             FoodTraitType.Bool => _boolValue,
+            FoodTraitType.Tag => null,
             _ => throw new ArgumentOutOfRangeException()
         };
-        
-        return entry.Type;
     }
 
     public void Apply(FoodBehaviour behaviour) {
-        Get(out var hash, out var value);
-        behaviour.SetTrait(hash, value);
+        behaviour.SetTrait(Hash, Type, GetValue());
     }
 }
 
