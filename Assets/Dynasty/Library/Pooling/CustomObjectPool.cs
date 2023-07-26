@@ -51,7 +51,7 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
         _pool?.Dispose();
     }
 
-    void Release(T obj) => Pool.Release(obj);
+    protected void Release(T obj) => Pool.Release(obj);
     public T Get() => Pool.Get();
 }
 

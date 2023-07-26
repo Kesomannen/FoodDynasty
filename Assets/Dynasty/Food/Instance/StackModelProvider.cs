@@ -48,6 +48,10 @@ public class StackModelProvider : ModelProvider {
         _top.localPosition = _originalTopPosition;
     }
 
+    public override IEnumerable<Poolable> GetToppings() {
+        return _toppings;
+    }
+
     public override void AddToppingModel(Poolable model) {
         SetupToppingModel(model.gameObject);
         _toppings.Push(model);

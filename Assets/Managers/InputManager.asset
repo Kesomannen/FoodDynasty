@@ -12,19 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70da30a2df3e49c48be10fe3bd2a8245, type: 3}
   m_Name: InputManager
   m_EditorClassIdentifier: 
-  _actions:
-  - InputActionName: Rotate
-    Event: {fileID: 11400000, guid: b0ed4e59501f4154d99bc57664abba07, type: 2}
-  - InputActionName: Cancel
-    Event: {fileID: 11400000, guid: 87e7770d3a0d07d46a06e8306e5b69f2, type: 2}
-  - InputActionName: Delete
-    Event: {fileID: 11400000, guid: bc56e7d5ad34da44895450e72b442ded, type: 2}
-  - InputActionName: Open Shop
-    Event: {fileID: 11400000, guid: 5ffbee01b4cddf74bbd509e424e69a36, type: 2}
-  - InputActionName: Open Inventory
-    Event: {fileID: 11400000, guid: fbbfd23dde381f64eb035fd15c74cf09, type: 2}
-  - InputActionName: Open Options
-    Event: {fileID: 11400000, guid: e987bd299afd42641826ed75a270726c, type: 2}
-  _inputActionAsset: {fileID: -944628639613478452, guid: 7e0d5536cef42c44cbc3e5bcfb46a4e6,
-    type: 3}
-  _inputActionMapName: Default
+  _inputEvents:
+  - {fileID: 11400000, guid: ad90a65419976964ea7763881bcde82d, type: 2}
+  - {fileID: 11400000, guid: 5cc05794f12a52846b7203928e833815, type: 2}
+  - {fileID: 11400000, guid: aa7eb96e48602ec45bd4743f37acd788, type: 2}
+  - {fileID: 11400000, guid: 3143044855306ce488abd31d64081a5a, type: 2}
+  - {fileID: 11400000, guid: 9299b743e3701ac48b2441d645fbc53e, type: 2}
+  - {fileID: 11400000, guid: 87c6eb4e79a64ed4d86c5bdfd7beb3f0, type: 2}

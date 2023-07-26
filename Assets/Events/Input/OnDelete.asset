@@ -9,6 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1669020276, guid: 59186728ae4868943b3f3643b25b8296, type: 3}
+  m_Script: {fileID: 11500000, guid: 08b4e10859a340d2b926d83817684e67, type: 3}
   m_Name: OnDelete
   m_EditorClassIdentifier: 
+  _action: {fileID: 7302959148360697641, guid: 7e0d5536cef42c44cbc3e5bcfb46a4e6, type: 3}
+  _nameOverride:
+    _enabled: 0
+    _value: 

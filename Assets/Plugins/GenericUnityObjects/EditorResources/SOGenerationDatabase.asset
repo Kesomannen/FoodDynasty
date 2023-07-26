@@ -33,6 +33,8 @@ MonoBehaviour:
     _guid: 399b7c9786f14daa800c57cd93a05d23
   - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
     _guid: b3fbd445d03d46cabc7b868fd2447205
+  - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
+    _guid: ebfc489af0ff4ecbbc30e8440d302b1c
   _genericArgumentValues:
   - _array: []
   - _array: []
@@ -101,6 +103,13 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
         _guid: b3fbd445d03d46cabc7b868fd2447205
       _assemblyGUID: 5dd9873d32b80d04189418bb5e86e59b
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
+        _guid: ebfc489af0ff4ecbbc30e8440d302b1c
+      _assemblyGUID: 253c4a6778469aa4db5f51e540ddc052
+  - _array: []
+  - _array: []
+  - _array: []
   _genericTypeValues:
   - _array:
     - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
@@ -178,6 +187,12 @@ MonoBehaviour:
   - _array:
     - _typeNameAndAssembly: Dynasty.UI.Miscellaneous.ContainerObjectPool`1, Dynasty.UI
       _guid: fa25376fa5ab4d03a6ff488669baf3fa
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: Dynasty.UI.Controls.ContainerGridObjectControl`1, Dynasty.UI
+      _guid: 379477018aa741039e247c214d6d81f7
       AssemblyGUID: 
       _argNames:
       - T
@@ -281,6 +296,22 @@ MonoBehaviour:
     - T
   - _typeNameAndAssembly: Dynasty.UI.Controls.ContainerGridObjectControl`1, Dynasty.UI
     _guid: 379477018aa741039e247c214d6d81f7
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: UnityEditor.Rendering.PostProcessing.BaseEditor`1, Unity.Postprocessing.Editor
+    _guid: 
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: Cinemachine.Editor.CinemachineVirtualCameraBaseEditor`1,
+      com.unity.cinemachine.editor
+    _guid: 211d719bb25901043833928f50e9d0ea
+    AssemblyGUID: 
+    _argNames:
+    - T
+  - _typeNameAndAssembly: Cinemachine.Editor.BaseEditor`1, com.unity.cinemachine.editor
+    _guid: 15ef94834d9e4aa44ac8fe619843346b
     AssemblyGUID: 
     _argNames:
     - T

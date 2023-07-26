@@ -1,51 +1,39 @@
 using System.Collections.Generic;
-using System.Linq;
-using Dynasty.Library;
+using Dynasty.Core.Tooltip;
+using Dynasty.Library.Events;
 using Dynasty.UI.Components;
 using Dynasty.UI.Miscellaneous;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Dynasty.UI.Displays {
 
 public class KeybindsDisplay : MonoBehaviour {
     [SerializeField] Transform _keybindParent;
-    [SerializeField] ContainerObjectPool<IKeybind> _keybindPool;
+    [SerializeField] ContainerObjectPool<InputEvent> _keybindPool;
 
-    readonly List<Container<IKeybind>> _currentKeybinds = new();
+    readonly Dictionary<InputEvent, Container<InputEvent>> _containers = new();
 
-    public void Show(IKeybind keybind) {
-        var container = _keybindPool.Get(keybind, _keybindParent);
-        _currentKeybinds.Add(container);
+    void OnEnable() {
+        Keybinds.OnKeybindActivated += Show;
+        Keybinds.OnKeybindDeactivated += Hide;
     }
     
-    public void Hide(IKeybind keybind) {
-        var container = _currentKeybinds.FirstOrDefault(container => container.Content == keybind);
-        if (container == null) return;
+    void OnDisable() {
+        Keybinds.OnKeybindActivated -= Show;
+        Keybinds.OnKeybindDeactivated -= Hide;
+    }
+
+    void Show(InputEvent keybind) {
+        var container = _keybindPool.Get(keybind, _keybindParent);
+        _containers.Add(keybind, container);
+    }
+    
+    void Hide(InputEvent keybind) {
+        if (!_containers.TryGetValue(keybind, out var container)) return;
         
-        _currentKeybinds.Remove(container);
+        _containers.Remove(keybind);
         container.Dispose();
     }
 }
 
-}
-
-public interface IKeybind {
-    string Name { get; }
-    InputAction Action { get; }
-}
-
-public class Keybind : IKeybind {
-    public string Name { get; }
-    public InputAction Action { get; }
-
-    public Keybind(string name, InputAction action) {
-        Name = name;
-        Action = action;
-    }
-    
-    public Keybind(InputAction action) {
-        Name = action.name;
-        Action = action;
-    }
 }

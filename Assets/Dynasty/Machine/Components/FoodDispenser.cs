@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Dynasty.Food.Data;
 using Dynasty.Library.Data;
 using Dynasty.Food.Instance;
 using Dynasty.Library;
@@ -11,7 +12,7 @@ namespace Dynasty.Machine.Components {
 
 public class FoodDispenser : MonoBehaviour, IInfoProvider, IMachineComponent {
     [SerializeField] DataObject<float> _spawnSpeed;
-    [SerializeField] CustomObjectPool<FoodBehaviour> _pool;
+    [SerializeField] FoodObjectPool _pool;
     [SerializeField] Transform _spawnPoint;
     [SerializeField] Vector3 _randomSpawnOffset;
     [SerializeField] CheckEvent<bool> _condition;
@@ -40,13 +41,12 @@ public class FoodDispenser : MonoBehaviour, IInfoProvider, IMachineComponent {
     void UpdateDispenseTimer(float delta) {
         if (Time.time - _lastDispenseTime < 1 / _spawnSpeed.Value) return;
         _lastDispenseTime = Time.time;
-        Dispense();
+        TryDispense();
     }
 
-    void Dispense() {
+    void TryDispense() {
         if (!_condition.Check()) return;
-
-        var food = _pool.Get();
+        if (!_pool.Spawn(out var food)) return;
 
         var position = _spawnPoint.position;
         if (_randomSpawnOffset != Vector3.zero) {
@@ -54,6 +54,7 @@ public class FoodDispenser : MonoBehaviour, IInfoProvider, IMachineComponent {
             position.y += Random.Range(-_randomSpawnOffset.y, _randomSpawnOffset.y);
             position.z += Random.Range(-_randomSpawnOffset.z, _randomSpawnOffset.z);
         }
+        
         food.transform.SetPositionAndRotation(position, _spawnPoint.rotation);
         _onDispensed.Raise(food);
     }

@@ -7,7 +7,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T> {
     static T _instance;
     static bool _isQuitting;
     
-    static T Instance {
+    public static T Instance {
         get {
             if (_isQuitting) return null;
             if (_instance != null) return _instance;
@@ -21,9 +21,10 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T> {
         }
     }
     
-    public static void Access(Action<T> action) {
-        if (_isQuitting) return;
+    public static bool Access(Action<T> action) {
+        if (_isQuitting) return false;
         action?.Invoke(Instance);
+        return true;
     }
 
     void OnApplicationQuit() {

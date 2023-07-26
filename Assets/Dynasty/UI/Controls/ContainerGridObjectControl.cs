@@ -16,13 +16,19 @@ public class ContainerGridObjectControl<T> : GridObjectControl {
 
     public sealed override bool GetControls(GridObject gridObject, out IEnumerable<Transform> uiElements) {
         uiElements = null;
-        var data = gridObject.GetComponents<T>();
-        if (data.Length == 0) return false;
+        var data = gridObject.GetComponentsInChildren<T>();
+        if (data.Length == 0) {
+            foreach (var container in _storedContainers) {
+                container.gameObject.SetActive(false);
+            }
+            return false;
+        }
         
         for (var i = 0; i < data.Length; i++) {
             Container<T> container;
             if (i < _storedContainers.Count) {
                 container = _storedContainers[i];
+                container.gameObject.SetActive(true);
             } else {
                 container = Instantiate(_containerPrefab);
                 _storedContainers.Add(container);

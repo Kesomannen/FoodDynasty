@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dynasty.Core.Grid;
-using Dynasty.Library.Classes;
+using Dynasty.Core.Tooltip;
 using Dynasty.Library.Events;
 using Dynasty.Library.Extensions;
 using Dynasty.Library.Helpers;
@@ -28,13 +28,13 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     
     [Header("Input")]
     [Tooltip("When raised and the placer is active, rotates the current object.")]
-    [SerializeField] GenericGameEvent _rotateEvent;
+    [SerializeField] InputEvent _rotateEvent;
     
     [Tooltip("When raised and the placer is active, cancels the current placement.")]
-    [SerializeField] GenericGameEvent _cancelEvent;
+    [SerializeField] InputEvent _cancelEvent;
     
     [Tooltip("When raised and the placer is active, deletes the current object.")]
-    [SerializeField] GenericGameEvent _deleteEvent;
+    [SerializeField] InputEvent _deleteEvent;
     
     [Tooltip("Buttons to accept mouse input from.")]
     [SerializeField] PointerEventData.InputButton[] _allowedButtons = { PointerEventData.InputButton.Left };
@@ -95,12 +95,16 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
         _rotateEvent.AddListener(OnRotate);
         _deleteEvent.AddListener(OnDelete);
         _cancelEvent.AddListener(Cancel);
+        
+        Keybinds.Activate(_rotateEvent, _deleteEvent, _cancelEvent);
     }
     
     void StopListeningToInput() {
         _rotateEvent.RemoveListener(OnRotate);
         _deleteEvent.RemoveListener(OnDelete);
         _cancelEvent.RemoveListener(Cancel);
+        
+        Keybinds.Deactivate(_rotateEvent, _deleteEvent, _cancelEvent);
     }
 
     public void Cancel() {

@@ -43,6 +43,7 @@ public class MachineCreator {
         _data.name = _data.Name = name;
         
         _data.Description = description;
+        _data.ShortDescription = description;
         _data.SetType(type);
         _data.Tier = tier;
         _data.Price = price;

@@ -1,5 +1,8 @@
 ﻿using Dynasty.Food.Data;
 using Dynasty.Library;
+using Dynasty.Library.Events;
+using Dynasty.Library.Helpers;
+using Dynasty.Library.Pooling;
 using NaughtyAttributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,6 +18,9 @@ public class StabilityBehaviour : MonoBehaviour {
     [Space]
     [SerializeField] AnimationCurve _velocityStabilityLossCurve;
     [SerializeField] Vector2 _velocityRange;
+    [SerializeField] GenericEvent _onFallenOver;
+    [SerializeField] float _disposeDelay = 1f;
+    [Space]
     [AllowNesting]
     [SerializeField] [ReadOnly] float _velocity;
     [AllowNesting]
@@ -23,6 +29,7 @@ public class StabilityBehaviour : MonoBehaviour {
     FoodBehaviour _food;
     Rigidbody _rigidbody;
     float _randomMultiplier;
+    bool _fallenOver;
     
     void Awake() {
         _rigidbody = GetComponent<Rigidbody>();
@@ -30,6 +37,7 @@ public class StabilityBehaviour : MonoBehaviour {
     }
 
     void OnEnable() {
+        _fallenOver = false;
         _randomMultiplier = Random.Range(1 - _randomness, 1 + _randomness);
         TickManager.AddListener(OnTick, _useSparseUpdate);
     }
@@ -38,7 +46,9 @@ public class StabilityBehaviour : MonoBehaviour {
         TickManager.RemoveListener(OnTick, _useSparseUpdate);
     }
 
-    void OnTick(float delta) {
+    async void OnTick(float delta) {
+        if (_fallenOver) return;
+        
         _current = _food.GetTrait<float>(_stabilityTrait.Hash);
         _velocity = _rigidbody.velocity.magnitude;
 
@@ -49,7 +59,11 @@ public class StabilityBehaviour : MonoBehaviour {
         _food.SetTrait(_stabilityTrait.Hash, newStability);
 
         if (newStability > 0) return;
-        Debug.Log("Food has fallen over!");
+        
+        _onFallenOver?.Raise();
+        _fallenOver = true;
+        
+        await TaskHelpers.Delay(_disposeDelay);
         _food.Dispose();
     }
 }

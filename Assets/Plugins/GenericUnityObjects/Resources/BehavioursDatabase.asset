@@ -49,6 +49,8 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Library.Entity.EntityInfo, Dynasty.Library
     - _collection:
       - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_df7bf43c3ee77704796922a82fc22b90,
         z_Container_Entity
@@ -60,6 +62,8 @@ MonoBehaviour:
         z_Container_EntityInfo
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_c4b42a068bc858c48af54ee321f9c3a4,
         z_Container_Supply
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_6032d59dabc2d6544b378c1995e58a97,
+        z_Container_MachineEntity
   - _keys:
     - _collection:
       - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
@@ -75,11 +79,15 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
     - _collection:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_c580e9618eb03cb46b983baf8e5ad14c,
         z_EntityText_Entity
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_461b10b82024c6c4c997b41676c9e548,
         z_EntityText_ItemData
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_36e0036c7deb50a4e8fe10e9f730f08b,
+        z_EntityText_MachineEntity
   - _keys:
     - _collection:
       - _typeNameAndAssembly: TMPro.TextMeshProUGUI, Unity.TextMeshPro

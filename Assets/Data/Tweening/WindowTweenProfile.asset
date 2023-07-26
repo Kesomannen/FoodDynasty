@@ -21,14 +21,12 @@ MonoBehaviour:
     - rid: 1221627028097466368
       type: {class: ScaleTweenData, ns: Dynasty.UI.Tweening, asm: Dynasty.UI}
       data:
-        _playAutomatically: 1
-        _duration: 0.15
-        _easeType: 27
+        _duration: 0.12
+        _easeType: 12
         _startScale: 0.9
     - rid: 1221627028097466369
       type: {class: FadeTweenData, ns: Dynasty.UI.Tweening, asm: Dynasty.UI}
       data:
-        _playAutomatically: 1
-        _duration: 0.15
+        _duration: 0.12
         _easeType: 9
         _mode: 0

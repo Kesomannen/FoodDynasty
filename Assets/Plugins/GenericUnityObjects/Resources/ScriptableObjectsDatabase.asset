@@ -35,6 +35,10 @@ MonoBehaviour:
   - _typeNameAndAssembly: Dynasty.UI.Miscellaneous.ContainerObjectPool`1, Dynasty.UI
   - _typeNameAndAssembly: Dynasty.Persistent.Mapping.Lookup`1, Dynasty.Persistent
   - _typeNameAndAssembly: Dynasty.UI.Controls.ContainerGridObjectControl`1, Dynasty.UI
+  - _typeNameAndAssembly: UnityEditor.Rendering.PostProcessing.BaseEditor`1, Unity.Postprocessing.Editor
+  - _typeNameAndAssembly: Cinemachine.Editor.CinemachineVirtualCameraBaseEditor`1,
+      com.unity.cinemachine.editor
+  - _typeNameAndAssembly: Cinemachine.Editor.BaseEditor`1, com.unity.cinemachine.editor
   _values:
   - _keys: []
     _values: []
@@ -118,6 +122,16 @@ MonoBehaviour:
   - _keys:
     - _collection:
       - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_5dd9873d32b80d04189418bb5e86e59b,
         z_ContainerGridObjectControl_Supply
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_253c4a6778469aa4db5f51e540ddc052,
+        z_ContainerGridObjectControl_MachineEntity
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []
+  - _keys: []
+    _values: []

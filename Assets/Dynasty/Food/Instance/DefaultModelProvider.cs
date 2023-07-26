@@ -36,6 +36,10 @@ public class DefaultModelProvider : ModelProvider {
         }
     }
 
+    public override IEnumerable<Poolable> GetToppings() {
+        return _toppings;
+    }
+
     public override void AddToppingModel(Poolable model) {
         _toppings.Push(model);
         SetupModel(model.gameObject, ItemModelType.Topping);

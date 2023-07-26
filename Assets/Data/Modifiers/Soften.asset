@@ -22,6 +22,7 @@ MonoBehaviour:
   - _trait:
       _value: Softened
       _hash: 1017447092
+      _type: 1
     _operation: 1
     _modifier:
       Base: 0

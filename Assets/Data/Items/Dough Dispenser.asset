@@ -15,6 +15,7 @@ MonoBehaviour:
   _name: Dough Dispenser
   _description: Deposit dough into this machine to start dispensing dough and making
     bread!
+  _shortDescription: Dispenses dough to start making bread
   _icon: {fileID: 21300000, guid: 335a954d87f203348b340c3324266c8b, type: 3}
   _tier: 0
   _price: 15

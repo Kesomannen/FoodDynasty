@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Dynasty.Library.Entity;
 using Dynasty.Library.Helpers;
 using NaughtyAttributes;
@@ -17,6 +18,7 @@ public class ItemData : ScriptableObject, IEntityData, IInfoProvider {
     [ResizableTextArea]
     [FormerlySerializedAs("_flavorText")]
     [SerializeField] string _description;
+    [SerializeField] string _shortDescription;
     
     [ShowAssetPreview]
     [SerializeField] Sprite _icon;
@@ -33,6 +35,11 @@ public class ItemData : ScriptableObject, IEntityData, IInfoProvider {
     public string Description {
         get => _description;
         set => _description = value;
+    }
+    
+    public string ShortDescription {
+        get => _shortDescription;
+        set => _shortDescription = value;
     }
 
     public ItemTier Tier {

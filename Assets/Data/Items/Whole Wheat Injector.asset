@@ -15,6 +15,7 @@ MonoBehaviour:
   _name: Whole Wheat Injector
   _description: Injects dough with whole wheat before baking, making it healthier
     and thus increasing value.
+  _shortDescription: Injects dough with whole what before baking
   _icon: {fileID: 21300000, guid: e554505e35083e64d9014453e457f4f9, type: 3}
   _tier: 0
   _price: 5000

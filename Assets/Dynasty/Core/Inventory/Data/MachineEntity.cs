@@ -20,6 +20,7 @@ public class MachineEntity : Entity, IDataProvider<MachineItemData> {
     
     public override string Name => _data.Name;
     public override string Description => _data.Description;
+    public override string ShortDescription => _data.ShortDescription;
     public override Sprite Icon => _data.Icon;
 }
 

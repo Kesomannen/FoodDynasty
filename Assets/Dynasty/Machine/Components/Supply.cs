@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 
 namespace Dynasty.Machine.Components {
 
-public class Supply : MonoBehaviour, IStatusProvider, IInfoProvider, IAdditionalSaveData<int>, IMachineComponent {
+public class Supply : MonoBehaviour, IStatusProvider, IInfoProvider, IAdditionalSaveData<int>, IMachineComponent, IOnDeletedHandler {
     [SerializeField] int _requiredSupplyPerUse = 1;
     [SerializeField] ItemData _refillItem;
     [SerializeField] string _refillItemName;
@@ -63,6 +63,13 @@ public class Supply : MonoBehaviour, IStatusProvider, IInfoProvider, IAdditional
         _condition.RemoveCriterion(HasSupply);
         _useEvent.OnRaisedGeneric -= OnUsed;
     }
+
+    public void Empty(InventoryAsset inventory) {
+        if (IsRefillable) {
+            inventory.Add(RefillItem, CurrentSupply);
+        }
+        CurrentSupply = 0;
+    }
     
     public IEnumerable<EntityInfo> GetInfo() {
         if (IsRefillable) {
@@ -83,6 +90,10 @@ public class Supply : MonoBehaviour, IStatusProvider, IInfoProvider, IAdditional
 
     public int GetSaveData() {
         return CurrentSupply;
+    }
+    
+    public void OnDeleted(InventoryAsset toInventory) {
+        Empty(toInventory);
     }
 
     public Component Component => this;

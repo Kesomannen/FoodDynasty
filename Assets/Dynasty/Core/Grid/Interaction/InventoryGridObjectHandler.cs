@@ -29,13 +29,18 @@ public class InventoryGridObjectHandler : MonoBehaviour {
         _deleteObjectEvent.RemoveListener(OnGridObjectDeleted);
         _startBuildingEvent.RemoveListener(OnStartBuilding);
     }
-
+    
     void OnGridObjectDeleted(GridObject gridObject) {
-        if (!gridObject.TryGetComponent(out IDataProvider<MachineItemData> machineProvider)) return;
+        RegisterDeletion(gridObject);
+    }
+
+    public bool RegisterDeletion(GridObject gridObject) {
+        if (!gridObject.TryGetComponent(out IDataProvider<MachineItemData> machineProvider)) return false;
         foreach (var handler in gridObject.GetComponentsInChildren<IOnDeletedHandler>()) {
             handler.OnDeleted(_inventory);
         }
         _inventory.Add(machineProvider.Data);
+        return true;
     }
 
     async void OnStartBuilding(Item item) {

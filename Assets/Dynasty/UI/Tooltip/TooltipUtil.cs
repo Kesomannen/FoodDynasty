@@ -5,7 +5,7 @@ namespace Dynasty.UI.Tooltip {
 
 public static class TooltipUtil {
     public static void PositionAsTooltip(this RectTransform tooltip, Vector2 position) {
-        var pivot = new Vector2(position.x / Screen.width, 1);
+        var pivot = new Vector2(0, 1);
         tooltip.pivot = pivot;
         tooltip.position = position;
     }
@@ -16,7 +16,7 @@ public static class TooltipUtil {
             return;
         }
         
-        var pivot = new Vector2(position.x / Screen.width, 1);
+        var pivot = new Vector2(0, 1);
         var lockX = lockAxis.HasFlag(TooltipLockAxis.X);
         var lockY = lockAxis.HasFlag(TooltipLockAxis.Y);
         

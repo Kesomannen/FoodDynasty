@@ -31,6 +31,8 @@ MonoBehaviour:
     _guid: 399b7c9786f14daa800c57cd93a05d23
   - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
     _guid: b3fbd445d03d46cabc7b868fd2447205
+  - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
+    _guid: ebfc489af0ff4ecbbc30e8440d302b1c
   _genericArgumentValues:
   - _array:
     - _arguments:
@@ -67,6 +69,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
         _guid: b3fbd445d03d46cabc7b868fd2447205
       _assemblyGUID: c4b42a068bc858c48af54ee321f9c3a4
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
+        _guid: ebfc489af0ff4ecbbc30e8440d302b1c
+      _assemblyGUID: 6032d59dabc2d6544b378c1995e58a97
   - _array:
     - _arguments:
       - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
@@ -85,6 +91,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
         _guid: d3d4539531654c55aeb30f6fc3dc4fa1
       _assemblyGUID: 461b10b82024c6c4c997b41676c9e548
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
+        _guid: ebfc489af0ff4ecbbc30e8440d302b1c
+      _assemblyGUID: 36e0036c7deb50a4e8fe10e9f730f08b
   - _array:
     - _arguments:
       - _typeNameAndAssembly: TMPro.TextMeshProUGUI, Unity.TextMeshPro
@@ -242,6 +252,21 @@ MonoBehaviour:
     - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
       AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+  - _array:
+    - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
+      _guid: bc7fd065c7114f949ac90aaca54ac6c0
+      AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+    - _typeNameAndAssembly: Dynasty.UI.Components.EntityText`1, Dynasty.UI
+      _guid: 73880ec52a824ed28c77b9c835c8ab07
+      AssemblyGUID: f43aef367ef96d842b66ea5d24c078a5
       _argNames:
       - T
       _componentName: 

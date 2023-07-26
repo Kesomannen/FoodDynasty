@@ -6,13 +6,10 @@ namespace Dynasty.UI.Tweening {
 
 [Serializable]
 public abstract class TweenData {
-    [Header("Settings")] 
-    [SerializeField] bool _playAutomatically = true;
+    [Header("Settings")]
     [SerializeField] float _duration = 0.3f;
     [SerializeField] LeanTweenType _easeType = LeanTweenType.easeOutBack;
-    
-    public bool PlayAutomatically => _playAutomatically;
-    
+
     protected float Duration => _duration;
 
     public void Play(RectTransform rectTransform) {

@@ -32,7 +32,7 @@ public class GridObjectMover : MonoBehaviour {
     }
 
     async void OnStartMoving(GridObject obj) {
-        if (_placer.IsPlacing || !obj.CanMove) return;
+        if (_placer.IsPlacing || !obj.CanMove || obj.GridManager == null) return;
         
         var oldPosition = obj.GridPosition;
         var oldRotation = obj.Rotation;

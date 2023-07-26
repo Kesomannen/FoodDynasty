@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2695fc9fed0143c58460126ed301b2e5, type: 3}
+  m_Name: GridObjectTweenProfile
+  m_EditorClassIdentifier: 
+  _onEnable:
+  - rid: 1221627175441530880
+  references:
+    version: 2
+    RefIds:
+    - rid: 1221627175441530880
+      type: {class: ScaleTweenData, ns: Dynasty.UI.Tweening, asm: Dynasty.UI}
+      data:
+        _playAutomatically: 1
+        _duration: 0.4
+        _easeType: 27
+        _startScale: 0.8

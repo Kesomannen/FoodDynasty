@@ -41,7 +41,7 @@ public class SupplyInput : UIComponent<Supply> {
     }
 
     public void Empty() {
-        Subtract(_content.CurrentSupply);
+        _content.Empty(_inventory);
     }
 }
 
