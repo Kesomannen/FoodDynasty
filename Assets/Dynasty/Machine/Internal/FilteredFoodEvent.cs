@@ -37,7 +37,7 @@ public class FilteredFoodEvent {
     }
     
     public FilteredFoodEvent(Event<FoodBehaviour> @event, FoodFilterGroup filter) : this(@event, null, filter) { }
-
+    
     public void Raise(FoodBehaviour food) {
         if (!Check(food)) return;
         _event.Raise(food);
