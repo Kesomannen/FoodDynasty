@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using Dynasty.Library.Data;
 using Dynasty.Library;
 using Dynasty.Library.Entity;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 namespace Dynasty.Machine.Components {
 
@@ -35,7 +37,7 @@ public class Conveyor : MonoBehaviour, IInfoProvider, IMachineComponent {
         var pos = newPosition;
         
         var localDirection = transform.rotation * _direction;
-        newPosition += -localDirection * _speed.Value * delta;
+        newPosition += -localDirection * (_speed.Value * delta);
         _rigidbody.position = newPosition;
         
         _rigidbody.MovePosition(pos);
