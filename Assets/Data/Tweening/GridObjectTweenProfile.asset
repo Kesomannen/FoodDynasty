@@ -20,7 +20,6 @@ MonoBehaviour:
     - rid: 1221627175441530880
       type: {class: ScaleTweenData, ns: Dynasty.UI.Tweening, asm: Dynasty.UI}
       data:
-        _playAutomatically: 1
-        _duration: 0.4
+        _duration: 1
         _easeType: 27
         _startScale: 0.8

@@ -31,7 +31,6 @@ public class MoneyDeltaSpawner : MonoBehaviour {
         var poolable = _textPool.Get(transform);
         var animationText = poolable.Component;
         
-        Debug.Log("adsadoaodi", poolable);
         animationText.text = $"+{StringHelpers.FormatMoney(delta)}";
         animationText.color = _startColor;
 

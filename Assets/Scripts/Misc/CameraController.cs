@@ -154,6 +154,7 @@ public class CameraController : MonoBehaviour {
 
     void OnSpinStarted(InputAction.CallbackContext context) {
         _isSpinning = true;
+        Cursor.lockState = CursorLockMode.Locked;
     }
     
     void OnPanEnded(InputAction.CallbackContext context) {
@@ -162,6 +163,7 @@ public class CameraController : MonoBehaviour {
     
     void OnSpinEnded(InputAction.CallbackContext context) {
         _isSpinning = false;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void ClampZoom() {
