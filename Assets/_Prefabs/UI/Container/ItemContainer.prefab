@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: $1000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bbb9df90aaed13944bf533d16b41d3a9, type: 2}
-  m_sharedMaterial: {fileID: 2585263994974540075, guid: bbb9df90aaed13944bf533d16b41d3a9,
+  m_fontAsset: {fileID: 11400000, guid: c66ba4f9ac0b6b4469f3332cb3e2265f, type: 2}
+  m_sharedMaterial: {fileID: 3498348057278862898, guid: c66ba4f9ac0b6b4469f3332cb3e2265f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 5406366818011333528}
   - component: {fileID: 7800576430987756613}
   - component: {fileID: 3512229383258622362}
+  - component: {fileID: 6881357083006809658}
   m_Layer: 5
   m_Name: ItemContainer
   m_TagString: Untagged
@@ -336,6 +337,33 @@ MonoBehaviour:
   - {fileID: 6990148369582502863}
   - {fileID: 6990148369582502862}
   - {fileID: 5406366818011333528}
+--- !u!114 &6881357083006809658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6990148369582502857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42228e598be24966be23d47ef6dc1162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _clickSound:
+    _enabled: 1
+    _value: {fileID: 11400000, guid: 90e6ff56e2e9a1f4f91f22c68ad5ffb9, type: 2}
+  _rightClickSound:
+    _enabled: 0
+    _value: {fileID: 0}
+  _hoverSound:
+    _enabled: 0
+    _value: {fileID: 0}
+  _enableSound:
+    _enabled: 0
+    _value: {fileID: 0}
+  _disableSound:
+    _enabled: 0
+    _value: {fileID: 0}
 --- !u!1 &6990148369586906840
 GameObject:
   m_ObjectHideFlags: 0

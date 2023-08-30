@@ -64,6 +64,15 @@
       "dependencies": {},
       "url": "https://package.openupm.com"
     },
+    "com.unify.unified-universal-blur": {
+      "version": "https://github.com/lukakldiashvili/Unified-Universal-Blur.git#0.2.2",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.render-pipelines.universal": "7.0.0"
+      },
+      "hash": "31d569f8f459b5b605836b7832c351d053e2a183"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.10",
       "depth": 1,

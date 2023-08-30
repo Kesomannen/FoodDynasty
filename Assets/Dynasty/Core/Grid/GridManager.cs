@@ -84,6 +84,20 @@ public class GridManager : MonoBehaviour {
         _gridObjects.Remove(gridObject);
     }
     
+    public void Expand(Vector2Int size, Vector2Int offset) {
+        var newGridSize = _gridSize + size;
+        var newCells = new int[newGridSize.x, newGridSize.y];
+        
+        for (var x = 0; x < _gridSize.x; x++) {
+            for (var y = 0; y < _gridSize.y; y++) {
+                newCells[x + offset.x, y + offset.y] = _cells[x, y];
+            }
+        }
+
+        _cells = newCells;
+        _gridSize = newGridSize;
+    }
+    
     bool CheckOverlapping(Vector2Int position, GridSize size, out IEnumerable<Vector2Int> overlapping) {
         if (!IsWithinGrid(position, size.Bounds)) {
             overlapping = null;

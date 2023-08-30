@@ -21,8 +21,11 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T> {
         }
     }
     
-    public static bool Access(Action<T> action) {
-        if (_isQuitting) return false;
+    public static bool Access(Action<T> action) { 
+        if (_isQuitting) {
+            return false;
+        }
+        
         action?.Invoke(Instance);
         return true;
     }

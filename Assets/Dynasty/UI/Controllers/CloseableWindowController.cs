@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using NaughtyAttributes;
+using UnityEngine;
+using UnityEngine.Events;
 
 namespace Dynasty.UI.Controllers {
 
@@ -13,6 +15,10 @@ public class CloseableWindowController : MonoBehaviour {
     [Header("Animation")]
     [SerializeField] float _animationDuration;
     [SerializeField] LeanTweenType _animationEaseType;
+    
+    [Header("Events")]
+    [SerializeField] UnityEvent _onOpen;
+    [SerializeField] UnityEvent _onClose;
 
     bool _currentState;
     int _tweenId;
@@ -39,6 +45,9 @@ public class CloseableWindowController : MonoBehaviour {
         
         _currentState = state;
         var targetPosition = state ? _openPosition : _closePosition;
+        
+        if (state) _onOpen.Invoke();
+        else _onClose.Invoke();
         
         LeanTween.cancel(_tweenId);
         if (tween) {
