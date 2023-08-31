@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7c0065df534096aa89840604dff1b1, type: 3}
   m_Name: Click
   m_EditorClassIdentifier: 
-  _volume: 0.5
+  _volume: 0.4
   _pitch: 1
   _clips:
   - {fileID: 8300000, guid: f4781d302b303408d8b02da3dd8aed5a, type: 3}

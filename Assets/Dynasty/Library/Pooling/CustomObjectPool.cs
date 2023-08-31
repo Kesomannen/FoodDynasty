@@ -50,6 +50,10 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
     public virtual void Dispose() {
         _pool?.Dispose();
     }
+    
+    public virtual void Clear() {
+        _pool?.Clear();
+    }
 
     protected void Release(T obj) => Pool.Release(obj);
     public T Get() => Pool.Get();

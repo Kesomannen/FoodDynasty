@@ -39,6 +39,7 @@ MonoBehaviour:
   - _typeNameAndAssembly: Cinemachine.Editor.CinemachineVirtualCameraBaseEditor`1,
       com.unity.cinemachine.editor
   - _typeNameAndAssembly: Cinemachine.Editor.BaseEditor`1, com.unity.cinemachine.editor
+  - _typeNameAndAssembly: Dynasty.Library.Events.ListEvent`1, Dynasty.Library
   _values:
   - _keys: []
     _values: []
@@ -80,6 +81,8 @@ MonoBehaviour:
       - _typeNameAndAssembly: UnityEngine.InputSystem.InputAction, Unity.InputSystem
     - _collection:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
+    - _collection:
+      - _typeNameAndAssembly: System.Int32, mscorlib
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_8d2a2aae4cca2734a8464fd2bf02837f,
         z_GameEvent_GridObject
@@ -93,6 +96,8 @@ MonoBehaviour:
         z_GameEvent_InputAction
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_1a73e75fa72967847be33fa6415ea2f6,
         z_GameEvent_Item
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_77dd006db4ab5cc4ba6d0547e73236b3,
+        z_GameEvent_Int32
   - _keys: []
     _values: []
   - _keys:
@@ -135,3 +140,9 @@ MonoBehaviour:
     _values: []
   - _keys: []
     _values: []
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_2de8b396b2d70d846ae506b826a0c9e6,
+        z_ListEvent_ItemData

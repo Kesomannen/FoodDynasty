@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
@@ -51,6 +52,21 @@ public class DiskSaveLoader : SaveLoader {
         }
         
         return Task.CompletedTask;
+    }
+
+    public override Task<IEnumerable<SaveSlot>> GetSaveSlots() {
+        var saveSlots = new List<SaveSlot>();
+
+        while (true) {
+            var fileInfo = new FileInfo(GetSavePath(saveSlots.Count));
+            if (!fileInfo.Exists) break;
+            
+            saveSlots.Add(new SaveSlot {
+                LastPlayed = fileInfo.LastWriteTime
+            });
+        }
+        
+        return Task.FromResult((IEnumerable<SaveSlot>) saveSlots);
     }
 }
 

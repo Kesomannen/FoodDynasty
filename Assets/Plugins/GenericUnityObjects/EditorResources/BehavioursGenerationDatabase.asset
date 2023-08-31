@@ -33,6 +33,8 @@ MonoBehaviour:
     _guid: b3fbd445d03d46cabc7b868fd2447205
   - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
     _guid: ebfc489af0ff4ecbbc30e8440d302b1c
+  - _typeNameAndAssembly: UnityEngine.Rigidbody, UnityEngine.PhysicsModule
+    _guid: 
   _genericArgumentValues:
   - _array:
     - _arguments:
@@ -100,6 +102,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: TMPro.TextMeshProUGUI, Unity.TextMeshPro
         _guid: 
       _assemblyGUID: f5beab81658e82d4d86bea6ec2a5d6f1
+    - _arguments:
+      - _typeNameAndAssembly: UnityEngine.Rigidbody, UnityEngine.PhysicsModule
+        _guid: 
+      _assemblyGUID: e63477228b7046e4693977d6f2a34413
   - _array:
     - _arguments:
       - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
@@ -267,6 +273,14 @@ MonoBehaviour:
     - _typeNameAndAssembly: Dynasty.UI.Components.EntityText`1, Dynasty.UI
       _guid: 73880ec52a824ed28c77b9c835c8ab07
       AssemblyGUID: f43aef367ef96d842b66ea5d24c078a5
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+  - _array:
+    - _typeNameAndAssembly: Dynasty.Library.Pooling.PoolableComponent`1, Dynasty.Library
+      _guid: 4d9634bd5ef144cfbaed6047c0f6b938
+      AssemblyGUID: 3f8d0f86f2b777d4fbfa096eec4f7653
       _argNames:
       - T
       _componentName: 

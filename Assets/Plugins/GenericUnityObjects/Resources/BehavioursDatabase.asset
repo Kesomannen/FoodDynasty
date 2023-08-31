@@ -91,9 +91,13 @@ MonoBehaviour:
   - _keys:
     - _collection:
       - _typeNameAndAssembly: TMPro.TextMeshProUGUI, Unity.TextMeshPro
+    - _collection:
+      - _typeNameAndAssembly: UnityEngine.Rigidbody, UnityEngine.PhysicsModule
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_f5beab81658e82d4d86bea6ec2a5d6f1,
         z_PoolableComponent_TextMeshProUGUI
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_e63477228b7046e4693977d6f2a34413,
+        z_PoolableComponent_Rigidbody
   - _keys:
     - _collection:
       - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library

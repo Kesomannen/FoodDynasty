@@ -18,26 +18,14 @@ public class ShopController : MonoBehaviour {
     [SerializeField] Container<ItemData> _itemPrefab;
     [SerializeField] GameEvent<Item> _onItemPurchased;
     [SerializeField] ItemDataBuyControl _buyControl;
-    [SerializeField] ItemData[] _itemData;
     [SerializeField] MoneyManager _moneyManager;
-    [Space]
-    [SerializeField] bool _descendingOrder;
-    [SerializeField] ItemSortingMode _sortingMode;
+    [SerializeField] ListEvent<ItemData> _content;
     [SerializeField] TooltipData<ItemData> _tooltipData;
 
     readonly List<(Interactable interactable, Container<ItemData> container)> _items = new();
 
     void Awake() {
-        foreach (var item in _itemData.Sorted(_sortingMode, _descendingOrder)) {
-            var itemContainer = Instantiate(_itemPrefab, _itemParent);
-            itemContainer.SetContent(item);
-            
-            var interactable = itemContainer.GetOrAddComponent<Interactable>();
-            interactable.OnClicked += OnItemClicked;
-            interactable.OnHovered += OnItemHovered;
-
-            _items.Add((interactable, itemContainer));
-        }
+        _content.AddListener(AddItem, RemoveItem);
     }
 
     void OnEnable() {
@@ -50,12 +38,33 @@ public class ShopController : MonoBehaviour {
     }
 
     void OnDestroy() {
-        for (var i = 0; i < _items.Count; i++) {
-            var (interactable, container) = _items[i];
+        _content.RemoveListener(AddItem, RemoveItem);
+
+        while (_items.Count > 0) {
+            var (interactable, container) = _items[0];
             interactable.OnClicked -= OnItemClicked;
             _items.Remove((interactable, container));
-            i--;
         }
+    }
+
+    void AddItem(ItemData item) {
+        var itemContainer = Instantiate(_itemPrefab, _itemParent);
+        itemContainer.SetContent(item);
+            
+        var interactable = itemContainer.GetOrAddComponent<Interactable>();
+        interactable.OnClicked += OnItemClicked;
+        interactable.OnHovered += OnItemHovered;
+
+        _items.Add((interactable, itemContainer));
+    }
+    
+    void RemoveItem(ItemData item) {
+        var (interactable, container) = _items.First(i => i.container.Content == item);
+        
+        interactable.OnClicked -= OnItemClicked;
+        _items.Remove((interactable, container));
+        
+        Destroy(container.gameObject);
     }
 
     void TryBuy(ItemData item, int count) {

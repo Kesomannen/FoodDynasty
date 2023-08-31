@@ -8,15 +8,16 @@ namespace Dynasty.UI.Tweening {
 
 [Serializable]
 public class FadeTweenData : TweenData {
-    [Header("Fade")]
+    [Header("Fade")] 
+    [SerializeField] float _alpha;
     [SerializeField] Mode _mode;
 
     protected override IEnumerable<LTDescr> GetTweens(RectTransform rectTransform) {
         var graphics = rectTransform.GetComponentsInChildren<Graphic>().ToList();
         
         var (from, to) = _mode switch {
-            Mode.FadeIn => (0f, 1f),
-            Mode.FadeOut => (1f, 0f),
+            Mode.FadeIn => (0f, _alpha),
+            Mode.FadeOut => (_alpha, 0f),
             _ => throw new ArgumentOutOfRangeException()
         };
 

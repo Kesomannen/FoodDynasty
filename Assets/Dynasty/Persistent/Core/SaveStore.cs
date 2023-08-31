@@ -20,8 +20,8 @@ public abstract class SaveStore<T> : MonoBehaviour {
         OnAfterLoad(_saveManager.LoadData(SaveKey, GetDefaultData()));
     }
 
-    protected virtual void OnEnable() => _saveManager.OnBeforeSave += Save;
-    protected virtual void OnDisable() => _saveManager.OnBeforeSave -= Save;
+    protected virtual void OnEnable() => _saveManager.OnSaveStarted += Save;
+    protected virtual void OnDisable() => _saveManager.OnSaveStarted -= Save;
     void Save() => _saveManager.SaveData(SaveKey, GetSaveData());
 }
 

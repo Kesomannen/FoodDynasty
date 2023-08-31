@@ -30,7 +30,7 @@ public class SaveManagerEditor : Editor {
         EditorGUILayout.BeginHorizontal();
         
         if (GUILayout.Button("Save")) {
-            await saveManager.UpdateAndSaveState(saveManager.CurrentSaveSlot);
+            await saveManager.Save();
         }
 
         if (GUILayout.Button("Delete")) {

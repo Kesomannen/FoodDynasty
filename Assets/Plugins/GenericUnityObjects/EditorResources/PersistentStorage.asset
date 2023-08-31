@@ -33,6 +33,10 @@ MonoBehaviour:
     _fileName: New GameEvent`1
     _menuName: Event/Game
     _order: 0
+  - _typeName: Dynasty.Library.Events.ListEvent`1, Dynasty.Library
+    _fileName: New ListEvent`1
+    _menuName: Event/List
+    _order: 0
   - _typeName: Dynasty.Library.Events.ValueChangedEvent`1, Dynasty.Library
     _fileName: New ValueChangedEvent`1
     _menuName: Event/ValueChanged

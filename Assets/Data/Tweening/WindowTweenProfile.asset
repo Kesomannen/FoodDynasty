@@ -23,10 +23,11 @@ MonoBehaviour:
       data:
         _duration: 0.12
         _easeType: 12
-        _startScale: 0.9
+        _startScale: 0.8
     - rid: 1221627028097466369
       type: {class: FadeTweenData, ns: Dynasty.UI.Tweening, asm: Dynasty.UI}
       data:
         _duration: 0.12
         _easeType: 9
+        _alpha: 0.8
         _mode: 0

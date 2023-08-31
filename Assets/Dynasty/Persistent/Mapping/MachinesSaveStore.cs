@@ -10,15 +10,15 @@ using UnityEngine;
 
 namespace Dynasty.Persistent.Mapping {
 
-public class MachinesSaveStore : SaveStore<MachinesSaveData> {
+public class MachinesSaveStore : SaveStore<MachinesSaveStore.SaveData> {
     [Space]
     [SerializeField] GridManager _gridManager;
     [SerializeField] Lookup<ItemData> _itemLookup;
     [Space]
     [SerializeField] StartingMachine[] _startingMachines;
 
-    protected override MachinesSaveData GetDefaultData() {
-        return new MachinesSaveData {
+    protected override SaveData GetDefaultData() {
+        return new SaveData {
             ItemIds = _startingMachines.Select(machine => _itemLookup.GetId(machine.ItemData)).ToArray(),
             Positions = _startingMachines.Select(machine => machine.Position).ToArray(),
             Rotations = _startingMachines.Select(machine => machine.Rotation).ToArray(),
@@ -26,7 +26,7 @@ public class MachinesSaveStore : SaveStore<MachinesSaveData> {
         };
     }
 
-    protected override void OnAfterLoad(MachinesSaveData saveData) {
+    protected override void OnAfterLoad(SaveData saveData) {
         for (var i = 0; i < saveData.ItemIds.Length; i++) {
             var itemData = _itemLookup.GetFromId(saveData.ItemIds[i]);
             if (itemData is not IPrefabProvider<GridObject> provider) continue;
@@ -48,7 +48,7 @@ public class MachinesSaveStore : SaveStore<MachinesSaveData> {
         }
     }
 
-    protected override MachinesSaveData GetSaveData() {
+    protected override SaveData GetSaveData() {
         var entities = new List<(MachineItemData ItemData, GridObject GridObject)>();
         foreach (var gridObject in _gridManager.GridObjects) {
             if (!gridObject.TryGetComponent(out MachineEntity entity)) continue;
@@ -71,7 +71,7 @@ public class MachinesSaveStore : SaveStore<MachinesSaveData> {
             additionalData.Add(saveData);
         }
 
-        return new MachinesSaveData {
+        return new SaveData {
             ItemIds = entities.Select(tuple => _itemLookup.GetId(tuple.ItemData)).ToArray(),
             Positions = entities.Select(tuple => new SerializableVector2Int(tuple.GridObject.GridPosition)).ToArray(),
             Rotations = entities.Select(tuple => tuple.GridObject.Rotation).ToArray(),
@@ -89,21 +89,21 @@ public class MachinesSaveStore : SaveStore<MachinesSaveData> {
         public SerializableVector2Int Position => new(_position);
         public GridRotation Rotation => _rotation;
     }
-}
-
-}
-
-[Serializable]
-public struct MachinesSaveData {
-    public int[] ItemIds;
-    public SerializableVector2Int[] Positions;
-    public GridRotation[] Rotations;
-    public object[][] AdditionalData;
     
-    public override string ToString() {
-        return $"ItemIds: {string.Join(", ", ItemIds)}\n" +
-               $"Positions: {string.Join(", ", Positions)}\n" +
-               $"Rotations: {string.Join(", ", Rotations)}\n" +
-               $"AdditionalData: {string.Join(", ", AdditionalData.Select(data => $"[{string.Join(", ", data)}]"))}";
+    [Serializable]
+    public struct SaveData {
+        public int[] ItemIds;
+        public SerializableVector2Int[] Positions;
+        public GridRotation[] Rotations;
+        public object[][] AdditionalData;
+    
+        public override string ToString() {
+            return $"ItemIds: {string.Join(", ", ItemIds)}\n" +
+                   $"Positions: {string.Join(", ", Positions)}\n" +
+                   $"Rotations: {string.Join(", ", Rotations)}\n" +
+                   $"AdditionalData: {string.Join(", ", AdditionalData.Select(data => $"[{string.Join(", ", data)}]"))}";
+        }
     }
+}
+
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Dynasty.Library;
 using UnityEngine;
@@ -13,12 +14,16 @@ public class SaveManager : MonoScriptable {
     [SerializeField] SaveLoader _loader;
     [SerializeField] SaveInterpreter[] _interpreters;
 
+    public int CurrentSaveSlot {
+        get => _currentSaveSlot;
+        set => _currentSaveSlot = value;
+    }
+
     Dictionary<string, object> _state;
 
-    public int CurrentSaveSlot => _currentSaveSlot;
     public IReadOnlyDictionary<string, object> State => _state;
-    
-    public event Action OnBeforeSave;
+
+    public event Action OnSaveStarted, OnSaveCompleted;
 
     public override async void OnAwake() {
         SceneManager.sceneUnloaded += OnSceneUnloaded;
@@ -40,20 +45,24 @@ public class SaveManager : MonoScriptable {
         foreach (var interpreter in _interpreters) {
             if (_state.TryGetValue(interpreter.SaveKey, out var saveData)) {
                 interpreter.OnAfterLoad(saveData);
-            }
-            else {
+            } else {
                 interpreter.OnSaveNotFound();
             }
         }
     }
+
+    public async Task Save() {
+        await UpdateAndSaveState(CurrentSaveSlot);
+    }
     
-    public async Task UpdateAndSaveState(int slotIndex) {
+    async Task UpdateAndSaveState(int slotIndex) {
         UpdateState();
         await _loader.Save(_state, slotIndex);
+        OnSaveCompleted?.Invoke();
     }
     
     void UpdateState() {
-        OnBeforeSave?.Invoke();
+        OnSaveStarted?.Invoke();
         
         foreach (var interpreter in _interpreters) {
             _state[interpreter.SaveKey] = interpreter.OnBeforeSave();
@@ -64,14 +73,8 @@ public class SaveManager : MonoScriptable {
         await _loader.Delete(slotIndex);
     }
     
-    async Task SetSaveSlot(int value) {
-        if (_currentSaveSlot == value) return;
-
-        if (_currentSaveSlot != -1) {
-            await UpdateAndSaveState(_currentSaveSlot);
-        }
-
-        _currentSaveSlot = value;
+    public async Task<SaveSlot[]> GetSaveSlots() {
+        return (await _loader.GetSaveSlots()).ToArray();
     }
 
     public void SaveData<T>(string key, T data) {
@@ -85,6 +88,10 @@ public class SaveManager : MonoScriptable {
 
         return defaultData;
     }
+}
+
+public struct SaveSlot {
+    public DateTime LastPlayed;
 }
 
 }
