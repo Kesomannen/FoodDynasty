@@ -264,19 +264,19 @@ MonoBehaviour:
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: UnityEditor.U2D.Common.Path.ScriptableData`1, Unity.2D.Common.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePath`1, Unity.2D.Path.Editor
     _guid: 
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: UnityEditor.U2D.Common.Path.GenericScriptablePathInspector`2,
-      Unity.2D.Common.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePathInspector`2,
+      Unity.2D.Path.Editor
     _guid: 
     AssemblyGUID: 
     _argNames:
     - U
     - T
-  - _typeNameAndAssembly: UnityEditor.U2D.Common.Path.GenericScriptablePath`1, Unity.2D.Common.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Path.ScriptableData`1, Unity.2D.Path.Editor
     _guid: 
     AssemblyGUID: 
     _argNames:
