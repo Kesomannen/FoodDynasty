@@ -17,12 +17,12 @@ public abstract class SaveStore<T> : MonoBehaviour {
     string SaveKey => $"{_saveKey}_{_guid}";
 
     protected virtual void Start() {
-        OnAfterLoad(_saveManager.LoadData(SaveKey, GetDefaultData()));
+        OnAfterLoad(_saveManager.GetData(SaveKey, GetDefaultData()));
     }
 
     protected virtual void OnEnable() => _saveManager.OnSaveStarted += Save;
     protected virtual void OnDisable() => _saveManager.OnSaveStarted -= Save;
-    void Save() => _saveManager.SaveData(SaveKey, GetSaveData());
+    void Save() => _saveManager.SetData(SaveKey, GetSaveData());
 }
 
 }

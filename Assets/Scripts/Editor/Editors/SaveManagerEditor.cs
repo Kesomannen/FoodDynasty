@@ -30,11 +30,11 @@ public class SaveManagerEditor : Editor {
         EditorGUILayout.BeginHorizontal();
         
         if (GUILayout.Button("Save")) {
-            await saveManager.Save();
+            await saveManager.SaveCurrent();
         }
 
         if (GUILayout.Button("Delete")) {
-            saveManager.DeleteSlot(saveManager.CurrentSaveSlot);
+            saveManager.DeleteSave(saveManager.CurrentSaveId);
         }
         
         EditorGUILayout.EndHorizontal();

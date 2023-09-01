@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Dynasty.Library.Events;
 using Dynasty.Persistent.Core;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class SaveSlotController : MonoBehaviour {
     List<SaveSlotContainer> _slots;
     
     async void Start() {
-        var saveSlots = await _saveManager.GetSaveSlots();
+        var saveSlots = await _saveManager.GetSaves();
         
         _slots = new List<SaveSlotContainer>(saveSlots.Length);
         
@@ -25,7 +26,7 @@ public class SaveSlotController : MonoBehaviour {
             var slot = saveSlots[i];
             var container = Instantiate(_containerPrefab, _containerParent);
             container.transform.SetSiblingIndex(i);
-            container.SetContent(i, slot);
+            container.SetContent(slot);
             
             container.OnContinue += Continue;
             container.OnDelete += Delete;
@@ -34,20 +35,26 @@ public class SaveSlotController : MonoBehaviour {
         }
     }
 
-    void Continue(int index) {
-        _saveManager.CurrentSaveSlot = index;
+    void Continue(SaveSlotContainer slot) {
+        _saveManager.CurrentSaveId = slot.Data.Id;
         _loadScene.Raise(_gameSceneId);
     }
     
-    void Delete(int index) {
-        _saveManager.DeleteSlot(index);
-        Destroy(_slots[index].gameObject);
-        _slots.RemoveAt(index);
+    void Delete(SaveSlotContainer slot) {
+        _saveManager.DeleteSave(slot.Data.Id);
+        Destroy(slot.gameObject);
+        _slots.Remove(slot);
     }
     
     public void New() {
-        _saveManager.CurrentSaveSlot = _slots.Count;
+        _saveManager.CurrentSaveId = GetAvailableId();
         _loadScene.Raise(_gameSceneId);
+    }
+
+    int GetAvailableId() {
+        int i;
+        for (i = 0; _slots.Any(slot => slot.Data.Id == i); i++) { }
+        return i;
     }
 }
 

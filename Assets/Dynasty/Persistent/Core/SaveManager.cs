@@ -2,45 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Dynasty.Library;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Dynasty.Persistent.Core {
 
 [CreateAssetMenu(menuName = "Saving/Manager")]
-public class SaveManager : MonoScriptable {
-    [SerializeField] int _currentSaveSlot;
+public class SaveManager : ScriptableObject {
     [SerializeField] SaveLoader _loader;
     [SerializeField] SaveInterpreter[] _interpreters;
 
-    public int CurrentSaveSlot {
-        get => _currentSaveSlot;
-        set => _currentSaveSlot = value;
-    }
+    public int CurrentSaveId { get; set; }
 
     Dictionary<string, object> _state;
 
     public IReadOnlyDictionary<string, object> State => _state;
 
     public event Action OnSaveStarted, OnSaveCompleted;
-
-    public override async void OnAwake() {
-        SceneManager.sceneUnloaded += OnSceneUnloaded;
-        await LoadStateFrom(CurrentSaveSlot);
-    }
-
-    public override async void OnDestroy() {
-        SceneManager.sceneUnloaded -= OnSceneUnloaded;
-        await UpdateAndSaveState(CurrentSaveSlot);
+    
+    public async Task SaveCurrent() {
+        await UpdateAndSaveState(CurrentSaveId);
     }
     
-    void OnSceneUnloaded(Scene scene) {
-        UpdateState();
+    public async Task LoadCurrent() {
+        await LoadStateFrom(CurrentSaveId);
     }
-
-    async Task LoadStateFrom(int slotIndex) {
-        _state = await _loader.Load(slotIndex);
+    
+    public async void DeleteSave(int saveId) {
+        await _loader.Delete(saveId);
+    }
+    
+    async Task LoadStateFrom(int saveId) {
+        _state = await _loader.Load(saveId);
 
         foreach (var interpreter in _interpreters) {
             if (_state.TryGetValue(interpreter.SaveKey, out var saveData)) {
@@ -50,14 +42,10 @@ public class SaveManager : MonoScriptable {
             }
         }
     }
-
-    public async Task Save() {
-        await UpdateAndSaveState(CurrentSaveSlot);
-    }
     
-    async Task UpdateAndSaveState(int slotIndex) {
+    async Task UpdateAndSaveState(int saveId) {
         UpdateState();
-        await _loader.Save(_state, slotIndex);
+        await _loader.Save(_state, saveId);
         OnSaveCompleted?.Invoke();
     }
     
@@ -68,20 +56,16 @@ public class SaveManager : MonoScriptable {
             _state[interpreter.SaveKey] = interpreter.OnBeforeSave();
         }
     }
-
-    public async void DeleteSlot(int slotIndex) {
-        await _loader.Delete(slotIndex);
-    }
     
-    public async Task<SaveSlot[]> GetSaveSlots() {
-        return (await _loader.GetSaveSlots()).ToArray();
+    public async Task<SaveSlot[]> GetSaves() {
+        return (await _loader.GetSaves()).ToArray();
     }
 
-    public void SaveData<T>(string key, T data) {
+    public void SetData<T>(string key, T data) {
         _state[key] = data;
     }
 
-    public T LoadData<T>(string key, T defaultData) {
+    public T GetData<T>(string key, T defaultData) {
         if (_state.TryGetValue(key, out var data)) {
             return (T) data;
         }
@@ -91,6 +75,7 @@ public class SaveManager : MonoScriptable {
 }
 
 public struct SaveSlot {
+    public int Id;
     public DateTime LastPlayed;
 }
 

@@ -315,8 +315,7 @@ MonoBehaviour:
   _saveKey: machines
   _saveManager: {fileID: 11400000, guid: f64a11294946b3a4da808f95ef32d4b2, type: 2}
   _guid: 28bb01c8-8f37-486c-a852-35386a20573a
-  _gridManager: {fileID: 566939830}
-  _itemLookup: {fileID: 11400000, guid: 89fcc50be1a52484aafe9bcb43f1da73, type: 2}
+  _loader: {fileID: 89925253}
   _startingMachines:
   - _itemData: {fileID: 11400000, guid: d9e5b56e40d6b8640b484ee21f57282a, type: 2}
     _position: {x: 46, y: 25}
@@ -399,15 +398,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89925242}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b1056d74cbf48b2a35ab493260b1bb2, type: 3}
+  m_Script: {fileID: 11500000, guid: a38490a2bef04ab986f88a23ddf3196a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveIntensity: 0.2
-  _moveSpeed: 0.5
-  _rotationIntensity: 1
-  _rotationSpeed: 0.5
+  _gridManager: {fileID: 566939830}
+  _itemLookup: {fileID: 11400000, guid: 89fcc50be1a52484aafe9bcb43f1da73, type: 2}
 --- !u!1 &122801778
 GameObject:
   m_ObjectHideFlags: 0
@@ -4986,7 +4983,6 @@ MonoBehaviour:
   _scriptableObjects:
   - {fileID: 11400000, guid: 7521936ca744b2b45ab82e5c1d9760b4, type: 2}
   - {fileID: 11400000, guid: f5db9577760bc2e4abe3ba3d47891898, type: 2}
-  - {fileID: 11400000, guid: f64a11294946b3a4da808f95ef32d4b2, type: 2}
   - {fileID: 11400000, guid: 25993104f26956c4685bbe3451593798, type: 2}
 --- !u!4 &1128788155
 Transform:
@@ -14543,7 +14539,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _containerParent
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8442436586126276146}
     - target: {fileID: 8010305878912527411, guid: dc703a12e13665f4fa55a585df1a6321,
         type: 3}
       propertyPath: m_Color.a

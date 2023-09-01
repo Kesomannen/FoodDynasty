@@ -9,15 +9,15 @@ namespace Dynasty.UI.Menu {
 public class SaveSlotContainer : MonoBehaviour {
     [SerializeField] TMP_Text _name;
     [SerializeField] TMP_Text _lastPlayed;
-    
-    public int Index { get; private set; }
 
-    public event Action<int> OnContinue, OnDelete;
+    public SaveSlot Data { get; private set; }
 
-    public void SetContent(int index, SaveSlot saveSlot) {
-        Index = index;
+    public event Action<SaveSlotContainer> OnContinue, OnDelete;
 
-        _name.text = $"Save {index + 1}";
+    public void SetContent(SaveSlot saveSlot) {
+        Data = saveSlot;
+        
+        _name.text = $"Save {saveSlot.Id + 1}";
         var timeAgo = DateTime.Now - saveSlot.LastPlayed;
 
         if (timeAgo.TotalDays > 1) {
@@ -32,11 +32,11 @@ public class SaveSlotContainer : MonoBehaviour {
     }
     
     public void Continue() {
-        OnContinue?.Invoke(Index);
+        OnContinue?.Invoke(this);
     }
     
     public void Delete() {
-        OnDelete?.Invoke(Index);
+        OnDelete?.Invoke(this);
     }
 }
 
