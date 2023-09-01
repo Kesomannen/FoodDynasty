@@ -23,10 +23,10 @@ MonoBehaviour:
   - _typeNameAndAssembly: UnityEngine.HexagonalRuleTile`1, Unity.2D.Tilemap.Extras
   - _typeNameAndAssembly: UnityEngine.IsometricRuleTile`1, Unity.2D.Tilemap.Extras
   - _typeNameAndAssembly: UnityEngine.RuleTile`1, Unity.2D.Tilemap.Extras
-  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePath`1, Unity.2D.Path.Editor
-  - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePathInspector`2,
-      Unity.2D.Path.Editor
-  - _typeNameAndAssembly: UnityEditor.U2D.Path.ScriptableData`1, Unity.2D.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Common.Path.ScriptableData`1, Unity.2D.Common.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Common.Path.GenericScriptablePathInspector`2,
+      Unity.2D.Common.Path.Editor
+  - _typeNameAndAssembly: UnityEditor.U2D.Common.Path.GenericScriptablePath`1, Unity.2D.Common.Path.Editor
   - _typeNameAndAssembly: Dynasty.Library.Data.SerializedDataObject`1, Dynasty.Library
   - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
