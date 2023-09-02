@@ -4,6 +4,8 @@ using Dynasty.Library.Helpers;
 using Dynasty.Persistent.Core;
 using UnityEngine;
 
+# pragma warning disable 4014
+
 namespace Dynasty.Persistent.Mapping {
 
 public class AutoSaver : MonoBehaviour {

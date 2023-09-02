@@ -2,7 +2,7 @@
     "name": "PlayerControls",
     "maps": [
         {
-            "name": "Default",
+            "name": "Keybinds",
             "id": "fc5bd5fd-4c56-450d-939c-69356da010ca",
             "actions": [
                 {
@@ -51,9 +51,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Open Options",
+                    "name": "Open Actions",
                     "type": "Button",
                     "id": "f5ebc035-e34e-4b59-ac54-85beb76e5060",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Open Options",
+                    "type": "Button",
+                    "id": "2d27e66f-50e3-44a9-9aae-19d5eed4e724",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -120,6 +129,17 @@
                     "name": "",
                     "id": "1d0512f2-46eb-4c95-9d78-879fa1f3dba6",
                     "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Open Actions",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5c80c1f8-53f2-4883-a9b2-f7dd170e99c1",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",

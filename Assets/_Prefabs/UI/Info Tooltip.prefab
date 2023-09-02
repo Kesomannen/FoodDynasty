@@ -358,7 +358,7 @@ PrefabInstance:
     - target: {fileID: 4910715633435095092, guid: ac6cf3746db95bf4fa4486cb8dbc9bbf,
         type: 3}
       propertyPath: m_Name
-      value: Tooltip
+      value: Info Tooltip
       objectReference: {fileID: 0}
     - target: {fileID: 4910715633435095093, guid: ac6cf3746db95bf4fa4486cb8dbc9bbf,
         type: 3}
@@ -479,21 +479,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4922173485604764271}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2038041229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 29642203995982427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7c874459c44b0eb8d3e5e9eca642a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _nameText: {fileID: 2037286225}
-  _valueText: {fileID: 1542643724}
-  _icon: {fileID: 804324209}
 --- !u!114 &2038041228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,3 +494,18 @@ MonoBehaviour:
   _autoDetectComponents: 0
   _components:
   - {fileID: 2038041229}
+--- !u!114 &2038041229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29642203995982427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e7c874459c44b0eb8d3e5e9eca642a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nameText: {fileID: 2037286225}
+  _valueText: {fileID: 1542643724}
+  _icon: {fileID: 804324209}

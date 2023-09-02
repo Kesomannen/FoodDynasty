@@ -9,6 +9,7 @@ using Dynasty.Library.Extensions;
 using Dynasty.Library.Helpers;
 using Dynasty.Library.Pooling;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace Dynasty.Core.Grid {
@@ -54,6 +55,10 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     
     [Tooltip("Applied when the current placement is invalid.")]
     [SerializeField] Material _invalidMaterial;
+    
+    [Header("Events")]
+    [Tooltip("Raised when an object is placed.")]
+    [SerializeField] UnityEvent _onPlaced;
 
     /// <summary>
     /// Is the placer currently placing an object?
@@ -145,13 +150,19 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
         LeanTween.cancel(_rotateTweenId);
         Destroy(_currentBlueprint.gameObject);
 
-        return _state switch {
-            State.Cancelled => GridPlacementResult.Failed,
-            State.Deleted => GridPlacementResult.Deleted,
-            State.Placed => new GridPlacementResult(GridPlacementResultType.Successful, _currentGridPosition, _currentGridRotation),
-            State.Waiting => throw new Exception("Should not be waiting after placement"),
-            _ => throw new ArgumentOutOfRangeException()
-        };
+        switch (_state) {
+            case State.Cancelled:
+                return GridPlacementResult.Failed;
+            case State.Deleted:
+                return GridPlacementResult.Deleted;
+            case State.Placed:
+                _onPlaced.Invoke();
+                return GridPlacementResult.Successful(_currentGridPosition, _currentGridRotation);
+            case State.Waiting:
+                throw new Exception("Should not be waiting after placement");
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     void SetupBlueprint(GridObject gridObject) {
@@ -295,6 +306,7 @@ public readonly struct GridPlacementResult {
     
     public static GridPlacementResult Failed => new(GridPlacementResultType.Failed);
     public static GridPlacementResult Deleted => new(GridPlacementResultType.Deleted);
+    public static GridPlacementResult Successful(Vector2Int gridPosition, GridRotation rotation) => new(GridPlacementResultType.Successful, gridPosition, rotation);
 }
 
 public enum GridPlacementResultType {

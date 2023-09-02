@@ -21,6 +21,7 @@ MonoBehaviour:
   - _typeNameAndAssembly: Dynasty.Library.Pooling.PoolableComponent`1, Dynasty.Library
   - _typeNameAndAssembly: Dynasty.UI.Components.EntityIcon`1, Dynasty.UI
   - _typeNameAndAssembly: Dynasty.UI.Components.EntityInfo`1, Dynasty.UI
+  - _typeNameAndAssembly: Dynasty.UI.Miscellanious.EnumDropdown`1, Dynasty.UI
   _values:
   - _keys:
     - _collection:
@@ -106,3 +107,17 @@ MonoBehaviour:
         z_EntityIcon_Entity
   - _keys: []
     _values: []
+  - _keys:
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Library.QualitySetting, Dynasty.Library
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Library.WindowModeSetting, Dynasty.Library
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Library.MaxFramerateSetting, Dynasty.Library
+    _values:
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_33cc96ed9fc5d9246b1737df28359e52,
+        z_EnumDropdown_QualitySetting
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_07e592a271d72c74e89c3c303c12e0a1,
+        z_EnumDropdown_WindowModeSetting
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_a3ae8af93e55f444ba5dd1fbd80f74ed,
+        z_EnumDropdown_MaxFramerateSetting

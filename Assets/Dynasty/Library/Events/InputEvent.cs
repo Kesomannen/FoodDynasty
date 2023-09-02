@@ -11,6 +11,7 @@ public class InputEvent : GameEvent<InputAction.CallbackContext> {
 
     public string Name => _nameOverride.Enabled ? _nameOverride.Value : Action.name;
     public InputAction Action => _action.action;
+    public InputActionReference Reference => _action;
 }
 
 }

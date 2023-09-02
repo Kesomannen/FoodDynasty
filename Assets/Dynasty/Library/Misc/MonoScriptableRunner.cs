@@ -9,7 +9,6 @@ public class MonoScriptableRunner : MonoBehaviour {
         foreach (var scriptableObject in _scriptableObjects) {
             scriptableObject.OnAwake();
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     void OnDestroy() {

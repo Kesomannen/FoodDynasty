@@ -35,6 +35,12 @@ MonoBehaviour:
     _guid: ebfc489af0ff4ecbbc30e8440d302b1c
   - _typeNameAndAssembly: UnityEngine.Rigidbody, UnityEngine.PhysicsModule
     _guid: 
+  - _typeNameAndAssembly: Dynasty.Library.QualitySetting, Dynasty.Library
+    _guid: 
+  - _typeNameAndAssembly: Dynasty.Library.WindowModeSetting, Dynasty.Library
+    _guid: 
+  - _typeNameAndAssembly: Dynasty.Library.MaxFramerateSetting, Dynasty.Library
+    _guid: 
   _genericArgumentValues:
   - _array:
     - _arguments:
@@ -112,6 +118,19 @@ MonoBehaviour:
         _guid: 7a3409246c914e6d8646fa636551bde6
       _assemblyGUID: a2d4ecfc6268d7c47b05da360d81532e
   - _array: []
+  - _array:
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Library.QualitySetting, Dynasty.Library
+        _guid: 
+      _assemblyGUID: 33cc96ed9fc5d9246b1737df28359e52
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Library.WindowModeSetting, Dynasty.Library
+        _guid: 
+      _assemblyGUID: 07e592a271d72c74e89c3c303c12e0a1
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Library.MaxFramerateSetting, Dynasty.Library
+        _guid: 
+      _assemblyGUID: a3ae8af93e55f444ba5dd1fbd80f74ed
   _genericTypeValues:
   - _array:
     - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
@@ -285,6 +304,30 @@ MonoBehaviour:
       - T
       _componentName: 
       _order: 0
+  - _array:
+    - _typeNameAndAssembly: Dynasty.UI.Miscellanious.EnumDropdown`1, Dynasty.UI
+      _guid: 64b3224c66d447e6841cab5219baa0a4
+      AssemblyGUID: 6a73d72e3324ea84b9486a47176a1c57
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+  - _array:
+    - _typeNameAndAssembly: Dynasty.UI.Miscellanious.EnumDropdown`1, Dynasty.UI
+      _guid: 64b3224c66d447e6841cab5219baa0a4
+      AssemblyGUID: 6a73d72e3324ea84b9486a47176a1c57
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+  - _array:
+    - _typeNameAndAssembly: Dynasty.UI.Miscellanious.EnumDropdown`1, Dynasty.UI
+      _guid: 64b3224c66d447e6841cab5219baa0a4
+      AssemblyGUID: 6a73d72e3324ea84b9486a47176a1c57
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
   _genericTypeKeys:
   - _typeNameAndAssembly: Dynasty.Library.Events.Event`1, Dynasty.Library
     _guid: 20b6ca5797584b78b97df411ce90faae
@@ -338,6 +381,13 @@ MonoBehaviour:
   - _typeNameAndAssembly: Dynasty.UI.Components.EntityInfo`1, Dynasty.UI
     _guid: 01fa876e91584b37b14d69a07605e4ad
     AssemblyGUID: 2c5087b1243ea5742a29041785881fbc
+    _argNames:
+    - T
+    _componentName: 
+    _order: 0
+  - _typeNameAndAssembly: Dynasty.UI.Miscellanious.EnumDropdown`1, Dynasty.UI
+    _guid: 64b3224c66d447e6841cab5219baa0a4
+    AssemblyGUID: 6a73d72e3324ea84b9486a47176a1c57
     _argNames:
     - T
     _componentName: 

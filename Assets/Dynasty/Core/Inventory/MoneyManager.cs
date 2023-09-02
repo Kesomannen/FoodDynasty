@@ -26,7 +26,10 @@ public class MoneyManager : ScriptableObject {
             var clamped = Math.Max(value, 0);
             if (Math.Abs(clamped - _currentMoney) < 0.05f) return;
             var previous = _currentMoney;
-            TotalMoneyMade += clamped - _currentMoney;
+
+            if (clamped > _currentMoney) {
+                TotalMoneyMade += clamped - _currentMoney;
+            }
             
             _currentMoney = clamped;
             _onMoneyChanged.Raise(previous, _currentMoney);
