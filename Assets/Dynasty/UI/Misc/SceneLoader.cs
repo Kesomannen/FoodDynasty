@@ -15,7 +15,7 @@ public class SceneLoader : MonoBehaviour {
     void Awake() {
         if (!_flag) return;
         
-        _overlay.gameObject.SetActive(false);
+        _overlay.gameObject.SetActive(true);
         LeanTween.alpha(_overlay, 0, _fadeDuration)
             .setOnComplete(() => {
                 _flag = false;

@@ -17,7 +17,6 @@ public static class ItemUIUtil {
         { ItemType.Seller, "e227"},
         { ItemType.Topping, "f00c" },
         { ItemType.Food, "e57a" },
-        
     };
     
     static readonly Dictionary<ItemTier, Color> _colorLookup = new() {

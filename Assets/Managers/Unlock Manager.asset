@@ -15,7 +15,7 @@ MonoBehaviour:
   _moneyManager: {fileID: 11400000, guid: 3aa791b48a062404caa64519d76af16b, type: 2}
   _unlockEvent: {fileID: 11400000, guid: 7e120a136293dad40b8f72973c98d7f2, type: 2}
   _unlockData:
-  - MoneyMadeRequirement: -1
+  - MoneyMadeRequirement: 0
     Unlocks:
     - {fileID: 11400000, guid: 3adee0a046af31b45b0bec5ed3d03345, type: 2}
     - {fileID: 11400000, guid: 13daa894dc36a6f439697393b8d662dd, type: 2}

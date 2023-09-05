@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Dynasty.UI.Controllers {
 
-public class OptionsController : MonoBehaviour {
+public class ActionsController : MonoBehaviour {
     [SerializeField] InventoryAsset _inventory;
     [SerializeField] GridManager _grid;
     [SerializeField] InventoryGridObjectHandler _gridObjectHandler;
@@ -30,7 +30,8 @@ public class OptionsController : MonoBehaviour {
     public void DeleteAllMachines() {
         var gridObjects = _grid.GridObjects.ToArray();
         foreach (var gridObject in gridObjects) {
-            if (!_gridObjectHandler.RegisterDeletion(gridObject)) return;
+            if (!gridObject.CanMove || !_gridObjectHandler.RegisterDeletion(gridObject)) continue;
+            
             _grid.TryRemove(gridObject);
             Destroy(gridObject.gameObject);
         }

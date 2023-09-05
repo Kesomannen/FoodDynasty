@@ -106,12 +106,12 @@ public enum QualitySetting {
 }
     
 public enum WindowModeSetting {
-    #if UNITY_STANDALONE_WIN
+#if UNITY_STANDALONE_WIN
     Fullscreen,
-    #endif
-    #if UNITY_STANDALONE_OSX
+#endif
+#if UNITY_STANDALONE_OSX
     Maximized,
-    #endif
+#endif
     Windowed,
     Borderless
 }

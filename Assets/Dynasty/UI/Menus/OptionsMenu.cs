@@ -35,9 +35,9 @@ public class OptionsMenu : MonoBehaviour {
         Bind(_windowDropdown, Settings.WindowMode);
         Bind(_framerateDropdown, Settings.MaxFramerate);
         
-        Bind(_masterVolumeSlider, Settings.MasterVolume, 0.01f);
-        Bind(_musicVolumeSlider, Settings.MusicVolume, 0.01f);
-        Bind(_effectsVolumeSlider, Settings.EffectsVolume, 0.01f);
+        Bind(_masterVolumeSlider, Settings.MasterVolume, 100);
+        Bind(_musicVolumeSlider, Settings.MusicVolume, 100);
+        Bind(_effectsVolumeSlider, Settings.EffectsVolume, 100);
         
         foreach (var input in _rebindableInputs) {
             var rebind = Instantiate(_rebindPrefab, _rebindParent);
@@ -73,8 +73,8 @@ public class OptionsMenu : MonoBehaviour {
     } 
     
     static void Bind(Slider slider, Setting<float> setting, float multiplier = 1f) {
-        slider.value = setting.Value / multiplier;
-        slider.onValueChanged.AddListener(value => setting.Value = value * multiplier);
+        slider.value = setting.Value * multiplier;
+        slider.onValueChanged.AddListener(value => setting.Value = value / multiplier);
     }
 }
 
