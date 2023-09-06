@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -314,6 +314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _saveKey: machines
   _saveManager: {fileID: 11400000, guid: f64a11294946b3a4da808f95ef32d4b2, type: 2}
+  _unique: 1
   _guid: 28bb01c8-8f37-486c-a852-35386a20573a
   _loader: {fileID: 89925253}
   _startingMachines:
@@ -5367,7 +5368,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 621907788}
   m_HandleRect: {fileID: 621907787}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -13072,7 +13073,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 526723226}
   m_HandleRect: {fileID: 526723225}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

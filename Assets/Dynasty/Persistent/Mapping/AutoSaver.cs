@@ -21,8 +21,10 @@ public class AutoSaver : MonoBehaviour {
     }
 
     IEnumerator Start() {
-        yield return CoroutineHelpers.Wait(_saveInterval);
-        _saveManager.SaveCurrent();
+        while (enabled) {
+            yield return CoroutineHelpers.Wait(_saveInterval);
+            _saveManager.SaveCurrent();   
+        }
     }
 }
 

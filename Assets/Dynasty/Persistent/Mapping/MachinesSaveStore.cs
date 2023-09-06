@@ -7,25 +7,25 @@ using UnityEngine;
 
 namespace Dynasty.Persistent.Mapping {
 
-public class MachinesSaveStore : SaveStore<MachineLoader.Data> {
+public class MachinesSaveStore : SaveStore<MachineSaveData> {
     [Space]
     [SerializeField] MachineLoader _loader;
     [SerializeField] StartingMachine[] _startingMachines;
 
-    protected override MachineLoader.Data GetDefaultData() {
-        return new MachineLoader.Data {
+    protected override MachineSaveData GetDefaultData() {
+        return new MachineSaveData {
             ItemIds = _startingMachines.Select(machine => _loader.Lookup.GetId(machine.ItemData)).ToArray(),
             Positions = _startingMachines.Select(machine => machine.Position).ToArray(),
             Rotations = _startingMachines.Select(machine => machine.Rotation).ToArray(),
-            AdditionalData = _startingMachines.Select(_ => Array.Empty<object>()).ToArray()
+            AdditionalData = _startingMachines.Select(_ => new MachineSaveData.AdditionalDataItem()).ToArray()
         };
     }
 
-    protected override void OnAfterLoad(MachineLoader.Data data) {
+    protected override void OnAfterLoad(MachineSaveData data) {
         _loader.Load(data);
     }
 
-    protected override MachineLoader.Data GetSaveData() {
+    protected override MachineSaveData GetSaveData() {
         return _loader.Get();
     }
     

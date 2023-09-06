@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 504f9cb2f8204aa89fc85f5d86fe82c1, type: 3}
-  m_Name: Money Save Interpreter
+  m_Script: {fileID: 11500000, guid: 9a9a88864e3c4ff3a26d5a0f36392d93, type: 3}
+  m_Name: Panorama
   m_EditorClassIdentifier: 
-  _saveKey: money
-  _startingMoney: 9999999
-  _moneyManager: {fileID: 11400000, guid: 3aa791b48a062404caa64519d76af16b, type: 2}
+  _saveData:
+    ItemIds: 
+    Positions: []
+    Rotations: []

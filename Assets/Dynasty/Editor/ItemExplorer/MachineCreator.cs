@@ -99,7 +99,7 @@ public class MachineCreator {
         triggerTransform.SetParent(_source.transform);
         triggerTransform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         
-        var triggerCollider = triggerTransform.AddComponent<BoxCollider>();
+        var triggerCollider = triggerTransform.gameObject.AddComponent<BoxCollider>();
         triggerCollider.isTrigger = true;
         triggerCollider.center = _triggerColliderCenter;
         triggerCollider.size = _triggerColliderSize;
@@ -164,7 +164,7 @@ public class MachineCreator {
     }
 
     T Add<T>() where T : Component {
-        return _source.AddComponent<T>();
+        return _source.gameObject.AddComponent<T>();
     }
 
     public void Save() {

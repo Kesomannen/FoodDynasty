@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public static class ThumbnailCreator {
     static readonly Vector2Int _imageSize = new(512, 512);

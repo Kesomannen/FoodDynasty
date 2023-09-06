@@ -14,7 +14,7 @@ public class MachineLoader : MonoBehaviour {
     
     public Lookup<ItemData> Lookup => _itemLookup;
 
-    public void Load(Data data) {
+    public void Load(MachineSaveData data) {
         for (var i = 0; i < data.ItemIds.Length; i++) {
             var itemData = _itemLookup.GetFromId(data.ItemIds[i]);
             if (itemData is not IPrefabProvider<GridObject> provider) continue;
@@ -26,7 +26,7 @@ public class MachineLoader : MonoBehaviour {
                 continue;
             }
             
-            var savedData = data.AdditionalData[i];
+            var savedData = data.AdditionalData[i].Data;
             if (savedData.Length == 0) continue;
             
             var dataComponents = gridObject.GetComponentsInChildren<IAdditionalSaveData>();
@@ -36,49 +36,64 @@ public class MachineLoader : MonoBehaviour {
         }
     }
     
-    public Data Get() {
-        var entities = new List<(MachineItemData ItemData, GridObject GridObject)>();
+    public MachineSaveData Get() {
+        var objects = new List<(MachineItemData ItemData, GridObject GridObject)>();
         foreach (var gridObject in _gridManager.GridObjects) {
             if (!gridObject.TryGetComponent(out MachineEntity entity)) continue;
-            entities.Add((entity.Data, gridObject));
+            objects.Add((entity.Data, gridObject));
         }
 
-        var additionalData = new List<object[]>();
-        foreach (var (_, gridObject) in entities) {
+        var additionalData = new List<MachineSaveData.AdditionalDataItem>();
+        foreach (var (_, gridObject) in objects) {
             var dataComponents = gridObject.GetComponentsInChildren<IAdditionalSaveData>();
-            if (dataComponents.Length == 0) {
-                additionalData.Add(Array.Empty<object>());
-                continue;
-            }
             
-            var saveData = new object[dataComponents.Length];
-            for (var i = 0; i < dataComponents.Length; i++) {
-                saveData[i] = dataComponents[i].GetSaveData();
-            }
-            
-            additionalData.Add(saveData);
+            additionalData.Add(new MachineSaveData.AdditionalDataItem {
+                Data = dataComponents.Select(component => component.GetSaveData()).ToArray()
+            });
         }
 
-        return new Data {
-            ItemIds = entities.Select(tuple => _itemLookup.GetId(tuple.ItemData)).ToArray(),
-            Positions = entities.Select(tuple => new SerializableVector2Int(tuple.GridObject.GridPosition)).ToArray(),
-            Rotations = entities.Select(tuple => tuple.GridObject.Rotation).ToArray(),
+        return new MachineSaveData {
+            ItemIds = objects.Select(tuple => _itemLookup.GetId(tuple.ItemData)).ToArray(),
+            Positions = objects.Select(tuple => new SerializableVector2Int(tuple.GridObject.GridPosition)).ToArray(),
+            Rotations = objects.Select(tuple => tuple.GridObject.Rotation).ToArray(),
             AdditionalData = additionalData.ToArray()
         };
     }
+
+    public void Clear() {
+        var gridObjects = _gridManager.GridObjects.ToArray();
+        foreach (var gridObject in gridObjects) {
+            if (_gridManager.TryRemove(gridObject)) {
+                Destroy(gridObject.gameObject);
+            }
+        }
+    }
+}
+
+[Serializable]
+public class MachineSaveData {
+    public int[] ItemIds;
+    public SerializableVector2Int[] Positions;
+    public GridRotation[] Rotations;
+    public AdditionalDataItem[] AdditionalData;
     
+    public override string ToString() {
+        return $"ItemIds: {string.Join(", ", ItemIds)}\n" +
+               $"Positions: {string.Join(", ", Positions)}\n" +
+               $"Rotations: {string.Join(", ", Rotations)}\n" +
+               $"AdditionalData: {string.Join(", ", AdditionalData.Select(data => $"[{string.Join(", ", data)}]"))}";
+    }
+
     [Serializable]
-    public struct Data {
-        public int[] ItemIds;
-        public SerializableVector2Int[] Positions;
-        public GridRotation[] Rotations;
-        public object[][] AdditionalData;
-    
+    public class AdditionalDataItem {
+        public object[] Data;
+        
         public override string ToString() {
-            return $"ItemIds: {string.Join(", ", ItemIds)}\n" +
-                   $"Positions: {string.Join(", ", Positions)}\n" +
-                   $"Rotations: {string.Join(", ", Rotations)}\n" +
-                   $"AdditionalData: {string.Join(", ", AdditionalData.Select(data => $"[{string.Join(", ", data)}]"))}";
+            return $"[{string.Join(", ", Data)}]";
+        }
+
+        public AdditionalDataItem() {
+            Data = Array.Empty<object>();
         }
     }
 }

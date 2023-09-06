@@ -18,6 +18,8 @@ public class Supply : MonoBehaviour, IStatusProvider, IInfoProvider, IAdditional
     [SerializeField] GenericEvent _useEvent;
 
     int _currentSupply;
+    
+    public int MaxSupply => int.MaxValue;
 
     public ItemData RefillItem {
         get => _refillItem;

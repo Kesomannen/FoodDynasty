@@ -2,7 +2,14 @@
     "name": "Dynasty.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:b3b0a5a065f02914085c4782e7283e10"
+        "GUID:b3b0a5a065f02914085c4782e7283e10",
+        "GUID:367043ee10ea45288a31fbd62ce75fd0",
+        "GUID:f5b907779bf4028479fb9d98761b4147",
+        "GUID:ab7a54624e024284ae2ab9afa212b146",
+        "GUID:105e8b5e916e4062873f8cffd11bbbc3",
+        "GUID:0b165b2ea3104a37ac7349c2b29ab7de",
+        "GUID:48d58eaab94e1de429344393b7653b1f",
+        "GUID:7b6f459709f4320429d0ccc181cc1774"
     ],
     "includePlatforms": [
         "Editor"
