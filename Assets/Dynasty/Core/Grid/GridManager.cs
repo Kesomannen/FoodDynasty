@@ -19,13 +19,14 @@ public class GridManager : MonoBehaviour {
     readonly HashSet<GridObject> _gridObjects = new();
     int[,] _cells;
 
+    int[,] Cells {
+        set => _cells = value;
+        get => _cells ??= new int[_gridSize.x, _gridSize.y];
+    }
+
     public Vector2 CellSize => _cellSize;
     public Vector2Int GridSize => _gridSize;
     public IEnumerable<GridObject> GridObjects => _gridObjects;
-
-    void Awake() {
-        _cells = new int[_gridSize.x, _gridSize.y];
-    }
 
     /// <summary>
     /// Attempts to add a grid object to the grid.
@@ -90,11 +91,11 @@ public class GridManager : MonoBehaviour {
         
         for (var x = 0; x < _gridSize.x; x++) {
             for (var y = 0; y < _gridSize.y; y++) {
-                newCells[x + offset.x, y + offset.y] = _cells[x, y];
+                newCells[x + offset.x, y + offset.y] = Cells[x, y];
             }
         }
 
-        _cells = newCells;
+        Cells = newCells;
         _gridSize = newGridSize;
     }
     
@@ -126,11 +127,11 @@ public class GridManager : MonoBehaviour {
     }
     
     int GetCell(Vector2Int position) {
-        return _cells[position.x, position.y];
+        return Cells[position.x, position.y];
     }
     
     void ModifyCell(Vector2Int position, int value) {
-        _cells[position.x, position.y] += value;
+        Cells[position.x, position.y] += value;
     }
     
     public bool IsEmpty(Vector2Int position) {

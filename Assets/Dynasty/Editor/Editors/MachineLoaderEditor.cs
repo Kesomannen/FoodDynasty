@@ -9,15 +9,36 @@ public class MachineLoaderEditor : Editor {
     
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
+        
+        var machineLoader = (MachineLoader) target;
+        _panorama = (MainMenuPanorama) EditorGUILayout.ObjectField(_panorama, typeof(MainMenuPanorama), false);
 
         EditorGUILayout.BeginHorizontal();
+        EditorGUI.BeginDisabledGroup(_panorama == null);
         
-        _panorama = (MainMenuPanorama) EditorGUILayout.ObjectField(_panorama, typeof(MainMenuPanorama), false);
         if (GUILayout.Button("Save")) {
-            var machineLoader = (MachineLoader) target;
             _panorama.SaveData = machineLoader.Get();
         }
         
+        if (GUILayout.Button("Load")) {
+            Clear(machineLoader);
+            machineLoader.Load(_panorama.SaveData);
+        }
+        
+        EditorGUI.EndDisabledGroup();
+        
+        if (GUILayout.Button("Clear")) {
+            Clear(machineLoader);
+        }
+        
         EditorGUILayout.EndHorizontal();
+    }
+
+    static void Clear(MachineLoader loader) {
+        if (Application.isPlaying) {
+            loader.Clear();
+        } else {
+            loader.ClearImmediate();
+        }
     }
 }

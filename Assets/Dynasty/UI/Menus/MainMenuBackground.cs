@@ -14,6 +14,7 @@ public class MainMenuBackground : MonoBehaviour {
     [SerializeField] MainMenuPanorama[] _panoramas;
     [Space]
     [SerializeField] float _fadeDuration;
+    [SerializeField] float _blackDuration;
     [SerializeField] RectTransform _overlay;
 
     IEnumerator Start() {
@@ -28,7 +29,7 @@ public class MainMenuBackground : MonoBehaviour {
             LeanTween.alpha(_overlay, 0, _fadeDuration);
             yield return CoroutineHelpers.Wait(_duration + _fadeDuration);
             LeanTween.alpha(_overlay, 1, _fadeDuration);
-            yield return CoroutineHelpers.Wait(_fadeDuration);
+            yield return CoroutineHelpers.Wait(_fadeDuration + _blackDuration);
         }
     }
 }

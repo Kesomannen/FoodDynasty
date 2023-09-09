@@ -1,4 +1,6 @@
-﻿namespace Dynasty.Library.Data {
+﻿using Newtonsoft.Json;
+
+namespace Dynasty.Library.Data {
 
 /// <summary>
 /// Implement this interface to create persistent data on your machine component.
@@ -8,7 +10,7 @@ public interface IAdditionalSaveData {
     /// Called after the data has been loaded from storage.
     /// </summary>
     /// <remarks>Will only be called once in a component's lifespan. If the data is not found, no calls will be made.</remarks>
-    void OnAfterLoad(object data);
+    void OnAfterLoad(string json);
     
     /// <summary>
     /// Called before the data is saved to storage.
@@ -27,7 +29,7 @@ public interface IAdditionalSaveData<T> : IAdditionalSaveData {
     /// <inheritdoc cref="IAdditionalSaveData.GetSaveData"/>
     new T GetSaveData();
 
-    void IAdditionalSaveData.OnAfterLoad(object data) => OnAfterLoad((T)data);
+    void IAdditionalSaveData.OnAfterLoad(string json) => OnAfterLoad(JsonConvert.DeserializeObject<T>(json));
     object IAdditionalSaveData.GetSaveData() => GetSaveData();
 }
 

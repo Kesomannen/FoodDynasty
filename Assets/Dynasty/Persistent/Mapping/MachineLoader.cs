@@ -4,6 +4,7 @@ using System.Linq;
 using Dynasty.Core.Grid;
 using Dynasty.Core.Inventory;
 using Dynasty.Library.Data;
+using Newtonsoft.Json;
 using UnityEngine;
 
 namespace Dynasty.Persistent.Mapping {
@@ -48,7 +49,9 @@ public class MachineLoader : MonoBehaviour {
             var dataComponents = gridObject.GetComponentsInChildren<IAdditionalSaveData>();
             
             additionalData.Add(new MachineSaveData.AdditionalDataItem {
-                Data = dataComponents.Select(component => component.GetSaveData()).ToArray()
+                Data = dataComponents
+                    .Select(component => JsonConvert.SerializeObject(component.GetSaveData()))
+                    .ToArray()
             });
         }
 
@@ -61,10 +64,18 @@ public class MachineLoader : MonoBehaviour {
     }
 
     public void Clear() {
+        Clear(Destroy);
+    }
+
+    public void ClearImmediate() {
+        Clear(DestroyImmediate);
+    }
+
+    void Clear(Action<GameObject> destroy) {
         var gridObjects = _gridManager.GridObjects.ToArray();
         foreach (var gridObject in gridObjects) {
             if (_gridManager.TryRemove(gridObject)) {
-                Destroy(gridObject.gameObject);
+                destroy(gridObject.gameObject);
             }
         }
     }
@@ -86,14 +97,10 @@ public class MachineSaveData {
 
     [Serializable]
     public class AdditionalDataItem {
-        public object[] Data;
+        public string[] Data = Array.Empty<string>();
         
         public override string ToString() {
             return $"[{string.Join(", ", Data)}]";
-        }
-
-        public AdditionalDataItem() {
-            Data = Array.Empty<object>();
         }
     }
 }
