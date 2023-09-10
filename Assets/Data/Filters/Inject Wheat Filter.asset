@@ -18,13 +18,15 @@ MonoBehaviour:
     _trait:
       _value: Dough
       _hash: -1530337891
+      _type: 0
     _boolValue: 0
     _floatRange: {x: 0, y: 0}
     _intRange: {x: 0, y: 0}
-  - _type: 0
+  - _type: 1
     _trait:
       _value: Baked
       _hash: -1779161523
+      _type: 0
     _boolValue: 0
     _floatRange: {x: 0, y: 0}
     _intRange: {x: 0, y: 0}
@@ -32,6 +34,7 @@ MonoBehaviour:
     _trait:
       _value: Whole Wheat
       _hash: 548977062
+      _type: 0
     _boolValue: 0
     _floatRange: {x: 0, y: 0}
     _intRange: {x: 0, y: 0}

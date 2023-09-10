@@ -18,6 +18,7 @@ public class MachineLoaderEditor : Editor {
         
         if (GUILayout.Button("Save")) {
             _panorama.SaveData = machineLoader.Get();
+            EditorUtility.SetDirty(_panorama);
         }
         
         if (GUILayout.Button("Load")) {

@@ -54,7 +54,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 923d4d604e414c242aafe365626fca5f, type: 3}
   - {fileID: 21300000, guid: d2844ea03bd09bc498af0f94414b440d, type: 3}
   - {fileID: 21300000, guid: 8f5933017d0faf74b90c2cff4dd1324e, type: 3}
-  - {fileID: 21300000, guid: 6df1c902574850d42a4934fd27637476, type: 3}
   - {fileID: 21300000, guid: b9d5af72d6320c748b52f6185b0e09e4, type: 3}
   - {fileID: 21300000, guid: 8bfc8df31e311314889152320b69f8eb, type: 3}
   - {fileID: 21300000, guid: 335c2a754552472468c0702a8d8d31f4, type: 3}
@@ -73,7 +72,6 @@ SpriteAtlas:
   - Metallic Conveyor
   - Metallic Sell Crate
   - Cheese Adder
-  - Bread Derustifiter
   - Bread Demolder
   - Bread Softener
   - Dough

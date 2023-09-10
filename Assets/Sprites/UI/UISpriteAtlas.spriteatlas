@@ -48,6 +48,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f2a0b47be975058459b21e3ecb27ccae, type: 3}
   - {fileID: 7482667652216324306, guid: ad46d7ebc5dc9ba4aba270c91e5bbb73, type: 3}
   - {fileID: 21300000, guid: 59199bbd90b72ed4ebfdb050b4287c3b, type: 3}
+  - {fileID: 21300000, guid: 6b4d73dd3cce8fc48872ca405b4d64c9, type: 3}
   m_PackedSpriteNamesToIndex:
   - Rounded10px
   - ShopBackground
@@ -59,6 +60,7 @@ SpriteAtlas:
   - RoundedHollow10px
   - Square
   - RoundedHollow20px
+  - Gradient
   m_RenderDataMap: {}
   m_Tag: UISpriteAtlas
   m_IsVariant: 0

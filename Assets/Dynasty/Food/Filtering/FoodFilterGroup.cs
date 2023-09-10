@@ -15,19 +15,19 @@ public class FoodFilterGroup : ScriptableObject {
         return Check(_filters, food);
     }
 
-    bool Check(IReadOnlyCollection<FoodFilter> conditions, FoodBehaviour food) {
-        if (conditions.Count == 0) return true;
+    bool Check(IReadOnlyCollection<FoodFilter> filters, FoodBehaviour food) {
+        if (filters.Count == 0) return true;
         
         return _condition switch {
-            AndOr.And => conditions.All(condition => condition.Check(food)),
-            AndOr.Or => conditions.Any(condition => condition.Check(food)),
+            AndOr.All => filters.All(condition => condition.Check(food)),
+            AndOr.Any => filters.Any(condition => condition.Check(food)),
             _ => throw new ArgumentOutOfRangeException()
         };
     }
     
     enum AndOr {
-        And,
-        Or
+        All,
+        Any
     }
 }
 

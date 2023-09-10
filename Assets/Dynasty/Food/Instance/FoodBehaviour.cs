@@ -98,9 +98,13 @@ public class FoodBehaviour : MonoBehaviour, IPoolable<FoodBehaviour>, IInfoProvi
     }
     
     public bool TryGetTrait<T>(int hash, out T value) {
-        var success = _traits.TryGetValue(hash, out var objValue);
-        value = (T) objValue;
-        return success;
+        if (_traits.TryGetValue(hash, out var objValue)) {
+            value = (T) objValue;
+            return true;
+        }
+        
+        value = default;
+        return false;
     }
     
     public IEnumerable<EntityInfo> GetInfo() {
