@@ -21,7 +21,10 @@ public class NumberInputController : MonoBehaviour {
     
     readonly List<NumberInputModifier> _modifyButtons = new();
 
-    public float Value => string.IsNullOrEmpty(_inputField.text) ? 0 : float.Parse(_inputField.text);
+    public float Value {
+        get => string.IsNullOrEmpty(_inputField.text) ? 0 : float.Parse(_inputField.text);
+        set => SetValue(value);
+    }
 
     public event Action<float> OnSubmit;
     public event Action<float> OnValueChanged;

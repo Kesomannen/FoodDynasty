@@ -57,7 +57,8 @@ public class ItemDataBuyControl : MonoBehaviour {
 
         _container.SetContent(content);
         UpdateElements(_numberInput.Value);
-        
+        return;
+
         float GetMaxCount() {
             var max = moneyManager.CurrentMoney / content.Price;
             max = Math.Floor(max);
@@ -88,6 +89,7 @@ public class ItemDataBuyControl : MonoBehaviour {
 
     void Buy() {
         _callback?.Invoke((int) _numberInput.Value);
+        gameObject.SetActive(false);
     }
 }
 

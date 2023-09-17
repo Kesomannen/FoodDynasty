@@ -86,6 +86,7 @@ public class ItemSellControl : MonoBehaviour {
 
     void Sell() {
         _callback?.Invoke((int) _numberInput.Value);
+        gameObject.SetActive(false);
     }
 }
 

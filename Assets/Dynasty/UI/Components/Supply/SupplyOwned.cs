@@ -1,17 +1,16 @@
 ﻿using Dynasty.Core.Inventory;
 using Dynasty.Machine.Components;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Dynasty.UI.Components {
 
 public class SupplyOwned : UIComponent<Supply> {
     [SerializeField] UIComponent<ItemData> _dataComponent;
-    [SerializeField] GameObject[] _hideIfNotRefillable;
+    [SerializeField] UnityEvent<bool> _onRefillableChanged;
 
     public override void SetContent(Supply content) {
-        foreach (var obj in _hideIfNotRefillable) {
-            obj.SetActive(content.IsRefillable);
-        }
+        _onRefillableChanged.Invoke(content.IsRefillable);
 
         if (content.IsRefillable) {
             _dataComponent.SetContent(content.RefillItem);

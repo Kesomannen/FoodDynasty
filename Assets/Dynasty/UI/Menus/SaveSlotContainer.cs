@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using Dynasty.Persistent.Core;
 using TMPro;
 using UnityEngine;
