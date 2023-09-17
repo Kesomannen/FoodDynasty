@@ -1,6 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.SceneManagement;
+using Random = UnityEngine.Random;
 
 namespace Dynasty.Library.Audio {
 
@@ -10,6 +14,7 @@ public class SoundManager : MonoBehaviour {
     public static float EffectsVolume { get; set; }
     
     ObjectPool<AudioSource> _pool;
+    List<AudioSource> _sources = new();
     
     static SoundManager _instance;
     
@@ -28,8 +33,24 @@ public class SoundManager : MonoBehaviour {
         _pool = new ObjectPool<AudioSource>(() => {
             var obj = new GameObject("AudioSource").AddComponent<AudioSource>();
             DontDestroyOnLoad(obj);
+            _sources.Add(obj);
             return obj;
         });
+    }
+
+    void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    
+    void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        if (mode != LoadSceneMode.Single) return;
+        foreach (var audioSource in _sources) {
+            audioSource.Stop();
+        }
     }
 
     public void Play(SoundEffect sound) {

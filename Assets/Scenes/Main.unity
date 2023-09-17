@@ -1619,7 +1619,7 @@ MonoBehaviour:
   font: {fileID: 12800000, guid: df712234c2a60084b87722d04a84a35f, type: 3}
   fontSize: 12
   fontStyle: 0
-  alignment: 0
+  alignment: 4
   textDropShadow: 0
 --- !u!4 &370481450
 Transform:
@@ -6219,7 +6219,7 @@ MonoBehaviour:
   font: {fileID: 12800000, guid: df712234c2a60084b87722d04a84a35f, type: 3}
   fontSize: 12
   fontStyle: 0
-  alignment: 0
+  alignment: 4
   textDropShadow: 0
 --- !u!4 &1427109691
 Transform:
@@ -12057,7 +12057,7 @@ MonoBehaviour:
   font: {fileID: 12800000, guid: df712234c2a60084b87722d04a84a35f, type: 3}
   fontSize: 12
   fontStyle: 0
-  alignment: 0
+  alignment: 4
   textDropShadow: 0
 --- !u!1 &1992276120
 GameObject:
@@ -13454,23 +13454,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 521890693, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 521890693, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 521890693, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 53.91
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 521890693, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 20.26
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 521890693, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 27.955
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1835516198, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -13506,23 +13506,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 92.04
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 20.26
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 110.93001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2216930745617573330, guid: 74bec6fecf78cf64d9591831f4e5885b,
         type: 3}
