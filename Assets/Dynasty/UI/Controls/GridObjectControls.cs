@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using Dynasty.Core.Grid;
+﻿using Dynasty.Core.Grid;
 using Dynasty.Library.Events;
+using Dynasty.UI.Misc;
 using UnityEngine;
 
 namespace Dynasty.UI.Controls {
 
 public class GridObjectControls : MonoBehaviour {
-    [SerializeField] RectTransform _controlsParent;
+    [SerializeField] WorldCanvasWindow _window;
     [SerializeField] GridObjectControl[] _controls;
     [SerializeField] GameEvent<GridObject> _showControlsEvent;
 
@@ -19,19 +19,19 @@ public class GridObjectControls : MonoBehaviour {
     }
 
     void OnShowControls(GridObject gridObject) {
-        _controlsParent.gameObject.SetActive(false);
+        _window.gameObject.SetActive(false);
         
         var elementCount = 0;
         foreach (var control in _controls) {
             if (!control.GetControls(gridObject, out var uiElements)) continue;
             foreach (var element in uiElements) {
-                element.transform.SetParent(_controlsParent, false);
+                element.transform.SetParent(_window.transform, false);
                 elementCount++;
             }
         }
         
         if (elementCount == 0) return;
-        _controlsParent.gameObject.SetActive(true);
+        _window.Show(gridObject.transform.position);
     }
 }
 

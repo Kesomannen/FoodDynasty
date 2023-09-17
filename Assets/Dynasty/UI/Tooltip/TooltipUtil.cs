@@ -4,12 +4,16 @@ using UnityEngine;
 namespace Dynasty.UI.Tooltip {
 
 public static class TooltipUtil {
-    public static void PositionAsTooltip(this RectTransform tooltip, Vector2 position) {
+    public static void PositionAsTooltip(this RectTransform tooltip, Vector2 position, bool useLocalPosition = false) {
         tooltip.pivot = new Vector2(position.x / Screen.width, 1);
-        tooltip.position = position;
+        if (useLocalPosition) {
+            tooltip.localPosition = position;
+        } else {
+            tooltip.position = position;
+        }
     }
     
-    public static void PositionAsTooltip(this RectTransform tooltip, Vector2 position, TooltipLockAxis lockAxis, Transform lockPoint) {
+    public static void PositionAsTooltip(this RectTransform tooltip, Vector2 position, TooltipLockAxis lockAxis, Transform lockPoint, bool useLocalPosition = false) {
         if (lockAxis == TooltipLockAxis.None) {
             tooltip.PositionAsTooltip(position);
             return;
@@ -31,7 +35,11 @@ public static class TooltipUtil {
         }
 
         tooltip.pivot = pivot;
-        tooltip.position = position;
+        if (useLocalPosition) {
+            tooltip.localPosition = position;
+        } else {
+            tooltip.position = position;
+        }
     }
 }
 
