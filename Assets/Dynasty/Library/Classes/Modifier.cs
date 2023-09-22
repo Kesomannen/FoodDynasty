@@ -53,6 +53,15 @@ public struct Modifier {
         }
     }
     
+    public static Modifier Lerp(Modifier a, Modifier b, double t) {
+        return new Modifier(
+            a.Base + (b.Base - a.Base) * t,
+            a.Percentual + (b.Percentual - a.Percentual) * t,
+            a.Additive + (b.Additive - a.Additive) * t,
+            a.Multiplicative + (b.Multiplicative - a.Multiplicative) * t
+        );
+    }
+    
     public static Modifier operator +(Modifier a, Modifier b) {
         return new Modifier(
             a.Base + b.Base,
@@ -68,6 +77,15 @@ public struct Modifier {
             a.Percentual - b.Percentual,
             a.Additive - b.Additive,
             a.Multiplicative / b.Multiplicative
+        );
+    }
+    
+    public static Modifier operator *(Modifier a, float b) {
+        return new Modifier(
+            a.Base * b,
+            a.Percentual * b,
+            a.Additive * b,
+            a.Multiplicative * b
         );
     }
 

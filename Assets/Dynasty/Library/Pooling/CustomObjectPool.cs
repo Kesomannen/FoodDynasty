@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.SceneManagement;
 
 namespace Dynasty.Library.Pooling {
 
@@ -10,6 +11,7 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
     [SerializeField] bool _collectionCheck = true;
     [SerializeField] int _defaultCapacity = 10;
     [SerializeField] int _maxSize = 10000;
+    [SerializeField] bool _clearOnSceneChange = true;
     
     ObjectPool<T> _pool;
 
@@ -24,7 +26,21 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
         _defaultCapacity, 
         _maxSize
     );
+
+    void OnEnable() {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
     
+    void OnDisable() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        if (_clearOnSceneChange) {
+            Clear();
+        }
+    }
+
     protected virtual void OnGet(T obj) {
         obj.gameObject.SetActive(true);
     }
@@ -35,7 +51,11 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
 
     protected virtual T Create() {
         var obj = Instantiate(_prefab);
-        DontDestroyOnLoad(obj.gameObject);
+        
+        if (!_clearOnSceneChange) {
+            DontDestroyOnLoad(obj);
+        }
+        
         obj.OnDisposed += Release;
 
         obj.gameObject.SetActive(false);

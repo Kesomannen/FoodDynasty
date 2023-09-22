@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Dynasty.Library.Helpers;
 using UnityEngine;
 
 namespace Dynasty.Core.Grid {
@@ -17,11 +15,26 @@ public class GridManager : MonoBehaviour {
     [SerializeField] Vector2Int _gridSize;
 
     readonly HashSet<GridObject> _gridObjects = new();
-    int[,] _cells;
 
-    int[,] Cells {
-        set => _cells = value;
-        get => _cells ??= new int[_gridSize.x, _gridSize.y];
+    Vector2Int _gridOffset;
+    int?[,] _cells;
+    
+    RectInt Rect => new(_gridOffset, _gridSize);
+
+    public int?[,] Cells {
+        get {
+            if (_cells != null) return _cells;
+            _cells = new int?[_gridSize.x, _gridSize.y];
+                
+            for (var x = 0; x < _gridSize.x; x++) {
+                for (var y = 0; y < _gridSize.y; y++) {
+                    _cells[x, y] = 0;
+                }
+            }
+
+            return _cells;
+        }
+        private set => _cells = value;
     }
 
     public Vector2 CellSize => _cellSize;
@@ -67,8 +80,8 @@ public class GridManager : MonoBehaviour {
     }
 
     void Add(GridObject gridObject, Vector2Int position, GridRotation rotation, IEnumerable<Vector2Int> overlapping) {
-        foreach (var vector2Int in overlapping) {
-            ModifyCell(vector2Int, 1);
+        foreach (var cell in overlapping) {
+            AddOccupants(cell, 1);
         }
 
         gridObject.OnAdded(this, position, rotation);
@@ -78,7 +91,7 @@ public class GridManager : MonoBehaviour {
     void Remove(GridObject gridObject) {
         var cells = GetOverlapping(gridObject.GridPosition, gridObject.RotatedSize);
         foreach (var cell in cells) {
-            ModifyCell(cell, -1);
+            AddOccupants(cell, -1);
         }
         
         gridObject.OnRemoved();
@@ -86,17 +99,34 @@ public class GridManager : MonoBehaviour {
     }
     
     public void Expand(Vector2Int size, Vector2Int offset) {
-        var newGridSize = _gridSize + size;
-        var newCells = new int[newGridSize.x, newGridSize.y];
+        var rect = new RectInt(offset, size);
+        var oldRect = Rect;
         
-        for (var x = 0; x < _gridSize.x; x++) {
-            for (var y = 0; y < _gridSize.y; y++) {
-                newCells[x + offset.x, y + offset.y] = Cells[x, y];
+        var newRect = new RectInt(
+            Mathf.Min(rect.xMin, oldRect.xMin),
+            Mathf.Min(rect.yMin, oldRect.yMin),
+            Mathf.Max(rect.xMax, oldRect.xMax),
+            Mathf.Max(rect.yMax, oldRect.yMax)
+        );
+        
+        var newOffset = Vector2Int.Min(newRect.min, oldRect.min);
+        var newCells = Equals(newRect, oldRect) ? _cells 
+            : new int?[newRect.width, newRect.height];
+
+        for (var x = 0; x < newRect.width; x++) {
+            for (var y = 0; y < newRect.height; y++) {
+                var pos = new Vector2Int(x, y) - newOffset;
+                if (IsInGrid(pos)) {
+                    newCells[x, y] = _cells[pos.x, pos.y];
+                } else if (newRect.Contains(pos)) {
+                    newCells[x, y] = 0;
+                }
             }
         }
-
-        Cells = newCells;
-        _gridSize = newGridSize;
+        
+        _gridOffset = newOffset;
+        _gridSize = newRect.size;
+        _cells = newCells;
     }
     
     bool CheckOverlapping(Vector2Int position, GridSize size, out IEnumerable<Vector2Int> overlapping) {
@@ -106,7 +136,7 @@ public class GridManager : MonoBehaviour {
         }
 
         overlapping = GetOverlapping(position, size);
-        return overlapping.All(IsEmpty);
+        return overlapping.All(IsAvailable);
     }
 
     static IEnumerable<Vector2Int> GetOverlapping(Vector2Int position, GridSize size) {
@@ -118,24 +148,28 @@ public class GridManager : MonoBehaviour {
     }
     
     bool IsInGrid(Vector2Int position) {
-        return position.x >= 0 && position.x < _gridSize.x &&
-               position.y >= 0 && position.y < _gridSize.y;
+        return Rect.Contains(position);
     }
     
     bool BelongsToGrid(GridObject gridObject) {
         return gridObject.IsPlaced && gridObject.GridManager is { } manager && manager == this;
     }
     
-    int GetCell(Vector2Int position) {
+    int? GetCell(Vector2Int position) {
         return Cells[position.x, position.y];
     }
     
-    void ModifyCell(Vector2Int position, int value) {
-        Cells[position.x, position.y] += value;
+    bool IsAvailable(Vector2Int position) {
+        return GetCell(position) == 0;
     }
     
-    public bool IsEmpty(Vector2Int position) {
-        return GetCell(position) == 0;
+    void AddOccupants(Vector2Int position, int value) {
+        Cells[position.x, position.y] += value;
+    }
+
+    public State GetState(Vector2Int position) {
+        if (!IsInGrid(position)) return State.OutOfBounds;
+        return IsAvailable(position) ? State.Available : State.Occupied;
     }
     
     Vector3 GridToWorld(Vector2 position) {
@@ -177,6 +211,12 @@ public class GridManager : MonoBehaviour {
     public Vector2Int WorldToGrid(Vector3 worldPosition) {
         var localPos = worldPosition - transform.position;
         return new Vector2Int(Mathf.RoundToInt(localPos.x / _cellSize.x), Mathf.RoundToInt(localPos.z / _cellSize.y));
+    }
+
+    public enum State {
+        OutOfBounds,
+        Occupied,
+        Available
     }
 }
 

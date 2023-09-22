@@ -1,4 +1,5 @@
-﻿using Dynasty.Library.Helpers;
+﻿using System;
+using Dynasty.Library.Helpers;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -35,15 +36,20 @@ public class GridDebugger : MonoBehaviour {
             }
         }
 
+        return;
+
         void DrawCell(Vector2Int position) {
             if (_selectCell && position == _selectedCell) {
                 Gizmos.color = Color.yellow;
-            } else if (Application.isPlaying && !_gridManager.IsEmpty(position)) {
-                Gizmos.color = Color.red;
             } else {
-                Gizmos.color = Color.green;
+                Gizmos.color = _gridManager.GetState(position) switch {
+                    GridManager.State.OutOfBounds => Color.red,
+                    GridManager.State.Occupied => Color.yellow,
+                    GridManager.State.Available => Color.green,
+                    _ => throw new ArgumentOutOfRangeException()
+                };
             }
-            
+
             Gizmos.DrawWireCube(_gridManager.GridToWorld(position), new Vector3(cellSize.x, 0, cellSize.y) * 0.95f);
         }
     }

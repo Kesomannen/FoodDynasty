@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Food.Instance;
+using Dynasty.Library.Classes;
+using Dynasty.Library.Extensions;
 using UnityEngine;
 
 namespace Dynasty.Food.Filtering {
@@ -9,6 +11,7 @@ namespace Dynasty.Food.Filtering {
 [CreateAssetMenu(menuName = "Food/Filter")]
 public class FoodFilterGroup : ScriptableObject {
     [SerializeField] AndOr _condition;
+    [SerializeField] Optional<Vector2> _sellPriceRange;
     [SerializeField] FoodFilter[] _filters;
 
     public bool Check(FoodBehaviour food) {
@@ -17,6 +20,13 @@ public class FoodFilterGroup : ScriptableObject {
 
     bool Check(IReadOnlyCollection<FoodFilter> filters, FoodBehaviour food) {
         if (filters.Count == 0) return true;
+        
+        if (_sellPriceRange.Enabled) {
+            var sellPrice = (float) food.SellPrice.Delta;
+            if (_sellPriceRange.Value.InRange(sellPrice)) {
+                return false;
+            }
+        }
         
         return _condition switch {
             AndOr.All => filters.All(condition => condition.Check(food)),

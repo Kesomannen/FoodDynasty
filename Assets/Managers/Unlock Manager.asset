@@ -28,7 +28,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 4753e6309b11ae346b9b317c646d5954, type: 2}
     - {fileID: 11400000, guid: ff16d2895628b5546a9caf35db148783, type: 2}
     - {fileID: 11400000, guid: f14de4ab4e2eace4680874ba300b2e82, type: 2}
-  - MoneyMadeRequirement: 50000
+  - MoneyMadeRequirement: 1
     Unlocks:
     - {fileID: 11400000, guid: 15afbee24280c3647abc0d6951cc5df2, type: 2}
     - {fileID: 11400000, guid: 947d2b87548796845aa6d5d16e83b995, type: 2}

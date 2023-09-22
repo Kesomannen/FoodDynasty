@@ -14,6 +14,15 @@ public static class ComponentExtensions {
     public static T GetOrAddComponent<T>(this GameObject component) where T : Component {
         return component.GetComponent<T>() ?? component.AddComponent<T>();
     }
+    
+    public static T Error<T>(this Object component, string message) {
+        Debug.LogError(message, component);
+        return default;
+    }
+    
+    public static void Error(this Object component, string message) {
+        Debug.LogError(message, component);
+    }
 }
 
 }

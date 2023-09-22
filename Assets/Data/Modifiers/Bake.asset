@@ -12,18 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89bbf86b2b54ed8b11937d3937c0e7f, type: 3}
   m_Name: Bake
   m_EditorClassIdentifier: 
+  _random: 0
   _sellPriceModifier:
     Base: 0
     Percentual: 0
     Additive: 0
-    Multiplicative: 10
+    Multiplicative: 15
+  _maxSellPriceModifier:
+    Base: 0
+    Percentual: 0
+    Additive: 0
+    Multiplicative: 1
   _modelModifiers:
   - _pool: {fileID: 11400000, guid: 1b9b1da70747ada4389da8c0f4fd936d, type: 2}
     _type: 0
-  _dataModifiers:
+  _traitModifiers:
   - _trait:
       _value: Baked
       _hash: -1779161523
+      _type: 0
     _operation: 0
     _modifier:
       Base: 0
