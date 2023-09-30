@@ -37,6 +37,8 @@ MonoBehaviour:
     _guid: ebfc489af0ff4ecbbc30e8440d302b1c
   - _typeNameAndAssembly: System.Int32, mscorlib
     _guid: 
+  - _typeNameAndAssembly: Dynasty.UI.Displays.PopupData, Dynasty.UI
+    _guid: 
   _genericArgumentValues:
   - _array: []
   - _array: []
@@ -83,6 +85,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: System.Int32, mscorlib
         _guid: 
       _assemblyGUID: 77dd006db4ab5cc4ba6d0547e73236b3
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.UI.Displays.PopupData, Dynasty.UI
+        _guid: 
+      _assemblyGUID: 2caf0ee0ff4c3414fb08a5cd5449bbab
   - _array: []
   - _array:
     - _arguments:
@@ -215,6 +221,12 @@ MonoBehaviour:
   - _array:
     - _typeNameAndAssembly: Dynasty.UI.Controls.ContainerGridObjectControl`1, Dynasty.UI
       _guid: 379477018aa741039e247c214d6d81f7
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
+      _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T

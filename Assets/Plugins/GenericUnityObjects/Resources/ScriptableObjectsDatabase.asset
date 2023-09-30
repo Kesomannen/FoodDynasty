@@ -83,6 +83,8 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
     - _collection:
       - _typeNameAndAssembly: System.Int32, mscorlib
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.UI.Displays.PopupData, Dynasty.UI
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_8d2a2aae4cca2734a8464fd2bf02837f,
         z_GameEvent_GridObject
@@ -98,6 +100,8 @@ MonoBehaviour:
         z_GameEvent_Item
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_77dd006db4ab5cc4ba6d0547e73236b3,
         z_GameEvent_Int32
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_2caf0ee0ff4c3414fb08a5cd5449bbab,
+        z_GameEvent_PopupData
   - _keys: []
     _values: []
   - _keys:

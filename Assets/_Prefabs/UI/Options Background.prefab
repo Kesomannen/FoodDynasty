@@ -3090,6 +3090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db15d520ada44cd2ada194410c37a489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _showPopupEvent: {fileID: 11400000, guid: 8cdf8a9f01d643e4897566426dbaaa92, type: 2}
 --- !u!1001 &6535991878157823366
 PrefabInstance:
   m_ObjectHideFlags: 0
