@@ -1,5 +1,6 @@
-﻿using Dynasty.Library.Events;
-using Dynasty.UI.Displays;
+﻿using Dynasty.Core.Tooltip;
+using Dynasty.Library.Events;
+using Dynasty.UI.Controllers;
 using UnityEngine;
 
 namespace Dynasty.UI.Menu {
@@ -10,10 +11,10 @@ public class ExitGame : MonoBehaviour {
     public void Exit() {
         _showPopupEvent.Raise(new PopupData {
             Header = "Exit Game",
-            Body = "Are you sure you want to exit the game?",
+            Body = "Are you sure you want to exit?",
             Actions = new[] {
-                PopupAction.Confirm("Exit", Application.Quit),
-                PopupAction.Cancel()
+                PopupAction.Negative("Exit", Application.Quit),
+                PopupAction.Neutral("Cancel")
             }
         });
     }

@@ -1,6 +1,6 @@
 ﻿using System;
 using Dynasty.Core.Inventory;
-using Dynasty.Persistent.Core;
+using Dynasty.Persistent;
 using UnityEngine;
 
 namespace Dynasty.Persistent.Mapping {
@@ -10,12 +10,12 @@ public class MoneySaveInterpreter : SaveInterpreter<MoneySaveInterpreter.SaveDat
     [SerializeField] double _startingMoney;
     [SerializeField] MoneyManager _moneyManager;
 
-    protected override SaveData DefaultValue => new() {
+    protected override SaveData DefaultData => new() {
         Money = _startingMoney,
         TotalMoneyMade = 0
     };
 
-    protected override void OnAfterLoad(SaveData saveData) {
+    protected override void OnLoad(SaveData saveData) {
         _moneyManager.CurrentMoney = saveData.Money;
         _moneyManager.TotalMoneyMade = saveData.TotalMoneyMade;
     }

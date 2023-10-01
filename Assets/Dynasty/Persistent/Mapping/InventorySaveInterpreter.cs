@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Dynasty.Core.Inventory;
-using Dynasty.Persistent.Core;
+using Dynasty.Persistent;
 using UnityEngine;
 
 namespace Dynasty.Persistent.Mapping {
@@ -11,10 +11,10 @@ public class InventorySaveInterpreter : SaveInterpreter<InventorySaveData> {
     [SerializeField] InventoryAsset _inventoryAsset;
     [SerializeField] Lookup<ItemData> _itemLookup;
 
-    protected override InventorySaveData DefaultValue => 
+    protected override InventorySaveData DefaultData => 
         new() { ItemIds = Array.Empty<int>(), ItemCounts = Array.Empty<int>() };
 
-    protected override void OnAfterLoad(InventorySaveData saveData) {
+    protected override void OnLoad(InventorySaveData saveData) {
         for (var i = 0; i < saveData.ItemIds.Length; i++) {
             _inventoryAsset.Add(_itemLookup.GetFromId(saveData.ItemIds[i]), saveData.ItemCounts[i]);
         }

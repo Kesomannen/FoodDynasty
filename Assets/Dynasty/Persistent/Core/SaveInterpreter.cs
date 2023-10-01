@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dynasty.Persistent.Core {
+namespace Dynasty.Persistent {
 
 public abstract class SaveInterpreter : ScriptableObject {
     [SerializeField] string _saveKey;
@@ -9,18 +9,18 @@ public abstract class SaveInterpreter : ScriptableObject {
 
     public abstract void OnSaveNotFound();
     public abstract object OnBeforeSave();
-    public abstract void OnAfterLoad(object saveData);
+    public abstract void OnLoad(object saveData);
 }
 
 public abstract class SaveInterpreter<T> : SaveInterpreter {
-    protected abstract void OnAfterLoad(T saveData);
+    protected abstract void OnLoad(T saveData);
     protected abstract T GetSaveData();
 
-    protected virtual T DefaultValue => default;
+    protected virtual T DefaultData => default;
 
-    public sealed override void OnSaveNotFound() => OnAfterLoad(DefaultValue);
+    public sealed override void OnSaveNotFound() => OnLoad(DefaultData);
     public sealed override object OnBeforeSave() => GetSaveData();
-    public sealed override void OnAfterLoad(object saveData) => OnAfterLoad((T)saveData);
+    public sealed override void OnLoad(object saveData) => OnLoad((T)saveData);
 }
 
 }

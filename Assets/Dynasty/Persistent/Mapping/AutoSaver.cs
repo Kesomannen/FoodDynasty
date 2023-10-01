@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Dynasty.Library.Helpers;
-using Dynasty.Persistent.Core;
+using Dynasty.Persistent;
 using UnityEngine;
 
 # pragma warning disable 4014

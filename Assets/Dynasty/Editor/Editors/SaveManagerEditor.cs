@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using Dynasty.Persistent.Core;
+using Dynasty.Persistent;
 using UnityEditor;
 using UnityEngine;
 

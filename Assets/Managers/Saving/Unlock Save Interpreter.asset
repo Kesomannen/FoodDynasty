@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 287529688, guid: a5e484f6a1f276742b8f78899a07c943, type: 3}
-  m_Name: Show Popup
+  m_Script: {fileID: 11500000, guid: 1783a3aeaf614f829358c8d61ecdce1e, type: 3}
+  m_Name: Unlock Save Interpreter
   m_EditorClassIdentifier: 
+  _saveKey: unlocks
+  _unlockManager: {fileID: 11400000, guid: 25993104f26956c4685bbe3451593798, type: 2}

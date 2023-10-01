@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 namespace Dynasty.UI.Miscellaneous {
 
 public class SceneLoader : MonoBehaviour {
-    [SerializeField] RectTransform _overlay;
+    [SerializeField] CanvasGroup _overlay;
     [SerializeField] float _fadeDuration;
     [SerializeField] LeanTweenType _fadeEase;
     [SerializeField] GameEvent<int> _loadSceneEvent;
@@ -16,7 +16,8 @@ public class SceneLoader : MonoBehaviour {
         if (!_flag) return;
         
         _overlay.gameObject.SetActive(true);
-        LeanTween.alpha(_overlay, 0, _fadeDuration)
+        LeanTween.alphaCanvas(_overlay, 0, _fadeDuration)
+            .setIgnoreTimeScale(true)
             .setOnComplete(() => {
                 _flag = false;
                 _overlay.gameObject.SetActive(false);
@@ -35,7 +36,8 @@ public class SceneLoader : MonoBehaviour {
 
     void LoadScene(int sceneId) {
         _overlay.gameObject.SetActive(true);
-        LeanTween.alpha(_overlay, 1, _fadeDuration)
+        LeanTween.alphaCanvas(_overlay, 1, _fadeDuration)
+            .setIgnoreTimeScale(true)
             .setOnComplete(() => {
                 _flag = true;
                 SceneManager.LoadScene(sceneId);

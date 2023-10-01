@@ -1,5 +1,4 @@
-﻿using System;
-using Dynasty.Persistent.Core;
+﻿using Dynasty.Persistent;
 using UnityEngine;
 using UnityEngine.UI;
 

@@ -6,9 +6,9 @@ namespace Dynasty.Library.Helpers {
 
 public static class StringHelpers {
     public static string FormatCamelCase(string input) {
-        var formattedString = Regex.Replace(input, "([A-Z])", " $1").Trim();
-        formattedString = char.ToUpper(formattedString[0]) + formattedString[1..];
-        return formattedString;
+        var str = Regex.Replace(input, "([A-Z])", " $1").Trim();
+        str = char.ToUpper(str[0]) + str[1..];
+        return str;
     }
 
     public static string FormatMoney(double value) {

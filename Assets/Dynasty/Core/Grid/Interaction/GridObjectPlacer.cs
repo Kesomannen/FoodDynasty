@@ -172,7 +172,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
         _rotateTarget = Quaternion.identity;
 
         // Create arrows as direction markers
-        foreach (var child in gridObject.transform.GetChildren()) {
+        foreach (Transform child in gridObject.transform) {
             if (!child.CompareTag("DirectionMarker")) continue;
             if (!child.gameObject.activeSelf) continue;
             

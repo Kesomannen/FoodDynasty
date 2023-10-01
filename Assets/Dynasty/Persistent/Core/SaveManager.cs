@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Dynasty.Persistent.Core {
+namespace Dynasty.Persistent {
 
 [CreateAssetMenu(menuName = "Saving/Manager")]
 public class SaveManager : ScriptableObject {
@@ -36,7 +36,7 @@ public class SaveManager : ScriptableObject {
 
         foreach (var interpreter in _interpreters) {
             if (_state.TryGetValue(interpreter.SaveKey, out var saveData)) {
-                interpreter.OnAfterLoad(saveData);
+                interpreter.OnLoad(saveData);
             } else {
                 interpreter.OnSaveNotFound();
             }

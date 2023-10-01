@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Dynasty.Core.Tooltip;
 using Dynasty.Library.Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Dynasty.UI.Displays {
+namespace Dynasty.UI.Controllers {
 
 public class PopupDisplay : MonoBehaviour {
     [SerializeField] GameObject _popup;
@@ -14,16 +15,19 @@ public class PopupDisplay : MonoBehaviour {
     [SerializeField] Transform _actionParent;
     [SerializeField] Button _actionPrefab;
     [Space]
+    [SerializeField] GenericGameEvent _hidePopupEvent;
     [SerializeField] GameEvent<PopupData> _showPopupEvent;
 
     readonly List<Button> _actions = new();
     
     void OnEnable() {
         _showPopupEvent.AddListener(ShowPopup);
+        _hidePopupEvent.AddListener(HidePopup);
     }
     
     void OnDisable() {
         _showPopupEvent.RemoveListener(ShowPopup);
+        _hidePopupEvent.RemoveListener(HidePopup);
     }
 
     void ShowPopup(PopupData data) {
@@ -65,6 +69,10 @@ public class PopupDisplay : MonoBehaviour {
             text.text = content;
             text.gameObject.SetActive(!string.IsNullOrEmpty(content));
         }
+    }
+
+    void HidePopup() {
+        _popup.SetActive(false);
     }
 }
 

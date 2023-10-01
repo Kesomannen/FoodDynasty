@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Dynasty.Persistent.Core {
+namespace Dynasty.Persistent {
 
 [CreateAssetMenu(menuName = "Saving/Loader/Disk")]
 public class DiskSaveLoader : SaveLoader {

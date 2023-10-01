@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Dynasty.Core.Tooltip;
 using Dynasty.Library.Events;
-using Dynasty.Persistent.Core;
+using Dynasty.Persistent;
+using Dynasty.UI.Controllers;
 using UnityEngine;
 
 namespace Dynasty.UI.Menu {
@@ -12,6 +13,7 @@ public class SaveSlotController : MonoBehaviour {
     [SerializeField] SaveSlotContainer _containerPrefab;
     [SerializeField] Transform _containerParent;
     [Space] 
+    [SerializeField] GameEvent<PopupData> _showPopupEvent;
     [SerializeField] GameEvent<int> _loadScene;
     [SerializeField] int _gameSceneId;
 
@@ -41,9 +43,18 @@ public class SaveSlotController : MonoBehaviour {
     }
     
     void Delete(SaveSlotContainer slot) {
-        _saveManager.DeleteSave(slot.Data.Id);
-        Destroy(slot.gameObject);
-        _slots.Remove(slot);
+        _showPopupEvent.Raise(new PopupData {
+            Header = "Delete Save",
+            Body = "Are you sure you want to delete this save?",
+            Actions = new[] {
+                PopupAction.Negative("Delete", () => {
+                    _saveManager.DeleteSave(slot.Data.Id);
+                    Destroy(slot.gameObject);
+                    _slots.Remove(slot);
+                }),
+                PopupAction.Neutral("Cancel")
+            }
+        });
     }
     
     public void New() {

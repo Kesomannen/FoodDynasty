@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Dynasty.Persistent.Core {
+namespace Dynasty.Persistent {
 
 public abstract class SaveLoader : ScriptableObject {
     public abstract Task Save(Dictionary<string, object> state, int saveId);

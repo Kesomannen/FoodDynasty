@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e9dc922749e44589a94492b00de0a16, type: 3}
   m_Name: Save Manager
   m_EditorClassIdentifier: 
-  _currentSaveSlot: 0
-  _saveSlotCount: 3
   _loader: {fileID: 11400000, guid: 074bac50abaf2d5479607570307ec860, type: 2}
   _interpreters:
+  - {fileID: 11400000, guid: de0e5f18a725e8048b149c7411c6da59, type: 2}
   - {fileID: 11400000, guid: beba6d35b050ce5438de2b5e02f4d047, type: 2}
   - {fileID: 11400000, guid: f4d6249d72a4cea4bbb01dda42d3d2e2, type: 2}

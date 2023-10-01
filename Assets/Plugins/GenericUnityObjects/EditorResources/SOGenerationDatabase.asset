@@ -37,7 +37,7 @@ MonoBehaviour:
     _guid: ebfc489af0ff4ecbbc30e8440d302b1c
   - _typeNameAndAssembly: System.Int32, mscorlib
     _guid: 
-  - _typeNameAndAssembly: Dynasty.UI.Displays.PopupData, Dynasty.UI
+  - _typeNameAndAssembly: Dynasty.Core.Tooltip.PopupData, Dynasty.Core
     _guid: 
   _genericArgumentValues:
   - _array: []
@@ -86,9 +86,9 @@ MonoBehaviour:
         _guid: 
       _assemblyGUID: 77dd006db4ab5cc4ba6d0547e73236b3
     - _arguments:
-      - _typeNameAndAssembly: Dynasty.UI.Displays.PopupData, Dynasty.UI
+      - _typeNameAndAssembly: Dynasty.Core.Tooltip.PopupData, Dynasty.Core
         _guid: 
-      _assemblyGUID: 2caf0ee0ff4c3414fb08a5cd5449bbab
+      _assemblyGUID: a5e484f6a1f276742b8f78899a07c943
   - _array: []
   - _array:
     - _arguments:
