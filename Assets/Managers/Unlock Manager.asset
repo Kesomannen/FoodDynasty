@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moneyManager: {fileID: 11400000, guid: 3aa791b48a062404caa64519d76af16b, type: 2}
   _unlockEvent: {fileID: 11400000, guid: 7e120a136293dad40b8f72973c98d7f2, type: 2}
-  _popupEvent: {fileID: 0}
+  _popupEvent: {fileID: 11400000, guid: 8cdf8a9f01d643e4897566426dbaaa92, type: 2}
   _unlockData:
   - Header: Bread
     MoneyMadeRequirement: 0
@@ -28,6 +28,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 0a607ffe287600545ac2c062d32f2947, type: 2}
     - {fileID: 11400000, guid: e4f1d890dc8a7c9428c4f363b18bf8fe, type: 2}
     - {fileID: 11400000, guid: 4753e6309b11ae346b9b317c646d5954, type: 2}
+    - {fileID: 11400000, guid: 7483064c034c2ba4dbfc94e7c59d73be, type: 2}
     - {fileID: 11400000, guid: ff16d2895628b5546a9caf35db148783, type: 2}
     - {fileID: 11400000, guid: f14de4ab4e2eace4680874ba300b2e82, type: 2}
   - Header: Sandwiches
@@ -37,3 +38,5 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 947d2b87548796845aa6d5d16e83b995, type: 2}
     - {fileID: 11400000, guid: d1035672e9f9e1944b8a8ddc86e2192d, type: 2}
     - {fileID: 11400000, guid: 873a0500f1b58364a83fcc24f90dfdda, type: 2}
+    - {fileID: 11400000, guid: 139dcf1af1315e34fbd1dee6d0e8f231, type: 2}
+    - {fileID: 11400000, guid: db43cb402c7d9b74da2e2f2f4a8d96db, type: 2}

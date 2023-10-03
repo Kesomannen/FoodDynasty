@@ -16,7 +16,7 @@
                 <ui:TextField picking-mode="Ignore" label="Description" value="filler text" text="filler text" name="item-description" binding-path="_description" readonly="false" multiline="false" style="font-size: 12px; -unity-font-style: normal;" />
                 <ui:TextField picking-mode="Ignore" label="Description (short)" value="filler text" text="filler text" name="item-short-description" binding-path="_shortDescription" readonly="false" multiline="false" style="font-size: 12px; -unity-font-style: normal;" />
                 <ui:VisualElement style="flex-direction: row;">
-                    <uie:ObjectField label="Sprite" name="item-sprite" binding-path="_image" type="UnityEngine.Sprite, UnityEngine.CoreModule" style="font-size: 12px; flex-direction: row; flex-grow: 1;" />
+                    <uie:ObjectField label="Sprite" name="item-sprite" binding-path="_icon" type="UnityEngine.Sprite, UnityEngine.CoreModule" style="font-size: 12px; flex-direction: row; flex-grow: 1;" />
                     <ui:Button display-tooltip-when-elided="true" text="Generate" name="generate-image-button" style="height: 100%; width: 85px; margin-left: 3px; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 1px; padding-right: 1px; padding-top: 1px; padding-bottom: 1px;" />
                 </ui:VisualElement>
                 <uie:EnumField label="Tier" value="Unset" name="item-tier" binding-path="_tier" />

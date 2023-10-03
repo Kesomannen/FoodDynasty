@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dynasty.Library.Entity {
+namespace Dynasty.Library {
 
 public interface IEntityData {
     string Name { get; }

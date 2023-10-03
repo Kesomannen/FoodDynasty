@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -83,6 +84,13 @@ public static class ThumbnailCreator {
         textureImporter.SaveAndReimport();
 
         return AssetDatabase.LoadAssetAtPath<Sprite>(projectPath);
+    }
+
+    [MenuItem("Dynasty/Generate Thumbnail")]
+    static void GenerateThumbnail() {
+        foreach (var gameObject in Selection.gameObjects) {
+            Create(gameObject, gameObject.name);
+        }
     }
 }
 

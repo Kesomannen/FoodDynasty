@@ -10,12 +10,13 @@ public static class ItemCreatorUtil {
                 _baseMachinePrefab = AssetDatabase.LoadAssetAtPath<GameObject>($"{PrefabPath}/Machines/MachineBase.prefab");
             }
 
+            Debug.Log($"{_baseMachinePrefab}", _baseMachinePrefab);
             return _baseMachinePrefab;
         }
     }
     
     const string DataPath = "Assets/Data";
-    const string PrefabPath = "Assets/Prefabs";
+    const string PrefabPath = "Assets/_Prefabs";
     
     public static void SaveData<T>(T data, string path) where T : ScriptableObject {
         AssetDatabase.CreateAsset(data, $"{DataPath}/{path}/{data.name}.asset");

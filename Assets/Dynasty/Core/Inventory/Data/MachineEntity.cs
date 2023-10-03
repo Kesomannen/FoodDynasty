@@ -1,5 +1,5 @@
 ﻿using Dynasty.Library.Data;
-using Dynasty.Library.Entity;
+using Dynasty.Library;
 using UnityEngine;
 
 namespace Dynasty.Core.Inventory {

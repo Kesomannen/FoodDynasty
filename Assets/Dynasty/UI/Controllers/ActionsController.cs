@@ -2,7 +2,7 @@
 using Dynasty.Core.Grid;
 using Dynasty.Core.Inventory;
 using Dynasty.Food.Instance;
-using Dynasty.Machine.Components;
+using Dynasty.Machines;
 using UnityEngine;
 
 namespace Dynasty.UI.Controllers {

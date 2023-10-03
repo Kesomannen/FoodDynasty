@@ -2,7 +2,6 @@
 using System.Linq;
 using Dynasty.Core.Grid;
 using Dynasty.Core.Inventory;
-using Dynasty.Persistent;
 using UnityEngine;
 
 namespace Dynasty.Persistent.Mapping {

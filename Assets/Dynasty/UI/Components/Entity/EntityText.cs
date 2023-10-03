@@ -1,5 +1,5 @@
 ﻿using Dynasty.Library.Classes;
-using Dynasty.Library.Entity;
+using Dynasty.Library;
 using TMPro;
 using UnityEngine;
 

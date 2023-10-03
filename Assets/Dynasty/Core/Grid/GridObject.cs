@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Dynasty.Library.Entity;
+using Dynasty.Library;
 using JetBrains.Annotations;
 using NaughtyAttributes;
 using UnityEngine;

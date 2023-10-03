@@ -31,7 +31,8 @@ public class UnlockManager : MonoScriptable {
     }
 
     void Update() {
-        if (CurrentUnlockIndex >= _unlockData.Length) return;
+        if (CurrentUnlockIndex >= _unlockData.Length - 1) return;
+        
         var nextUnlock = _unlockData[CurrentUnlockIndex + 1];
         if (_moneyManager.TotalMoneyMade < nextUnlock.MoneyMadeRequirement) return;
 
@@ -48,10 +49,10 @@ public class UnlockManager : MonoScriptable {
             var itemList = string.Join("\n", unlock.Unlocks.Select(u => $"- {u.Name}"));
             
             _popupEvent.Raise(new PopupData {
-                Header = $"You unlocked {unlock.Header}!",
-                Body = $"You have unlocked the following items:\n{itemList}",
+                Header = $"{unlock.Header} unlocked!",
+                Body = $"The following items are now available:\n{itemList}",
                 Actions = new[] {
-                    PopupAction.Positive("Ok")
+                    PopupAction.Positive("Nice!")
                 }
             });
         }

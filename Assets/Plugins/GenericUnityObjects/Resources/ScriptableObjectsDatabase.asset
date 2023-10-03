@@ -116,7 +116,7 @@ MonoBehaviour:
     - _collection:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Library.Entity.EntityInfo, Dynasty.Library
+      - _typeNameAndAssembly: Dynasty.Library.EntityInfo, Dynasty.Library
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_99adfb061d5aceb4bbe3cff07055a538,
         z_ContainerObjectPool_Item
@@ -130,7 +130,7 @@ MonoBehaviour:
         z_Lookup_ItemData
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
+      - _typeNameAndAssembly: Dynasty.Machines.Supply, Dynasty.Machines
     - _collection:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
     _values:

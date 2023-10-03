@@ -41,15 +41,15 @@ MonoBehaviour:
         z_MouseEventTrigger_GridObject
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
+      - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library
     - _collection:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
     - _collection:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Library.Entity.EntityInfo, Dynasty.Library
+      - _typeNameAndAssembly: Dynasty.Library.EntityInfo, Dynasty.Library
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
+      - _typeNameAndAssembly: Dynasty.Machines.Supply, Dynasty.Machines
     - _collection:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
     _values:
@@ -67,7 +67,7 @@ MonoBehaviour:
         z_Container_MachineEntity
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
+      - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library
     - _collection:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
     _values:
@@ -77,7 +77,7 @@ MonoBehaviour:
         z_Tooltip_ItemData
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
+      - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library
     - _collection:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
     - _collection:
@@ -101,7 +101,7 @@ MonoBehaviour:
         z_PoolableComponent_Rigidbody
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Library.Entity.Entity, Dynasty.Library
+      - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_a2d4ecfc6268d7c47b05da360d81532e,
         z_EntityIcon_Entity

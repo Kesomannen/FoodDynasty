@@ -2,14 +2,14 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Dynasty.Library.Entity {
+namespace Dynasty.Library {
 
 public readonly struct EntityInfo {
     public readonly string Name;
     public readonly string Value;
-    [CanBeNull] public readonly Sprite Icon;
+    public readonly Sprite Icon;
     
-    public EntityInfo(string name, string value, [CanBeNull] Sprite icon = null) {
+    public EntityInfo(string name, string value, Sprite icon = null) {
         Name = name;
         Value = value;
         Icon = icon;

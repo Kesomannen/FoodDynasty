@@ -1,4 +1,5 @@
 ﻿using Dynasty.Core.Tooltip;
+using Dynasty.Library;
 using Dynasty.Library.Events;
 using Dynasty.Library.Extensions;
 using UnityEngine;
@@ -16,10 +17,13 @@ public class GridObjectSelector : MonoBehaviour {
     [SerializeField] GameEvent<GridObject>[] _deselectObjectEvents;
     
     [Tooltip("Shown when selecting a grid object.")]
-    [SerializeField] TooltipData<Library.Entity.Entity> _tooltipData;
+    [SerializeField] TooltipData<Entity> _tooltipData;
 
     GridObject _selectedObject;
     Outline _selectedOutline;
+    
+    Color _currentOutlineColor;
+    bool _currentOutlineState;
     
     void OnEnable() {
         _selectObjectEvent.AddListener(OnObjectSelected);
@@ -46,7 +50,9 @@ public class GridObjectSelector : MonoBehaviour {
 
     void ChangeSelection(GridObject newSelection) {
         if (_selectedObject != null) {
-            _selectedOutline.enabled = false;
+            _selectedOutline.OutlineColor = _currentOutlineColor;
+            _selectedOutline.enabled = _currentOutlineState;
+            
             _selectedOutline = null;
             _tooltipData.Hide();
         }
@@ -55,9 +61,14 @@ public class GridObjectSelector : MonoBehaviour {
         if (_selectedObject == null) return;
 
         _selectedOutline = _selectedObject.GetOrAddComponent<Outline>();
+
+        _currentOutlineColor = _selectedOutline.OutlineColor;
+        _currentOutlineState = _selectedOutline.enabled;
+
+        _selectedOutline.OutlineColor = Color.white;
         _selectedOutline.enabled = true;
         
-        if (!_selectedObject.TryGetComponent(out Library.Entity.Entity entity)) return;
+        if (!_selectedObject.TryGetComponent(out Entity entity)) return;
         _tooltipData.Show(entity);
     }
 }

@@ -1,5 +1,5 @@
 ﻿using Dynasty.Core.Inventory;
-using Dynasty.Machine.Components;
+using Dynasty.Machines;
 using UnityEngine;
 using UnityEngine.Events;
 

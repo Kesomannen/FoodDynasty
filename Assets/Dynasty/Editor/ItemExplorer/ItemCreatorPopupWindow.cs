@@ -6,7 +6,7 @@ using Dynasty.Food.Instance;
 using Dynasty.Food.Modification;
 using Dynasty.Library.Classes;
 using Dynasty.Library.Events;
-using Dynasty.Machine.Internal;
+using Dynasty.Machines;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -130,7 +130,8 @@ public class ItemCreatorPopupWindow : PopupWindowContent {
                     .GenerateTopping(out var topping, refillItemName.value)
                     .AddSupply(out checkEvent, out consumeEvent, topping);
             } else {
-                creator.AddSupply(out checkEvent, out consumeEvent, refillItemName.value);
+                creator
+                    .AddSupply(out checkEvent, out consumeEvent, refillItemName.value);
             }
             
             creator

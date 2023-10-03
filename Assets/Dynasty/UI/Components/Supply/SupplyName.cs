@@ -1,4 +1,4 @@
-﻿using Dynasty.Machine.Components;
+﻿using Dynasty.Machines;
 using TMPro;
 using UnityEngine;
 

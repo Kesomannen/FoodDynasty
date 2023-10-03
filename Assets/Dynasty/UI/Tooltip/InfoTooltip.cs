@@ -1,4 +1,4 @@
-﻿using Dynasty.Library.Entity;
+﻿using Dynasty.Library;
 
 namespace Dynasty.UI.Tooltip {
 

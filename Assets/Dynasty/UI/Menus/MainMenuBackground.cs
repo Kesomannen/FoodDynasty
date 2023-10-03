@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using Dynasty.Library.Extensions;
 using Dynasty.Library.Helpers;
-using Dynasty.Machine.Components;
+using Dynasty.Machines;
 using Dynasty.Persistent.Mapping;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +23,7 @@ public class MainMenuBackground : MonoBehaviour {
             _loader.Load(_panoramas.GetRandom().SaveData);
             
             foreach (var supply in FindObjectsOfType<Supply>()) {
-                supply.CurrentSupply = supply.MaxSupply;
+                supply.CurrentSupply = Supply.MaxSupply;
             }
             
             LeanTween.alpha(_overlay, 0, _fadeDuration);

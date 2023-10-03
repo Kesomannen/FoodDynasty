@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dynasty.Library.Entity {
+namespace Dynasty.Library {
 
 /// <summary>
 /// MonoBehaviour implementation for IEntityData for serialization purposes.

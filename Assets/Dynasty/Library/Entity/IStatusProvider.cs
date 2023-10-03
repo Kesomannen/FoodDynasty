@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Dynasty.Library.Entity {
+namespace Dynasty.Library {
 
 public interface IStatusProvider {
     IEnumerable<EntityInfo> GetStatus();

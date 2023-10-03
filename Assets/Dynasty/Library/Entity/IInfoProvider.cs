@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Dynasty.Library.Entity {
+namespace Dynasty.Library {
 
 public interface IInfoProvider {
     IEnumerable<EntityInfo> GetInfo();

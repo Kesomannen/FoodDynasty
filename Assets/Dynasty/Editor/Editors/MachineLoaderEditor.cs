@@ -36,10 +36,7 @@ public class MachineLoaderEditor : Editor {
     }
 
     static void Clear(MachineLoader loader) {
-        if (Application.isPlaying) {
-            loader.Clear();
-        } else {
-            loader.ClearImmediate();
-        }
+        if (Application.isPlaying) loader.Clear();
+        else loader.ClearImmediate();
     }
 }

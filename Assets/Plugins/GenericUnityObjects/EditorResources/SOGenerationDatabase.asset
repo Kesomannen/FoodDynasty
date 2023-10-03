@@ -29,9 +29,9 @@ MonoBehaviour:
     _guid: 
   - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
     _guid: d3d4539531654c55aeb30f6fc3dc4fa1
-  - _typeNameAndAssembly: Dynasty.Library.Entity.EntityInfo, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.EntityInfo, Dynasty.Library
     _guid: 399b7c9786f14daa800c57cd93a05d23
-  - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
+  - _typeNameAndAssembly: Dynasty.Machines.Supply, Dynasty.Machines
     _guid: b3fbd445d03d46cabc7b868fd2447205
   - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
     _guid: ebfc489af0ff4ecbbc30e8440d302b1c
@@ -102,7 +102,7 @@ MonoBehaviour:
         _guid: 0a63975efa0847789c7eac2ab049fc86
       _assemblyGUID: 99adfb061d5aceb4bbe3cff07055a538
     - _arguments:
-      - _typeNameAndAssembly: Dynasty.Library.Entity.EntityInfo, Dynasty.Library
+      - _typeNameAndAssembly: Dynasty.Library.EntityInfo, Dynasty.Library
         _guid: 399b7c9786f14daa800c57cd93a05d23
       _assemblyGUID: 70d94f9d535d50944aea40b48f70569e
   - _array:
@@ -112,7 +112,7 @@ MonoBehaviour:
       _assemblyGUID: 93a8f949861c0ce4fb24f4d4d14a04e6
   - _array:
     - _arguments:
-      - _typeNameAndAssembly: Dynasty.Machine.Components.Supply, Dynasty.Machine
+      - _typeNameAndAssembly: Dynasty.Machines.Supply, Dynasty.Machines
         _guid: b3fbd445d03d46cabc7b868fd2447205
       _assemblyGUID: 5dd9873d32b80d04189418bb5e86e59b
     - _arguments:

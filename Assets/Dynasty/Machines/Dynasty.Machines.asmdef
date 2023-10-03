@@ -1,0 +1,19 @@
+{
+    "name": "Dynasty.Machines",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ab7a54624e024284ae2ab9afa212b146",
+        "GUID:f5b907779bf4028479fb9d98761b4147",
+        "GUID:367043ee10ea45288a31fbd62ce75fd0",
+        "GUID:b3b0a5a065f02914085c4782e7283e10"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

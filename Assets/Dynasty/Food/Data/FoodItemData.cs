@@ -3,7 +3,7 @@ using System.Linq;
 using Dynasty.Library.Data;
 using Dynasty.Core.Inventory;
 using Dynasty.Food.Instance;
-using Dynasty.Library.Entity;
+using Dynasty.Library;
 using UnityEngine;
 
 namespace Dynasty.Food.Data {

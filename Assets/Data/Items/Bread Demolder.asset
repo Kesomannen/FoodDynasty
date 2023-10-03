@@ -17,7 +17,7 @@ MonoBehaviour:
   _shortDescription: Demolds baked bread
   _icon: {fileID: 21300000, guid: b9d5af72d6320c748b52f6185b0e09e4, type: 3}
   _tier: 0
-  _price: 7500
+  _price: 2500
   _type: 7
   _prefab: {fileID: 1736596313674427913, guid: 00aba16603ab314459218650d4056b83, type: 3}
   _enabledProviders: 010001

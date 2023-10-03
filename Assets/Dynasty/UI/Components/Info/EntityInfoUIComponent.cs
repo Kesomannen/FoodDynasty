@@ -1,4 +1,4 @@
-﻿using Dynasty.Library.Entity;
+﻿using Dynasty.Library;
 using Dynasty.Library.Extensions;
 using TMPro;
 using UnityEngine;
