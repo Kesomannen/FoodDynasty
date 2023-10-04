@@ -38,7 +38,7 @@ public class SerializedGridSizeDrawer : PropertyDrawer {
         
         rect.x += rect.width;
         gridSize.Type = (GridSizeType) EditorGUI.EnumPopup(rect, gridSize.Type);
-
+            
         if (gridSize.Type == GridSizeType.Custom) {
             rect.x = position.x;
             rect.y += EditorGUIUtility.singleLineHeight;
@@ -53,7 +53,7 @@ public class SerializedGridSizeDrawer : PropertyDrawer {
             rect.y += EditorGUIUtility.singleLineHeight;
             DrawCustomGrid(rect, ref gridSize);
         }
-
+        
         if (!GUI.changed) return;
         var target = property.serializedObject.targetObject;
             

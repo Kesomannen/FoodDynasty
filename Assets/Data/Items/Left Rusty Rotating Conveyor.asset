@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9becf11d67124afc8a2b2dccc5c68e48, type: 3}
   m_Name: Left Rusty Rotating Conveyor
   m_EditorClassIdentifier: 
-  _name: Left Rotating Rusty Conveyor
+  _name: Left Rotating Conveyor
   _description: Just like a normal conveyor, but with a twist.
   _shortDescription: Functional and twisting, but slow
   _icon: {fileID: 21300000, guid: 0fab2c075d11e7f4eac1cdeb20cbd8dc, type: 3}

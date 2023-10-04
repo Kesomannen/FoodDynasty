@@ -189,6 +189,11 @@ PrefabInstance:
       propertyPath: _size._gridSize.Bounds.y
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2059985905203872251, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.414
+      objectReference: {fileID: 0}
     - target: {fileID: 6328609926739982568, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: _data
@@ -208,7 +213,7 @@ PrefabInstance:
     - target: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7875004
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
@@ -254,6 +259,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Cheese Adder
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434878137366661505, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.422
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
@@ -30334,6 +30344,7 @@ MonoBehaviour:
   _refillItem: {fileID: 11400000, guid: 873a0500f1b58364a83fcc24f90dfdda, type: 2}
   _refillItemName: 
   _condition: {fileID: 647388738380733382}
+  _emptyOutlineColor: {r: 1, g: 0, b: 0, a: 1}
   _useEvent: {fileID: 2704579113500726762}
 --- !u!114 &7771266817194492587
 MonoBehaviour:
