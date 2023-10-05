@@ -20,4 +20,4 @@ MonoBehaviour:
   _price: 5000
   _type: 0
   _prefab: {fileID: 5156398326315170921, guid: df75c632cef347040be08af51ea709d9, type: 3}
-  _enabledProviders: 
+  _enabledProviders: 01010000
