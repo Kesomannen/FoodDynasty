@@ -14,9 +14,9 @@ public static class Settings {
     public static Setting<MaxFramerateSetting> MaxFramerate { get; }
 
     static Settings() {
-        MusicVolume = GetOption("music_volume", 0.5f, value => SoundManager.MusicVolume = value);
-        EffectsVolume = GetOption("sfx_volume", 0.5f, value => SoundManager.EffectsVolume = value);
-        MasterVolume = GetOption("master_volume", 0.5f, value => SoundManager.MasterVolume = value);
+        MusicVolume = GetOption("music_volume", 0.5f, value => SoundManager.Singleton.MusicVolume = value);
+        EffectsVolume = GetOption("sfx_volume", 0.5f, value => SoundManager.Singleton.EffectsVolume = value);
+        MasterVolume = GetOption("master_volume", 0.5f, value => SoundManager.Singleton.MasterVolume = value);
         
         Quality = GetOption("quality", QualitySetting.Medium, value => QualitySettings.SetQualityLevel((int) value));
         

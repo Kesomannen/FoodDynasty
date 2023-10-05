@@ -2,54 +2,83 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Pool;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 namespace Dynasty.Library.Audio {
 
 public class SoundManager : MonoBehaviour {
-    public static float MasterVolume { get; set; }
-    public static float MusicVolume { get; set; }
-    public static float EffectsVolume { get; set; }
-    
-    ObjectPool<AudioSource> _pool;
-    List<AudioSource> _sources = new();
-    
-    static SoundManager _instance;
-    
-    public static SoundManager Instance {
-        get {
-            if (_instance != null) return _instance;
-            
-            _instance = new GameObject("Sound Manager").AddComponent<SoundManager>();
-            DontDestroyOnLoad(_instance);
+    public float MasterVolume {
+        get => _masterVolume;
+        set {
+            _masterVolume = value;
+            UpdateVolumes();
+        }
+    }
 
-            return _instance;
+    public float MusicVolume {
+        get => _musicVolume;
+        set {
+            _musicVolume = value;
+            UpdateVolumes();
+        }
+    }
+
+    public float EffectsVolume {
+        get => _effectsVolume;
+        set {
+            _effectsVolume = value;
+            UpdateVolumes();
         }
     }
     
-    void Awake() {
-        _pool = new ObjectPool<AudioSource>(() => {
-            var obj = new GameObject("AudioSource").AddComponent<AudioSource>();
-            DontDestroyOnLoad(obj);
-            _sources.Add(obj);
-            return obj;
-        });
-    }
-
-    void OnEnable() {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+    static SoundManager _singleton;
+    
+    public static SoundManager Singleton {
+        get {
+            if (_singleton == null) {
+                _singleton = FindObjectOfType<SoundManager>();
+            }
+            if (_singleton == null) {
+                _singleton = new GameObject("SoundManager").AddComponent<SoundManager>();
+                DontDestroyOnLoad(_singleton);
+            }
+            return _singleton;
+        }
     }
     
-    void OnDisable() {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+    readonly Dictionary<AudioSource, SoundType> _activeSources = new();
+    readonly Queue<AudioSource> _inactiveSources = new();
+
+    float _masterVolume;
+    float _musicVolume;
+    float _effectsVolume;
+
+    void Awake() {
+        SceneManager.sceneUnloaded += OnSceneLoaded;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        if (mode != LoadSceneMode.Single) return;
-        foreach (var audioSource in _sources) {
+    void OnDestroy() {
+        SceneManager.sceneUnloaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene) {
+        foreach (var audioSource in _activeSources.Keys) {
             audioSource.Stop();
+        }
+    }
+    
+    void SetVolume(AudioSource source, SoundType type) {
+        source.volume = type switch {
+            SoundType.Effect => _effectsVolume,
+            SoundType.Music => _musicVolume,
+            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
+        } * _masterVolume;
+    }
+
+    void UpdateVolumes() {
+        foreach (var (source, type) in _activeSources) {
+            SetVolume(source, type);
         }
     }
 
@@ -58,19 +87,38 @@ public class SoundManager : MonoBehaviour {
     }
     
     public IEnumerator PlayRoutine(SoundEffect sound) {
-        var source = _pool.Get();
+        var source = GetSource(sound.Type);
         
         source.clip = sound.Clips[Random.Range(0, sound.Clips.Count)];
         source.pitch = sound.Pitch;
-        
-        var volumeModifier = sound.Type == SoundType.Music ? MusicVolume : EffectsVolume;
-        source.volume = sound.Volume * MasterVolume * volumeModifier;
-        
+
         source.Play();
 
         yield return new WaitUntil(() => !source.isPlaying);
         
-        _pool.Release(source);
+        ReleaseSource(source);
+    }
+    
+    AudioSource GetSource(SoundType type) {
+        if (_inactiveSources.Count == 0) {
+            CreateSource();
+        }
+        
+        var source = _inactiveSources.Dequeue();
+        _activeSources.Add(source, type);
+        SetVolume(source, type);
+        return source;
+    }
+
+    void ReleaseSource(AudioSource source) {
+        _activeSources.Remove(source);
+        _inactiveSources.Enqueue(source);
+    }
+
+    void CreateSource() {
+        var source = new GameObject("AudioSource").AddComponent<AudioSource>();
+        DontDestroyOnLoad(source);
+        _inactiveSources.Enqueue(source);
     }
 }
 

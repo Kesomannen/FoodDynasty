@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16f59367e9548b8b5a9196f5782a94d, type: 3}
   m_Name: Ham Adder Pool
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 0}
+  _prefab: {fileID: 5887872141996657262, guid: a26ecd9cc8f4ef443b9e1b191d1452c0, type: 3}
   _collectionCheck: 1
   _defaultCapacity: 10
   _maxSize: 10000

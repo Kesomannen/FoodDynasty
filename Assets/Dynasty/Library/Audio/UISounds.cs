@@ -30,7 +30,7 @@ public class UISounds : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     
     static void Play(Optional<SoundEffect> sound) {
         if (sound.Enabled) {
-            SoundManager.Instance.Play(sound.Value);
+            SoundManager.Singleton.Play(sound.Value);
         }
     }
 }

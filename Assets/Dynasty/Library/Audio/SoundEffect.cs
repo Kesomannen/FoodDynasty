@@ -17,11 +17,11 @@ public class SoundEffect : ScriptableObject {
     public IReadOnlyList<AudioClip> Clips => _clips;
     
     public void Play() {
-        SoundManager.Instance.Play(this);
+        SoundManager.Singleton.Play(this);
     }
     
     public IEnumerator PlayRoutine() {
-        yield return SoundManager.Instance.PlayRoutine(this);
+        yield return SoundManager.Singleton.PlayRoutine(this);
     }
 }
 
