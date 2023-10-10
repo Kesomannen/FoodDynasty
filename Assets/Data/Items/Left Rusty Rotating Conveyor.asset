@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Left Rotating Conveyor
   _description: Just like a normal conveyor, but with a twist.
   _shortDescription: Functional and twisting, but slow
-  _icon: {fileID: 21300000, guid: 0fab2c075d11e7f4eac1cdeb20cbd8dc, type: 3}
+  _icon: {fileID: 21300000, guid: eb625e28ef98cbe48b33eebea3763e04, type: 3}
   _tier: 0
   _price: 150
   _type: 3

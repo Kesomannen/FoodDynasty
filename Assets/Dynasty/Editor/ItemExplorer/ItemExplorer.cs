@@ -22,7 +22,7 @@ public class ItemExplorer : EditorWindow {
     List<ItemData> _items;
     ItemMachineEditor _machineEditor;
 
-    [MenuItem("Window/Item Explorer")]
+    [MenuItem("Dynasty/Item Explorer")]
     public static void ShowWindow() {
         var window = GetWindow<ItemExplorer>();
         
@@ -64,25 +64,11 @@ public class ItemExplorer : EditorWindow {
     }
 
     void RefreshItems() {
-        var newItems = EditorUtil.FetchAll<ItemData>().ToList();
+        _items ??= new List<ItemData>();
+        _items.Clear();
+        _items.AddRange(EditorUtil.FetchAll<ItemData>());
         
-        if (_items != null) {
-            var newItemsSet = new HashSet<ItemData>(newItems);
-            var oldItemsSet = new HashSet<ItemData>(_items);
-            
-            var addedItems = newItemsSet.Except(oldItemsSet);
-            var removedItems = oldItemsSet.Except(newItemsSet);
-
-            foreach (var item in addedItems) {
-                _items.Add(item);
-            }
-            
-            foreach (var item in removedItems) {
-                _items.Remove(item);
-            }
-        } else {
-            _items = newItems;
-        }
+        rootVisualElement.Q<ListView>("itemlist").Rebuild();
     }
 
     void ConfigureCreateMenu(DropdownMenu menu, Rect pos) {

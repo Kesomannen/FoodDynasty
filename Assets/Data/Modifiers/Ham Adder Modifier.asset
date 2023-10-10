@@ -28,15 +28,15 @@ MonoBehaviour:
     _type: 1
   _traitModifiers:
   - _trait:
-      _value: Ham
-      _hash: 696030772
-      _type: 0
-    _operation: 0
+      _value: Stability
+      _hash: 605704453
+      _type: 2
+    _operation: 1
     _modifier:
       Base: 0
       Percentual: 0
       Additive: 0
-      Multiplicative: 0
+      Multiplicative: 0.8
     _intValue: 0
     _floatValue: 0
     _boolValue: 0

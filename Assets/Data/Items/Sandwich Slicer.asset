@@ -17,7 +17,7 @@ MonoBehaviour:
   _shortDescription: Splits baked bread into sandwiches
   _icon: {fileID: 21300000, guid: 125f7795f7bfd4245bcccfa8328447c8, type: 3}
   _tier: 1
-  _price: 25000
-  _type: 8
+  _price: 20000
+  _type: 5
   _prefab: {fileID: 7497493000996394721, guid: 9bb6508f4f702e34f92e0a92d8c44c4a, type: 3}
   _enabledProviders: 0100000100

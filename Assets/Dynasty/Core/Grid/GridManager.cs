@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -24,15 +25,7 @@ public class GridManager : MonoBehaviour {
     public int?[,] Cells {
         get {
             if (_cells != null) return _cells;
-            _cells = new int?[_gridSize.x, _gridSize.y];
-                
-            for (var x = 0; x < _gridSize.x; x++) {
-                for (var y = 0; y < _gridSize.y; y++) {
-                    _cells[x, y] = 0;
-                }
-            }
-
-            return _cells;
+            return _cells = CreateGrid();
         }
         private set => _cells = value;
     }
@@ -138,6 +131,18 @@ public class GridManager : MonoBehaviour {
         overlapping = GetOverlapping(position, size);
         return overlapping.All(IsAvailable);
     }
+    
+    int?[,] CreateGrid() {
+        var cells = new int?[_gridSize.x, _gridSize.y];
+
+        for (var x = 0; x < _gridSize.x; x++) {
+            for (var y = 0; y < _gridSize.y; y++) {
+                cells[x, y] = 0;
+            }
+        }
+        
+        return cells;
+    }
 
     static IEnumerable<Vector2Int> GetOverlapping(Vector2Int position, GridSize size) {
         return size.GetBlockingPositions().Select(pos => pos + position);
@@ -217,6 +222,14 @@ public class GridManager : MonoBehaviour {
         OutOfBounds,
         Occupied,
         Available
+    }
+
+    void OnValidate() {
+        if (_cells != null) {
+            var oldSize = new Vector2Int(_cells.GetLength(0), _cells.GetLength(1));
+            if (oldSize == _gridSize) return;
+        }
+        _cells = CreateGrid();
     }
 }
 

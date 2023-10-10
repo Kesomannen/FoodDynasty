@@ -13,18 +13,15 @@ MonoBehaviour:
   m_Name: Cheese Adder Filter
   m_EditorClassIdentifier: 
   _condition: 0
+  _sellPriceRange:
+    _enabled: 0
+    _value: {x: 0, y: 0}
   _filters:
   - _type: 0
     _trait:
       _value: Sandwich
       _hash: -1428350895
-    _boolValue: 0
-    _floatRange: {x: 0, y: 0}
-    _intRange: {x: 0, y: 0}
-  - _type: 1
-    _trait:
-      _value: Cheese
-      _hash: 1326298449
+      _type: 0
     _boolValue: 0
     _floatRange: {x: 0, y: 0}
     _intRange: {x: 0, y: 0}

@@ -61,11 +61,14 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 125f7795f7bfd4245bcccfa8328447c8, type: 3}
   - {fileID: 21300000, guid: 1fc25a268c836054ba2da103ef26713d, type: 3}
   - {fileID: 21300000, guid: 0fab2c075d11e7f4eac1cdeb20cbd8dc, type: 3}
+  - {fileID: 21300000, guid: 4a04d9e783d941b44bd8df74ac3e6740, type: 3}
+  - {fileID: 21300000, guid: eb625e28ef98cbe48b33eebea3763e04, type: 3}
   - {fileID: 21300000, guid: 224ee8480923bbb49b15c0de8cae6187, type: 3}
   - {fileID: 21300000, guid: ce7b9f58df805bd4185840544859296b, type: 3}
   - {fileID: 21300000, guid: 8ef0d188950473c40871e5a1d5caaef2, type: 3}
   - {fileID: 21300000, guid: 66ad3a99fa33c6545b461f84aaa05d0a, type: 3}
   - {fileID: 21300000, guid: bf7faea9976c80445abcecae28769c8e, type: 3}
+  - {fileID: 21300000, guid: 0ce8c3fbec06ef4498e7177d09a63941, type: 3}
   - {fileID: 21300000, guid: 07d3961c82939e145836b8a3d6c0b566, type: 3}
   - {fileID: 21300000, guid: cea9f34cbe44d7c4da0e661338c13a92, type: 3}
   - {fileID: 21300000, guid: 148b327cc091ed74bb6fdc145f0dc1af, type: 3}
@@ -73,6 +76,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 2dfe9b7d6c984e44384ebd89e00d4bfd, type: 3}
   - {fileID: 21300000, guid: c9755aadcc7a05f4ab347ccb9d29cb57, type: 3}
   - {fileID: 21300000, guid: 3c4b7dcd08e4af64f8906fac86af6104, type: 3}
+  - {fileID: 21300000, guid: b0081f4ec37854145ac405a2c4f72d64, type: 3}
   - {fileID: 21300000, guid: e554505e35083e64d9014453e457f4f9, type: 3}
   - {fileID: 21300000, guid: 5e659f2f62ca6a74499c9e0313e8d686, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -87,11 +91,14 @@ SpriteAtlas:
   - Sandwich Slicer
   - Sandwich Splitter
   - Rotating Rusty Conveyor
+  - Tomato Adder
+  - Left Rotating Conveyor
   - Cheese Sprinkler
   - Sandwich
   - Splitting Conveyor
   - Bread Oven
   - Ham
+  - Right Rotating Conveyor
   - Rusty Sell Crate
   - Right Rotating Rusty Conveyor
   - Rusty Conveyor
@@ -99,6 +106,7 @@ SpriteAtlas:
   - Cheese
   - Bread
   - Particle
+  - Sell Crate
   - Whole Wheat Injector
   - Spice Adder
   m_RenderDataMap: {}

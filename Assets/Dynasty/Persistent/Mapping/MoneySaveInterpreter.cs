@@ -31,6 +31,10 @@ public class MoneySaveInterpreter : SaveInterpreter<MoneySaveInterpreter.SaveDat
     public struct SaveData {
         public double Money;
         public double TotalMoneyMade;
+
+        public override string ToString() {
+            return $"Money: {Money}, TotalMoneyMade: {TotalMoneyMade}";
+        }
     }
 }
 

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Ham
   m_EditorClassIdentifier: 
   _name: Ham
-  _description: 
+  _description: Used in a ham adder to increase value of sandwiches.
   _shortDescription: 
   _icon: {fileID: 21300000, guid: bf7faea9976c80445abcecae28769c8e, type: 3}
   _tier: 1
-  _price: 75
+  _price: 250
   _associatedMachine: {fileID: 11400000, guid: 139dcf1af1315e34fbd1dee6d0e8f231, type: 2}
   InheritedInfo:
   - Multiplier

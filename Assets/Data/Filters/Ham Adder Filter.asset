@@ -16,4 +16,12 @@ MonoBehaviour:
   _sellPriceRange:
     _enabled: 0
     _value: {x: 0, y: 0}
-  _filters: []
+  _filters:
+  - _type: 0
+    _trait:
+      _value: Sandwich
+      _hash: -1428350895
+      _type: 0
+    _boolValue: 0
+    _floatRange: {x: 0, y: 0}
+    _intRange: {x: 0, y: 0}

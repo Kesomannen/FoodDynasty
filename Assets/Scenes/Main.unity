@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -320,7 +320,7 @@ MonoBehaviour:
   _loader: {fileID: 89925253}
   _startingMachines:
   - _itemData: {fileID: 11400000, guid: d9e5b56e40d6b8640b484ee21f57282a, type: 2}
-    _position: {x: 46, y: 23}
+    _position: {x: 56, y: 28}
     _rotation:
       _value: 1
 --- !u!114 &89925249
@@ -841,7 +841,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 5
   m_Viewport: {fileID: 510989940}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 1302823880}
@@ -2614,7 +2614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566939827}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.1212, y: 0.6891, z: -6.0561}
+  m_LocalPosition: {x: -7.365, y: 0.6891, z: -7.381}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2634,7 +2634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cellSize: {x: 0.25, y: 0.25}
-  _gridSize: {x: 50, y: 50}
+  _gridSize: {x: 60, y: 60}
 --- !u!114 &566939831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2649,7 +2649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gridManager: {fileID: 566939830}
   _drawGrid: 0
-  _selectCell: 0
+  _selectCell: 1
   _selectedCell: {x: 79, y: -88}
 --- !u!1001 &592395010
 PrefabInstance:
@@ -2953,7 +2953,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 5
   m_Viewport: {fileID: 1238537802}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 2132541380}
@@ -3449,6 +3449,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806268271918378524, guid: 0059c504834f9324aa658b69bd66b03e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7806268271918378524, guid: 0059c504834f9324aa658b69bd66b03e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2150002
       objectReference: {fileID: 0}
     - target: {fileID: -7806268271918378524, guid: 0059c504834f9324aa658b69bd66b03e,
         type: 3}
