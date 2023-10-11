@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Dynasty.Library.Classes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -65,8 +66,7 @@ public class SoundManager : MonoBehaviour {
 
     void OnSceneLoaded(Scene scene) {
         foreach (var audioSource in _activeSources.Keys.ToArray()) {
-            audioSource.Stop();
-            ReleaseSource(audioSource);
+            Release(audioSource);
         }
     }
     
@@ -83,14 +83,18 @@ public class SoundManager : MonoBehaviour {
             SetVolume(source, type);
         }
     }
+    
+    public CoroutineHandle Play(SoundEffect sound, out Action cancel) {
+        var source = GetSource(sound.Type);
+        cancel = () => Release(source);
+        return new CoroutineHandle(this, PlayRoutine(sound, source));
+    }
 
     public void Play(SoundEffect sound) {
         StartCoroutine(PlayRoutine(sound));
     }
-    
-    public IEnumerator PlayRoutine(SoundEffect sound) {
-        var source = GetSource(sound.Type);
-        
+
+    IEnumerator PlayRoutine(SoundEffect sound, AudioSource source) {
         source.clip = sound.Clips[Random.Range(0, sound.Clips.Count)];
         source.pitch = sound.Pitch;
 
@@ -98,7 +102,12 @@ public class SoundManager : MonoBehaviour {
 
         yield return new WaitUntil(() => !source.isPlaying);
         
-        ReleaseSource(source);
+        Release(source);
+    }
+
+    IEnumerator PlayRoutine(SoundEffect sound) {
+        var source = GetSource(sound.Type);
+        yield return PlayRoutine(sound, source);
     }
     
     AudioSource GetSource(SoundType type) {
@@ -112,13 +121,19 @@ public class SoundManager : MonoBehaviour {
         return source;
     }
 
-    void ReleaseSource(AudioSource source) {
+    void Release(AudioSource source) {
+        if (!_activeSources.ContainsKey(source)) {
+            return;
+        }
+        
+        source.Stop();
         _activeSources.Remove(source);
         _inactiveSources.Enqueue(source);
     }
 
     void CreateSource() {
         var source = new GameObject("AudioSource").AddComponent<AudioSource>();
+        source.transform.SetParent(transform);
         DontDestroyOnLoad(source);
         _inactiveSources.Enqueue(source);
     }

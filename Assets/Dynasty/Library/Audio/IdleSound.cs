@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Dynasty.Library.Audio {
@@ -6,10 +7,21 @@ namespace Dynasty.Library.Audio {
 public class IdleSound : MonoBehaviour {
     [SerializeField] SoundEffect _soundEffect;
 
-    IEnumerator Start() {
-        while (enabled) {
-            yield return _soundEffect.PlayRoutine();
+    Action _cancel;
+    
+    void OnEnable() {
+        StartCoroutine(Routine());
+        return;
+
+        IEnumerator Routine() {
+            while (enabled) {
+                yield return _soundEffect.Play(out _cancel);
+            }
         }
+    }
+
+    void OnDisable() {
+        _cancel?.Invoke();
     }
 }
 

@@ -10525,12 +10525,12 @@ PrefabInstance:
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: bakeKeys.Array.size
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: bakeValues.Array.size
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
@@ -15010,6 +15010,19 @@ MonoBehaviour:
     _filter: {fileID: 0}
   _modifierGroup: {fileID: 11400000, guid: 01619ffce44a1c1458ab72aae113a510, type: 2}
   _onItemModified: {fileID: 0}
+--- !u!114 &4940662848308300316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902832713316741743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701a16c8b08549288d15ae209d810420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundEffect: {fileID: 11400000, guid: 801f72b6dd3dbb84898fa62f410d6454, type: 2}
 --- !u!114 &5112051441785007879
 MonoBehaviour:
   m_ObjectHideFlags: 0

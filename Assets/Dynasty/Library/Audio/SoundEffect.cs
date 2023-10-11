@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Dynasty.Library.Classes;
 using UnityEngine;
 
 namespace Dynasty.Library.Audio {
@@ -20,8 +22,8 @@ public class SoundEffect : ScriptableObject {
         SoundManager.Singleton.Play(this);
     }
     
-    public IEnumerator PlayRoutine() {
-        yield return SoundManager.Singleton.PlayRoutine(this);
+    public CoroutineHandle Play(out Action cancel) {
+        return SoundManager.Singleton.Play(this, out cancel);
     }
 }
 
