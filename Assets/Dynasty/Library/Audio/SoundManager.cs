@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -63,8 +64,9 @@ public class SoundManager : MonoBehaviour {
     }
 
     void OnSceneLoaded(Scene scene) {
-        foreach (var audioSource in _activeSources.Keys) {
+        foreach (var audioSource in _activeSources.Keys.ToArray()) {
             audioSource.Stop();
+            ReleaseSource(audioSource);
         }
     }
     

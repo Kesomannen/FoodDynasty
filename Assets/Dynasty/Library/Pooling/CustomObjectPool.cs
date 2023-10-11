@@ -51,11 +51,7 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
 
     protected virtual T Create() {
         var obj = Instantiate(_prefab);
-        
-        if (!_clearOnSceneChange) {
-            DontDestroyOnLoad(obj);
-        }
-        
+        DontDestroyOnLoad(obj);
         obj.OnDisposed += Release;
 
         obj.gameObject.SetActive(false);
@@ -63,6 +59,8 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
     }
     
     protected virtual void Destroy(T obj) {
+        if (obj == null) return;
+        
         obj.OnDisposed -= Release;
         Destroy(obj.gameObject);
     }
@@ -72,6 +70,7 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
     }
     
     public virtual void Clear() {
+        Debug.Log($"Clearing pool {name}");
         _pool?.Clear();
     }
 

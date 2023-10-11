@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: -1811688331, guid: 6a744f12d34869243a0951b672766c45, type: 3}
   m_Name: Rusty Conveyor Speed
   m_EditorClassIdentifier: 
-  _value: 6
+  _value: 0.75

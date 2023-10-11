@@ -46,7 +46,7 @@ public class FoodSplitter : FoodMachineComponent, IInfoProvider, IAdditionalSave
 
     void Apply(FoodBehaviour food) {
         if (!_input.TryPeek(out var yieldedPrice)) return;
-        food.SellPrice = new Modifier(additive: yieldedPrice);
+        food.SellPrice = new Modifier(@base: yieldedPrice);
         
         _splitsLeft--;
         if (_splitsLeft > 0) return;

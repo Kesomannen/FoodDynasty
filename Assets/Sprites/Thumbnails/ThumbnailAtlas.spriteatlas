@@ -66,6 +66,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 224ee8480923bbb49b15c0de8cae6187, type: 3}
   - {fileID: 21300000, guid: ce7b9f58df805bd4185840544859296b, type: 3}
   - {fileID: 21300000, guid: 8ef0d188950473c40871e5a1d5caaef2, type: 3}
+  - {fileID: 21300000, guid: 41a87c88d3df73545b1e73d0246ae2aa, type: 3}
   - {fileID: 21300000, guid: 66ad3a99fa33c6545b461f84aaa05d0a, type: 3}
   - {fileID: 21300000, guid: bf7faea9976c80445abcecae28769c8e, type: 3}
   - {fileID: 21300000, guid: 0ce8c3fbec06ef4498e7177d09a63941, type: 3}
@@ -96,6 +97,7 @@ SpriteAtlas:
   - Cheese Sprinkler
   - Sandwich
   - Splitting Conveyor
+  - Tomato
   - Bread Oven
   - Ham
   - Right Rotating Conveyor

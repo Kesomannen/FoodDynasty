@@ -5,6 +5,7 @@ using Dynasty.UI.Components;
 using Dynasty.UI.Controllers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Dynasty.UI.Controls {
@@ -17,6 +18,8 @@ public class ItemSellControl : MonoBehaviour {
     [SerializeField] Container<Item> _container;
     [SerializeField] NumberInputController _numberInput;
     [SerializeField] NumberInputController.ModifyMode _modifyMode;
+    [Space] 
+    [SerializeField] UnityEvent _onSell;
 
     Action<int> _callback;
     InventoryAsset _inventory;
@@ -87,6 +90,7 @@ public class ItemSellControl : MonoBehaviour {
     void Sell() {
         _callback?.Invoke((int) _numberInput.Value);
         gameObject.SetActive(false);
+        _onSell?.Invoke();
     }
 }
 

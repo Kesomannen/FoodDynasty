@@ -679,8 +679,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 178.09795, y: -43.105}
-  m_SizeDelta: {x: 316.1959, y: 46.21}
+  m_AnchoredPosition: {x: 200, y: -43.105}
+  m_SizeDelta: {x: 360, y: 46.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &168660487
 MonoBehaviour:
@@ -730,7 +730,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.6
+  m_fontSize: 30.8
   m_fontSizeBase: 33.2
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4207,7 +4207,7 @@ PrefabInstance:
     - target: {fileID: 4910715633435095093, guid: ac6cf3746db95bf4fa4486cb8dbc9bbf,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 213.63629
+      value: 217.63629
       objectReference: {fileID: 0}
     - target: {fileID: 4910715633435095093, guid: ac6cf3746db95bf4fa4486cb8dbc9bbf,
         type: 3}
@@ -4387,6 +4387,21 @@ MonoBehaviour:
   _container: {fileID: 1003037060}
   _numberInput: {fileID: 1412473817}
   _modifyMode: 2
+  _onSell:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: fff72f49562a1cb42bfea07682c1e9a5, type: 2}
+        m_TargetAssemblyTypeName: Dynasty.Library.Audio.SoundEffect, Dynasty.Library
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1003037060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4601,7 +4616,7 @@ PrefabInstance:
     - target: {fileID: 7901170749697913209, guid: 7ce48160bc5581b4a92a761357d1d81a,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 316.1959
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 7901170749697913209, guid: 7ce48160bc5581b4a92a761357d1d81a,
         type: 3}
@@ -4646,12 +4661,12 @@ PrefabInstance:
     - target: {fileID: 7901170749697913209, guid: 7ce48160bc5581b4a92a761357d1d81a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 178.09795
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7901170749697913209, guid: 7ce48160bc5581b4a92a761357d1d81a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -173.92314
+      value: -177.92314
       objectReference: {fileID: 0}
     - target: {fileID: 7901170749697913209, guid: 7ce48160bc5581b4a92a761357d1d81a,
         type: 3}
@@ -10521,7 +10536,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 621907788}
   m_HandleRect: {fileID: 621907787}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10943,7 +10958,7 @@ PrefabInstance:
     - target: {fileID: 2050336675114004058, guid: d95b2124ea7061243bb93ffbe766fc75,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 316.1959
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 2050336675114004058, guid: d95b2124ea7061243bb93ffbe766fc75,
         type: 3}
@@ -10988,12 +11003,12 @@ PrefabInstance:
     - target: {fileID: 2050336675114004058, guid: d95b2124ea7061243bb93ffbe766fc75,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 178.09795
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2050336675114004058, guid: d95b2124ea7061243bb93ffbe766fc75,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -110.21
+      value: -112.21
       objectReference: {fileID: 0}
     - target: {fileID: 2050336675114004058, guid: d95b2124ea7061243bb93ffbe766fc75,
         type: 3}
@@ -17575,7 +17590,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 526723226}
   m_HandleRect: {fileID: 526723225}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -18167,6 +18182,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3968261799500476282, guid: fc1d6fb836d44aa47a1ae683d454d566,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281280964
       objectReference: {fileID: 0}
     - target: {fileID: 5558731260052535863, guid: fc1d6fb836d44aa47a1ae683d454d566,
         type: 3}

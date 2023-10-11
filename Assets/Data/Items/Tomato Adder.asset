@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Tomato Adder
   _description: Adds tomatoes to sandwiches, significantly increasing value and instability
-  _shortDescription: Adds tomatoes to sandwiches, significantly increasing value
-    and instability
+  _shortDescription: Adds tomatoes to sandwiches
   _icon: {fileID: 21300000, guid: 4a04d9e783d941b44bd8df74ac3e6740, type: 3}
   _tier: 1
   _price: 50000

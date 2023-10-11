@@ -120,6 +120,63 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 8686905464242370237, guid: 61193260f47d1104b9ea94d8da079ce1,
     type: 3}
+--- !u!1 &5701215075864267232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -202589706853968243, guid: 61193260f47d1104b9ea94d8da079ce1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3615978577430601581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1104586787389589124
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5701215075864267232}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.21338835, y: 0.55, z: 0.9946383}
+  m_Center: {x: -0.39330584, y: 0.087500006, z: -0.002680838}
+--- !u!1 &6070130101768781952 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1867896046492196883, guid: 61193260f47d1104b9ea94d8da079ce1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3615978577430601581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2609341120939330073
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070130101768781952}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.75, y: 0.0625, z: 1}
+  m_Center: {x: 0, y: 0.03125, z: 0}
+--- !u!1 &7730044080790863845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2780924969825460088, guid: 61193260f47d1104b9ea94d8da079ce1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3615978577430601581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2489119817245291760
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7730044080790863845}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.21338835, y: 0.54999995, z: 0.9946383}
+  m_Center: {x: -0.029398352, y: 0.01969695, z: -0.0017060041}
 --- !u!1001 &8515344577825726864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25184,7 +25241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _requiredSupplyPerUse: 1
-  _refillItem: {fileID: 0}
+  _refillItem: {fileID: 11400000, guid: ac547b8fecec0b74fa93c1ad8198079c, type: 2}
   _refillItemName: 
   _condition: {fileID: 8786915798164412985}
   _emptyOutlineColor: {r: 1, g: 0, b: 0, a: 1}

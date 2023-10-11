@@ -48,7 +48,7 @@ public class FoodTraitModifier {
         switch (trait.Type) {
             case FoodTraitType.Float:
                 var value = food.GetTrait<float>(trait.Hash); 
-                food.SetTrait(trait.Hash, _modifier.Apply(value));
+                food.SetTrait(trait.Hash, (float) _modifier.Apply(value));
                 break;
             case FoodTraitType.Int:
                 var intValue = food.GetTrait<int>(trait.Hash);

@@ -334,6 +334,21 @@ MonoBehaviour:
     type: 3}
   _hidePopupEvent: {fileID: 11400000, guid: a107f2969e82e7f438976c3102b38d7f, type: 2}
   _showPopupEvent: {fileID: 11400000, guid: 8cdf8a9f01d643e4897566426dbaaa92, type: 2}
+  _onShow:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 2842181c3f6c8a749b740b9ea5269e6c, type: 2}
+        m_TargetAssemblyTypeName: Dynasty.Library.Audio.SoundEffect, Dynasty.Library
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1238014130970847727
 GameObject:
   m_ObjectHideFlags: 0

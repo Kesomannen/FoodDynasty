@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1811688331, guid: 6a744f12d34869243a0951b672766c45, type: 3}
-  m_Name: Sandwich Splitter Speed
+  m_Script: {fileID: 11500000, guid: fa7c0065df534096aa89840604dff1b1, type: 3}
+  m_Name: Sell
   m_EditorClassIdentifier: 
-  _value: 2.5
+  _type: 0
+  _volume: 0.3
+  _pitch: 0.8
+  _clips:
+  - {fileID: 8300000, guid: 6b50ffccd57182e4a9c4e6a010b7d1b5, type: 3}

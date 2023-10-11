@@ -39,7 +39,7 @@ public class FoodModifierGroup : ScriptableObject {
         food.SellPrice += _random ?
             Modifier.Lerp(_sellPriceModifier, _maxSellPriceModifier, Random.value) :
             _sellPriceModifier;
-        
+         
         foreach (var modifier in _modelModifiers) {
             modifier.Apply(food);
         }

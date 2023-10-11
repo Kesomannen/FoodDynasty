@@ -13,6 +13,69 @@ MonoBehaviour:
   m_Name: Panorama
   m_EditorClassIdentifier: 
   _saveData:
-    ItemIds: 
-    Positions: []
-    Rotations: []
+    ItemIds: 0600000004000000050000000b000000040000000d00000010000000150000000f000000000000000b000000030000000c00000004000000
+    Positions:
+    - X: 56
+      Y: 28
+    - X: 17
+      Y: 28
+    - X: 9
+      Y: 28
+    - X: 52
+      Y: 28
+    - X: 9
+      Y: 44
+    - X: 21
+      Y: 27
+    - X: 36
+      Y: 28
+    - X: 40
+      Y: 28
+    - X: 44
+      Y: 28
+    - X: 8
+      Y: 48
+    - X: 9
+      Y: 54
+    - X: 13
+      Y: 54
+    - X: 9
+      Y: 40
+    - X: 9
+      Y: 36
+    Rotations:
+    - _value: 1
+    - _value: 1
+    - _value: 2
+    - _value: 1
+    - _value: 2
+    - _value: 1
+    - _value: 1
+    - _value: 1
+    - _value: 1
+    - _value: 2
+    - _value: 2
+    - _value: 1
+    - _value: 2
+    - _value: 2
+    AdditionalData:
+    - Data: []
+    - Data: []
+    - Data: []
+    - Data: []
+    - Data: []
+    - Data:
+      - 0
+      - '{"SplitsLeft":1,"Input":[7.5,7.5]}'
+    - Data:
+      - 0
+    - Data:
+      - 0
+    - Data:
+      - 0
+    - Data: []
+    - Data: []
+    - Data:
+      - 0
+    - Data: []
+    - Data: []

@@ -4,6 +4,7 @@ using Dynasty.Core.Tooltip;
 using Dynasty.Library.Events;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Dynasty.UI.Controllers {
@@ -17,7 +18,8 @@ public class PopupDisplay : MonoBehaviour {
     [Space]
     [SerializeField] GenericGameEvent _hidePopupEvent;
     [SerializeField] GameEvent<PopupData> _showPopupEvent;
-
+    [SerializeField] UnityEvent _onShow;
+ 
     readonly List<Button> _actions = new();
     
     void OnEnable() {
@@ -62,6 +64,7 @@ public class PopupDisplay : MonoBehaviour {
         }
         
         _popup.SetActive(true);
+        _onShow.Invoke();
         
         return;
 
