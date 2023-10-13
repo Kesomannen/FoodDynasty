@@ -35,7 +35,7 @@ public class SaveDisplay : MonoBehaviour {
     
     void FadeOut() {
         LeanTween.cancel(gameObject);
-        LeanTween.alpha(gameObject, 0, _fadeDuration);
+        LeanTween.alpha(gameObject, 0, _fadeDuration).setDelay(1f);
     }
 }
 

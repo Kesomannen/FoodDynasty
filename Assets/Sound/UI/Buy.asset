@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa7c0065df534096aa89840604dff1b1, type: 3}
-  m_Name: Open Tooltip
+  m_Name: Buy
   m_EditorClassIdentifier: 
+  _type: 0
   _volume: 0.3
-  _pitch: 1
+  _pitch: 0.8
   _clips:
-  - {fileID: 8300000, guid: eed02a923a97e4cf9aba79d72c537514, type: 3}
+  - {fileID: 8300000, guid: 356f7f1ebb9777441abb2d1c991d9901, type: 3}

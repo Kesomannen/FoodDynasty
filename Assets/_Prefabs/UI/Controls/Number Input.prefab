@@ -683,7 +683,6 @@ MonoBehaviour:
     type: 3}
   _modifyButtonParent: {fileID: 8954369123977012959}
   _constantValues:
-  - 1
   - 10
   - 100
   - 1000

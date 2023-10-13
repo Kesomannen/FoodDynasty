@@ -431,6 +431,7 @@ MonoBehaviour:
   _rebindableInputs:
   - {fileID: 11400000, guid: 87c6eb4e79a64ed4d86c5bdfd7beb3f0, type: 2}
   - {fileID: 11400000, guid: 5cc05794f12a52846b7203928e833815, type: 2}
+  - {fileID: 11400000, guid: ad90a65419976964ea7763881bcde82d, type: 2}
   - {fileID: 11400000, guid: aa7eb96e48602ec45bd4743f37acd788, type: 2}
   - {fileID: 11400000, guid: 9299b743e3701ac48b2441d645fbc53e, type: 2}
   - {fileID: 11400000, guid: 3143044855306ce488abd31d64081a5a, type: 2}
@@ -2891,7 +2892,7 @@ PrefabInstance:
     - target: {fileID: 7901170748815158618, guid: 7ce48160bc5581b4a92a761357d1d81a,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4283519449
+      value: 4281280964
       objectReference: {fileID: 0}
     - target: {fileID: 7901170748815158618, guid: 7ce48160bc5581b4a92a761357d1d81a,
         type: 3}

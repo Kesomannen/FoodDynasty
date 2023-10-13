@@ -8,6 +8,7 @@ using Dynasty.Library.Extensions;
 using Dynasty.UI.Components;
 using Dynasty.UI.Controls;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace Dynasty.UI.Controllers {
@@ -21,6 +22,7 @@ public class ShopController : MonoBehaviour {
     [SerializeField] MoneyManager _moneyManager;
     [SerializeField] ListEvent<ItemData> _content;
     [SerializeField] TooltipData<ItemData> _tooltipData;
+    [SerializeField] UnityEvent _onBuy;
 
     readonly List<(Interactable interactable, Container<ItemData> container)> _items = new();
 
@@ -73,6 +75,8 @@ public class ShopController : MonoBehaviour {
 
         _moneyManager.CurrentMoney -= cost;
         _onItemPurchased.Raise(new Item { Count = count, Data = item });
+        
+        _onBuy.Invoke();
     }
     
     void OnMoneyChanged(double previous, double current) {

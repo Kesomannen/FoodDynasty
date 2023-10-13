@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fa7c0065df534096aa89840604dff1b1, type: 3}
-  m_Name: Place
+  m_Name: Open Window
   m_EditorClassIdentifier: 
   _type: 0
-  _volume: 0.4
-  _pitch: 0.7
+  _volume: 1
+  _pitch: 1
   _clips:
-  - {fileID: 8300000, guid: bf191bd4ac517e248ab85e703907d2e9, type: 3}
+  - {fileID: 8300000, guid: eed02a923a97e4cf9aba79d72c537514, type: 3}

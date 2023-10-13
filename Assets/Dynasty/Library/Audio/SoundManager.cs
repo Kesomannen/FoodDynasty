@@ -49,7 +49,7 @@ public class SoundManager : MonoBehaviour {
         }
     }
     
-    readonly Dictionary<AudioSource, SoundType> _activeSources = new();
+    readonly Dictionary<AudioSource, SoundEffect> _activeSources = new();
     readonly Queue<AudioSource> _inactiveSources = new();
 
     float _masterVolume;
@@ -70,12 +70,12 @@ public class SoundManager : MonoBehaviour {
         }
     }
     
-    void SetVolume(AudioSource source, SoundType type) {
-        source.volume = type switch {
+    void SetVolume(AudioSource source, SoundEffect effect) {
+        source.volume = effect.Type switch {
             SoundType.Effect => _effectsVolume,
             SoundType.Music => _musicVolume,
-            _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
-        } * _masterVolume;
+            _ => throw new ArgumentOutOfRangeException(nameof(effect), effect, null)
+        } * _masterVolume * effect.Volume;
     }
 
     void UpdateVolumes() {
@@ -85,7 +85,7 @@ public class SoundManager : MonoBehaviour {
     }
     
     public CoroutineHandle Play(SoundEffect sound, out Action cancel) {
-        var source = GetSource(sound.Type);
+        var source = GetSource(sound);
         cancel = () => Release(source);
         return new CoroutineHandle(this, PlayRoutine(sound, source));
     }
@@ -106,18 +106,18 @@ public class SoundManager : MonoBehaviour {
     }
 
     IEnumerator PlayRoutine(SoundEffect sound) {
-        var source = GetSource(sound.Type);
+        var source = GetSource(sound);
         yield return PlayRoutine(sound, source);
     }
     
-    AudioSource GetSource(SoundType type) {
+    AudioSource GetSource(SoundEffect sound) {
         if (_inactiveSources.Count == 0) {
             CreateSource();
         }
         
         var source = _inactiveSources.Dequeue();
-        _activeSources.Add(source, type);
-        SetVolume(source, type);
+        _activeSources.Add(source, sound);
+        SetVolume(source, sound);
         return source;
     }
 
@@ -133,7 +133,6 @@ public class SoundManager : MonoBehaviour {
 
     void CreateSource() {
         var source = new GameObject("AudioSource").AddComponent<AudioSource>();
-        source.transform.SetParent(transform);
         DontDestroyOnLoad(source);
         _inactiveSources.Enqueue(source);
     }

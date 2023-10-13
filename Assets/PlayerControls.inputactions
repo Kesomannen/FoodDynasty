@@ -24,7 +24,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Delete",
+                    "name": "Remove",
                     "type": "Button",
                     "id": "1c3f6455-f89e-4c9e-a1a6-99bbcb6ca67b",
                     "expectedControlType": "Button",
@@ -99,7 +99,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
-                    "action": "Delete",
+                    "action": "Remove",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -8743,6 +8743,20 @@ MonoBehaviour:
   m_Script: {fileID: -2117056463, guid: 51ffa55fd3c2d8a4a99d778d29c44bb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4334623104289986252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7358305945080766357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ba006b719b43a597722bb24e02cc92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundEffect: {fileID: 11400000, guid: 90e6ff56e2e9a1f4f91f22c68ad5ffb9, type: 2}
+  _event: {fileID: 2350485909091822535}
 --- !u!114 &7020109674481146587
 MonoBehaviour:
   m_ObjectHideFlags: 0

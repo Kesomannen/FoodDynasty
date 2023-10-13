@@ -69,8 +69,7 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
         _pool?.Dispose();
     }
     
-    public virtual void Clear() {
-        Debug.Log($"Clearing pool {name}");
+    void Clear() {
         _pool?.Clear();
     }
 

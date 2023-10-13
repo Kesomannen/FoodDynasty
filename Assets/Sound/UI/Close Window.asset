@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7c0065df534096aa89840604dff1b1, type: 3}
   m_Name: Close Window
   m_EditorClassIdentifier: 
-  _volume: 0.5
-  _pitch: 2
+  _type: 0
+  _volume: 0.8
+  _pitch: 2.5
   _clips:
   - {fileID: 8300000, guid: b130169688fd442d4b781154414b8789, type: 3}

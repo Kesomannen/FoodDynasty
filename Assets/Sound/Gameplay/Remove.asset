@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Remove
   m_EditorClassIdentifier: 
   _type: 0
-  _volume: 0.3
-  _pitch: 0.8
+  _volume: 0.4
+  _pitch: 1
   _clips:
-  - {fileID: 8300000, guid: 282544d505c8a466ca0283b1fc917e4a, type: 3}
+  - {fileID: 8300000, guid: eed02a923a97e4cf9aba79d72c537514, type: 3}

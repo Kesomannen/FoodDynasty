@@ -28699,6 +28699,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7969967263627681680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8086906805628167599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701a16c8b08549288d15ae209d810420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _soundEffect: {fileID: 11400000, guid: a02df583360be194e984773d85cc8d88, type: 2}
 --- !u!114 &531886090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28757,6 +28770,7 @@ MonoBehaviour:
   _refillItem: {fileID: 0}
   _refillItemName: Sandwich
   _condition: {fileID: 5514994878410955110}
+  _emptyOutlineColor: {r: 1, g: 0, b: 0, a: 1}
   _useEvent: {fileID: 4218761305672540076}
 --- !u!114 &3805301981054359714
 MonoBehaviour:

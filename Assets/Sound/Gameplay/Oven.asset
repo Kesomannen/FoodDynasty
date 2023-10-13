@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Oven
   m_EditorClassIdentifier: 
   _type: 0
-  _volume: 0.3
-  _pitch: 0.8
+  _volume: 0.8
+  _pitch: 1
   _clips:
   - {fileID: 8300000, guid: b4c86c7e490700240b251e19933aae9d, type: 3}

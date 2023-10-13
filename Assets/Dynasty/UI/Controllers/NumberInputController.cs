@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -55,7 +56,10 @@ public class NumberInputController : MonoBehaviour {
         var buttons = 0;
 
         if (mode != ModifyMode.None) {
-            var values = mode == ModifyMode.Constant ? _constantValues : _percentageValues;
+            var values = (mode == ModifyMode.Constant
+                ? _constantValues.Select(v => (v, ModifyMode.Constant)).Prepend((1, ModifyMode.Percentage))
+                : _percentageValues.Select(v => (v, ModifyMode.Percentage))).ToArray();
+            
             buttons = values.Length;
             
             for (var i = 0; i < values.Length; i++) {
@@ -68,7 +72,7 @@ public class NumberInputController : MonoBehaviour {
                     _modifyButtons.Add(button);
                 }
 
-                button.SetContent(this, mode, values[i]);
+                button.SetContent(this, values[i].Item2, values[i].Item1);
             }
         }
 
