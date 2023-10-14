@@ -33,6 +33,9 @@ public class GridManager : MonoBehaviour {
     public Vector2 CellSize => _cellSize;
     public Vector2Int GridSize => _gridSize;
     public IEnumerable<GridObject> GridObjects => _gridObjects;
+    
+    public event Action<GridObject, Vector2Int, GridRotation> OnObjectAdded;
+    public event Action<GridObject> OnObjectRemoved;
 
     /// <summary>
     /// Attempts to add a grid object to the grid.
@@ -79,6 +82,8 @@ public class GridManager : MonoBehaviour {
 
         gridObject.OnAdded(this, position, rotation);
         _gridObjects.Add(gridObject);
+        
+        OnObjectAdded?.Invoke(gridObject, position, rotation);
     }
 
     void Remove(GridObject gridObject) {
@@ -89,6 +94,8 @@ public class GridManager : MonoBehaviour {
         
         gridObject.OnRemoved();
         _gridObjects.Remove(gridObject);
+        
+        OnObjectRemoved?.Invoke(gridObject);
     }
     
     public void Expand(Vector2Int size, Vector2Int offset) {

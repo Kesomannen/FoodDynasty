@@ -63,7 +63,6 @@ public class InventoryAsset : MonoScriptable {
         
         OnItemChanged?.Invoke(item);
     }
-    
 
     /// <summary>
     /// Removes a number of the given item data from the inventory. If there are not enough items, nothing is removed.

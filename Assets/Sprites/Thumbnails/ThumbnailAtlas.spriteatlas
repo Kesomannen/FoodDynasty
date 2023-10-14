@@ -59,6 +59,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 8bfc8df31e311314889152320b69f8eb, type: 3}
   - {fileID: 21300000, guid: 335c2a754552472468c0702a8d8d31f4, type: 3}
   - {fileID: 21300000, guid: 125f7795f7bfd4245bcccfa8328447c8, type: 3}
+  - {fileID: 21300000, guid: 6660a306b80f03541a1c3af9f9fc2624, type: 3}
   - {fileID: 21300000, guid: 1fc25a268c836054ba2da103ef26713d, type: 3}
   - {fileID: 21300000, guid: 0fab2c075d11e7f4eac1cdeb20cbd8dc, type: 3}
   - {fileID: 21300000, guid: 4a04d9e783d941b44bd8df74ac3e6740, type: 3}
@@ -90,6 +91,7 @@ SpriteAtlas:
   - Bread Softener
   - Dough
   - Sandwich Slicer
+  - Auto Refiller
   - Sandwich Splitter
   - Rotating Rusty Conveyor
   - Tomato Adder

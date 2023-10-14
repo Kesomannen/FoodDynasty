@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: -838393948165991145}
   - component: {fileID: 6328609926739982568}
   - component: {fileID: 8371573496478193076}
+  - component: {fileID: 3975175285373007720}
   m_Layer: 0
   m_Name: MachineBase
   m_TagString: Machine
@@ -189,9 +190,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803021b119ae40219cff2ed0f599a17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startScale: 0.9
+  _startScale: 0.8
   _duration: 0.3
   _easeType: 12
+--- !u!114 &3975175285373007720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6934147759885031633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d3054fe95004496b85a574a3cd5a66c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8488950358054373712
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Dynasty.Core.Grid;
 using Dynasty.Library.Data;
 using Dynasty.Core.Inventory;
 using Dynasty.Library;
@@ -15,13 +16,11 @@ public class Supply : MonoBehaviour, IStatusProvider, IInfoProvider, IAdditional
     [SerializeField] ItemData _refillItem;
     [SerializeField] string _refillItemName;
     [SerializeField] CheckEvent<bool> _condition;
-    [SerializeField] Color _emptyOutlineColor = Color.red;
     [FormerlySerializedAs("_onUsed")]
     [SerializeField] GenericEvent _useEvent;
 
     int _currentSupply;
-    Color _defaultOutlineColor;
-    Outline _outline;
+    GridOutline _outline;
     
     public const int MaxSupply = int.MaxValue;
 
@@ -64,8 +63,7 @@ public class Supply : MonoBehaviour, IStatusProvider, IInfoProvider, IAdditional
     public event Action<Supply> OnChanged;
 
     void Awake() {
-        _outline = GetComponent<Outline>();
-        _defaultOutlineColor = _outline.OutlineColor;
+        _outline = GetComponent<GridOutline>();
         
         UpdateOutline();
     }
@@ -97,7 +95,7 @@ public class Supply : MonoBehaviour, IStatusProvider, IInfoProvider, IAdditional
         yield return new EntityInfo(RefillItemName, CurrentSupply.ToString());
     }
     
-    bool HasSupply() => CurrentSupply >= _requiredSupplyPerUse;
+    public bool HasSupply() => CurrentSupply >= _requiredSupplyPerUse;
     void OnUsed() => CurrentSupply -= _requiredSupplyPerUse;
     
     public void OnAfterLoad(int data) {
@@ -113,9 +111,7 @@ public class Supply : MonoBehaviour, IStatusProvider, IInfoProvider, IAdditional
     }
     
     void UpdateOutline() {
-        var hasSupply = HasSupply();
-        _outline.OutlineColor = hasSupply ? _defaultOutlineColor : _emptyOutlineColor;
-        _outline.enabled = !hasSupply;
+        _outline.Require(Color.red, !HasSupply());
     }
 
     public Component Component => this;

@@ -295,8 +295,8 @@ public readonly struct GridPlacementResult {
     public readonly GridRotation Rotation;
     public readonly GridPlacementResultType ResultType;
     public bool WasSuccessful => ResultType == GridPlacementResultType.Successful;
-    
-    public GridPlacementResult(GridPlacementResultType resultType, Vector2Int gridPosition = default, GridRotation rotation = default) {
+
+    GridPlacementResult(GridPlacementResultType resultType, Vector2Int gridPosition = default, GridRotation rotation = default) {
         GridPosition = gridPosition;
         Rotation = rotation;
         ResultType = resultType;

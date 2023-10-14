@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9becf11d67124afc8a2b2dccc5c68e48, type: 3}
+  m_Name: Auto Refiller
+  m_EditorClassIdentifier: 
+  _name: Auto Refiller
+  _description: Refills nearby machines automatically
+  _shortDescription: Refills nearby machines automatically
+  _icon: {fileID: 21300000, guid: 6660a306b80f03541a1c3af9f9fc2624, type: 3}
+  _tier: 1
+  _price: 40000
+  _type: 0
+  _prefab: {fileID: 101737507698050665, guid: 08a788e13010ca2448557e10b6739311, type: 3}
+  _enabledProviders: 

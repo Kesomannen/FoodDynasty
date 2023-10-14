@@ -20,10 +20,7 @@ public class GridObjectSelector : MonoBehaviour {
     [SerializeField] TooltipData<Entity> _tooltipData;
 
     GridObject _selectedObject;
-    Outline _selectedOutline;
-    
-    Color _currentOutlineColor;
-    bool _currentOutlineState;
+    GridOutline _selectedOutline;
     
     void OnEnable() {
         _selectObjectEvent.AddListener(OnObjectSelected);
@@ -50,9 +47,10 @@ public class GridObjectSelector : MonoBehaviour {
 
     void ChangeSelection(GridObject newSelection) {
         if (_selectedObject != null) {
-            _selectedOutline.OutlineColor = _currentOutlineColor;
-            _selectedOutline.enabled = _currentOutlineState;
+           _selectedObject.GetComponentsInChildren<IOnDeselectedHandler>()
+                .ForEach(h => h.OnDeselected());
             
+            _selectedOutline.Remove(Color.white);
             _selectedOutline = null;
             _tooltipData.Hide();
         }
@@ -60,17 +58,26 @@ public class GridObjectSelector : MonoBehaviour {
         _selectedObject = newSelection; 
         if (_selectedObject == null) return;
 
-        _selectedOutline = _selectedObject.GetOrAddComponent<Outline>();
+        _selectedObject.GetComponentsInChildren<IOnSelectedHandler>()
+            .ForEach(h => h.OnSelected());
 
-        _currentOutlineColor = _selectedOutline.OutlineColor;
-        _currentOutlineState = _selectedOutline.enabled;
+        _selectedOutline = _selectedObject.GetComponent<GridOutline>();
+        _selectedOutline.Require(Color.white);
 
-        _selectedOutline.OutlineColor = Color.white;
-        _selectedOutline.enabled = true;
-        
-        if (!_selectedObject.TryGetComponent(out Entity entity)) return;
-        _tooltipData.Show(entity);
+        if (_selectedObject.TryGetComponent(out Entity entity)) {
+            _tooltipData.Show(entity);
+        }
     }
 }
+
+public interface IOnSelectedHandler {
+    void OnSelected();
+}
+
+public interface IOnDeselectedHandler {
+    void OnDeselected();
+}
+
+public interface ISelectionHandler : IOnSelectedHandler, IOnDeselectedHandler { }
 
 }

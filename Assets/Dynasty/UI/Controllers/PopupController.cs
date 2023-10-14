@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Dynasty.UI.Controllers {
 
-public class PopupDisplay : MonoBehaviour {
+public class PopupController : MonoBehaviour {
     [SerializeField] GameObject _popup;
     [SerializeField] TMP_Text _headerText;
     [SerializeField] TMP_Text _bodyText;

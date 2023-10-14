@@ -1,4 +1,5 @@
 ﻿using System;
+using Dynasty.Library.Helpers;
 using UnityEngine;
 
 namespace Dynasty.Core.Tooltip {
@@ -27,9 +28,9 @@ public struct PopupAction {
     };
     
     public Color Color => Kind switch {
-        PopupActionKind.Positive => new Color(0.2588235f, 0.5660378f, 0.264472f),
-        PopupActionKind.Neutral => new Color(0.1248665f, 0.2824448f, 0.4339623f),
-        PopupActionKind.Negative => new Color(0.5660378f, 0.258989f, 0.264472f),
+        PopupActionKind.Positive => Colors.Positive,
+        PopupActionKind.Neutral => Colors.Neutral,
+        PopupActionKind.Negative => Colors.Negative,
         _ => throw new ArgumentOutOfRangeException()
     };
 }
