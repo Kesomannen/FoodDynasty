@@ -164,7 +164,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 1}
-  _speed: {fileID: 11400000, guid: dd927c834874b6044a38511ab35023e1, type: 2}
+  _speed:
+    _dataObject: {fileID: 11400000, guid: dd927c834874b6044a38511ab35023e1, type: 2}
+    Modifier:
+      Base: 0
+      Percentual: 0
+      Additive: 0
+      Multiplicative: 1
 --- !u!114 &6328609926739982568
 MonoBehaviour:
   m_ObjectHideFlags: 0

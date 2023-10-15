@@ -11,9 +11,9 @@ using UnityEngine;
 namespace Dynasty.Machines {
 
 [RequireComponent(typeof(GridOutline))]
-public class AutoRefiller : MachineModifier<Supply>, IStatusProvider {
+public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostableProperty {
     [SerializeField] InventoryAsset _inventory;
-    [SerializeField] float _refillSpeed = 1f;
+    [SerializeField] FloatDataProperty _refillSpeed;
     [SerializeField] int _refillAmount = 1;
 
     GridOutline _outline;
@@ -27,8 +27,7 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider {
         _outline = GetComponent<GridOutline>();
     }
 
-    protected override void OnEnable() {
-        base.OnEnable();
+    void OnEnable() {
         StartCoroutine(RefillLoop());
     }
 
@@ -49,7 +48,7 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider {
             _outline.Require(Color.red, _states.Any(kvp => kvp.Value == State.Empty));
             OnStatusChanged?.Invoke(this);
 
-            yield return CoroutineHelpers.Wait(1 / _refillSpeed);
+            yield return CoroutineHelpers.Wait(1 / _refillSpeed.Value);
         }
     }
 
@@ -69,7 +68,7 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider {
             yield return info;
         }
         
-        yield return new EntityInfo("Speed", $"{_refillSpeed:0.#}");
+        yield return new EntityInfo("Speed", $"{_refillSpeed.Value:0.#}");
         yield return new EntityInfo("Amount", _refillAmount.ToString());
     }
 
@@ -87,15 +86,17 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider {
             shownItems.Add(supply.RefillItem);
             
             var (text, color) = state switch {
-                State.Ok => ("Ok", Colors.Positive),
-                State.Low => ("Low", Colors.Warning),
-                State.Empty => ("Empty", Colors.Negative),
+                State.Ok => ("Ok", Colors.PositiveText),
+                State.Low => ("Low", Colors.WarningText),
+                State.Empty => ("Empty", Colors.NegativeText),
                 _ => throw new ArgumentOutOfRangeException()
             };
             
             yield return new EntityInfo(supply.RefillItemName, $"<color=#{ColorUtility.ToHtmlStringRGB(color)}>{text}</color>");
         }
     }
+
+    public FloatDataProperty BoostableProperty => _refillSpeed;
 }
 
 }

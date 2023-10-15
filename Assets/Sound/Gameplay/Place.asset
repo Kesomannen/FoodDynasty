@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Place
   m_EditorClassIdentifier: 
   _type: 0
-  _volume: 0.4
+  _volume: 0.25
   _pitch: 0.7
   _clips:
   - {fileID: 8300000, guid: bf191bd4ac517e248ab85e703907d2e9, type: 3}

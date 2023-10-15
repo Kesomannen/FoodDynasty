@@ -5209,6 +5209,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _arrowPool: {fileID: 11400000, guid: 9d51a3afd856667498e902789cd499a0, type: 2}
+  _rangeIndicatorPool: {fileID: 11400000, guid: 667c7f5f6e84b284e9e2f6d09c5f25b4,
+    type: 2}
   _gridManager: {fileID: 566939830}
   _placeTrigger: {fileID: 1124281255}
   _rotateEvent: {fileID: 11400000, guid: 87c6eb4e79a64ed4d86c5bdfd7beb3f0, type: 2}
@@ -18713,23 +18715,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 89.46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 20.26
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 45.73
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2965883969436907079, guid: 74bec6fecf78cf64d9591831f4e5885b,
         type: 3}

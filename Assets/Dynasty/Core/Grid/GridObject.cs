@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Dynasty.Library;
 using JetBrains.Annotations;
 using NaughtyAttributes;
@@ -81,22 +82,28 @@ public class GridObject : MonoBehaviour, IInfoProvider {
     // Used when previewing the object's size in the editor.
     static readonly Vector3 _previewCellSize = new(0.25f, 0, 0.25f);
     
+    public event Action OnAdded, OnRemoved; 
+    
     /// <summary>
     /// Call to inform this object that it has been added to a grid.
     /// </summary>
-    public void OnAdded(GridManager gridManager, Vector2Int gridPosition, GridRotation rotation) {
+    public void RegisterAdded(GridManager gridManager, Vector2Int gridPosition, GridRotation rotation) {
         GridManager = gridManager;
         GridPosition = gridPosition;
         Rotation = rotation;
         IsPlaced = true;
+        
+        OnAdded?.Invoke();
     }
 
     /// <summary>
     /// Call to inform this object that it has been removed from a grid.
     /// </summary>
     /// <remarks>Does not clear rotation, position or the reference to <see cref="GridManager"/>.</remarks>
-    public void OnRemoved() {
+    public void RegisterRemoved() {
         IsPlaced = false;
+        
+        OnRemoved?.Invoke();
     }
 
     public IEnumerable<EntityInfo> GetInfo() {

@@ -8,8 +8,8 @@ using UnityEngine;
 
 namespace Dynasty.Machines {
 
-public class FoodDispenser : MonoBehaviour, IInfoProvider, IMachineComponent {
-    [SerializeField] DataObject<float> _spawnSpeed;
+public class FoodDispenser : MonoBehaviour, IInfoProvider, IMachineComponent, IBoostableProperty {
+    [SerializeField] FloatDataProperty _spawnSpeed;
     [SerializeField] FoodObjectPool _pool;
     [SerializeField] Transform _spawnPoint;
     [SerializeField] Vector3 _randomSpawnOffset;
@@ -63,6 +63,7 @@ public class FoodDispenser : MonoBehaviour, IInfoProvider, IMachineComponent {
     }
     
     public Component Component => this;
+    public FloatDataProperty BoostableProperty => _spawnSpeed;
 }
 
 }

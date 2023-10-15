@@ -8729,7 +8729,6 @@ MonoBehaviour:
   _refillItem: {fileID: 11400000, guid: 062ac854b9f159c4f9ab9d424ba2808b, type: 2}
   _refillItemName: 
   _condition: {fileID: 7020109674481146587}
-  _emptyOutlineColor: {r: 1, g: 0, b: 0, a: 1}
   _useEvent: {fileID: 2350485909091822535}
 --- !u!114 &2350485909091822535
 MonoBehaviour:
@@ -8782,7 +8781,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58570aacacff4109a2f78196c24d8ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnSpeed: {fileID: 11400000, guid: c06856c6919240748a80c860f1e994c7, type: 2}
+  _spawnSpeed:
+    _dataObject: {fileID: 11400000, guid: c06856c6919240748a80c860f1e994c7, type: 2}
+    Modifier:
+      Base: 0
+      Percentual: 0
+      Additive: 0
+      Multiplicative: 1
   _pool: {fileID: 11400000, guid: 8e01162ff2cf14c499cbe194e44030f5, type: 2}
   _spawnPoint: {fileID: 4321520725805672245}
   _randomSpawnOffset: {x: 0, y: 0, z: 0}

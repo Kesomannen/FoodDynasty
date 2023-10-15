@@ -43,9 +43,9 @@ public class GridDebugger : MonoBehaviour {
                 Gizmos.color = Color.yellow;
             } else {
                 Gizmos.color = _gridManager.GetState(position) switch {
-                    GridManager.State.OutOfBounds => Color.red,
-                    GridManager.State.Occupied => Color.yellow,
-                    GridManager.State.Available => Color.green,
+                    GridManager.CellState.OutOfBounds => Color.red,
+                    GridManager.CellState.Occupied => Color.yellow,
+                    GridManager.CellState.Available => Color.green,
                     _ => throw new ArgumentOutOfRangeException()
                 };
             }

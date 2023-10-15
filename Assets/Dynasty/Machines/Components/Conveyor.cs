@@ -6,16 +6,11 @@ using UnityEngine;
 namespace Dynasty.Machines {
 
 [RequireComponent(typeof(Rigidbody))]
-public class Conveyor : MonoBehaviour, IInfoProvider, IMachineComponent {
+public class Conveyor : MonoBehaviour, IInfoProvider, IMachineComponent, IBoostableProperty {
     [SerializeField] Vector3 _direction = Vector3.forward;
-    [SerializeField] DataObject<float> _speed;
+    [SerializeField] FloatDataProperty _speed;
     
     Rigidbody _rigidbody;
-    
-    public DataObject<float> Speed {
-        get => _speed;
-        set => _speed = value;
-    }
 
     void Awake() {
         _rigidbody = GetComponent<Rigidbody>();
@@ -55,6 +50,7 @@ public class Conveyor : MonoBehaviour, IInfoProvider, IMachineComponent {
     }
 
     public Component Component => this;
+    public FloatDataProperty BoostableProperty => _speed;
 }
 
 }

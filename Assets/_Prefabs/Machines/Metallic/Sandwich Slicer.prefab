@@ -4845,7 +4845,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3923324055649985243}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4136, z: 1.131}
+  m_LocalPosition: {x: 0, y: 0.251, z: 1.131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28725,7 +28725,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 1}
-  _speed: {fileID: 11400000, guid: 1ec843a4ab559d948b45af8d4c78fcc3, type: 2}
+  _speed:
+    _dataObject: {fileID: 11400000, guid: 1ec843a4ab559d948b45af8d4c78fcc3, type: 2}
+    Modifier:
+      Base: 0
+      Percentual: 0
+      Additive: 0
+      Multiplicative: 1
 --- !u!114 &1438347218154627009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28770,7 +28776,6 @@ MonoBehaviour:
   _refillItem: {fileID: 0}
   _refillItemName: Sandwich
   _condition: {fileID: 5514994878410955110}
-  _emptyOutlineColor: {r: 1, g: 0, b: 0, a: 1}
   _useEvent: {fileID: 4218761305672540076}
 --- !u!114 &3805301981054359714
 MonoBehaviour:
@@ -28833,7 +28838,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58570aacacff4109a2f78196c24d8ea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnSpeed: {fileID: 11400000, guid: ff5025aaf159bc5468d23ec828370edd, type: 2}
+  _spawnSpeed:
+    _dataObject: {fileID: 11400000, guid: ff5025aaf159bc5468d23ec828370edd, type: 2}
+    Modifier:
+      Base: 0
+      Percentual: 0
+      Additive: 0
+      Multiplicative: 1
   _pool: {fileID: 11400000, guid: 7fbbf319305ab17499c4d168fab618ce, type: 2}
   _spawnPoint: {fileID: 9205055920273191275}
   _randomSpawnOffset: {x: 0, y: 0, z: 0.25}

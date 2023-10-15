@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Core.Grid;
 using Dynasty.Library;
+using Dynasty.Library.Extensions;
 using UnityEngine;
 
 namespace Dynasty.Machines {
 
 [RequireComponent(typeof(GridObject))]
-public abstract class MachineModifier<T> : MonoBehaviour, IMachineComponent, IInfoProvider, ISelectionHandler where T : Component {
+public abstract class MachineModifier<T> : MonoBehaviour, IMachineComponent, IInfoProvider, ISelectionHandler, IRangeProvider {
     [SerializeField] float _range;
     [SerializeField] Color _outlineColor = Color.cyan;
 
@@ -31,13 +32,18 @@ public abstract class MachineModifier<T> : MonoBehaviour, IMachineComponent, IIn
 
     protected virtual void Awake() {
         _gridObject = GetComponent<GridObject>();
-    }
 
-    protected virtual void OnEnable() {
-        GridManager.OnObjectAdded += OnObjectAdded;
-        GridManager.OnObjectRemoved += OnObjectRemoved;
+        _gridObject.OnAdded += () => {
+            GridManager.OnObjectAdded += OnObjectAdded;
+            GridManager.OnObjectRemoved += OnObjectRemoved;
+            
+            RefreshAffectedObjects();
+        };
         
-        RefreshAffectedObjects();
+        _gridObject.OnRemoved += () => {
+            GridManager.OnObjectAdded -= OnObjectAdded;
+            GridManager.OnObjectRemoved -= OnObjectRemoved;
+        };
     }
     
     protected virtual void OnDisable() {
@@ -63,29 +69,26 @@ public abstract class MachineModifier<T> : MonoBehaviour, IMachineComponent, IIn
         }
         _affected.Clear();
 
-        var inRange = GridManager.GridObjects.Where(obj => {
-            var distance = Vector2.Distance(_gridObject.GridPosition, obj.GridPosition);
-            return distance <= _range;
-        });
-        
-        foreach (var gridObject in inRange) {
-            TryAdd(gridObject);
-        }
+        GridManager.GridObjects.Where(InRange).ForEach(TryAdd);
     }
     
     void TryAdd(GridObject obj) {
-        if (!obj.TryGetComponent(out T component) || !Predicate(component)) return;
-        
-        _affected.Add((component, obj));
-        OnAdded(component);
+        obj.GetComponentsInChildren<T>()
+            .Where(Predicate)
+            .ForEach(component => {
+                _affected.Add((component, obj));
+                OnAdded(component);
+            });
     }
     
     void Remove(GridObject obj) {
-        var match = _affected.FirstOrDefault(tuple => tuple.GridObject == obj);
-        if (match.GridObject == null) return;
-        
-        _affected.Remove(match);
-        OnRemoved(match.Component);
+        _affected
+            .Where(tuple => tuple.GridObject == obj)
+            .ToArray()
+            .ForEach(match => {
+                _affected.Remove(match);
+                OnRemoved(match.Component);
+            });
     }
     
     bool InRange(GridObject obj) {
@@ -109,7 +112,7 @@ public abstract class MachineModifier<T> : MonoBehaviour, IMachineComponent, IIn
     }
 
     public virtual IEnumerable<EntityInfo> GetInfo() {
-        yield return new EntityInfo("Range", $"{_range:0.#}");
+        yield return new EntityInfo("Range", $"{_range/4:0.#}");
     }
 
     public Component Component => this;

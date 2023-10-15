@@ -808,7 +808,7 @@ PrefabInstance:
     - target: {fileID: 6934147759885031633, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: m_Name
-      value: Rusty Rotating Conveyor
+      value: Left Rusty Rotating Conveyor
       objectReference: {fileID: 0}
     - target: {fileID: 7434878137366661505, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
@@ -828,12 +828,12 @@ PrefabInstance:
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: bakeKeys.Array.size
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: bakeValues.Array.size
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
@@ -4886,6 +4886,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.12500003, y: 0.125, z: 1.0000002}
   m_Center: {x: -0.062500015, y: 0.0625, z: -0.5000001}
+--- !u!1 &3163173343646045009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 866817064686014940, guid: f905a927854bd6e4a89d31ab010e2d81,
+    type: 3}
+  m_PrefabInstance: {fileID: 2873952844251824781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6371592877852322007
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3163173343646045009}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.12500003, y: 0.125, z: 0.12500003}
+  m_Center: {x: 0.93750024, y: 0.0625, z: 0.062500015}
 --- !u!1 &4614963575225415799 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1735592259283846406, guid: f905a927854bd6e4a89d31ab010e2d81,
@@ -4935,7 +4954,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 1}
-  _speed: {fileID: 11400000, guid: dd927c834874b6044a38511ab35023e1, type: 2}
+  _speed:
+    _dataObject: {fileID: 11400000, guid: dd927c834874b6044a38511ab35023e1, type: 2}
+    Modifier:
+      Base: 0
+      Percentual: 0
+      Additive: 0
+      Multiplicative: 1
 --- !u!1 &5889553737483363639 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8528042021726693306, guid: f905a927854bd6e4a89d31ab010e2d81,
@@ -4985,7 +5010,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 1}
-  _speed: {fileID: 11400000, guid: dd927c834874b6044a38511ab35023e1, type: 2}
+  _speed:
+    _dataObject: {fileID: 11400000, guid: dd927c834874b6044a38511ab35023e1, type: 2}
+    Modifier:
+      Base: 0
+      Percentual: 0
+      Additive: 0
+      Multiplicative: 1
 --- !u!1 &6621918678069023782 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -286098326350293333, guid: f905a927854bd6e4a89d31ab010e2d81,

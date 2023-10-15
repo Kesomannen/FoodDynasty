@@ -23,7 +23,7 @@ SpriteAtlas:
     platformSettings:
     - serializedVersion: 3
       m_BuildTarget: DefaultTexturePlatform
-      m_MaxTextureSize: 2048
+      m_MaxTextureSize: 4096
       m_ResizeAlgorithm: 0
       m_TextureFormat: -1
       m_TextureCompression: 1
@@ -50,9 +50,7 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 8b8f7960849064b4bab9e456126503c0, type: 3}
   - {fileID: 21300000, guid: 923d4d604e414c242aafe365626fca5f, type: 3}
-  - {fileID: 21300000, guid: d2844ea03bd09bc498af0f94414b440d, type: 3}
   - {fileID: 21300000, guid: 8f5933017d0faf74b90c2cff4dd1324e, type: 3}
   - {fileID: 21300000, guid: b9d5af72d6320c748b52f6185b0e09e4, type: 3}
   - {fileID: 21300000, guid: 93759f235e770b34db52d7d409acbc9c, type: 3}
@@ -61,18 +59,17 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 125f7795f7bfd4245bcccfa8328447c8, type: 3}
   - {fileID: 21300000, guid: 6660a306b80f03541a1c3af9f9fc2624, type: 3}
   - {fileID: 21300000, guid: 1fc25a268c836054ba2da103ef26713d, type: 3}
-  - {fileID: 21300000, guid: 0fab2c075d11e7f4eac1cdeb20cbd8dc, type: 3}
+  - {fileID: 21300000, guid: 6625bd2707888df4b87309b9e49bf186, type: 3}
   - {fileID: 21300000, guid: 4a04d9e783d941b44bd8df74ac3e6740, type: 3}
   - {fileID: 21300000, guid: eb625e28ef98cbe48b33eebea3763e04, type: 3}
   - {fileID: 21300000, guid: 224ee8480923bbb49b15c0de8cae6187, type: 3}
   - {fileID: 21300000, guid: ce7b9f58df805bd4185840544859296b, type: 3}
   - {fileID: 21300000, guid: 8ef0d188950473c40871e5a1d5caaef2, type: 3}
   - {fileID: 21300000, guid: 41a87c88d3df73545b1e73d0246ae2aa, type: 3}
+  - {fileID: 21300000, guid: 6ad6a5e8d9dc2dd4eb0244e49d52f2c5, type: 3}
   - {fileID: 21300000, guid: 66ad3a99fa33c6545b461f84aaa05d0a, type: 3}
   - {fileID: 21300000, guid: bf7faea9976c80445abcecae28769c8e, type: 3}
   - {fileID: 21300000, guid: 0ce8c3fbec06ef4498e7177d09a63941, type: 3}
-  - {fileID: 21300000, guid: 07d3961c82939e145836b8a3d6c0b566, type: 3}
-  - {fileID: 21300000, guid: cea9f34cbe44d7c4da0e661338c13a92, type: 3}
   - {fileID: 21300000, guid: 148b327cc091ed74bb6fdc145f0dc1af, type: 3}
   - {fileID: 21300000, guid: 335a954d87f203348b340c3324266c8b, type: 3}
   - {fileID: 21300000, guid: 2dfe9b7d6c984e44384ebd89e00d4bfd, type: 3}
@@ -82,9 +79,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e554505e35083e64d9014453e457f4f9, type: 3}
   - {fileID: 21300000, guid: 5e659f2f62ca6a74499c9e0313e8d686, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Food Demolder
   - Metallic Conveyor
-  - Metallic Sell Crate
   - Cheese Adder
   - Bread Demolder
   - Ham Adder
@@ -93,18 +88,17 @@ SpriteAtlas:
   - Sandwich Slicer
   - Auto Refiller
   - Sandwich Splitter
-  - Rotating Rusty Conveyor
+  - Booster
   - Tomato Adder
   - Left Rotating Conveyor
   - Cheese Sprinkler
   - Sandwich
   - Splitting Conveyor
   - Tomato
+  - Merging Conveyor
   - Bread Oven
   - Ham
   - Right Rotating Conveyor
-  - Rusty Sell Crate
-  - Right Rotating Rusty Conveyor
   - Rusty Conveyor
   - Dough Dispenser
   - Cheese

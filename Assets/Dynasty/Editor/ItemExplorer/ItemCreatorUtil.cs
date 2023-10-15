@@ -9,8 +9,6 @@ public static class ItemCreatorUtil {
             if (_baseMachinePrefab == null) {
                 _baseMachinePrefab = AssetDatabase.LoadAssetAtPath<GameObject>($"{PrefabPath}/Machines/MachineBase.prefab");
             }
-
-            Debug.Log($"{_baseMachinePrefab}", _baseMachinePrefab);
             return _baseMachinePrefab;
         }
     }

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MetallicBelt
+  m_Name: Sandwich Slicer Belt
   m_Shader: {fileID: -6465566751694194690, guid: 3c455e15c3b868a47b835f8ef3e52646,
     type: 3}
   m_ValidKeywords: []
@@ -99,13 +99,13 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _ScrollSpeed: 1.4
+    - _ScrollSpeed: -1.4
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Tiling: 5.3
+    - _Tiling: 12.72
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -113,7 +113,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Tiling: {r: 5.3, g: 5.3, b: 0, a: 0}
+    - _Tiling: {r: 12.76, g: 21.2, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2749753933138649870
 MonoBehaviour:

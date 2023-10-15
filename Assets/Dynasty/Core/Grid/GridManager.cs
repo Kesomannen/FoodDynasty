@@ -80,7 +80,7 @@ public class GridManager : MonoBehaviour {
             AddOccupants(cell, 1);
         }
 
-        gridObject.OnAdded(this, position, rotation);
+        gridObject.RegisterAdded(this, position, rotation);
         _gridObjects.Add(gridObject);
         
         OnObjectAdded?.Invoke(gridObject, position, rotation);
@@ -92,7 +92,7 @@ public class GridManager : MonoBehaviour {
             AddOccupants(cell, -1);
         }
         
-        gridObject.OnRemoved();
+        gridObject.RegisterRemoved();
         _gridObjects.Remove(gridObject);
         
         OnObjectRemoved?.Invoke(gridObject);
@@ -164,7 +164,7 @@ public class GridManager : MonoBehaviour {
     }
     
     bool BelongsToGrid(GridObject gridObject) {
-        return gridObject.IsPlaced && gridObject.GridManager is { } manager && manager == this;
+        return gridObject.IsPlaced && gridObject.GridManager == this;
     }
     
     int? GetCell(Vector2Int position) {
@@ -179,9 +179,9 @@ public class GridManager : MonoBehaviour {
         Cells[position.x, position.y] += value;
     }
 
-    public State GetState(Vector2Int position) {
-        if (!IsInGrid(position)) return State.OutOfBounds;
-        return IsAvailable(position) ? State.Available : State.Occupied;
+    public CellState GetState(Vector2Int position) {
+        if (!IsInGrid(position)) return CellState.OutOfBounds;
+        return IsAvailable(position) ? CellState.Available : CellState.Occupied;
     }
     
     Vector3 GridToWorld(Vector2 position) {
@@ -225,7 +225,7 @@ public class GridManager : MonoBehaviour {
         return new Vector2Int(Mathf.RoundToInt(localPos.x / _cellSize.x), Mathf.RoundToInt(localPos.z / _cellSize.y));
     }
 
-    public enum State {
+    public enum CellState {
         OutOfBounds,
         Occupied,
         Available

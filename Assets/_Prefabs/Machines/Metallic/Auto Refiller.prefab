@@ -8910,7 +8910,13 @@ MonoBehaviour:
   _range: 10
   _outlineColor: {r: 0, g: 1, b: 1, a: 1}
   _inventory: {fileID: 11400000, guid: f5db9577760bc2e4abe3ba3d47891898, type: 2}
-  _refillSpeed: 1
+  _refillSpeed:
+    _dataObject: {fileID: 11400000, guid: 7a612afab24316b44a2d30ed0ad13497, type: 2}
+    Modifier:
+      Base: 0
+      Percentual: 0
+      Additive: 0
+      Multiplicative: 1
   _refillAmount: 10
 --- !u!4 &2727822078472970984 stripped
 Transform:

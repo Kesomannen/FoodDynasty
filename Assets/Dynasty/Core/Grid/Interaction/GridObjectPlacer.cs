@@ -21,6 +21,9 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     [Header("References")] 
     [Tooltip("Used for directional markers.")]
     [SerializeField] CustomObjectPool<Poolable> _arrowPool;
+    
+    [Tooltip("Used for range indicators.")]
+    [SerializeField] CustomObjectPool<Poolable> _rangeIndicatorPool;
 
     [SerializeField] GridManager _gridManager;
     
@@ -66,15 +69,16 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     public bool IsPlacing { get; private set; }
     public GridManager GridManager => _gridManager;
 
-    readonly Queue<Poolable> _currentArrows = new();
+    readonly Queue<Poolable> _arrows = new();
+    Poolable _rangeIndicator;
     
-    GridObject _currentObject;
-    Transform _currentBlueprint;
-    Vector2Int _currentGridPosition;
-    GridRotation _currentGridRotation;
+    GridObject _gridObject;
+    Transform _blueprint;
+    Vector2Int _gridPosition;
+    GridRotation _gridRotation;
 
-    Renderer[] _currentRenderers;
-    bool _currentMaterialValidity;
+    Renderer[] _renderers;
+    bool _materialValidity;
     
     Vector3 _moveTarget;
     Vector3 _moveVelocity;
@@ -92,7 +96,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     void Update() {
         if (!IsPlacing) return;
         
-        _currentGridPosition = GetMouseGridPos();
+        _gridPosition = GetMouseGridPos();
         UpdateBlueprint(true);
     }
     
@@ -128,9 +132,9 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
             return GridPlacementResult.Failed;
         }
 
-        _currentObject = data;
-        if (keepRotation) _currentGridRotation = data.Rotation;
-        if (keepPosition) _currentGridPosition = data.GridPosition;
+        _gridObject = data;
+        if (keepRotation) _gridRotation = data.Rotation;
+        if (keepPosition) _gridPosition = data.GridPosition;
 
         IsPlacing = true;
         _placeTrigger.enabled = true;
@@ -143,12 +147,17 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
         IsPlacing = false;
         _placeTrigger.enabled = false;
 
-        while (_currentArrows.Count > 0) {
-            _currentArrows.Dequeue().Dispose();
+        while (_arrows.Count > 0) {
+            _arrows.Dequeue().Dispose();
+        }
+
+        if (_rangeIndicator != null) {
+            _rangeIndicator.Dispose();
+            _rangeIndicator = null;
         }
 
         LeanTween.cancel(_rotateTweenId);
-        Destroy(_currentBlueprint.gameObject);
+        Destroy(_blueprint.gameObject);
 
         switch (_state) {
             case State.Cancelled:
@@ -157,7 +166,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
                 return GridPlacementResult.Deleted;
             case State.Placed:
                 _onPlaced.Invoke();
-                return GridPlacementResult.Successful(_currentGridPosition, _currentGridRotation);
+                return GridPlacementResult.Successful(_gridPosition, _gridRotation);
             case State.Waiting:
                 throw new Exception("Should not be waiting after placement");
             default:
@@ -166,7 +175,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     }
 
     void SetupBlueprint(GridObject gridObject) {
-        _currentBlueprint = Instantiate(gridObject.BlueprintPrefab).transform;
+        _blueprint = Instantiate(gridObject.BlueprintPrefab).transform;
         
         _moveTarget = Vector3.zero;
         _rotateTarget = Quaternion.identity;
@@ -178,17 +187,28 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
             
             var arrow = _arrowPool.Get();
             
-            var arrowTransform = arrow.transform;
-            arrowTransform.SetParent(_currentBlueprint, false);
-            arrowTransform.SetLocalPositionAndRotation(child.localPosition, child.localRotation);
+            var t = arrow.transform;
+            t.SetParent(_blueprint, false);
+            t.SetLocalPositionAndRotation(child.localPosition, child.localRotation);
             
-            _currentArrows.Enqueue(arrow);
+            _arrows.Enqueue(arrow);
         }
         
-        _currentRenderers = _currentBlueprint.GetComponentsInChildren<Renderer>();
-        _currentRenderers.ApplyMaterial(_validMaterial);
+        var rangeProviders = gridObject.GetComponentsInChildren<IRangeProvider>();
+        if (rangeProviders.Length > 0) {
+            var range = rangeProviders.Max(provider => provider.Range) / 4f;
+            _rangeIndicator = _rangeIndicatorPool.Get();
+            
+            var t = _rangeIndicator.transform;
+            t.SetParent(_blueprint, false);
+            t.localScale = new Vector3(range * 2, 1, range * 2);
+            t.localPosition = Vector3.zero;
+        }
         
-        _currentMaterialValidity = true;
+        _renderers = _blueprint.GetComponentsInChildren<Renderer>();
+        _renderers.ApplyMaterial(_validMaterial);
+        
+        _materialValidity = true;
         UpdateBlueprint(false);
     }
 
@@ -200,7 +220,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
                 if (_state is State.Cancelled or State.Deleted) break;
 
                 if (_state == State.Placed) {
-                    if (_gridManager.CanAdd(gridObject, _currentGridPosition, _currentGridRotation)) break;
+                    if (_gridManager.CanAdd(gridObject, _gridPosition, _gridRotation)) break;
                     _state = State.Waiting;
                 }
             }
@@ -221,7 +241,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
 
     void OnRotate() {
         if (!IsPlacing) return;
-        _currentGridRotation += 1;
+        _gridRotation += 1;
         UpdateBlueprint(true);
     }
 
@@ -231,7 +251,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     }
 
     void RotateBlueprint(bool tween) {
-        var newRot = _currentGridRotation.ToQuaternion(Vector3.up);
+        var newRot = _gridRotation.ToQuaternion(Vector3.up);
         
         if (_rotateTarget == newRot) return;
         _rotateTarget = newRot;
@@ -239,17 +259,17 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
         if (tween) {
             LeanTween.cancel(_rotateTweenId);
             _rotateTweenId = LeanTween
-                .rotate(_currentBlueprint.gameObject, newRot.eulerAngles, _tweenTime)
+                .rotate(_blueprint.gameObject, newRot.eulerAngles, _tweenTime)
                 .setEase(_tweenType)
                 .uniqueId;
         } else {
-            _currentBlueprint.rotation = newRot;
+            _blueprint.rotation = newRot;
         }
     }
 
     void MoveBlueprint(bool tween) {
-        var newTarget = _gridManager.GridToWorld(_currentGridPosition, _currentObject.StaticSize, _currentGridRotation);
-        var currentPos = _currentBlueprint.position;
+        var newTarget = _gridManager.GridToWorld(_gridPosition, _gridObject.StaticSize, _gridRotation);
+        var currentPos = _blueprint.position;
 
         if (_moveTarget != newTarget) {
             _moveTarget = newTarget;
@@ -257,17 +277,17 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
         }
         
         if (currentPos == _moveTarget) return;
-        _currentBlueprint.position = tween ? 
+        _blueprint.position = tween ? 
             Vector3.SmoothDamp(currentPos, _moveTarget, ref _moveVelocity, _moveTime)
             : _moveTarget;
     }
 
     void UpdateBlueprintValidity() {
-        var valid = _gridManager.CanAdd(_currentObject, _currentGridPosition, _currentGridRotation);
-        if (valid == _currentMaterialValidity) return;
+        var valid = _gridManager.CanAdd(_gridObject, _gridPosition, _gridRotation);
+        if (valid == _materialValidity) return;
 
-        _currentMaterialValidity = valid;
-        _currentRenderers.ApplyMaterial(valid ? _validMaterial : _invalidMaterial);
+        _materialValidity = valid;
+        _renderers.ApplyMaterial(valid ? _validMaterial : _invalidMaterial);
     }
 
     Vector3 GetMouseWorldPos() {
@@ -276,7 +296,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     }
     
     Vector2Int GetMouseGridPos() {
-        var currentBounds = _currentObject.StaticSize.Rotated(_currentGridRotation.Steps).Bounds;
+        var currentBounds = _gridObject.StaticSize.Rotated(_gridRotation.Steps).Bounds;
         return _gridManager.WorldToGrid(GetMouseWorldPos()) - currentBounds / 2;
     }
 

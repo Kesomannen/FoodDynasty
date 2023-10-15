@@ -58,6 +58,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 1ec843a4ab559d948b45af8d4c78fcc3,
         type: 2}
+    - target: {fileID: -838393948165991145, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: _speed._dataObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ec843a4ab559d948b45af8d4c78fcc3,
+        type: 2}
     - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: _blueprintPrefab
@@ -67508,7 +67514,6 @@ MonoBehaviour:
   _refillItem: {fileID: 11400000, guid: db43cb402c7d9b74da2e2f2f4a8d96db, type: 2}
   _refillItemName: 
   _condition: {fileID: 9220097370396806151}
-  _emptyOutlineColor: {r: 1, g: 0, b: 0, a: 1}
   _useEvent: {fileID: 3279354619372158623}
 --- !u!114 &1293178889752993428
 MonoBehaviour:

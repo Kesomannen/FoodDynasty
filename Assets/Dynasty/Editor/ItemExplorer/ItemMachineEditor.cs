@@ -141,7 +141,13 @@ public class ItemMachineEditor : IDisposable {
 
     VisualElement CreateGenericField(SerializedProperty property) {
         var type = property.GetObjectType();
-        return type == typeof(FilteredFoodEvent) ? CreateFilteredItemEvent(property) : null;
+        if (type == typeof(FilteredFoodEvent))
+            return CreateFilteredItemEvent(property);
+        
+        if (type == typeof(FloatDataProperty))
+            return new PropertyField(property);
+        
+        return null;
     }
 
     VisualElement CreateObjectField(SerializedProperty property) {

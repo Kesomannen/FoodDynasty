@@ -31,11 +31,7 @@ public class GridOutline : MonoBehaviour {
     }
     
     public void Require(Color color) {
-        var index = _colors.IndexOf(color);
-        if (index == -1) {
-            Push(color);
-        } else if (index != _colors.Count - 1) {
-            _colors.RemoveAt(index);
+        if (_colors.IndexOf(color) == -1) {
             Push(color);
         }
     }
