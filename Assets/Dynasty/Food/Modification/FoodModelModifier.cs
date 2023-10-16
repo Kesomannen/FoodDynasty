@@ -1,9 +1,9 @@
 ﻿using System;
-using Dynasty.Food.Instance;
+using Dynasty.Food;
 using Dynasty.Library.Pooling;
 using UnityEngine;
 
-namespace Dynasty.Food.Modification {
+namespace Dynasty.Food {
 
 [Serializable]
 public struct FoodModelModifier {

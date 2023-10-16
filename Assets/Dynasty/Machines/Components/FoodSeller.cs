@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Dynasty.Core.Inventory;
-using Dynasty.Food.Instance;
+using Dynasty.Food;
 using Dynasty.Library;
 using Dynasty.Library.Classes;
 using Dynasty.Machines;

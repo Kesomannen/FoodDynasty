@@ -2,7 +2,7 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Dynasty.Food.Instance {
+namespace Dynasty.Food {
 
 public class FoodManager : MonoBehaviour {
     [SerializeField] int _maxFood = 1000;

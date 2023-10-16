@@ -3,7 +3,7 @@ using Dynasty.Library.Events;
 using Dynasty.Library.Pooling;
 using UnityEngine;
 
-namespace Dynasty.Food.Instance {
+namespace Dynasty.Food {
 
 public class ParticleTrigger : MonoBehaviour {
     [SerializeField] ParticleSpawner _spawner;

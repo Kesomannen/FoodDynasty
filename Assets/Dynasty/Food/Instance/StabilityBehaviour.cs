@@ -1,4 +1,4 @@
-﻿using Dynasty.Food.Data;
+﻿using Dynasty.Food;
 using Dynasty.Library;
 using Dynasty.Library.Events;
 using Dynasty.Library.Helpers;
@@ -7,7 +7,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Dynasty.Food.Instance {
+namespace Dynasty.Food {
 
 [RequireComponent(typeof(FoodBehaviour), typeof(Rigidbody))]
 public class StabilityBehaviour : MonoBehaviour {

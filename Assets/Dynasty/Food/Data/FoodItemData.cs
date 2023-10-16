@@ -2,11 +2,10 @@
 using System.Linq;
 using Dynasty.Library.Data;
 using Dynasty.Core.Inventory;
-using Dynasty.Food.Instance;
 using Dynasty.Library;
 using UnityEngine;
 
-namespace Dynasty.Food.Data {
+namespace Dynasty.Food {
 
 [CreateAssetMenu(menuName = "Inventory/Food")]
 public class FoodItemData : ItemData, IPrefabProvider<FoodBehaviour> {

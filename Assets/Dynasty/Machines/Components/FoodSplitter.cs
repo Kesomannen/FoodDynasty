@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Dynasty.Library.Data;
-using Dynasty.Food.Instance;
+using Dynasty.Food;
 using Dynasty.Library;
 using Dynasty.Library.Classes;
 using Dynasty.Library.Events;
@@ -52,7 +52,7 @@ public class FoodSplitter : FoodMachineComponent, IInfoProvider, IAdditionalSave
         if (_splitsLeft > 0) return;
         
         _splitsLeft = _splitsPerItem;
-        _input.TryDequeue(out _);
+        _input.Dequeue();
     }
     
     protected override void OnTriggered(FoodBehaviour food) {

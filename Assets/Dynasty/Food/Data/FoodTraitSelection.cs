@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Dynasty.Food.Data {
+namespace Dynasty.Food {
 
 [Serializable]
 public struct FoodTraitSelection {

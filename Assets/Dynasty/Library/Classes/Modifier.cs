@@ -92,7 +92,7 @@ public struct Modifier {
     public override string ToString() {
         var result = "";
         if (Base != 0) {
-            result += $"+{Base:0.#} ";
+            result += $"{Base:0.#} ";
         }
         if (Percentual != 0) {
             result += $"+{Percentual * 100:P0} ";

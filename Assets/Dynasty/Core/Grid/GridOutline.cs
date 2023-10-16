@@ -16,8 +16,12 @@ public class GridOutline : MonoBehaviour {
     }
 
     void UpdateState() {
-        _outline.enabled = _colors.Count > 0;
-        _outline.OutlineColor = _colors.Count > 0 ? _colors[^1] : Color.white;
+        var enable = _colors.Count > 0;
+        
+        _outline.enabled = enable;
+        if (enable && _outline.OutlineColor != _colors[^1]) {
+            _outline.OutlineColor = _colors[^1];
+        }
     }
     
     void Push(Color color) {

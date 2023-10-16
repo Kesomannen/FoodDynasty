@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Dynasty.Food.Data {
+namespace Dynasty.Food {
 
 [CreateAssetMenu(menuName = "Manager/Food Trait Database")]
 public class FoodTraitDatabase : ScriptableObject {

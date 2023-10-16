@@ -1,10 +1,9 @@
 ﻿using System;
-using Dynasty.Food.Data;
-using Dynasty.Food.Instance;
+using Dynasty.Food;
 using Dynasty.Library.Classes;
 using UnityEngine;
 
-namespace Dynasty.Food.Modification {
+namespace Dynasty.Food {
 
 [Serializable]
 public class FoodTraitModifier {

@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using Dynasty.Core.Grid;
 using Dynasty.Core.Inventory;
-using Dynasty.Food.Instance;
-using Dynasty.Food.Modification;
+using Dynasty.Food;
 using Dynasty.Library.Classes;
 using Dynasty.Library.Events;
 using Dynasty.Machines;

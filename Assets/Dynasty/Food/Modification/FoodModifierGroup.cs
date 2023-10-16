@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
-using Dynasty.Food.Instance;
+using Dynasty.Food;
 using Dynasty.Library.Classes;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Dynasty.Food.Modification {
+namespace Dynasty.Food {
 
 [CreateAssetMenu(menuName = "Food/Modifier")]
 public class FoodModifierGroup : ScriptableObject {

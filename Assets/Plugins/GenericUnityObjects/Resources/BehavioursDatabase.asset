@@ -27,7 +27,7 @@ MonoBehaviour:
     - _collection:
       - _typeNameAndAssembly: System.Int32, mscorlib
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Food.Instance.FoodBehaviour, Dynasty.Food
+      - _typeNameAndAssembly: Dynasty.Food.FoodBehaviour, Dynasty.Food
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_02e358cc9711c974da010f291546bbe1,
         z_Event_Int32

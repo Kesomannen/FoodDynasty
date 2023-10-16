@@ -11,11 +11,11 @@ public static class ThumbnailCreator {
     const float CameraSize = 1.5f;
     const int Depth = 24;
 
-    public static Sprite Create(Component prefab, string name) {
-        return Create(prefab.gameObject, name);
+    public static Sprite Create(Component prefab, string name, bool cleanup = true) {
+        return Create(prefab.gameObject, name, cleanup);
     }
     
-    public static Sprite Create(GameObject prefab, string name) {
+    public static Sprite Create(GameObject prefab, string name, bool cleanup = true) {
         var target = Object.Instantiate(prefab, _position, Quaternion.identity);
 
         var thumbnailHandlers = target.GetComponentsInChildren<IOnThumbnailCreateHandler>();
@@ -40,10 +40,13 @@ public static class ThumbnailCreator {
         
         camera.targetTexture = null;
         RenderTexture.active = oldRenderTexture;
-        
+
         Object.DestroyImmediate(renderTexture);
-        Object.DestroyImmediate(camera.gameObject);
-        Object.DestroyImmediate(target.gameObject);
+        
+        if (cleanup) {
+            Object.DestroyImmediate(camera.gameObject);
+            Object.DestroyImmediate(target.gameObject);   
+        }
 
         return SaveAsset(name, texture);
     }
@@ -90,6 +93,13 @@ public static class ThumbnailCreator {
     static void GenerateThumbnail() {
         foreach (var gameObject in Selection.gameObjects) {
             Create(gameObject, gameObject.name);
+        }
+    }
+    
+    [MenuItem("Dynasty/Generate Thumbnail Without Cleanup")]
+    static void GenerateThumbnailWithoutCleanup() {
+        foreach (var gameObject in Selection.gameObjects) {
+            Create(gameObject, gameObject.name, false);
         }
     }
 }

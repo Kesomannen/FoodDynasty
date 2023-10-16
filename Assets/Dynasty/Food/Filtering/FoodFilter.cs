@@ -1,10 +1,9 @@
 ﻿using System;
-using Dynasty.Food.Data;
-using Dynasty.Food.Instance;
+using Dynasty.Food;
 using Dynasty.Library.Extensions;
 using UnityEngine;
 
-namespace Dynasty.Food.Filtering {
+namespace Dynasty.Food {
 
 [Serializable]
 public class FoodFilter {

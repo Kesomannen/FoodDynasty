@@ -122,7 +122,7 @@ public class SoundManager : MonoBehaviour {
     }
 
     void Release(AudioSource source) {
-        if (!_activeSources.ContainsKey(source)) {
+        if (source == null || !_activeSources.ContainsKey(source)) {
             return;
         }
         

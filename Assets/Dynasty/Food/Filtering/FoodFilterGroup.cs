@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Dynasty.Food.Instance;
 using Dynasty.Library.Classes;
 using Dynasty.Library.Extensions;
 using UnityEngine;
 
-namespace Dynasty.Food.Filtering {
+namespace Dynasty.Food {
 
 [CreateAssetMenu(menuName = "Food/Filter")]
 public class FoodFilterGroup : ScriptableObject {

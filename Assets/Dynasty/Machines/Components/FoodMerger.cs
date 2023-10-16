@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Library.Data;
-using Dynasty.Food.Instance;
+using Dynasty.Food;
 using Dynasty.Library;
 using Dynasty.Library.Classes;
 using Dynasty.Library.Events;

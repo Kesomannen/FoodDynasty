@@ -1,6 +1,5 @@
 ﻿using System;
-using Dynasty.Food.Filtering;
-using Dynasty.Food.Instance;
+using Dynasty.Food;
 using Dynasty.Library.Events;
 using UnityEngine;
 

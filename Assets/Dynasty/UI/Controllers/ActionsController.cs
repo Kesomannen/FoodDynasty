@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Dynasty.Core.Grid;
 using Dynasty.Core.Inventory;
-using Dynasty.Food.Instance;
+using Dynasty.Food;
 using Dynasty.Machines;
 using UnityEngine;
 

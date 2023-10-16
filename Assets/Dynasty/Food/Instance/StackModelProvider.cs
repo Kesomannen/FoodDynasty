@@ -3,7 +3,7 @@ using Dynasty.Library.Extensions;
 using Dynasty.Library.Pooling;
 using UnityEngine;
 
-namespace Dynasty.Food.Instance {
+namespace Dynasty.Food {
 
 public class StackModelProvider : ModelProvider {
     [SerializeField] Transform _bottom;

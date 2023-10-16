@@ -1,8 +1,8 @@
 ﻿using System;
-using Dynasty.Food.Instance;
+using Dynasty.Food;
 using UnityEngine;
 
-namespace Dynasty.Food.Data {
+namespace Dynasty.Food {
 
 [Serializable]
 public struct FoodTraitValue {
@@ -14,18 +14,16 @@ public struct FoodTraitValue {
     public int Hash => _selection.Hash;
     public FoodTraitType Type => _selection.Type;
     
-    public object GetValue() {
-        return Type switch {
-            FoodTraitType.Int => _intValue,
-            FoodTraitType.Float => _floatValue,
-            FoodTraitType.Bool => _boolValue,
-            FoodTraitType.Tag => null,
-            _ => throw new ArgumentOutOfRangeException()
-        };
-    }
+    object Value => Type switch {
+        FoodTraitType.Int => _intValue,
+        FoodTraitType.Float => _floatValue,
+        FoodTraitType.Bool => _boolValue,
+        FoodTraitType.Tag => null,
+        _ => throw new ArgumentOutOfRangeException()
+    };
 
     public void Apply(FoodBehaviour behaviour) {
-        behaviour.SetTrait(Hash, Type, GetValue());
+        behaviour.SetTraitOrTag(Hash, Type, Value);
     }
 }
 

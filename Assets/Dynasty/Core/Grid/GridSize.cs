@@ -79,8 +79,11 @@ public struct GridSize {
         var bounds = Bounds.RotateAbs(steps);
         var rotatedSize = new GridSize(bounds, Type);
 
-        if (Type != GridSizeType.Custom) return rotatedSize;
-        rotatedSize._customMatrix = _customMatrix.RotateCW(steps);
+        if (Type == GridSizeType.Custom) {
+            rotatedSize._customMatrix = _customMatrix.RotateCW(steps);
+            return rotatedSize;
+        }
+
         return rotatedSize;
     }
 

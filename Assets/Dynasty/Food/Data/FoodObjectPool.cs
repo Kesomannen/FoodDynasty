@@ -1,8 +1,8 @@
-﻿using Dynasty.Food.Instance;
+﻿using Dynasty.Food;
 using Dynasty.Library.Pooling;
 using UnityEngine;
 
-namespace Dynasty.Food.Data {
+namespace Dynasty.Food {
 
 [CreateAssetMenu(menuName = "Pooling/Food")]
 public class FoodObjectPool : CustomObjectPool<FoodBehaviour> {

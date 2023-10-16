@@ -1,4 +1,4 @@
-﻿namespace Dynasty.Food.Data {
+﻿namespace Dynasty.Food {
 
 public enum FoodTraitType {
     Tag,

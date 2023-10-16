@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
-using Dynasty.Food.Data;
+﻿using System;
+using System.Collections.Generic;
 using Dynasty.Library.Data;
-using Dynasty.Food.Instance;
+using Dynasty.Food;
 using Dynasty.Library;
 using Dynasty.Library.Events;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Dynasty.Machines {
 
@@ -64,6 +65,12 @@ public class FoodDispenser : MonoBehaviour, IInfoProvider, IMachineComponent, IB
     
     public Component Component => this;
     public FloatDataProperty BoostableProperty => _spawnSpeed;
+
+    void OnDrawGizmos() {
+        if (_spawnPoint == null) return;
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(_spawnPoint.position, _randomSpawnOffset * 2);
+    }
 }
 
 }

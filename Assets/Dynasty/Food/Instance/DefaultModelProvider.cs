@@ -2,7 +2,7 @@
 using Dynasty.Library.Pooling;
 using UnityEngine;
 
-namespace Dynasty.Food.Instance {
+namespace Dynasty.Food {
 
 public class DefaultModelProvider : ModelProvider {
     [SerializeField] GameObject _originalModel;

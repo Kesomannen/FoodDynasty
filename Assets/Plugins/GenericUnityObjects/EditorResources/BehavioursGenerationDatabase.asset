@@ -15,7 +15,7 @@ MonoBehaviour:
   _genericArgumentKeys:
   - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
     _guid: d3d4539531654c55aeb30f6fc3dc4fa1
-  - _typeNameAndAssembly: Dynasty.Food.Instance.FoodBehaviour, Dynasty.Food
+  - _typeNameAndAssembly: Dynasty.Food.FoodBehaviour, Dynasty.Food
     _guid: 8dbbab00aaad493d81fa6e862abf0843
   - _typeNameAndAssembly: Dynasty.Core.Grid.GridObject, Dynasty.Core
     _guid: a189d557cd0c42bebb4e2ef1dc861402
@@ -48,7 +48,7 @@ MonoBehaviour:
         _guid: 
       _assemblyGUID: 02e358cc9711c974da010f291546bbe1
     - _arguments:
-      - _typeNameAndAssembly: Dynasty.Food.Instance.FoodBehaviour, Dynasty.Food
+      - _typeNameAndAssembly: Dynasty.Food.FoodBehaviour, Dynasty.Food
         _guid: 8dbbab00aaad493d81fa6e862abf0843
       _assemblyGUID: 51ffa55fd3c2d8a4a99d778d29c44bb9
   - _array:

@@ -1,6 +1,5 @@
 ﻿using System;
-using Dynasty.Food.Data;
-using Dynasty.Food.Modification;
+using Dynasty.Food;
 using UnityEditor;
 using UnityEngine;
 

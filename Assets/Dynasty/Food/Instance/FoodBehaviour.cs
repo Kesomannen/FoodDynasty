@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Dynasty.Food.Data;
 using Dynasty.Library;
 using Dynasty.Library.Classes;
 using Dynasty.Library.Helpers;
 using Dynasty.Library.Pooling;
 using UnityEngine;
-using UnityEngine.Assertions;
 
-namespace Dynasty.Food.Instance {
+namespace Dynasty.Food {
 
 [RequireComponent(typeof(Rigidbody))]
 public class FoodBehaviour : MonoBehaviour, IPoolable<FoodBehaviour>, IInfoProvider {
@@ -74,7 +72,7 @@ public class FoodBehaviour : MonoBehaviour, IPoolable<FoodBehaviour>, IInfoProvi
         _traits[hash] = value;
     }
 
-    public void SetTrait(int hash, FoodTraitType type, object value) {
+    public void SetTraitOrTag(int hash, FoodTraitType type, object value) {
         if (type == FoodTraitType.Tag) {
             AddTag(hash);
             return;

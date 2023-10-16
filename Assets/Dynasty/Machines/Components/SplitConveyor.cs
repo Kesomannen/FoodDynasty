@@ -1,4 +1,4 @@
-﻿using Dynasty.Food.Instance;
+﻿using Dynasty.Food;
 using UnityEngine;
 
 namespace Dynasty.Machines {
