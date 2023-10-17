@@ -13,69 +13,179 @@ MonoBehaviour:
   m_Name: Panorama
   m_EditorClassIdentifier: 
   _saveData:
-    ItemIds: 0600000004000000050000000b000000040000000d00000010000000150000000f000000000000000b000000030000000c00000004000000
+    ItemIds: 060000000b0000000300000005000000010000000a0000000100000003000000010000000100000001000000130000000b000000050000000b0000000b0000000d0000000b000000050000000d000000160000001000000012000000120000000f00000001000000150000000500000005000000070000000500000001000000010000000000000007000000010000000c000000010000001700000017000000
     Positions:
     - X: 56
       Y: 28
-    - X: 17
+    - X: 22
+      Y: 29
+    - X: 18
       Y: 28
-    - X: 9
+    - X: 0
+      Y: 5
+    - X: 0
+      Y: 41
+    - X: 22
+      Y: 33
+    - X: 0
+      Y: 37
+    - X: 26
       Y: 28
-    - X: 52
-      Y: 28
-    - X: 9
-      Y: 44
-    - X: 21
-      Y: 27
-    - X: 36
-      Y: 28
+    - X: 0
+      Y: 21
+    - X: 0
+      Y: 29
+    - X: 0
+      Y: 25
+    - X: 16
+      Y: 1
+    - X: 28
+      Y: 1
+    - X: 28
+      Y: 9
     - X: 40
-      Y: 28
+      Y: 9
+    - X: 40
+      Y: 13
+    - X: 39
+      Y: 17
+    - X: 32
+      Y: 1
+    - X: 36
+      Y: 1
+    - X: 31
+      Y: 17
+    - X: 32
+      Y: 32
+    - X: 35
+      Y: 44
+    - X: 36
+      Y: 52
     - X: 44
-      Y: 28
-    - X: 8
-      Y: 48
-    - X: 9
-      Y: 54
-    - X: 13
-      Y: 54
-    - X: 9
-      Y: 40
-    - X: 9
+      Y: 52
+    - X: 47
+      Y: 44
+    - X: 0
+      Y: 17
+    - X: 47
       Y: 36
+    - X: 48
+      Y: 28
+    - X: 18
+      Y: 49
+    - X: 22
+      Y: 45
+    - X: 0
+      Y: 49
+    - X: 0
+      Y: 45
+    - X: 8
+      Y: 53
+    - X: 12
+      Y: 52
+    - X: 12
+      Y: 5
+    - X: 0
+      Y: 33
+    - X: 8
+      Y: 5
+    - X: 0
+      Y: 13
+    - X: 18
+      Y: 33
+    - X: 42
+      Y: 44
     Rotations:
     - _value: 1
+    - _value: 0
+    - _value: 3
+    - _value: 2
+    - _value: 2
+    - _value: 0
+    - _value: 2
+    - _value: 1
+    - _value: 2
+    - _value: 2
+    - _value: 2
+    - _value: 3
+    - _value: 1
+    - _value: 1
+    - _value: 0
+    - _value: 0
+    - _value: 0
+    - _value: 1
+    - _value: 1
+    - _value: 0
+    - _value: 0
+    - _value: 0
+    - _value: 3
+    - _value: 0
+    - _value: 2
+    - _value: 2
+    - _value: 2
+    - _value: 2
+    - _value: 0
+    - _value: 0
+    - _value: 3
+    - _value: 2
+    - _value: 3
+    - _value: 3
     - _value: 1
     - _value: 2
     - _value: 1
     - _value: 2
     - _value: 1
     - _value: 1
-    - _value: 1
-    - _value: 1
-    - _value: 2
-    - _value: 2
-    - _value: 1
-    - _value: 2
-    - _value: 2
     AdditionalData:
     - Data: []
     - Data: []
-    - Data: []
-    - Data: []
-    - Data: []
-    - Data:
-      - 0
-      - '{"SplitsLeft":1,"Input":[7.5,7.5]}'
-    - Data:
-      - 0
-    - Data:
-      - 0
     - Data:
       - 0
     - Data: []
     - Data: []
     - Data:
+      - 377
+    - Data: []
+    - Data:
+      - 115
+    - Data: []
+    - Data: []
+    - Data: []
+    - Data: []
+    - Data: []
+    - Data: []
+    - Data: []
+    - Data: []
+    - Data:
       - 0
+      - '{"SplitsLeft":5,"Input":[]}'
+    - Data: []
+    - Data: []
+    - Data:
+      - 0
+      - '{"SplitsLeft":5,"Input":[]}'
+    - Data: []
+    - Data:
+      - 839
+    - Data: []
+    - Data: []
+    - Data:
+      - 818
+    - Data: []
+    - Data:
+      - 823
+    - Data: []
+    - Data: []
+    - Data:
+      - 170
+    - Data: []
+    - Data: []
+    - Data: []
+    - Data: []
+    - Data:
+      - 543
+    - Data: []
+    - Data: []
+    - Data: []
     - Data: []
     - Data: []

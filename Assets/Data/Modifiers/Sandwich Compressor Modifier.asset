@@ -10,22 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f89bbf86b2b54ed8b11937d3937c0e7f, type: 3}
-  m_Name: Add Cheese
+  m_Name: Sandwich Compressor Modifier
   m_EditorClassIdentifier: 
   _random: 0
   _sellPriceModifier:
     Base: 0
     Percentual: 0
     Additive: 0
-    Multiplicative: 2
+    Multiplicative: 1
   _maxSellPriceModifier:
     Base: 0
     Percentual: 0
     Additive: 0
     Multiplicative: 1
-  _modelModifiers:
-  - _pool: {fileID: 11400000, guid: eaf4bfdeb7c139f48a4272a29df58b06, type: 2}
-    _type: 1
+  _modelModifiers: []
   _traitModifiers:
   - _trait:
       _value: Stability
@@ -34,7 +32,7 @@ MonoBehaviour:
     _operation: 1
     _modifier:
       Base: 0
-      Percentual: -0.2
+      Percentual: 1.5
       Additive: 0
       Multiplicative: 1
     _intValue: 0

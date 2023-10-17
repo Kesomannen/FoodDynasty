@@ -2,6 +2,7 @@
 using Dynasty.Core.Grid;
 using Dynasty.Core.Inventory;
 using Dynasty.Food;
+using Dynasty.Library.Extensions;
 using Dynasty.Machines;
 using UnityEngine;
 
@@ -13,18 +14,14 @@ public class ActionsController : MonoBehaviour {
     [SerializeField] InventoryGridObjectHandler _gridObjectHandler;
     
     public void ClearAllFood() {
-        var manager = FoodManager.Singleton;
-        if (manager == null) return;
-        
-        foreach (var food in manager.GetAllFood().ToArray()) {
-            food.Dispose();
-        }
+        FoodManager.Singleton.Food.ToArray()
+            .ForEach(food => food.Dispose());
     }
 
     public void EmptyAllMachines() {
-        foreach (var supply in FindObjectsOfType<Supply>()) {
-            supply.Empty(_inventory);
-        }
+        _grid.GridObjects
+            .SelectMany(obj => obj.GetComponentsInChildren<Supply>())
+            .ForEach(supply => supply.Empty(_inventory));
     }
 
     public void DeleteAllMachines() {

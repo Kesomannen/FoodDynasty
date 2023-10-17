@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Dynasty.Editor.Drawers {
 
-[CustomPropertyDrawer(typeof(FloatDataProperty))]
+//[CustomPropertyDrawer(typeof(FloatDataProperty))]
 public class FloatDataPropertyDrawer : PropertyDrawer {
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label) {
         return EditorGUIUtility.singleLineHeight;

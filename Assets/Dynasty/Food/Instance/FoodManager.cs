@@ -6,11 +6,12 @@ namespace Dynasty.Food {
 
 public class FoodManager : MonoBehaviour {
     [SerializeField] int _maxFood = 1000;
-
-    [CanBeNull]
+    
     public static FoodManager Singleton { get; private set; }
     
     readonly HashSet<FoodBehaviour> _food = new();
+    
+    public IEnumerable<FoodBehaviour> Food => _food;
 
     void Awake() {
         if (Singleton != null) {
@@ -41,10 +42,6 @@ public class FoodManager : MonoBehaviour {
     
     void OnDisposed(FoodBehaviour food) {
         Remove(food);
-    }
-
-    public IEnumerable<FoodBehaviour> GetAllFood() {
-        return _food;
     }
 }
 

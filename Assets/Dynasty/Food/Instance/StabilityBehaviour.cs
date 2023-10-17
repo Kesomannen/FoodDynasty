@@ -19,7 +19,6 @@ public class StabilityBehaviour : MonoBehaviour {
     [SerializeField] AnimationCurve _velocityStabilityLossCurve;
     [SerializeField] Vector2 _velocityRange;
     [SerializeField] GenericEvent _onFallenOver;
-    [SerializeField] float _disposeDelay = 1f;
     [Space]
     [AllowNesting]
     [SerializeField] [ReadOnly] float _velocity;
@@ -46,7 +45,7 @@ public class StabilityBehaviour : MonoBehaviour {
         TickManager.RemoveListener(OnTick, _useSparseUpdate);
     }
 
-    async void OnTick(float delta) {
+    void OnTick(float delta) {
         if (_fallenOver) return;
         
         _current = _food.GetTrait<float>(_stabilityTrait.Hash);
@@ -59,11 +58,12 @@ public class StabilityBehaviour : MonoBehaviour {
         _food.SetTrait(_stabilityTrait.Hash, newStability);
 
         if (newStability > 0) return;
-        
-        _onFallenOver?.Raise();
+
+        if (_onFallenOver != null) {
+            _onFallenOver.Raise();
+        }
         _fallenOver = true;
         
-        await TaskHelpers.Delay(_disposeDelay);
         _food.Dispose();
     }
 }

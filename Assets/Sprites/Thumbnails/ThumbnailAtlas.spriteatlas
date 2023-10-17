@@ -71,6 +71,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6ad6a5e8d9dc2dd4eb0244e49d52f2c5, type: 3}
   - {fileID: 21300000, guid: 66ad3a99fa33c6545b461f84aaa05d0a, type: 3}
   - {fileID: 21300000, guid: bf7faea9976c80445abcecae28769c8e, type: 3}
+  - {fileID: 21300000, guid: d2e0fceaab84f7e40802672afbf23561, type: 3}
   - {fileID: 21300000, guid: 0ce8c3fbec06ef4498e7177d09a63941, type: 3}
   - {fileID: 21300000, guid: 148b327cc091ed74bb6fdc145f0dc1af, type: 3}
   - {fileID: 21300000, guid: 335a954d87f203348b340c3324266c8b, type: 3}
@@ -101,6 +102,7 @@ SpriteAtlas:
   - Merging Conveyor
   - Bread Oven
   - Ham
+  - Sandwich Compressor
   - Right Rotating Conveyor
   - Rusty Conveyor
   - Dough Dispenser

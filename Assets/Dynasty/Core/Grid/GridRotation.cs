@@ -21,6 +21,11 @@ public struct GridRotation {
     /// The number of degrees on this rotation.
     /// </summary>
     public int Degrees => _value * 90;
+    
+    /// <summary>
+    /// The number of radians on this rotation.
+    /// </summary>
+    public float Radians => _value * Mathf.PI / 2f;
 
     /// <summary>
     /// Constructs a new rotation with the given 90 degree steps applied.

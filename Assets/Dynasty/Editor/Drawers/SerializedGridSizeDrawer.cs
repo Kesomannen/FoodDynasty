@@ -97,6 +97,7 @@ public class SerializedGridSizeDrawer : PropertyDrawer {
         }
         
         gridSize.CustomMatrix = matrix;
+        return;
 
         void SetAll(bool value) {
             for (var x = 0; x < matrixSize.x; x++) {
