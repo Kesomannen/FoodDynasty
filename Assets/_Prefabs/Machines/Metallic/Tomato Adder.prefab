@@ -205,6 +205,11 @@ PrefabInstance:
       propertyPath: _size._gridSize.Bounds.y
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2059985905203872251, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.351
+      objectReference: {fileID: 0}
     - target: {fileID: 6328609926739982568, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: _data
@@ -270,6 +275,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tomato Adder
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434878137366661505, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.309
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}

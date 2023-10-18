@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Core.Grid;
 using Dynasty.Library;
@@ -43,6 +42,8 @@ public abstract class MachineModifier<T> : MonoBehaviour, IMachineComponent, IIn
         _gridObject.OnRemoved += () => {
             GridManager.OnObjectAdded -= OnObjectAdded;
             GridManager.OnObjectRemoved -= OnObjectRemoved;
+            
+            ClearAffectedObjects();
         };
     }
     
@@ -64,14 +65,17 @@ public abstract class MachineModifier<T> : MonoBehaviour, IMachineComponent, IIn
     }
 
     void RefreshAffectedObjects() {
+        ClearAffectedObjects();
+        GridManager.GridObjects.Where(InRange).ForEach(TryAdd);
+    }
+
+    void ClearAffectedObjects() {
         foreach (var (component, _) in _affected) {
             OnRemoved(component);
         }
         _affected.Clear();
-
-        GridManager.GridObjects.Where(InRange).ForEach(TryAdd);
     }
-    
+
     void TryAdd(GridObject obj) {
         obj.GetComponentsInChildren<T>()
             .Where(Predicate)

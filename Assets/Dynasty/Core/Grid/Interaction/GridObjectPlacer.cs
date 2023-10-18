@@ -291,7 +291,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     }
 
     Vector3 GetMouseWorldPos() {
-        var ray = MouseHelpers.MainCamera.ScreenPointToRay(MouseHelpers.ScreenPosition);
+        var ray = MouseHelpers.ScreenRay;
         return _plane.Raycast(ray, out var enter) ? ray.GetPoint(enter) : Vector3.zero;
     }
     

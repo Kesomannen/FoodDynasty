@@ -15,8 +15,9 @@ public static class MaterialHelpers {
     }
     
     public static void ApplyMaterial(this IEnumerable<Renderer> renderers, Material material) {
+        var array = new[] { material };
         foreach (var renderer in renderers) {
-            renderer.material = material;
+            renderer.materials = array;
         }
     }
     
