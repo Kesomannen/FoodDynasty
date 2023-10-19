@@ -189,6 +189,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -838393948165991145, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
+      propertyPath: _speed._dataObject
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ec843a4ab559d948b45af8d4c78fcc3,
+        type: 2}
     - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: _blueprintPrefab

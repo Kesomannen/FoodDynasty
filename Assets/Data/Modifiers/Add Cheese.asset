@@ -17,7 +17,7 @@ MonoBehaviour:
     Base: 0
     Percentual: 0
     Additive: 0
-    Multiplicative: 2
+    Multiplicative: 1.5
   _maxSellPriceModifier:
     Base: 0
     Percentual: 0

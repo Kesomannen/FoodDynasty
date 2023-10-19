@@ -1,19 +1,37 @@
-﻿using Dynasty.Food;
+﻿using System;
+using System.Collections;
+using Dynasty.Food;
+using Dynasty.Library.Helpers;
 using UnityEngine;
 
 namespace Dynasty.Machines {
 
-public class SplitConveyor : FoodMachineComponent {
-    [SerializeField] Conveyor[] _conveyors;
+[RequireComponent(typeof(Conveyor))]
+public class SplitConveyor : MonoBehaviour, IMachineComponent {
+    [SerializeField] float _switchDelay;
+    [SerializeField] Vector3[] _directions;
     
     int _index;
-    
-    protected override void OnTriggered(FoodBehaviour food) {
-        _index = (_index + 1) % _conveyors.Length;
-        for (var i = 0; i < _conveyors.Length; i++) {
-            _conveyors[i].enabled = i == _index;
+    Conveyor _conveyor;
+
+    void Awake() {
+        _conveyor = GetComponent<Conveyor>();
+    }
+
+    void OnEnable() {
+        StartCoroutine(Routine());
+        return;
+        
+        IEnumerator Routine() {
+            while (enabled) {
+                _conveyor.Direction = _directions[_index];
+                _index = (_index + 1) % _directions.Length;
+                yield return CoroutineHelpers.Wait(_switchDelay);
+            }
         }
     }
+
+    public Component Component => this;
 }
 
 }

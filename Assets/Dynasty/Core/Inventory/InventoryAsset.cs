@@ -81,7 +81,7 @@ public class InventoryAsset : MonoScriptable {
         return true;
     }
     
-    Item GetOrAdd(ItemData data) {
+    public Item GetOrAdd(ItemData data) {
         if (TryGet(data, out var item)) return item;
         return _items[data] = new Item {
             Count = 0,

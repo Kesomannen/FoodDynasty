@@ -2690,8 +2690,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gridManager: {fileID: 566939830}
-  _drawGrid: 1
-  _selectCell: 1
+  _drawGrid: 0
+  _selectCell: 0
   _selectedCell: {x: 79, y: -88}
 --- !u!1001 &592395010
 PrefabInstance:
@@ -11483,7 +11483,7 @@ GameObject:
   - component: {fileID: 1766957966}
   - component: {fileID: 1766957965}
   m_Layer: 0
-  m_Name: PlaceParticle
+  m_Name: Place Particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16335,7 +16335,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766957964}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.346, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23665,23 +23665,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 89.46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 20.26
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 45.73
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2965883969436907079, guid: 74bec6fecf78cf64d9591831f4e5885b,
         type: 3}

@@ -12,6 +12,11 @@ public class Conveyor : MonoBehaviour, IInfoProvider, IMachineComponent, IBoosta
     
     Rigidbody _rigidbody;
 
+    public Vector3 Direction {
+        get => _direction;
+        set => _direction = value;
+    }
+
     void Awake() {
         _rigidbody = GetComponent<Rigidbody>();
     }

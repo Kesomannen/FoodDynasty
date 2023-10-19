@@ -106,8 +106,7 @@ public class SoundManager : MonoBehaviour {
     }
 
     IEnumerator PlayRoutine(SoundEffect sound) {
-        var source = GetSource(sound);
-        yield return PlayRoutine(sound, source);
+        yield return PlayRoutine(sound, GetSource(sound));
     }
     
     AudioSource GetSource(SoundEffect sound) {

@@ -1,22 +1,22 @@
 ﻿namespace Dynasty.UI.Components {
 
 public abstract class UpdatingUIComponent<T> : UIComponent<T> {
-    T _content;
+    protected T Content { get; private set; }
     bool _isSubscribed;
     
     public sealed override void SetContent(T content) {
-        if (_isSubscribed && _content != null) {
-            Unsubscribe(_content);
+        if (_isSubscribed && Content != null) {
+            Unsubscribe(Content);
         }
 
-        _content = content;
-        Subscribe(_content);
+        Content = content;
+        Subscribe(Content);
         _isSubscribed = true;
     }
 
     protected virtual void OnDisable() {
-        if (!_isSubscribed || _content == null) return;
-        Unsubscribe(_content);
+        if (!_isSubscribed || Content == null) return;
+        Unsubscribe(Content);
         _isSubscribed = false;
     }
 
