@@ -52,6 +52,8 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Machines.Supply, Dynasty.Machines
     - _collection:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Machines.AutoBuyer, Dynasty.Machines
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_df7bf43c3ee77704796922a82fc22b90,
         z_Container_Entity
@@ -65,6 +67,8 @@ MonoBehaviour:
         z_Container_Supply
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_6032d59dabc2d6544b378c1995e58a97,
         z_Container_MachineEntity
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_8c20d41459bb2584fa02b007838aa8a4,
+        z_Container_AutoBuyer
   - _keys:
     - _collection:
       - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library

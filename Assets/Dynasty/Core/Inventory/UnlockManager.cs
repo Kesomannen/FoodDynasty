@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Core.Tooltip;
 using Dynasty.Library;
@@ -13,7 +14,7 @@ public class UnlockManager : MonoScriptable {
     [SerializeField] ListEvent<ItemData> _unlockEvent;
     [SerializeField] GameEvent<PopupData> _popupEvent;
     [SerializeField] UnlockData[] _unlockData;
-
+    
     public int CurrentUnlockIndex { get; private set; }
 
     public override void OnAwake() {

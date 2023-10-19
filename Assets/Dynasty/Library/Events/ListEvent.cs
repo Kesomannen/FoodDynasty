@@ -6,21 +6,23 @@ namespace Dynasty.Library.Events {
 
 [CreateGenericAssetMenu(MenuName = "Event/List")]
 public class ListEvent<T> : GenericGameEvent {
-    readonly List<T> _list = new();
+    readonly List<T> _items = new();
+    
+    public IReadOnlyList<T> Items => _items;
     
     event Action<T> OnAdded;
     event Action<T> OnRemoved;
 
     public void Clear() {
-        while (_list.Count > 0) {
-            Remove(_list[0]);
+        while (_items.Count > 0) {
+            Remove(_items[0]);
         }
     }
 
     public void AddListener(Action<T> onAdded, Action<T> onRemoved) {
         OnAdded += onAdded;
         OnRemoved += onRemoved;
-        foreach (var val in _list) {
+        foreach (var val in _items) {
             onAdded(val);
         }
     }
@@ -31,13 +33,13 @@ public class ListEvent<T> : GenericGameEvent {
     }
     
     public void Add(T value) {
-        _list.Add(value);
+        _items.Add(value);
         OnAdded?.Invoke(value);
         Raise();
     }
     
     public void Remove(T value) {
-        _list.Remove(value);
+        _items.Remove(value);
         OnRemoved?.Invoke(value);
     }
 }

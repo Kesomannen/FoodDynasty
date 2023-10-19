@@ -14,6 +14,16 @@ public static class EnumerableExtensions {
             action(item);
         }
     }
+    
+    public static int IndexOf<T>(this IEnumerable<T> enumerable, T item) {
+        var index = 0;
+        foreach (var i in enumerable) {
+            if (Equals(i, item)) return index;
+            index++;
+        }
+
+        return -1;
+    }
 }
 
 }

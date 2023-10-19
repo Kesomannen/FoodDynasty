@@ -41,6 +41,8 @@ MonoBehaviour:
     _guid: 
   - _typeNameAndAssembly: Dynasty.Library.MaxFramerateSetting, Dynasty.Library
     _guid: 
+  - _typeNameAndAssembly: Dynasty.Machines.AutoBuyer, Dynasty.Machines
+    _guid: 5687b14eda60472387542e2ec64ddd3e
   _genericArgumentValues:
   - _array:
     - _arguments:
@@ -81,6 +83,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
         _guid: ebfc489af0ff4ecbbc30e8440d302b1c
       _assemblyGUID: 6032d59dabc2d6544b378c1995e58a97
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Machines.AutoBuyer, Dynasty.Machines
+        _guid: 5687b14eda60472387542e2ec64ddd3e
+      _assemblyGUID: 8c20d41459bb2584fa02b007838aa8a4
   - _array:
     - _arguments:
       - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library
@@ -324,6 +330,14 @@ MonoBehaviour:
     - _typeNameAndAssembly: Dynasty.UI.Miscellanious.EnumDropdown`1, Dynasty.UI
       _guid: 64b3224c66d447e6841cab5219baa0a4
       AssemblyGUID: 6a73d72e3324ea84b9486a47176a1c57
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+  - _array:
+    - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
+      _guid: bc7fd065c7114f949ac90aaca54ac6c0
+      AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
       _argNames:
       - T
       _componentName: 

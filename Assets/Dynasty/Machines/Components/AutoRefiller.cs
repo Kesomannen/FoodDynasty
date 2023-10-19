@@ -35,13 +35,13 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
         while (enabled) {
             foreach (var (supply, _) in Affected) {
                 var count = Mathf.Min(_refillAmount, _inventory.GetCount(supply.RefillItem));
-                if (count == 0) {
-                    _states[supply] = supply.HasSupply() ? State.Low : State.Empty;
-                } else {
-                    _inventory.Remove(supply.RefillItem, count);
+                
+                if (count > 0) {
                     supply.CurrentSupply += count;
-                    
+                    _inventory.Remove(supply.RefillItem, count);
                     _states[supply] = supply.HasSupply() ? State.Ok : State.Low;
+                } else {
+                    _states[supply] = supply.HasSupply() ? State.Low : State.Empty;
                 }
             }
             
@@ -52,24 +52,16 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
         }
     }
 
-    protected override void OnAdded(Supply component) {
-        _states.Add(component, State.Ok);
-    }
-    
-    protected override void OnRemoved(Supply component) {
-        _states.Remove(component);
-    }
-
+    protected override void OnAdded(Supply component) => _states.Add(component, State.Ok);
+    protected override void OnRemoved(Supply component) => _states.Remove(component);
     protected override bool Predicate(Supply supply) => supply.IsRefillable;
-
-
+    
     public override IEnumerable<EntityInfo> GetInfo() {
         foreach (var info in base.GetInfo()) {
             yield return info;
         }
         
-        yield return new EntityInfo("Speed", $"{_refillSpeed.Value:0.#}");
-        yield return new EntityInfo("Amount", _refillAmount.ToString());
+        yield return new EntityInfo("Speed", $"{_refillSpeed.Value * _refillAmount:0.#}/s");
     }
 
     enum State {

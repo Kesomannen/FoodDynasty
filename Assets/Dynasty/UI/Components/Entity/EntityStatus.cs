@@ -16,7 +16,7 @@ public class EntityStatus : UIComponent<Entity> {
     public override void SetContent(Entity content) {
         Clear();
         
-        var providers = content.GetComponents<IStatusProvider>();
+        var providers = content.GetComponentsInChildren<IStatusProvider>();
         if (providers.Length == 0) return;
 
         for (var i = 0; i < providers.Length; i++) {

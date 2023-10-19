@@ -1,7 +1,5 @@
-﻿using System;
+﻿using System.Collections;
 using Dynasty.Library.Events;
-using Dynasty.Library.Helpers;
-using Dynasty.UI.Tooltip;
 using UnityEngine;
 
 namespace Dynasty.UI.Misc {
@@ -32,9 +30,18 @@ public class WorldCanvasWindow : MonoBehaviour {
         var canvas = worldCanvas.Canvas;
         var cam = worldCanvas.Camera;
         
-        var screenPosition = cam.WorldToScreenPoint(worldPosition);
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, screenPosition, cam, out var localPoint);
-        _rectTransform.localPosition = localPoint;
+        StartCoroutine(ShowCoroutine());
+        return;
+
+        IEnumerator ShowCoroutine() {
+            while (enabled) {
+                var screenPosition = cam.WorldToScreenPoint(worldPosition);
+                RectTransformUtility.ScreenPointToLocalPointInRectangle((RectTransform)canvas.transform, screenPosition, cam, out var localPoint);
+                _rectTransform.localPosition = localPoint;
+                
+                yield return null;
+            }
+        }
     }
 }
 

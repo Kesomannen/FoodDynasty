@@ -17,6 +17,7 @@ public class EntityInfoUIComponent : UIComponent<EntityInfo> {
         
         _icon.sprite = content.Icon;
         _icon.SetActive(content.Icon != null);
+        return;
 
         void Configure(TMP_Text text, string value) {
             text.gameObject.SetActive(!string.IsNullOrEmpty(value));

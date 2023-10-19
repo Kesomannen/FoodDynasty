@@ -39,6 +39,8 @@ MonoBehaviour:
     _guid: 
   - _typeNameAndAssembly: Dynasty.Core.Tooltip.PopupData, Dynasty.Core
     _guid: 
+  - _typeNameAndAssembly: Dynasty.Machines.AutoBuyer, Dynasty.Machines
+    _guid: 5687b14eda60472387542e2ec64ddd3e
   _genericArgumentValues:
   - _array: []
   - _array: []
@@ -119,6 +121,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
         _guid: ebfc489af0ff4ecbbc30e8440d302b1c
       _assemblyGUID: 253c4a6778469aa4db5f51e540ddc052
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Machines.AutoBuyer, Dynasty.Machines
+        _guid: 5687b14eda60472387542e2ec64ddd3e
+      _assemblyGUID: 923ef5c084f41634393d1af5776970ce
   - _array: []
   - _array:
     - _arguments:
@@ -231,6 +237,12 @@ MonoBehaviour:
   - _array:
     - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
       _guid: 6e0691897fdd4e5894148f79dce13dbc
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: Dynasty.UI.Controls.ContainerGridObjectControl`1, Dynasty.UI
+      _guid: 379477018aa741039e247c214d6d81f7
       AssemblyGUID: 
       _argNames:
       - T

@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1811688331, guid: 6a744f12d34869243a0951b672766c45, type: 3}
-  m_Name: Auto Refiller Speed
+  m_Script: {fileID: -261501525, guid: 923ef5c084f41634393d1af5776970ce, type: 3}
+  m_Name: Auto Buyer Control
   m_EditorClassIdentifier: 
-  _value: 0.5
+  _containerPrefab: {fileID: 4808002928235579803, guid: f8a282b2ab5de314b937d928b4c028b6,
+    type: 3}
