@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 
 public static class ThumbnailCreator {
-    static readonly Vector2Int _imageSize = new(512, 512);
+    static readonly Vector2Int _imageSize = new(1024, 1024);
     static readonly Vector3 _position = new(0, 50, 0);
 
     const string ImagePath = "Sprites/Thumbnails";

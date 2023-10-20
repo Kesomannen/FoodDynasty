@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Dynasty.Core.Inventory;
 using Dynasty.Library.Events;
 using Dynasty.Machines;
@@ -12,28 +13,35 @@ public class AutoBuyerItem : UIComponent<AutoBuyer> {
     [SerializeField] TMP_Dropdown _dropdown;
     [SerializeField] ListEvent<ItemData> _unlockedItems;
 
+    AutoBuyer _autoBuyer;
+    ItemData[] _items;
+    
     public override void SetContent(AutoBuyer content) {
+        _autoBuyer = content;
         _dropdown.ClearOptions();
 
-        var items = _unlockedItems.Items
+        _items = _unlockedItems.Items
             .OrderBy(x => x is MachineItemData ? 1 : 0)
             .Prepend(null)
             .ToArray();
         
-        _dropdown.AddOptions(items
+        _dropdown.AddOptions(_items
             .Select(x => x == null ? 
                 new TMP_Dropdown.OptionData("None") : 
                 new TMP_Dropdown.OptionData(x.Name, x.Icon)
             ).ToList()
         );
         
-        _dropdown.value = items.IndexOf(content.Item);
+        _dropdown.value = _items.IndexOf(content.Item);
         _dropdown.onValueChanged.AddListener(ValueChanged);
-        return;
+    }
 
-        void ValueChanged(int index) {
-            content.Item = items[index];
-        }
+    void OnDisable() {
+        _dropdown.onValueChanged.RemoveListener(ValueChanged);
+    }
+    
+    void ValueChanged(int index) {
+        _autoBuyer.Item = _items[index];
     }
 }
 

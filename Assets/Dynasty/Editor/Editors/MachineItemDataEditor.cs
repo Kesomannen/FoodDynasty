@@ -66,11 +66,8 @@ public class MachineItemDataEditor : Editor {
         }
 
         if (GUILayout.Button("Generate All Images")) {
-            var guids = AssetDatabase.FindAssets("t:MachineItemData");
-            foreach (var guid in guids) {
-                var path = AssetDatabase.GUIDToAssetPath(guid);
-                var dataAsset = AssetDatabase.LoadAssetAtPath<MachineItemData>(path);
-                GenerateImage(dataAsset);
+            foreach (var item in EditorUtil.FetchAll<MachineItemData>()) {
+                GenerateImage(item);
             }
         }
 

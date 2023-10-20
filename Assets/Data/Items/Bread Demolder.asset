@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: Bread Deruster
   _description: Rust  is yucky. Use this to remove it! Used after baking.
   _shortDescription: Derusts baked bread
-  _icon: {fileID: 21300000, guid: b9d5af72d6320c748b52f6185b0e09e4, type: 3}
+  _icon: {fileID: 21300000, guid: 074d2a4971060e94182a2f4b66d7cb9c, type: 3}
   _tier: 0
   _price: 2500
   _type: 7

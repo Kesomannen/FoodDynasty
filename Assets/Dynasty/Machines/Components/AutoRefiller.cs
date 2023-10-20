@@ -33,8 +33,13 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
 
     IEnumerator RefillLoop() {
         while (enabled) {
+            yield return CoroutineHelpers.Wait(1 / _refillSpeed.Value);
+            
+            if (Affected.Count == 0) continue;
+            
+            var amount = _refillAmount / Affected.Count;
             foreach (var (supply, _) in Affected) {
-                var count = Mathf.Min(_refillAmount, _inventory.GetCount(supply.RefillItem));
+                var count = Mathf.Min(amount, _inventory.GetCount(supply.RefillItem));
                 
                 if (count > 0) {
                     supply.CurrentSupply += count;
@@ -47,8 +52,6 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
             
             _outline.Require(Color.red, _states.Any(kvp => kvp.Value == State.Empty));
             OnStatusChanged?.Invoke(this);
-
-            yield return CoroutineHelpers.Wait(1 / _refillSpeed.Value);
         }
     }
 

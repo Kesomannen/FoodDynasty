@@ -21,6 +21,7 @@ public class AutoBuyer : MonoBehaviour,
     [SerializeField] Lookup<ItemData> _itemLookup;
     [SerializeField] MoneyManager _money;
     [SerializeField] FloatDataProperty _buySpeed;
+    [SerializeField] SpriteRenderer _itemRenderer;
     [SerializeField] int _overbuyAmount;
     [SerializeField] int _buyAmount = 1;
     
@@ -35,6 +36,7 @@ public class AutoBuyer : MonoBehaviour,
         get => _item;
         set {
             _item = value; 
+            _itemRenderer.sprite = _item?.Icon;
             OnStatusChanged?.Invoke(this);
         }
     }

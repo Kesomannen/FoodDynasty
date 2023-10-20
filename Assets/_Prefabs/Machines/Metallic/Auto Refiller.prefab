@@ -8917,7 +8917,7 @@ MonoBehaviour:
       Percentual: 0
       Additive: 0
       Multiplicative: 1
-  _refillAmount: 5
+  _refillAmount: 20
 --- !u!4 &2727822078472970984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,

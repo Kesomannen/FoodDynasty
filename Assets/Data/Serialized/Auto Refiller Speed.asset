@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: -1811688331, guid: 6a744f12d34869243a0951b672766c45, type: 3}
   m_Name: Auto Refiller Speed
   m_EditorClassIdentifier: 
-  _value: 0.5
+  _value: 0.1875
