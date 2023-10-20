@@ -6,6 +6,7 @@ using Dynasty.Core.Grid;
 using Dynasty.Core.Inventory;
 using Dynasty.Library;
 using Dynasty.Library.Helpers;
+using Dynasty.Library.Pooling;
 using UnityEngine;
 
 namespace Dynasty.Machines {
@@ -15,6 +16,11 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
     [SerializeField] InventoryAsset _inventory;
     [SerializeField] FloatDataProperty _refillSpeed;
     [SerializeField] int _refillAmount = 1;
+    [Space]
+    [SerializeField] CustomObjectPool<PoolableComponent<SpriteRenderer>> _itemSpritePool;
+    [SerializeField] Transform _itemStart;
+    [SerializeField] float _itemSpeed;
+    [SerializeField] AnimationCurve _itemEaseCurve;
 
     GridOutline _outline;
 
@@ -44,6 +50,8 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
                 if (count > 0) {
                     supply.CurrentSupply += count;
                     _inventory.Remove(supply.RefillItem, count);
+                    StartCoroutine(SpawnItem(supply));
+                    
                     _states[supply] = supply.HasSupply() ? State.Ok : State.Low;
                 } else {
                     _states[supply] = supply.HasSupply() ? State.Low : State.Empty;
@@ -52,6 +60,27 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
             
             _outline.Require(Color.red, _states.Any(kvp => kvp.Value == State.Empty));
             OnStatusChanged?.Invoke(this);
+        }
+
+        yield break;
+
+        IEnumerator SpawnItem(Supply supply) {
+            var item = _itemSpritePool.Get();
+            item.Component.sprite = supply.RefillItem.Icon;
+            
+            var t = item.transform;
+            var targetPos = supply.transform.position;
+            var startPos = _itemStart.position;
+            
+            t.position = startPos;
+            
+            var time = Vector3.Distance(t.position, targetPos) / _itemSpeed;
+            LeanTween.value(0, 1, time).setOnUpdate(v => {
+                t.position = Vector3.Slerp(startPos, targetPos, _itemEaseCurve.Evaluate(v));
+            });
+            yield return CoroutineHelpers.Wait(time);
+            
+            item.Dispose();
         }
     }
 

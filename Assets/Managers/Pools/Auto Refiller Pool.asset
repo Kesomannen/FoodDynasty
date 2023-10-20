@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1811688331, guid: 6a744f12d34869243a0951b672766c45, type: 3}
-  m_Name: Auto Refiller Speed
+  m_Script: {fileID: 11500000, guid: 7065f77f1ee041e286b2226f2a1774ba, type: 3}
+  m_Name: Auto Refiller Pool
   m_EditorClassIdentifier: 
-  _value: 0.25
+  _prefab: {fileID: 7503004073744361816, guid: 01ec831c578d24845a64bbbf855a5b08, type: 3}
+  _collectionCheck: 1
+  _defaultCapacity: 10
+  _maxSize: 10000
+  _clearOnSceneChange: 1

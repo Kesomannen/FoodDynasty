@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5290929961459746519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 173599803058851504}
+  m_Layer: 0
+  m_Name: Item Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &173599803058851504
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5290929961459746519}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.965, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2727822078472970984}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &266200142979005070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8918,6 +8949,33 @@ MonoBehaviour:
       Additive: 0
       Multiplicative: 1
   _refillAmount: 20
+  _itemSpritePool: {fileID: 11400000, guid: 14840db73c7cd9b44b3887bd0fe03870, type: 2}
+  _itemStart: {fileID: 173599803058851504}
+  _itemSpeed: 2
+  _itemEaseCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2.8336108
+      outSlope: 2.8336108
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.0686065
+    - serializedVersion: 3
+      time: 0.9875183
+      value: 0.9858513
+      inSlope: 2.7614632
+      outSlope: 2.7614632
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06434333
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &2727822078472970984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6683153179909623582, guid: 0b41a32b938fc324b90a999fc9957d7d,

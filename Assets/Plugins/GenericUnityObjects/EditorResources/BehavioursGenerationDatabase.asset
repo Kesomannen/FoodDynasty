@@ -43,6 +43,8 @@ MonoBehaviour:
     _guid: 
   - _typeNameAndAssembly: Dynasty.Machines.AutoBuyer, Dynasty.Machines
     _guid: 5687b14eda60472387542e2ec64ddd3e
+  - _typeNameAndAssembly: UnityEngine.SpriteRenderer, UnityEngine.CoreModule
+    _guid: 
   _genericArgumentValues:
   - _array:
     - _arguments:
@@ -118,6 +120,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: UnityEngine.Rigidbody, UnityEngine.PhysicsModule
         _guid: 
       _assemblyGUID: e63477228b7046e4693977d6f2a34413
+    - _arguments:
+      - _typeNameAndAssembly: UnityEngine.SpriteRenderer, UnityEngine.CoreModule
+        _guid: 
+      _assemblyGUID: fe789314c850057449a4ae7a5e04d497
   - _array:
     - _arguments:
       - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library
@@ -338,6 +344,14 @@ MonoBehaviour:
     - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
       AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+  - _array:
+    - _typeNameAndAssembly: Dynasty.Library.Pooling.PoolableComponent`1, Dynasty.Library
+      _guid: 4d9634bd5ef144cfbaed6047c0f6b938
+      AssemblyGUID: 3f8d0f86f2b777d4fbfa096eec4f7653
       _argNames:
       - T
       _componentName: 
