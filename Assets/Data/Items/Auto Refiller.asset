@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Auto Refiller
   m_EditorClassIdentifier: 
   _name: Auto Refiller
-  _description: Refills nearby machines automatically
-  _shortDescription: Refills nearby machines automatically
+  _description: Refills nearby machines automatically.
+  _shortDescription: Refills nearby machines
   _icon: {fileID: 21300000, guid: 6660a306b80f03541a1c3af9f9fc2624, type: 3}
   _tier: 1
-  _price: 40000
+  _price: 50000
   _type: 0
   _prefab: {fileID: 101737507698050665, guid: 08a788e13010ca2448557e10b6739311, type: 3}
   _enabledProviders: 0101

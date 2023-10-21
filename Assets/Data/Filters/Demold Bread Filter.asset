@@ -13,18 +13,15 @@ MonoBehaviour:
   m_Name: Demold Bread Filter
   m_EditorClassIdentifier: 
   _condition: 0
+  _sellPriceRange:
+    _enabled: 0
+    _value: {x: 0, y: 0}
   _filters:
   - _type: 0
     _trait:
       _value: Dough
       _hash: -1530337891
-    _boolValue: 0
-    _floatRange: {x: 0, y: 0}
-    _intRange: {x: 0, y: 0}
-  - _type: 0
-    _trait:
-      _value: Baked
-      _hash: -1779161523
+      _type: 0
     _boolValue: 0
     _floatRange: {x: 0, y: 0}
     _intRange: {x: 0, y: 0}
@@ -32,6 +29,7 @@ MonoBehaviour:
     _trait:
       _value: Demolded
       _hash: 2124598384
+      _type: 0
     _boolValue: 0
     _floatRange: {x: 0, y: 0}
     _intRange: {x: 0, y: 0}

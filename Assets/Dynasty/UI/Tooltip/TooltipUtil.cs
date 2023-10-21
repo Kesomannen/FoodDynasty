@@ -25,11 +25,11 @@ public static class TooltipUtil {
         
         var size = tooltip.rect.size;
 
-        if (position.x + size.x > Screen.width) {
+        if (position.x + size.x * (1 - pivot.x) > Screen.width) {
             position.x = Screen.width - size.x;
             pivot.x = 1;
         }
-        if (position.y - size.y / 2 < 0) {
+        if (position.y - size.y * pivot.y < 0) {
             position.y = size.y;
             pivot.y = 1;
         }

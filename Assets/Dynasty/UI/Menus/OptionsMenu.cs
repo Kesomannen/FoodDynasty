@@ -21,6 +21,7 @@ public class OptionsMenu : MonoBehaviour {
     [SerializeField] Slider _musicVolumeSlider;
     [SerializeField] Slider _effectsVolumeSlider;
     [Space] 
+    [SerializeField] Slider _mouseSensitivitySlider;
     [SerializeField] Transform _rebindParent;
     [SerializeField] RebindActionUI _rebindPrefab;
     [SerializeField] GameObject _rebindOverlay;
@@ -38,6 +39,8 @@ public class OptionsMenu : MonoBehaviour {
         Bind(_masterVolumeSlider, Settings.MasterVolume, 100);
         Bind(_musicVolumeSlider, Settings.MusicVolume, 100);
         Bind(_effectsVolumeSlider, Settings.EffectsVolume, 100);
+        
+        Bind(_mouseSensitivitySlider, Settings.MouseSensitivity, 100);
         
         foreach (var input in _rebindableInputs) {
             var rebind = Instantiate(_rebindPrefab, _rebindParent);

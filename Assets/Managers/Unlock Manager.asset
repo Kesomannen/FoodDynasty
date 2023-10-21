@@ -32,7 +32,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ff16d2895628b5546a9caf35db148783, type: 2}
     - {fileID: 11400000, guid: f14de4ab4e2eace4680874ba300b2e82, type: 2}
   - Header: Sandwiches
-    MoneyMadeRequirement: 1
+    MoneyMadeRequirement: 50000
     Unlocks:
     - {fileID: 11400000, guid: 15afbee24280c3647abc0d6951cc5df2, type: 2}
     - {fileID: 11400000, guid: 947d2b87548796845aa6d5d16e83b995, type: 2}
@@ -47,7 +47,3 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 31187a354f5eb3c4399f05d1ebc7ba10, type: 2}
     - {fileID: 11400000, guid: f3b87854fe2d0d14db5e6319befaed4e, type: 2}
     - {fileID: 11400000, guid: ac547b8fecec0b74fa93c1ad8198079c, type: 2}
-  - Header: Pumpkins
-    MoneyMadeRequirement: 2
-    Unlocks:
-    - {fileID: 11400000, guid: f88c556245b313d42ac9f5252b84ab31, type: 2}

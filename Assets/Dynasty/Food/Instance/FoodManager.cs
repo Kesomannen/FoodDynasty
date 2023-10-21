@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -11,7 +12,12 @@ public class FoodManager : MonoBehaviour {
     
     readonly HashSet<FoodBehaviour> _food = new();
     
+    public int MaxFood => _maxFood;
     public IEnumerable<FoodBehaviour> Food => _food;
+    public int FoodCount => _food.Count;
+    
+    public event Action OnFoodChanged;
+    public event Action<FoodBehaviour> OnFoodAdded, OnFoodRemoved; 
 
     void Awake() {
         if (Singleton != null) {
@@ -31,13 +37,19 @@ public class FoodManager : MonoBehaviour {
     public bool Add(FoodBehaviour food) {
         if (_food.Count >= _maxFood || !_food.Add(food)) return false;
         food.OnDisposed += OnDisposed;
+        
+        OnFoodAdded?.Invoke(food);
+        OnFoodChanged?.Invoke();
         return true;
     }
 
     public bool Remove(FoodBehaviour obj) {
         if (!_food.Remove(obj)) return false;
-        obj.OnDisposed -= OnDisposed;
-        return false;
+        obj.OnDisposed -= OnDisposed; 
+        
+        OnFoodRemoved?.Invoke(obj);
+        OnFoodChanged?.Invoke();
+        return true;
     }
     
     void OnDisposed(FoodBehaviour food) {

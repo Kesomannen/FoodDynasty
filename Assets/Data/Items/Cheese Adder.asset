@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Cheese Adder
   m_EditorClassIdentifier: 
   _name: Cheese Adder
-  _description: Applies cheese to sandwiches. Increases value but decreases stability.
+  _description: Applies cheese to sandwiches. Increases value but makes them slightly
+    unstable.
   _shortDescription: Adds cheese to sandwiches
   _icon: {fileID: 21300000, guid: 8f5933017d0faf74b90c2cff4dd1324e, type: 3}
   _tier: 1

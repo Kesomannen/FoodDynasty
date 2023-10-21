@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Sandwich Slicer
   m_EditorClassIdentifier: 
   _name: Sandwich Slicer
-  _description: Splits baked bread into sandwich slices, with half of the value each.
+  _description: Splits baked bread into five sandwich slices, with half of the loaf's
+    value each.
   _shortDescription: Splits baked bread into sandwiches
   _icon: {fileID: 21300000, guid: 125f7795f7bfd4245bcccfa8328447c8, type: 3}
   _tier: 1

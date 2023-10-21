@@ -17,7 +17,7 @@ MonoBehaviour:
   _shortDescription: 
   _icon: {fileID: 21300000, guid: 2dfe9b7d6c984e44384ebd89e00d4bfd, type: 3}
   _tier: 1
-  _price: 50
+  _price: 100
   _associatedMachine: {fileID: 11400000, guid: d1035672e9f9e1944b8a8ddc86e2192d, type: 2}
   InheritedInfo:
   - Multiplier

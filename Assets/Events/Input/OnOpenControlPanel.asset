@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08b4e10859a340d2b926d83817684e67, type: 3}
-  m_Name: OnOpenActions
+  m_Name: OnOpenControlPanel
   m_EditorClassIdentifier: 
   _action: {fileID: 4532950760473224741, guid: 7e0d5536cef42c44cbc3e5bcfb46a4e6, type: 3}
   _nameOverride:

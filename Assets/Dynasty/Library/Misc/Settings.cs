@@ -9,6 +9,8 @@ public static class Settings {
     public static Setting<float> MusicVolume { get; }
     public static Setting<float> EffectsVolume { get; }
     
+    public static Setting<float> MouseSensitivity { get; }
+    
     public static Setting<QualitySetting> Quality { get; }
     public static Setting<WindowModeSetting> WindowMode { get; }
     public static Setting<MaxFramerateSetting> MaxFramerate { get; }
@@ -17,6 +19,8 @@ public static class Settings {
         MusicVolume = GetOption("music_volume", 0.5f, value => SoundManager.Singleton.MusicVolume = value);
         EffectsVolume = GetOption("sfx_volume", 0.5f, value => SoundManager.Singleton.EffectsVolume = value);
         MasterVolume = GetOption("master_volume", 0.5f, value => SoundManager.Singleton.MasterVolume = value);
+        
+        MouseSensitivity = GetOption("mouse_sensitivity", 0.5f);
         
         Quality = GetOption("quality", QualitySetting.Medium, value => QualitySettings.SetQualityLevel((int) value));
         

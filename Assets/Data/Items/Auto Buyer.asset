@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Auto Buyer
   m_EditorClassIdentifier: 
   _name: Auto Buyer
-  _description: 
-  _shortDescription: 
+  _description: Automatically buys items, keeping a configurable amount in stock.
+  _shortDescription: Automatically buys items
   _icon: {fileID: 21300000, guid: 4f9064d2922d38e47860397f2a8cf4e2, type: 3}
   _tier: 1
-  _price: 20000
+  _price: 30000
   _type: 0
   _prefab: {fileID: 3490531435703448873, guid: 053d0336f43c05b49b92be6760149cf9, type: 3}
   _enabledProviders: 0101

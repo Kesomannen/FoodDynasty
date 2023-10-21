@@ -23,7 +23,7 @@ public class MainMenuBackground : MonoBehaviour {
             _loader.Load(_panoramas.GetRandom().SaveData);
             
             foreach (var supply in FindObjectsOfType<Supply>()) {
-                supply.CurrentSupply = Supply.MaxSupply;
+                supply.CurrentSupply = 10000;
             }
             
             LeanTween.alpha(_overlay, 0, _fadeDuration);

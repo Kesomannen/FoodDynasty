@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ScaleTween : MonoBehaviour {
     [SerializeField] float _startScale;

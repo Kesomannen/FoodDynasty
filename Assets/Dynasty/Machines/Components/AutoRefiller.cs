@@ -20,10 +20,11 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
     [SerializeField] CustomObjectPool<PoolableComponent<SpriteRenderer>> _itemSpritePool;
     [SerializeField] Transform _itemStart;
     [SerializeField] float _itemSpeed;
+    [SerializeField] float _itemInterval;
     [SerializeField] AnimationCurve _itemEaseCurve;
 
     GridOutline _outline;
-
+    
     readonly Dictionary<Supply, State> _states = new();
 
     public event Action<IStatusProvider> OnStatusChanged;
@@ -37,20 +38,25 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
         StartCoroutine(RefillLoop());
     }
 
+    protected override void OnDisable() {
+        base.OnDisable();
+        LeanTween.cancel(gameObject, true);
+    }
+
     IEnumerator RefillLoop() {
         while (enabled) {
             yield return CoroutineHelpers.Wait(1 / _refillSpeed.Value);
             
             if (Affected.Count == 0) continue;
             
-            var amount = _refillAmount / Affected.Count;
+            var amount = Mathf.CeilToInt((float) _refillAmount / Affected.Count);
             foreach (var (supply, _) in Affected) {
                 var count = Mathf.Min(amount, _inventory.GetCount(supply.RefillItem));
                 
                 if (count > 0) {
                     supply.CurrentSupply += count;
                     _inventory.Remove(supply.RefillItem, count);
-                    StartCoroutine(SpawnItem(supply));
+                    StartCoroutine(SpawnItems(supply, count));
                     
                     _states[supply] = supply.HasSupply() ? State.Ok : State.Low;
                 } else {
@@ -64,23 +70,37 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
 
         yield break;
 
-        IEnumerator SpawnItem(Supply supply) {
+        IEnumerator SpawnItems(Supply supply, int count) {
+            for (var i = 0; i < count; i++) {
+                SpawnItem(supply);
+                yield return CoroutineHelpers.Wait(_itemInterval);
+            }
+        }
+        
+        void SpawnItem(Supply supply) {
             var item = _itemSpritePool.Get();
             item.Component.sprite = supply.RefillItem.Icon;
+            item.gameObject.SetActive(true);
             
             var t = item.transform;
-            var targetPos = supply.transform.position;
             var startPos = _itemStart.position;
-            
+            var targetPos = supply.transform.position;
+            targetPos.y = startPos.y;
+
             t.position = startPos;
-            
-            var time = Vector3.Distance(t.position, targetPos) / _itemSpeed;
-            LeanTween.value(0, 1, time).setOnUpdate(v => {
-                t.position = Vector3.Slerp(startPos, targetPos, _itemEaseCurve.Evaluate(v));
-            });
-            yield return CoroutineHelpers.Wait(time);
-            
-            item.Dispose();
+
+            var distance = Vector3.Distance(startPos, targetPos);
+            var radius = distance / 2f;
+            var time = distance / _itemSpeed;
+
+            LeanTween.value(gameObject, 0, 1, time)
+                .setOnUpdate(v => {
+                    var progress = _itemEaseCurve.Evaluate(v);
+                    var newPos = Vector3.Lerp(startPos, targetPos, progress);
+                    newPos.y += Mathf.Sin(progress * Mathf.PI) * radius;
+
+                    t.position = newPos; 
+                }).setOnComplete(() => item.Dispose());
         }
     }
 

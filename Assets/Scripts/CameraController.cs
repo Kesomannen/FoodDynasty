@@ -1,3 +1,4 @@
+using Dynasty.Library;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -48,6 +49,8 @@ public class CameraController : MonoBehaviour {
     Vector3 _panDragPos;
     bool _isPanning;
     bool _isSpinning;
+    
+    float Sensitivity => Settings.MouseSensitivity.Value;
 
     void Awake() {
         _transform = transform;
@@ -135,11 +138,11 @@ public class CameraController : MonoBehaviour {
             if (!_raycastPlane.Raycast(currentRay, out var entry)) return;
             
             var currentPos = currentRay.GetPoint(entry);
-            _targetPos += (_panDragPos - currentPos) * _panSpeed;
+            _targetPos += (_panDragPos - currentPos) * _panSpeed * Sensitivity;
             
             _panDragPos = currentPos;
         } else if (_isSpinning) {
-            _targetRotation += mouseDelta.x * _spinSpeed;
+            _targetRotation += mouseDelta.x * _spinSpeed * Sensitivity;
         }
 
         Cursor.lockState = _isSpinning ? CursorLockMode.Locked : CursorLockMode.None;
