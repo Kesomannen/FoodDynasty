@@ -26,6 +26,8 @@ public class GridObjectBuilder : MonoBehaviour {
     ) {
         beforePlace ??= () => true;
         _placer.Cancel();
+
+        await Task.Yield();
         
         while (beforePlace()) {
             var (result, gridObject) = await Place(prefab);

@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dynasty.Core.Grid;
 using Dynasty.Core.Tooltip;
 using Dynasty.Library.Events;
-using Dynasty.Library.Extensions;
 using Dynasty.Library.Helpers;
 using Dynasty.Library.Pooling;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -59,10 +58,18 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     [Tooltip("Applied when the current placement is invalid.")]
     [SerializeField] Material _invalidMaterial;
     
-    [Header("Events")]
+    [Foldout("Events")]
     [Tooltip("Raised when an object is placed.")]
     [SerializeField] UnityEvent _onPlaced;
+    
+    [Foldout("Events")]
+    [Tooltip("Raised when placement is started.")]
+    [SerializeField] UnityEvent _onStartPlacing;
 
+    [Foldout("Events")]
+    [Tooltip("Raised when placement is ended.")]
+    [SerializeField] UnityEvent _onStopPlacing;
+    
     /// <summary>
     /// Is the placer currently placing an object?
     /// </summary>
@@ -117,8 +124,9 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     }
 
     public void Cancel() {
-        if (!IsPlacing) return;
-        _state = State.Cancelled;
+        if (IsPlacing) {
+            StopPlacing();
+        }
     }
 
     /// <summary>
@@ -134,14 +142,21 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
 
         _gridObject = data;
         if (keepRotation) _gridRotation = data.Rotation;
-        if (keepPosition) _gridPosition = data.GridPosition;
+        _gridPosition = keepPosition ? data.GridPosition : GetMouseGridPos();
 
         IsPlacing = true;
         _placeTrigger.enabled = true;
         SetupBlueprint(data);
         
+        _onStartPlacing.Invoke();
+        
         StartListeningToInput();
         await WaitForPlacement(data);
+        
+        return IsPlacing ? StopPlacing() : GridPlacementResult.Failed;
+    }
+
+    GridPlacementResult StopPlacing() {
         StopListeningToInput();
 
         IsPlacing = false;
@@ -158,19 +173,17 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
 
         LeanTween.cancel(_rotateTweenId);
         Destroy(_blueprint.gameObject);
+        
+        _onStopPlacing.Invoke();
 
         switch (_state) {
-            case State.Cancelled:
-                return GridPlacementResult.Failed;
             case State.Deleted:
                 return GridPlacementResult.Deleted;
             case State.Placed:
                 _onPlaced.Invoke();
                 return GridPlacementResult.Successful(_gridPosition, _gridRotation);
-            case State.Waiting:
-                throw new Exception("Should not be waiting after placement");
             default:
-                throw new ArgumentOutOfRangeException();
+                return GridPlacementResult.Failed;
         }
     }
 
@@ -215,7 +228,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerClickHandler {
     async Task WaitForPlacement(GridObject gridObject) {
         _state = State.Waiting;
 
-        while (true) {
+        while (IsPlacing) {
             if (_state != State.Waiting) {
                 if (_state is State.Cancelled or State.Deleted) break;
 

@@ -9,22 +9,22 @@ public static class Settings {
     public static Setting<float> MusicVolume { get; }
     public static Setting<float> EffectsVolume { get; }
     
-    public static Setting<float> MouseSensitivity { get; }
+    public static Setting<float> CameraSensitivity { get; }
     
     public static Setting<QualitySetting> Quality { get; }
     public static Setting<WindowModeSetting> WindowMode { get; }
     public static Setting<MaxFramerateSetting> MaxFramerate { get; }
 
     static Settings() {
-        MusicVolume = GetOption("music_volume", 0.5f, value => SoundManager.Singleton.MusicVolume = value);
-        EffectsVolume = GetOption("sfx_volume", 0.5f, value => SoundManager.Singleton.EffectsVolume = value);
-        MasterVolume = GetOption("master_volume", 0.5f, value => SoundManager.Singleton.MasterVolume = value);
+        MusicVolume = GetSetting("music_volume", 0.5f, value => SoundManager.Singleton.MusicVolume = value);
+        EffectsVolume = GetSetting("sfx_volume", 0.5f, value => SoundManager.Singleton.EffectsVolume = value);
+        MasterVolume = GetSetting("master_volume", 0.5f, value => SoundManager.Singleton.MasterVolume = value);
         
-        MouseSensitivity = GetOption("mouse_sensitivity", 0.5f);
+        CameraSensitivity = GetSetting("camera_sensitivity", 0.5f);
         
-        Quality = GetOption("quality", QualitySetting.Medium, value => QualitySettings.SetQualityLevel((int) value));
+        Quality = GetSetting("quality", QualitySetting.Medium, value => QualitySettings.SetQualityLevel((int) value));
         
-        WindowMode = GetOption("window_mode", WindowModeSetting.Borderless, value => {
+        WindowMode = GetSetting("window_mode", WindowModeSetting.Borderless, value => {
             Screen.fullScreenMode = value switch {
                 WindowModeSetting.Windowed => FullScreenMode.Windowed,
                 WindowModeSetting.Borderless => FullScreenMode.FullScreenWindow,
@@ -38,7 +38,7 @@ public static class Settings {
             };
         });
         
-        MaxFramerate = GetOption("max_framerate", MaxFramerateSetting.VSync, value => {
+        MaxFramerate = GetSetting("max_framerate", MaxFramerateSetting.VSync, value => {
             QualitySettings.vSyncCount = value == MaxFramerateSetting.VSync ? 1 : 0;
             Application.targetFrameRate = value switch {
                 MaxFramerateSetting.VSync => -1,
@@ -52,19 +52,19 @@ public static class Settings {
         });
     }
 
-    static Setting<string> GetOption(string key, string defaultValue, Action<string> onSet = null) {
+    static Setting<string> GetSetting(string key, string defaultValue, Action<string> onSet = null) {
         return new Setting<string>(key, defaultValue, PlayerPrefs.SetString, PlayerPrefs.GetString, onSet);
     }
     
-    static Setting<float> GetOption(string key, float defaultValue, Action<float> onSet = null) {
+    static Setting<float> GetSetting(string key, float defaultValue, Action<float> onSet = null) {
         return new Setting<float>(key, defaultValue, PlayerPrefs.SetFloat, PlayerPrefs.GetFloat, onSet);
     }
     
-    static Setting<int> GetOption(string key, int defaultValue, Action<int> onSet = null) {
+    static Setting<int> GetSetting(string key, int defaultValue, Action<int> onSet = null) {
         return new Setting<int>(key, defaultValue, PlayerPrefs.SetInt, PlayerPrefs.GetInt, onSet);
     }
 
-    static Setting<T> GetOption<T>(string key, T defaultValue, Action<T> onSet = null) where T : Enum {
+    static Setting<T> GetSetting<T>(string key, T defaultValue, Action<T> onSet = null) where T : Enum {
         return new Setting<T>(
             key, defaultValue,
             (k, v) => PlayerPrefs.SetInt(k, (int) (object) v),

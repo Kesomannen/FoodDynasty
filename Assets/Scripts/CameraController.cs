@@ -49,8 +49,8 @@ public class CameraController : MonoBehaviour {
     Vector3 _panDragPos;
     bool _isPanning;
     bool _isSpinning;
-    
-    float Sensitivity => Settings.MouseSensitivity.Value;
+
+    static float Sensitivity => Settings.CameraSensitivity.Value;
 
     void Awake() {
         _transform = transform;
@@ -144,8 +144,6 @@ public class CameraController : MonoBehaviour {
         } else if (_isSpinning) {
             _targetRotation += mouseDelta.x * _spinSpeed * Sensitivity;
         }
-
-        Cursor.lockState = _isSpinning ? CursorLockMode.Locked : CursorLockMode.None;
     }
 
     void OnPanStarted(InputAction.CallbackContext context) {

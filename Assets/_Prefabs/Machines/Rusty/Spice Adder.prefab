@@ -5057,12 +5057,12 @@ PrefabInstance:
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: bakeKeys.Array.size
-      value: 0
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
       propertyPath: bakeValues.Array.size
-      value: 0
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8785312333286062716, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
@@ -73485,6 +73485,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -2117056463, guid: 51ffa55fd3c2d8a4a99d778d29c44bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4584347422194428666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415013494370970222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618bfb88a25e49fa812fc778ee707ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4795103797686279661

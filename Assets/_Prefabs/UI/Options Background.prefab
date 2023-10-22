@@ -484,7 +484,7 @@ MonoBehaviour:
   _masterVolumeSlider: {fileID: 2148432244047441663}
   _musicVolumeSlider: {fileID: 2148432243850878440}
   _effectsVolumeSlider: {fileID: 2148432244847877317}
-  _mouseSensitivitySlider: {fileID: 912867779073626461}
+  _cameraSensitivitySlider: {fileID: 912867779073626461}
   _rebindParent: {fileID: 4879391290802601494}
   _rebindPrefab: {fileID: 2437052650839985429, guid: 49cb164756a6d7d4596d731b1035358c,
     type: 3}
@@ -1248,7 +1248,7 @@ PrefabInstance:
     - target: {fileID: 5018068154431223285, guid: 453dbefb868e0344c8592d43e2d7121e,
         type: 3}
       propertyPath: m_text
-      value: Mouse Sensitivty
+      value: Mouse Sensitivity
       objectReference: {fileID: 0}
     - target: {fileID: 5018068154463618066, guid: 453dbefb868e0344c8592d43e2d7121e,
         type: 3}

@@ -45,8 +45,8 @@ public class InventoryGridObjectHandler : MonoBehaviour {
 
     async void OnStartBuilding(Item item) {
         if (item.Inventory != _inventory) return;
-
         if (item.Data is not IPrefabProvider<GridObject> prefabProvider) return;
+        
         await _builder.StartPlacing(prefabProvider.Prefab, BeforePlace, AfterPlace);
         return;
 
