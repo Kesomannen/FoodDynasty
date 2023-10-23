@@ -114,11 +114,15 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
     - _collection:
       - _typeNameAndAssembly: Dynasty.Library.EntityInfo, Dynasty.Library
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Machines.RefillerState, Dynasty.Machines
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_99adfb061d5aceb4bbe3cff07055a538,
         z_ContainerObjectPool_Item
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_70d94f9d535d50944aea40b48f70569e,
         z_ContainerObjectPool_EntityInfo
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_c4eac559d6d3643499b370fdf6a74421,
+        z_ContainerObjectPool_RefillerState
   - _keys:
     - _collection:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
@@ -132,6 +136,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
     - _collection:
       - _typeNameAndAssembly: Dynasty.Machines.AutoBuyer, Dynasty.Machines
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Machines.RefillerState, Dynasty.Machines
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Machines.AutoRefiller, Dynasty.Machines
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_5dd9873d32b80d04189418bb5e86e59b,
         z_ContainerGridObjectControl_Supply
@@ -139,6 +147,10 @@ MonoBehaviour:
         z_ContainerGridObjectControl_MachineEntity
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_923ef5c084f41634393d1af5776970ce,
         z_ContainerGridObjectControl_AutoBuyer
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_3825df7b2914011469e911228f5b3d06,
+        z_ContainerGridObjectControl_RefillerState
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_d23d0bac304193d4d910ca42bc343e9a,
+        z_ContainerGridObjectControl_AutoRefiller
   - _keys: []
     _values: []
   - _keys:

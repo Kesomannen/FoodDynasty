@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007ce44758944b17b964eca242b7ba7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toppingHeight: 0.02
   _bottom: {fileID: 1535425006}
   _top: {fileID: 5697555545127237230}
 --- !u!65 &8053462722402481607
@@ -166,33 +167,8 @@ MonoBehaviour:
     _hash: 605704453
     _type: 2
   _useSparseUpdate: 1
-  _velocityStabilityLossCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 2
-      inSlope: 24.471565
-      outSlope: 24.471565
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.037008654
-    - serializedVersion: 3
-      time: 1
-      value: 10
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _velocityRange: {x: 0, y: 50}
+  _stabilityLoss: 3
   _onFallenOver: {fileID: 9119853389061816348}
-  _disposeDelay: 1
   _velocity: 0
   _current: 0
 --- !u!114 &9119853389061816348

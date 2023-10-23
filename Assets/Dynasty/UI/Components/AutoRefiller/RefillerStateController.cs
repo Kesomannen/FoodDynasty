@@ -14,6 +14,7 @@ public class RefillerStateController : UpdatingUIComponent<AutoRefiller> {
     
     protected override void Subscribe(AutoRefiller content) {
         content.OnStatusChanged += OnStatusChanged;
+        RebuildStates();
     }
 
     protected override void Unsubscribe(AutoRefiller content) {
@@ -32,7 +33,7 @@ public class RefillerStateController : UpdatingUIComponent<AutoRefiller> {
         }
         
         foreach (var state in Content.States) {
-            var container = _refillerStatePool.Get(state.Value, _stateParent);
+            var container = _refillerStatePool.Get(state.Value, _stateParent, 1);
             _stateContainers.Enqueue(container);
         }
     }

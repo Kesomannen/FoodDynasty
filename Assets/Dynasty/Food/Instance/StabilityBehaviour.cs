@@ -9,15 +9,13 @@ using Random = UnityEngine.Random;
 
 namespace Dynasty.Food {
 
-[RequireComponent(typeof(FoodBehaviour), typeof(Rigidbody))]
+[RequireComponent(typeof(FoodBehaviour))]
 public class StabilityBehaviour : MonoBehaviour {
     [Range(0, 1)]
     [SerializeField] float _randomness;
     [SerializeField] FoodTraitSelection _stabilityTrait;
     [SerializeField] bool _useSparseUpdate = true;
-    [Space]
-    [SerializeField] AnimationCurve _velocityStabilityLossCurve;
-    [SerializeField] Vector2 _velocityRange;
+    [SerializeField] float _stabilityLoss;
     [SerializeField] GenericEvent _onFallenOver;
     [Space]
     [AllowNesting]
@@ -51,10 +49,7 @@ public class StabilityBehaviour : MonoBehaviour {
         _current = _food.GetTrait<float>(_stabilityTrait.Hash);
         _velocity = _rigidbody.velocity.magnitude;
 
-        var velocity = Mathf.InverseLerp(_velocityRange.x, _velocityRange.y, _velocity);
-        var velocityLoss = _velocityStabilityLossCurve.Evaluate(velocity);
-
-        var newStability = _current - velocityLoss * delta * _randomMultiplier;
+        var newStability = _current - _stabilityLoss * delta * _randomMultiplier;
         _food.SetTrait(_stabilityTrait.Hash, newStability);
 
         if (newStability > 0) return;

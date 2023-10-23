@@ -41,6 +41,10 @@ MonoBehaviour:
     _guid: 
   - _typeNameAndAssembly: Dynasty.Machines.AutoBuyer, Dynasty.Machines
     _guid: 5687b14eda60472387542e2ec64ddd3e
+  - _typeNameAndAssembly: Dynasty.Machines.RefillerState, Dynasty.Machines
+    _guid: 
+  - _typeNameAndAssembly: Dynasty.Machines.AutoRefiller, Dynasty.Machines
+    _guid: e2bd69a6417444eba5d60a2321d21495
   _genericArgumentValues:
   - _array: []
   - _array: []
@@ -107,6 +111,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Library.EntityInfo, Dynasty.Library
         _guid: 399b7c9786f14daa800c57cd93a05d23
       _assemblyGUID: 70d94f9d535d50944aea40b48f70569e
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Machines.RefillerState, Dynasty.Machines
+        _guid: 
+      _assemblyGUID: c4eac559d6d3643499b370fdf6a74421
   - _array:
     - _arguments:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
@@ -125,6 +133,14 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Machines.AutoBuyer, Dynasty.Machines
         _guid: 5687b14eda60472387542e2ec64ddd3e
       _assemblyGUID: 923ef5c084f41634393d1af5776970ce
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Machines.RefillerState, Dynasty.Machines
+        _guid: 
+      _assemblyGUID: 3825df7b2914011469e911228f5b3d06
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Machines.AutoRefiller, Dynasty.Machines
+        _guid: e2bd69a6417444eba5d60a2321d21495
+      _assemblyGUID: d23d0bac304193d4d910ca42bc343e9a
   - _array: []
   - _array:
     - _arguments:
@@ -237,6 +253,23 @@ MonoBehaviour:
   - _array:
     - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
       _guid: 6e0691897fdd4e5894148f79dce13dbc
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: Dynasty.UI.Controls.ContainerGridObjectControl`1, Dynasty.UI
+      _guid: 379477018aa741039e247c214d6d81f7
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: Dynasty.UI.Controls.ContainerGridObjectControl`1, Dynasty.UI
+      _guid: 379477018aa741039e247c214d6d81f7
+      AssemblyGUID: 
+      _argNames:
+      - T
+    - _typeNameAndAssembly: Dynasty.UI.Miscellaneous.ContainerObjectPool`1, Dynasty.UI
+      _guid: fa25376fa5ab4d03a6ff488669baf3fa
       AssemblyGUID: 
       _argNames:
       - T

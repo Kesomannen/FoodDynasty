@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1811688331, guid: 6a744f12d34869243a0951b672766c45, type: 3}
-  m_Name: Auto Buyer Speed
+  m_Script: {fileID: 11500000, guid: e16f59367e9548b8b5a9196f5782a94d, type: 3}
+  m_Name: Spice Pool
   m_EditorClassIdentifier: 
-  _value: 1
+  _prefab: {fileID: 2430346270460655669, guid: 926420525e996294e871e710ad9ecf76, type: 3}
+  _collectionCheck: 1
+  _defaultCapacity: 10
+  _maxSize: 10000
+  _clearOnSceneChange: 1

@@ -66,10 +66,14 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
                     supply.CurrentSupply += count;
                     _inventory.Remove(supply.RefillItem, count);
                     StartCoroutine(SpawnItems(supply, count));
-                    
-                    state.Status = supply.HasSupply() ? SupplyStatus.Ok : SupplyStatus.Low;
+                }
+                
+                if (supply.CurrentSupply == 0) {
+                    state.Status = SupplyStatus.Empty;
+                } else if (supply.CurrentSupply < state.TargetSupply - _refillAmount) {
+                    state.Status = SupplyStatus.Low;
                 } else {
-                    state.Status = supply.HasSupply() ? SupplyStatus.Low : SupplyStatus.Empty;
+                    state.Status = SupplyStatus.Ok;
                 }
             }
             
@@ -86,14 +90,14 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
             }
         }
         
-        void SpawnItem(Supply supply) {
+        void SpawnItem(Supply target) {
             var item = _itemSpritePool.Get();
-            item.Component.sprite = supply.RefillItem.Icon;
+            item.Component.sprite = target.RefillItem.Icon;
             item.gameObject.SetActive(true);
             
             var t = item.transform;
             var startPos = _itemStart.position;
-            var targetPos = supply.transform.position;
+            var targetPos = target.transform.position;
             targetPos.y = startPos.y;
 
             t.position = startPos;

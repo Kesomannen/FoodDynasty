@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Slicer
   m_EditorClassIdentifier: 
   _type: 0
-  _volume: 0.2
+  _volume: 0.15
   _pitch: 0.8
   _clips:
   - {fileID: 8300000, guid: 7a286e8bebb191e4082dc966b8df3b88, type: 3}

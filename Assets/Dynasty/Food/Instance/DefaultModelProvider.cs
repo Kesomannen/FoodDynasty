@@ -12,15 +12,16 @@ public class DefaultModelProvider : ModelProvider {
     
     Poolable _baseModel;
     
-    public override void SetBaseModel(Poolable poolable) {
+    public override void SetBaseModel(Poolable model) {
         if (_baseModel != null) {
             _baseModel.Dispose();
         }
 
-        _baseModel = poolable;
-        SetupModel(poolable.gameObject, ItemModelType.Base);
-        
+        _baseModel = model;
         _originalModel.SetActive(false);
+        
+        model.transform.SetParent(transform);
+        model.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
     }
 
     public override void ReturnOriginalModel() {
@@ -42,12 +43,10 @@ public class DefaultModelProvider : ModelProvider {
 
     public override void AddToppingModel(Poolable model) {
         _toppings.Push(model);
-        SetupModel(model.gameObject, ItemModelType.Topping);
-    }
-
-    void SetupModel(GameObject model, ItemModelType type) {
-        model.transform.SetParent(type == ItemModelType.Base ? transform : _toppingParent);
-        model.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
+        
+        var rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
+        model.transform.SetParent(_toppingParent);
+        model.transform.SetLocalPositionAndRotation(Vector3.zero, rotation);
     }
 }
 

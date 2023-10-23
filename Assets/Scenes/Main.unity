@@ -1289,6 +1289,7 @@ MonoBehaviour:
   _controls:
   - {fileID: 11400000, guid: d79fb71557670704fb73f5d94cad58d1, type: 2}
   - {fileID: 11400000, guid: a0be73a10d5545244bfb59a11f497e8b, type: 2}
+  - {fileID: 11400000, guid: 77bbe238f2b1e5848a773b7cca118338, type: 2}
   _showControlsEvent: {fileID: 11400000, guid: 9fe78e6e78cb2b04a8e1e4d4f3c00d23, type: 2}
 --- !u!1 &223992018
 GameObject:
@@ -5702,7 +5703,27 @@ PrefabInstance:
     - target: {fileID: 4910715633435095098, guid: ac6cf3746db95bf4fa4486cb8dbc9bbf,
         type: 3}
       propertyPath: m_Color.a
-      value: 0.2509804
+      value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910715633435095098, guid: ac6cf3746db95bf4fa4486cb8dbc9bbf,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910715633435095098, guid: ac6cf3746db95bf4fa4486cb8dbc9bbf,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910715633435095098, guid: ac6cf3746db95bf4fa4486cb8dbc9bbf,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910715633435095098, guid: ac6cf3746db95bf4fa4486cb8dbc9bbf,
+        type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac6cf3746db95bf4fa4486cb8dbc9bbf, type: 3}

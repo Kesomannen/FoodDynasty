@@ -12,16 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f89bbf86b2b54ed8b11937d3937c0e7f, type: 3}
   m_Name: Spice After Bake
   m_EditorClassIdentifier: 
+  _random: 0
   _sellPriceModifier:
     Base: 0
     Percentual: 0
     Additive: 0
     Multiplicative: 2
-  _modelModifiers: []
-  _dataModifiers:
+  _maxSellPriceModifier:
+    Base: 0
+    Percentual: 0
+    Additive: 0
+    Multiplicative: 1
+  _modelModifiers:
+  - _pool: {fileID: 11400000, guid: 6acd72722d2ebb94290e48184a124768, type: 2}
+    _type: 1
+  _traitModifiers:
   - _trait:
       _value: Spice After Baking
       _hash: 1604723740
+      _type: 0
     _operation: 0
     _modifier:
       Base: 0

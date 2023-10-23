@@ -32,7 +32,7 @@ MonoBehaviour:
     _operation: 1
     _modifier:
       Base: 0
-      Percentual: 1.5
+      Percentual: 2
       Additive: 0
       Multiplicative: 1
     _intValue: 0

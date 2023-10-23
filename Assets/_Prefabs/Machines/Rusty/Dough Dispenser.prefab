@@ -8754,7 +8754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ba006b719b43a597722bb24e02cc92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _soundEffect: {fileID: 11400000, guid: 90e6ff56e2e9a1f4f91f22c68ad5ffb9, type: 2}
+  _soundEffect: {fileID: 11400000, guid: 98db31df92653a547887752dd6a734f6, type: 2}
   _event: {fileID: 2350485909091822535}
 --- !u!114 &7020109674481146587
 MonoBehaviour:

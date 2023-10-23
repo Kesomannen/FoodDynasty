@@ -45,6 +45,10 @@ MonoBehaviour:
     _guid: 5687b14eda60472387542e2ec64ddd3e
   - _typeNameAndAssembly: UnityEngine.SpriteRenderer, UnityEngine.CoreModule
     _guid: 
+  - _typeNameAndAssembly: Dynasty.Machines.AutoRefiller, Dynasty.Machines
+    _guid: e2bd69a6417444eba5d60a2321d21495
+  - _typeNameAndAssembly: Dynasty.Machines.RefillerState, Dynasty.Machines
+    _guid: 
   _genericArgumentValues:
   - _array:
     - _arguments:
@@ -89,6 +93,14 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Machines.AutoBuyer, Dynasty.Machines
         _guid: 5687b14eda60472387542e2ec64ddd3e
       _assemblyGUID: 8c20d41459bb2584fa02b007838aa8a4
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Machines.AutoRefiller, Dynasty.Machines
+        _guid: e2bd69a6417444eba5d60a2321d21495
+      _assemblyGUID: 5887e158a51beef4dab5f3c1470be4fb
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Machines.RefillerState, Dynasty.Machines
+        _guid: 
+      _assemblyGUID: 0d8f0524cb3b9fb458165a0d4c74e230
   - _array:
     - _arguments:
       - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library
@@ -352,6 +364,22 @@ MonoBehaviour:
     - _typeNameAndAssembly: Dynasty.Library.Pooling.PoolableComponent`1, Dynasty.Library
       _guid: 4d9634bd5ef144cfbaed6047c0f6b938
       AssemblyGUID: 3f8d0f86f2b777d4fbfa096eec4f7653
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+  - _array:
+    - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
+      _guid: bc7fd065c7114f949ac90aaca54ac6c0
+      AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+  - _array:
+    - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
+      _guid: bc7fd065c7114f949ac90aaca54ac6c0
+      AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
       _argNames:
       - T
       _componentName: 

@@ -54,6 +54,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
     - _collection:
       - _typeNameAndAssembly: Dynasty.Machines.AutoBuyer, Dynasty.Machines
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Machines.AutoRefiller, Dynasty.Machines
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Machines.RefillerState, Dynasty.Machines
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_df7bf43c3ee77704796922a82fc22b90,
         z_Container_Entity
@@ -69,6 +73,10 @@ MonoBehaviour:
         z_Container_MachineEntity
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_8c20d41459bb2584fa02b007838aa8a4,
         z_Container_AutoBuyer
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_5887e158a51beef4dab5f3c1470be4fb,
+        z_Container_AutoRefiller
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_0d8f0524cb3b9fb458165a0d4c74e230,
+        z_Container_RefillerState
   - _keys:
     - _collection:
       - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library

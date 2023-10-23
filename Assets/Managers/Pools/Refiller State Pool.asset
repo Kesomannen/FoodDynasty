@@ -9,7 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1811688331, guid: 6a744f12d34869243a0951b672766c45, type: 3}
-  m_Name: Auto Buyer Speed
+  m_Script: {fileID: -93355107, guid: c4eac559d6d3643499b370fdf6a74421, type: 3}
+  m_Name: Refiller State Pool
   m_EditorClassIdentifier: 
-  _value: 1
+  _prefab: {fileID: 124355149153660254, guid: 21b8b4fbdf428d64dad88e1bf94ac5f5, type: 3}
+  _collectionCheck: 1
+  _defaultCapacity: 10
+  _maxSize: 10000
+  _clearOnSceneChange: 1

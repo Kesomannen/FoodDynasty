@@ -34,9 +34,9 @@ MonoBehaviour:
     _operation: 1
     _modifier:
       Base: 0
-      Percentual: -0.2
+      Percentual: 0
       Additive: 0
-      Multiplicative: 1
+      Multiplicative: 0.7
     _intValue: 0
     _floatValue: 0
     _boolValue: 0
