@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Merging Conveyor
   _description: Merges the flow of food, quickly and easily!
-  _shortDescription: Splits the flow of food
+  _shortDescription: Merges the flow of food
   _icon: {fileID: 21300000, guid: 6ad6a5e8d9dc2dd4eb0244e49d52f2c5, type: 3}
   _tier: 1
   _price: 5000
