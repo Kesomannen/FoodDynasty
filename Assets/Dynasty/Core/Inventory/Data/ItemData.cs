@@ -25,6 +25,7 @@ public class ItemData : ScriptableObject, IEntityData, IInfoProvider {
     [Header("Item")]
     [SerializeField] ItemTier _tier;
     [SerializeField] double _price;
+    [SerializeField] bool _sellable = true;
 
     public string Name {
         get => _name;
@@ -49,6 +50,11 @@ public class ItemData : ScriptableObject, IEntityData, IInfoProvider {
     public double Price {
         get => _price;
         set => _price = value;
+    }
+    
+    public bool Sellable {
+        get => _sellable;
+        set => _sellable = value;
     }
 
     public virtual ItemType Type => ItemType.Other;
@@ -78,6 +84,5 @@ public enum ItemType {
 
 public enum ItemTier {
     Rusty,
-    Metallic,
-    Carbon
+    Metallic
 }

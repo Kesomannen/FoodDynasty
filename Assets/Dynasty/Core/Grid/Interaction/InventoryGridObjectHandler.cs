@@ -35,14 +35,12 @@ public class InventoryGridObjectHandler : MonoBehaviour {
     }
 
     public bool RegisterDeletion(GridObject gridObject) {
-        if (!gridObject.TryGetComponent(out MachineEntity machineProvider)) return false;
-        if (!machineProvider.CanRemove) return false;
+        if (!gridObject.TryGetComponent(out MachineEntity machineEntity)) return false;
         
         foreach (var handler in gridObject.GetComponentsInChildren<IOnDeletedHandler>()) {
             handler.OnDeleted(_inventory);
         }
-        _inventory.Add(machineProvider.Data);
-        Destroy(gridObject.gameObject);
+        _inventory.Add(machineEntity.Data);
         return true;
     }
 

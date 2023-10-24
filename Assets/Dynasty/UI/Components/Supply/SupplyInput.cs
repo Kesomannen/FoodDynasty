@@ -16,7 +16,16 @@ public class SupplyInput : UIComponent<Supply> {
         _content = content;
 
         if (!_content.IsRefillable) return;
-        _input.Initialize(mode: _modifyMode, maxValue: () => _inventory.GetCount(content.RefillItem));
+
+        _input.Initialize(
+            mode: _modifyMode, 
+            startValue: GetMaxValue(),
+            maxValue: GetMaxValue
+        );
+            
+        return;
+
+        float GetMaxValue() => _inventory.GetCount(content.RefillItem);
     }
     
     public void AddCurrent() {

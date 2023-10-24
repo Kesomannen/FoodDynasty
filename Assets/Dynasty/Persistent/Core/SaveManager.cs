@@ -15,6 +15,7 @@ public class SaveManager : ScriptableObject {
 
     Dictionary<string, object> _state;
 
+    public SaveLoader SaveLoader => _loader;
     public IReadOnlyDictionary<string, object> State => _state;
 
     public event Action OnSaveStarted, OnSaveCompleted;

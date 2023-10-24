@@ -95,7 +95,7 @@ public struct Modifier {
             result += $"{Base:0.#} ";
         }
         if (Percentual != 0) {
-            result += $"+{Percentual * 100:P0} ";
+            result += $"+{Percentual:P0} ";
         }
         if (Additive != 0) {
             result += $"+{Additive:0.#} ";

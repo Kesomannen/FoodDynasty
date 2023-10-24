@@ -51,15 +51,13 @@ public class GridObjectMover : MonoBehaviour {
                 _placeEffect.Play();
                 return;
             case GridPlacementResultType.Failed:
+                oldGridManager.TryAdd(obj, oldPosition, oldRotation);
                 break;
             case GridPlacementResultType.Deleted:
                 _onDelete.Raise(obj);
+                Destroy(obj.gameObject);
                 break;
             default: throw new ArgumentOutOfRangeException();
-        }
-
-        if (obj != null) {
-            oldGridManager.TryAdd(obj, oldPosition, oldRotation);
         }
     }
 }

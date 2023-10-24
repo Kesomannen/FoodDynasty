@@ -16,7 +16,7 @@ MonoBehaviour:
   _description: Woho!
   _shortDescription: Woho!
   _icon: {fileID: 21300000, guid: 6625bd2707888df4b87309b9e49bf186, type: 3}
-  _tier: 2
+  _tier: 1
   _price: 80000
   _type: 0
   _prefab: {fileID: 5506282821794659455, guid: 106e63933c6a6e7488793904748c2536, type: 3}

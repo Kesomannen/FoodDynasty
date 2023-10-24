@@ -105,6 +105,8 @@ public class InventoryController : MonoBehaviour {
             case PointerEventData.InputButton.Left:
                 _onItemClicked.Raise(item); break;
             case PointerEventData.InputButton.Right:
+                if (!item.Data.Sellable) return;
+                
                 _sellControl.Initialize(item, count => TrySell(item.Data, count));
                 _sellControl.gameObject.SetActive(true);
                 break;
