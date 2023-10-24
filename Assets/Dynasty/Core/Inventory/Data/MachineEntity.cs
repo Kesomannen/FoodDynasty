@@ -8,7 +8,10 @@ namespace Dynasty.Core.Inventory {
 /// Links a machine to its item data.
 /// </summary>
 public class MachineEntity : Entity, IDataProvider<MachineItemData> {
+    [SerializeField] bool _canRemove = true;
     [SerializeField] MachineItemData _data;
+    
+    public bool CanRemove => _canRemove;
     
     /// <summary>
     /// The data for this machine.

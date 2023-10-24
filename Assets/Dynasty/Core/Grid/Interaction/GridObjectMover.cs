@@ -49,15 +49,17 @@ public class GridObjectMover : MonoBehaviour {
                 obj.AddAndPosition(_placer.GridManager, result.GridPosition, result.Rotation);
                 _placeEffect.transform.position = obj.transform.position;
                 _placeEffect.Play();
-                break;
+                return;
             case GridPlacementResultType.Failed:
-                oldGridManager.TryAdd(obj, oldPosition, oldRotation);
                 break;
             case GridPlacementResultType.Deleted:
                 _onDelete.Raise(obj);
-                Destroy(obj.gameObject);
                 break;
             default: throw new ArgumentOutOfRangeException();
+        }
+
+        if (obj != null) {
+            oldGridManager.TryAdd(obj, oldPosition, oldRotation);
         }
     }
 }
