@@ -33,6 +33,14 @@ public static class EnumHelpers {
         return GetValues<TEnum>()
             .ToDictionary(enumValue => enumValue, valueGetter);
     }
+    
+    public static int ToInt<T>(this T enumValue) where T : Enum {
+        return (int)(object)enumValue;
+    }
+    
+    public static T ToEnum<T>(this int intValue) where T : Enum {
+        return (T)(object)intValue;
+    }
 }
 
 }

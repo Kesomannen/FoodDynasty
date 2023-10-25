@@ -40,3 +40,16 @@ MonoBehaviour:
     _intValue: 0
     _floatValue: 0
     _boolValue: 0
+  - _trait:
+      _value: Ham
+      _hash: 696030772
+      _type: 0
+    _operation: 0
+    _modifier:
+      Base: 0
+      Percentual: 0
+      Additive: 0
+      Multiplicative: 0.5
+    _intValue: 0
+    _floatValue: 0
+    _boolValue: 0

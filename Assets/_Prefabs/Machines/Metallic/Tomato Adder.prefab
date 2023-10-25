@@ -25293,7 +25293,7 @@ MonoBehaviour:
   _onTriggered:
     _event: {fileID: 9022003704850992988}
     _condition: {fileID: 8786915798164412985}
-    _filter: {fileID: 0}
+    _filter: {fileID: 11400000, guid: b70ae9528443fb94da196745c3e2a7cf, type: 2}
 --- !u!114 &8786915798164412985
 MonoBehaviour:
   m_ObjectHideFlags: 0

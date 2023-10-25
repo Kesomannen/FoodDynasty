@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Rusty Conveyor
   m_EditorClassIdentifier: 
   _name: Rusty Conveyor
-  _description: Gets stuff to where it needs to go, although not very well.
+  _description: Gets stuff to where it needs to go, although not very quickly.
   _shortDescription: Functional, but slow
   _icon: {fileID: 21300000, guid: 148b327cc091ed74bb6fdc145f0dc1af, type: 3}
   _tier: 0
   _price: 15
+  _sellable: 1
   _type: 3
   _prefab: {fileID: 7181724732692113356, guid: 9969140ad9624514c859f05f89154bc7, type: 3}
   _enabledProviders: 0101

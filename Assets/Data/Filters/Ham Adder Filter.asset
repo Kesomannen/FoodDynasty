@@ -25,3 +25,11 @@ MonoBehaviour:
     _boolValue: 0
     _floatRange: {x: 0, y: 0}
     _intRange: {x: 0, y: 0}
+  - _type: 1
+    _trait:
+      _value: Ham
+      _hash: 696030772
+      _type: 0
+    _boolValue: 0
+    _floatRange: {x: 0, y: 0}
+    _intRange: {x: 0, y: 0}

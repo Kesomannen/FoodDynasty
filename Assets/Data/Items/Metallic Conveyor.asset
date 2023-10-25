@@ -18,6 +18,7 @@ MonoBehaviour:
   _icon: {fileID: 21300000, guid: 923d4d604e414c242aafe365626fca5f, type: 3}
   _tier: 1
   _price: 1000
+  _sellable: 1
   _type: 3
   _prefab: {fileID: 7181724732692113356, guid: bc000de23a06e054fb729ca22d70d1dd, type: 3}
   _enabledProviders: 0101

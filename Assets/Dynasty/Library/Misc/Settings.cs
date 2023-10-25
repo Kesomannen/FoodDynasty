@@ -23,7 +23,7 @@ public static class Settings {
         CameraSensitivity = GetSetting("camera_sensitivity", 0.5f);
         
         Quality = GetSetting("quality", QualitySetting.Medium, value => QualitySettings.SetQualityLevel((int) value));
-        
+         
         WindowMode = GetSetting("window_mode", WindowModeSetting.Borderless, value => {
             Screen.fullScreenMode = value switch {
                 WindowModeSetting.Windowed => FullScreenMode.Windowed,
@@ -67,8 +67,8 @@ public static class Settings {
     static Setting<T> GetSetting<T>(string key, T defaultValue, Action<T> onSet = null) where T : Enum {
         return new Setting<T>(
             key, defaultValue,
-            (k, v) => PlayerPrefs.SetInt(k, (int) (object) v),
-            k => (T) (object) PlayerPrefs.GetInt(k, (int) (object) defaultValue),
+            (k, v) => PlayerPrefs.SetInt(k, v.ToInt()),
+            k => PlayerPrefs.GetInt(k, defaultValue.ToInt()).ToEnum<T>(),
             onSet
         );
     }
