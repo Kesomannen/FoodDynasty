@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using Dynasty.Library.Events;
+using Dynasty.Library;
 using UnityEngine;
 
-namespace Dynasty.Library.Events {
+namespace Dynasty.Library {
 
 public class Condition : CheckEvent<bool> {
     [SerializeField] bool _defaultState;

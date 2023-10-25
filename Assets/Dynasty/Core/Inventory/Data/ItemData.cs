@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Dynasty.Library;
-using Dynasty.Library.Helpers;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -84,5 +83,6 @@ public enum ItemType {
 
 public enum ItemTier {
     Rusty,
-    Metallic
+    Metallic,
+    Golden
 }

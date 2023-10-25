@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dynasty.Library.Extensions {
+namespace Dynasty.Library {
 
 public static class ComponentExtensions {
     public static void SetActive(this Component component, bool active) {

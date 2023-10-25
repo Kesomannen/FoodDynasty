@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Dynasty.Library.Classes;
+using Dynasty.Library;
 using UnityEngine;
 
-namespace Dynasty.Library.Audio {
+namespace Dynasty.Library {
 
 [CreateAssetMenu(menuName = "Sound Effect")]
 public class SoundEffect : ScriptableObject {

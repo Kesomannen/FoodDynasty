@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dynasty.Library.Helpers {
+namespace Dynasty.Library {
 
 public static class CanvasHelpers {
     public static Canvas Canvas {

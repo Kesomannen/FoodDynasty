@@ -1,13 +1,12 @@
 ﻿using System;
 using Dynasty.Library;
-using Dynasty.Library.Events;
 using Dynasty.UI.Miscellanious;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.Samples.RebindUI;
 using UnityEngine.UI;
 
-namespace Dynasty.UI.Menu {
+namespace Dynasty.UI {
 
 public class OptionsMenu : MonoBehaviour {
     [SerializeField] float _timeScale;

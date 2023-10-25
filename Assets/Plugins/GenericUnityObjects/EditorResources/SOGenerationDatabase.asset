@@ -149,7 +149,7 @@ MonoBehaviour:
       _assemblyGUID: 2de8b396b2d70d846ae506b826a0c9e6
   _genericTypeValues:
   - _array:
-    - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
+    - _typeNameAndAssembly: Dynasty.Library.GameEvent`1, Dynasty.Library
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
@@ -164,48 +164,48 @@ MonoBehaviour:
       AssemblyGUID: 
       _argNames:
       - T
-    - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
+    - _typeNameAndAssembly: Dynasty.Library.GameEvent`1, Dynasty.Library
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
+    - _typeNameAndAssembly: Dynasty.Library.GameEvent`1, Dynasty.Library
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
+    - _typeNameAndAssembly: Dynasty.Library.GameEvent`1, Dynasty.Library
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T
-    - _typeNameAndAssembly: Dynasty.Library.Events.ValueChangedEvent`1, Dynasty.Library
+    - _typeNameAndAssembly: Dynasty.Library.ValueChangedEvent`1, Dynasty.Library
       _guid: 6af65c8fdd914df9b18e469b07b76b43
       AssemblyGUID: 
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
+    - _typeNameAndAssembly: Dynasty.Library.GameEvent`1, Dynasty.Library
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
+    - _typeNameAndAssembly: Dynasty.Library.GameEvent`1, Dynasty.Library
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: Dynasty.Library.Data.SerializedDataObject`1, Dynasty.Library
+    - _typeNameAndAssembly: Dynasty.Library.SerializedDataObject`1, Dynasty.Library
       _guid: 4fb2b33abd3c49579f0b9c73ad320fb1
       AssemblyGUID: 
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
+    - _typeNameAndAssembly: Dynasty.Library.GameEvent`1, Dynasty.Library
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
@@ -221,7 +221,7 @@ MonoBehaviour:
       AssemblyGUID: 
       _argNames:
       - T
-    - _typeNameAndAssembly: Dynasty.Library.Events.ListEvent`1, Dynasty.Library
+    - _typeNameAndAssembly: Dynasty.Library.ListEvent`1, Dynasty.Library
       _guid: 41381e7b878d40a7962780566c55f2d4
       AssemblyGUID: 
       _argNames:
@@ -245,13 +245,13 @@ MonoBehaviour:
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
+    - _typeNameAndAssembly: Dynasty.Library.GameEvent`1, Dynasty.Library
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T
   - _array:
-    - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
+    - _typeNameAndAssembly: Dynasty.Library.GameEvent`1, Dynasty.Library
       _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
@@ -336,12 +336,12 @@ MonoBehaviour:
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: Dynasty.Library.Data.SerializedDataObject`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.SerializedDataObject`1, Dynasty.Library
     _guid: 4fb2b33abd3c49579f0b9c73ad320fb1
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.GameEvent`1, Dynasty.Library
     _guid: 6e0691897fdd4e5894148f79dce13dbc
     AssemblyGUID: 
     _argNames:
@@ -351,12 +351,12 @@ MonoBehaviour:
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: Dynasty.Library.Events.ValueChangedEvent`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.ValueChangedEvent`1, Dynasty.Library
     _guid: 6af65c8fdd914df9b18e469b07b76b43
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: Dynasty.Library.Pooling.UIObjectPool`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.UIObjectPool`1, Dynasty.Library
     _guid: 628363fbc9c84d579b86b7a583717ec2
     AssemblyGUID: 
     _argNames:
@@ -381,7 +381,7 @@ MonoBehaviour:
     AssemblyGUID: 
     _argNames:
     - T
-  - _typeNameAndAssembly: Dynasty.Library.Events.ListEvent`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.ListEvent`1, Dynasty.Library
     _guid: 41381e7b878d40a7962780566c55f2d4
     AssemblyGUID: 
     _argNames:

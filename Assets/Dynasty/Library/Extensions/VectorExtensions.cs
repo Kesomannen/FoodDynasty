@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dynasty.Library.Extensions {
+namespace Dynasty.Library {
 
 public static class VectorExtensions {
     public static Vector2 RotateCCW(this Vector2 vector) {

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Dynasty.Library.Events {
+namespace Dynasty.Library {
 
 public class GenericEvent : MonoBehaviour {
     public event Action OnRaisedGeneric;

@@ -1,4 +1,4 @@
-﻿using Dynasty.Library.Extensions;
+﻿using Dynasty.Library;
 using UnityEngine;
 
 public class ParticlePlayer : MonoBehaviour {

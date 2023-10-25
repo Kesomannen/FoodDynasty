@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Dynasty.Library.Pooling {
+namespace Dynasty.Library {
 
 public class PoolableComponent<T> : MonoBehaviour, IPoolable<PoolableComponent<T>> where T : Component {
     [SerializeField] T _component;

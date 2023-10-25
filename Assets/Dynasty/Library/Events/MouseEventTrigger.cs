@@ -1,9 +1,9 @@
 ﻿using System;
-using Dynasty.Library.Classes;
+using Dynasty.Library;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Dynasty.Library.Events {
+namespace Dynasty.Library {
 
 public class MouseEventTrigger<T> : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler {
     [SerializeField] protected T EventData;

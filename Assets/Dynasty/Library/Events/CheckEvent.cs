@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dynasty.Library.Events {
+namespace Dynasty.Library {
 
 public abstract class CheckEvent<T> : MonoBehaviour {
     readonly List<Func<T>> _conditions = new();

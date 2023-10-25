@@ -1,4 +1,4 @@
-﻿using Dynasty.Library.Audio;
+﻿using Dynasty.Library;
 using UnityEngine;
 
 public class SoundPlayer : MonoBehaviour {

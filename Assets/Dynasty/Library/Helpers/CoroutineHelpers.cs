@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dynasty.Library.Helpers {
+namespace Dynasty.Library {
 
 public static class CoroutineHelpers {
     static readonly Dictionary<float, WaitForSeconds> _waitForSeconds = new();

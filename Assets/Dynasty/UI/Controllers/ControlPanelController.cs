@@ -3,7 +3,7 @@ using System.Linq;
 using Dynasty.Core.Grid;
 using Dynasty.Core.Inventory;
 using Dynasty.Food;
-using Dynasty.Library.Extensions;
+using Dynasty.Library;
 using Dynasty.Machines;
 using Google.MaterialDesign.Icons;
 using TMPro;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dynasty.Library.Pooling {
+namespace Dynasty.Library {
 
 [CreateAssetMenu(menuName = "Pooling/Particle Spawner")]
 public class ParticleSpawner : ScriptableObject {

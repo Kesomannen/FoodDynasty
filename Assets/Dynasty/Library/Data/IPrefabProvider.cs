@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dynasty.Library.Data {
+namespace Dynasty.Library {
 
 /// <summary>
 /// Provides a prefab, see <see cref="IDataProvider{T}"/>.

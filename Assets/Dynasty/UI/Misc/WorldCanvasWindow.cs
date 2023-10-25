@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using Dynasty.Library.Events;
+using Dynasty.Library;
 using UnityEngine;
 
 namespace Dynasty.UI.Misc {

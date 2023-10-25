@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using GenericUnityObjects;
 
-namespace Dynasty.Library.Events {
+namespace Dynasty.Library {
 
 [CreateGenericAssetMenu(MenuName = "Event/List")]
 public class ListEvent<T> : GenericGameEvent {

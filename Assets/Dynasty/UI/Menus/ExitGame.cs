@@ -1,9 +1,9 @@
 ﻿using Dynasty.Core.Tooltip;
-using Dynasty.Library.Events;
+using Dynasty.Library;
 using Dynasty.UI.Controllers;
 using UnityEngine;
 
-namespace Dynasty.UI.Menu {
+namespace Dynasty.UI {
 
 public class ExitGame : MonoBehaviour {
     [SerializeField] GameEvent<PopupData> _showPopupEvent;

@@ -1,5 +1,5 @@
 ﻿using Dynasty.Core.Tooltip;
-using Dynasty.Library.Events;
+using Dynasty.Library;
 using UnityEngine;
 using UnityEngine.Serialization;
 

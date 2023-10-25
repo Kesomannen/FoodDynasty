@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Dynasty.Library.Classes;
-using Dynasty.Library.Extensions;
+using Dynasty.Library;
 using UnityEngine;
 
 namespace Dynasty.Food {

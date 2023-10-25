@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Random = UnityEngine.Random;
 
-namespace Dynasty.Library.Helpers {
+namespace Dynasty.Library {
 
 public static class EnumHelpers {
     public static T GetRandom<T>() where T : Enum {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Dynasty.Library.Events {
+namespace Dynasty.Library {
 
 [CreateAssetMenu(menuName = "Event/Generic")]
 public class GenericGameEvent : ScriptableObject {

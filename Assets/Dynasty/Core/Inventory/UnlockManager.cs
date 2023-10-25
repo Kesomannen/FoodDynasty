@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Core.Tooltip;
 using Dynasty.Library;
-using Dynasty.Library.Events;
 using UnityEngine;
 
 namespace Dynasty.Core.Inventory {

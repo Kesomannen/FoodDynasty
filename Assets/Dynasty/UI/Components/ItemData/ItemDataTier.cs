@@ -1,5 +1,5 @@
 ﻿using Dynasty.Core.Inventory;
-using Dynasty.Library.Classes;
+using Dynasty.Library;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

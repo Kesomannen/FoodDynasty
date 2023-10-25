@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using UnityEngine;
 
-namespace Dynasty.Library.Helpers {
+namespace Dynasty.Library {
 
 public static class StringHelpers {
     public static string FormatCamelCase(string input) {

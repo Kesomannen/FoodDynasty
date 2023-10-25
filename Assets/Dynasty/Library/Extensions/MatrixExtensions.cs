@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using UnityEngine;
 
-namespace Dynasty.Library.Extensions {
+namespace Dynasty.Library {
 
 public static class MatrixExtensions {
     public static T[,] RotateCW<T>(this T[,] matrix, int steps) {

@@ -1,7 +1,7 @@
 ﻿using System;
 using GenericUnityObjects;
 
-namespace Dynasty.Library.Events {
+namespace Dynasty.Library {
 
 [CreateGenericAssetMenu(MenuName = "Event/Game")]
 public class GameEvent<T> : GenericGameEvent {

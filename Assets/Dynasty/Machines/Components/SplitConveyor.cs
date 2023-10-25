@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Dynasty.Food;
-using Dynasty.Library.Helpers;
+using Dynasty.Library;
 using UnityEngine;
 
 namespace Dynasty.Machines {

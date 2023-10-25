@@ -1,6 +1,6 @@
 ﻿using System;
 using Dynasty.Core.Inventory;
-using Dynasty.Library.Helpers;
+using Dynasty.Library;
 using Dynasty.UI.Components;
 using Dynasty.UI.Controllers;
 using TMPro;

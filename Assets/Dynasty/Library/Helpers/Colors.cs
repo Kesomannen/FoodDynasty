@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dynasty.Library.Helpers {
+namespace Dynasty.Library {
 
 public static class Colors {
     public static readonly Color Positive = new(0.2588235f, 0.5660378f, 0.264472f);

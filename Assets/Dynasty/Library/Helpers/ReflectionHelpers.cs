@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-namespace Dynasty.Library.Helpers {
+namespace Dynasty.Library {
 
 public static class ReflectionHelpers {
     static readonly Dictionary<Type, FieldInfo[]> _cachedFields = new();

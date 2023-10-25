@@ -1,7 +1,7 @@
 ﻿using GenericUnityObjects;
 using UnityEngine;
 
-namespace Dynasty.Library.Pooling {
+namespace Dynasty.Library {
 
 [CreateGenericAssetMenu(MenuName = "Pooling/UI")]
 public class UIObjectPool<T> : CustomObjectPool<T> where T : Component, IPoolable<T> {

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Dynasty.Library.Pooling {
+namespace Dynasty.Library {
 
 public class Poolable : MonoBehaviour, IPoolable<Poolable> {
     public event Action<Poolable> OnDisposed;

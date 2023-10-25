@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dynasty.Library.Classes {
+namespace Dynasty.Library {
 
 [Serializable]
 public struct Modifier {

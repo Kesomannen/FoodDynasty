@@ -1,5 +1,5 @@
 ﻿using Dynasty.Food;
-using Dynasty.Library.Pooling;
+using Dynasty.Library;
 using UnityEngine;
 
 namespace Dynasty.Food {

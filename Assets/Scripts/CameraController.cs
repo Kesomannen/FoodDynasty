@@ -1,3 +1,4 @@
+using System;
 using Dynasty.Library;
 using NaughtyAttributes;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 
 public class CameraController : MonoBehaviour {
-    [Header("Settings")]
+    [Header("Movement")]
     [SerializeField] Vector2 _zoomRange;
     [SerializeField] Vector3 _zoomDirection;
     [SerializeField] float _zoomSpeed;
@@ -20,6 +21,7 @@ public class CameraController : MonoBehaviour {
     [SerializeField] float _spinSpeed;
     [Space]
     [SerializeField] float _smoothTime;
+    [SerializeField] Bounds _bounds;
 
     [Header("Input")]
     [SerializeField] InputActionReference _moveAction;
@@ -95,6 +97,8 @@ public class CameraController : MonoBehaviour {
         HandleMovement();
         HandleZoom();
         HandleRotation();
+        
+        ClampPosition();
     }
 
     void HandleMovement() {
@@ -110,6 +114,13 @@ public class CameraController : MonoBehaviour {
     void HandleRotation() {
         var newRotation = Mathf.SmoothDampAngle(_transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, _smoothTime);
         _transform.eulerAngles = new Vector3(0, newRotation, 0);
+    }
+    
+    void ClampPosition() {
+        var pos = _transform.position;
+        pos.x = Mathf.Clamp(pos.x, _bounds.min.x, _bounds.max.x);
+        pos.z = Mathf.Clamp(pos.z, _bounds.min.z, _bounds.max.z);
+        _transform.position = pos;
     }
 
     void GetMovementInput() {
@@ -179,5 +190,10 @@ public class CameraController : MonoBehaviour {
             _targetZoom = _zoomDirection.normalized * _zoomRange.y;
             _zoomVelocity = Vector3.zero;
         }
+    }
+
+    void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(_bounds.center, _bounds.size);
     }
 }

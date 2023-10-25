@@ -1,4 +1,4 @@
-﻿namespace Dynasty.Library.Data {
+﻿namespace Dynasty.Library {
 
 /// <summary>
 /// Simple interface for providing data.

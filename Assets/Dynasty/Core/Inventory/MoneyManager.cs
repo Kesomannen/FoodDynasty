@@ -1,5 +1,5 @@
 ﻿using System;
-using Dynasty.Library.Events;
+using Dynasty.Library;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Serialization;

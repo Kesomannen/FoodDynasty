@@ -2,12 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Dynasty.Library.Classes;
+using Dynasty.Library;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
-namespace Dynasty.Library.Audio {
+namespace Dynasty.Library {
 
 public class SoundManager : MonoBehaviour {
     public float MasterVolume {

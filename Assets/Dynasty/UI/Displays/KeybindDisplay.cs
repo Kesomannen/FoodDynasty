@@ -1,4 +1,4 @@
-﻿using Dynasty.Library.Events;
+﻿using Dynasty.Library;
 using Dynasty.UI.Components;
 using TMPro;
 using UnityEngine;

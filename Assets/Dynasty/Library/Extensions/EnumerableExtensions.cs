@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Random = UnityEngine.Random;
 
-namespace Dynasty.Library.Extensions {
+namespace Dynasty.Library {
 
 public static class EnumerableExtensions {
     public static T GetRandom<T>(this T[] array) {

@@ -3,7 +3,7 @@ using Dynasty.Persistent.Mapping;
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace Dynasty.UI.Menu {
+namespace Dynasty.UI {
     
 [CreateAssetMenu(menuName = "UI/Main Menu Panorama")]
 public class MainMenuPanorama : ScriptableObject {

@@ -1,5 +1,4 @@
 ﻿using Dynasty.Library;
-using Dynasty.Library.Extensions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

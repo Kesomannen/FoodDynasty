@@ -1,4 +1,4 @@
-﻿using Dynasty.Library.Classes;
+﻿using Dynasty.Library;
 using UnityEditor;
 using UnityEngine;
 

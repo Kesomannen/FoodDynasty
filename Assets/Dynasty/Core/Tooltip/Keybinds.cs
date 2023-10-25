@@ -1,5 +1,5 @@
 ﻿using System;
-using Dynasty.Library.Events;
+using Dynasty.Library;
 
 namespace Dynasty.Core.Tooltip {
 

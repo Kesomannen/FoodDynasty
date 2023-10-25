@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Core.Tooltip;
-using Dynasty.Library.Events;
+using Dynasty.Library;
 using Dynasty.Persistent;
 using Dynasty.UI.Controllers;
 using UnityEngine;
 
-namespace Dynasty.UI.Menu {
+namespace Dynasty.UI {
 
 public class SaveSlotController : MonoBehaviour {
     [SerializeField] SaveManager _saveManager;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Core.Grid;
 using Dynasty.Core.Inventory;
-using Dynasty.Library.Data;
+using Dynasty.Library;
 using Newtonsoft.Json;
 using UnityEngine;
 

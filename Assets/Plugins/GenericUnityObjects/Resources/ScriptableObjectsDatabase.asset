@@ -27,16 +27,16 @@ MonoBehaviour:
   - _typeNameAndAssembly: UnityEditor.U2D.Path.GenericScriptablePathInspector`2,
       Unity.2D.Path.Editor
   - _typeNameAndAssembly: UnityEditor.U2D.Path.ScriptableData`1, Unity.2D.Path.Editor
-  - _typeNameAndAssembly: Dynasty.Library.Data.SerializedDataObject`1, Dynasty.Library
-  - _typeNameAndAssembly: Dynasty.Library.Events.GameEvent`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.SerializedDataObject`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.GameEvent`1, Dynasty.Library
   - _typeNameAndAssembly: UnityEditor.ScriptableSingleton`1, UnityEditor.CoreModule
-  - _typeNameAndAssembly: Dynasty.Library.Events.ValueChangedEvent`1, Dynasty.Library
-  - _typeNameAndAssembly: Dynasty.Library.Pooling.UIObjectPool`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.ValueChangedEvent`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.UIObjectPool`1, Dynasty.Library
   - _typeNameAndAssembly: Dynasty.UI.Miscellaneous.ContainerObjectPool`1, Dynasty.UI
   - _typeNameAndAssembly: Dynasty.Persistent.Mapping.Lookup`1, Dynasty.Persistent
   - _typeNameAndAssembly: Dynasty.UI.Controls.ContainerGridObjectControl`1, Dynasty.UI
   - _typeNameAndAssembly: UnityEditor.Rendering.PostProcessing.BaseEditor`1, Unity.Postprocessing.Editor
-  - _typeNameAndAssembly: Dynasty.Library.Events.ListEvent`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.ListEvent`1, Dynasty.Library
   _values:
   - _keys: []
     _values: []

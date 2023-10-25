@@ -1,7 +1,5 @@
 ﻿using Dynasty.Core.Tooltip;
 using Dynasty.Library;
-using Dynasty.Library.Events;
-using Dynasty.Library.Extensions;
 using UnityEngine;
 
 namespace Dynasty.Core.Grid {

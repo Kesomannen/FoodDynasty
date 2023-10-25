@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Dynasty.Library.Classes {
+namespace Dynasty.Library {
 
 public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T> {
     static T _instance;

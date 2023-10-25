@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Dynasty.Library.Extensions;
+using Dynasty.Library;
 using UnityEngine;
 
 namespace Dynasty.Food {

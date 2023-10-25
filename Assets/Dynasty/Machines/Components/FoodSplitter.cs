@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Dynasty.Library.Data;
 using Dynasty.Food;
 using Dynasty.Library;
-using Dynasty.Library.Classes;
-using Dynasty.Library.Events;
 using Dynasty.Machines;
 using UnityEngine;
 
@@ -16,7 +13,7 @@ public class FoodSplitter : FoodMachineComponent, IInfoProvider, IAdditionalSave
     [SerializeField] Modifier _sellPriceModifier = new(multiplicative: 1f);
     [SerializeField] Supply _supply;
     [SerializeField] Event<FoodBehaviour> _applyEvent;
-
+    
     Queue<double> _input = new(); 
     int _splitsLeft;
 
@@ -45,8 +42,8 @@ public class FoodSplitter : FoodMachineComponent, IInfoProvider, IAdditionalSave
     }
 
     void Apply(FoodBehaviour food) {
-        if (!_input.TryPeek(out var yieldedPrice)) return;
-        food.SellPrice = new Modifier(@base: yieldedPrice);
+        if (!_input.TryPeek(out var input)) return;
+        food.SellPrice = new Modifier(@base: input);
         
         _splitsLeft--;
         if (_splitsLeft > 0) return;
@@ -57,7 +54,8 @@ public class FoodSplitter : FoodMachineComponent, IInfoProvider, IAdditionalSave
     
     protected override void OnTriggered(FoodBehaviour food) {
         _supply.CurrentSupply += _splitsPerItem;
-        _input.Enqueue(_sellPriceModifier.Apply(food.GetSellPrice()));
+        var inputPrice = _sellPriceModifier.Apply(food.GetSellPrice());
+        _input.Enqueue(inputPrice);
         food.Dispose();
     }
 

@@ -16,3 +16,4 @@ MonoBehaviour:
   _collectionCheck: 1
   _defaultCapacity: 10
   _maxSize: 10000
+  _clearOnSceneChange: 1

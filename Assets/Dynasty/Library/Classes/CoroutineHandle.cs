@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Dynasty.Library.Classes {
+namespace Dynasty.Library {
 
 public class CoroutineHandle : IEnumerator {
     public bool IsDone { get; private set; }

@@ -1,8 +1,8 @@
-﻿using Dynasty.Library.Classes;
+﻿using Dynasty.Library;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Dynasty.Library.Events {
+namespace Dynasty.Library {
 
 [CreateAssetMenu(menuName = "Event/Input")]
 public class InputEvent : GameEvent<InputAction.CallbackContext> {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dynasty.Library.Data {
+namespace Dynasty.Library {
 
 /// <summary>
 /// Implementation of IDataProvider for editor referencing.

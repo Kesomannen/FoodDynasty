@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Dynasty.Library.Audio {
+namespace Dynasty.Library {
 
 public class IdleSound : MonoBehaviour {
     [SerializeField] SoundEffect _soundEffect;

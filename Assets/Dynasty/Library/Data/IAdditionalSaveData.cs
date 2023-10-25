@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Dynasty.Library.Data {
+namespace Dynasty.Library {
 
 /// <summary>
 /// Implement this interface to create persistent data on your machine component.

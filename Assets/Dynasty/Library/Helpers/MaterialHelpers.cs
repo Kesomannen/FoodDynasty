@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Dynasty.Library.Helpers {
+namespace Dynasty.Library {
 
 public static class MaterialHelpers {
     public static void ApplyMaterials(this IEnumerable<Renderer> renderers, IEnumerable<Material> materials) {

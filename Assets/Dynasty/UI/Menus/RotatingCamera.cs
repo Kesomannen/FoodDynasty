@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dynasty.UI.Menu {
+namespace Dynasty.UI {
 
 public class RotatingCamera : MonoBehaviour {
     [SerializeField] float _rotateSpeed;

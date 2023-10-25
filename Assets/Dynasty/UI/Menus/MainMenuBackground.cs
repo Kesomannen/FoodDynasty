@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Linq;
-using Dynasty.Library.Extensions;
-using Dynasty.Library.Helpers;
+using Dynasty.Library;
 using Dynasty.Machines;
 using Dynasty.Persistent;
 using Dynasty.Persistent.Mapping;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Dynasty.UI.Menu {
+namespace Dynasty.UI {
 
 public class MainMenuBackground : MonoBehaviour {
     [SerializeField] float _duration;
@@ -20,23 +19,27 @@ public class MainMenuBackground : MonoBehaviour {
     [SerializeField] float _blackDuration;
     [SerializeField] RectTransform _overlay;
 
-    async void Start() {
+    IEnumerator Start() {
         var i = 0;
-        var slots = (await _saveManager.SaveLoader.GetSaves()).ToArray();
+        var getSaves = _saveManager.SaveLoader.GetSaves().GetHandle();
+        yield return getSaves;
+
+        var saves = getSaves.Result.ToArray();
         
         while (enabled) {
             MachineSaveData saveData;
-            if (slots.Length == 0) {
+            if (saves.Length == 0) {
                 saveData = _fallbackPanorama.SaveData;
             } else {
-                var state = await _saveManager.SaveLoader.Load(slots[i].Id);
+                var getState = _saveManager.SaveLoader.Load(saves[i].Id).GetHandle();
+                yield return getState;
 
-                if (state.TryGetValue("machines", out var saveDataObj))
+                if (getState.Result.TryGetValue("machines", out var saveDataObj))
                     saveData = (MachineSaveData) saveDataObj;
                 else
                     saveData = _fallbackPanorama.SaveData;
 
-                i = (i + 1) % slots.Length;
+                i = (i + 1) % saves.Length;
             }
             
             _loader.Clear();
@@ -47,9 +50,9 @@ public class MainMenuBackground : MonoBehaviour {
             }
             
             LeanTween.alpha(_overlay, 0, _fadeDuration);
-            await TaskHelpers.Wait(_duration + _fadeDuration);
+            yield return CoroutineHelpers.Wait(_duration + _fadeDuration);
             LeanTween.alpha(_overlay, 1, _fadeDuration);
-            await TaskHelpers.Wait(_fadeDuration + _blackDuration);
+            yield return CoroutineHelpers.Wait(_fadeDuration + _blackDuration);
         }
     }
 }

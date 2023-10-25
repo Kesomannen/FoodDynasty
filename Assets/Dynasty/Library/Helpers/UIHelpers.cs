@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dynasty.Library.Helpers {
+namespace Dynasty.Library {
 
 public static class UIHelpers {
     public static void SortSiblingIndices<TItem, TData>(this IEnumerable<TItem> items, Func<TItem, TData> dataGetter, Comparison<TData> comparison)

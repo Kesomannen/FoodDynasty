@@ -1,5 +1,5 @@
 ﻿using Dynasty.Persistent.Mapping;
-using Dynasty.UI.Menu;
+using Dynasty.UI;
 using UnityEditor;
 using UnityEngine;
 

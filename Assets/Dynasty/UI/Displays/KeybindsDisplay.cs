@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Dynasty.Core.Tooltip;
-using Dynasty.Library.Events;
+using Dynasty.Library;
 using Dynasty.UI.Components;
 using Dynasty.UI.Miscellaneous;
 using UnityEngine;

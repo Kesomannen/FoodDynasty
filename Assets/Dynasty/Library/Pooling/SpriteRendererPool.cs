@@ -1,4 +1,4 @@
-﻿using Dynasty.Library.Pooling;
+﻿using Dynasty.Library;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Pooling/Sprite Renderer")]

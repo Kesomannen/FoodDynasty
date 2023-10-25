@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.SceneManagement;
 
-namespace Dynasty.Library.Pooling {
+namespace Dynasty.Library {
 
 public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where T : Component, IPoolable<T> {
     [Header("Object Pool")]
@@ -28,25 +28,28 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
     );
 
     void OnEnable() {
+        Debug.Log($"[Object Pool] {name} enabled.");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     
     void OnDisable() {
+        Debug.Log($"[Object Pool] {name} disabled.");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         if (_clearOnSceneChange) {
+            Debug.Log($"[Object Pool] Clearing {name} on scene change.");
             Clear();
         }
     }
 
     protected virtual void OnGet(T obj) {
-        obj.gameObject.SetActive(true);
+        obj.SetActive(true);
     }
     
     protected virtual void OnRelease(T obj) {
-        obj.gameObject.SetActive(false);
+        obj.SetActive(false);
     }
 
     protected virtual T Create() {
@@ -54,7 +57,7 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
         DontDestroyOnLoad(obj);
         obj.OnDisposed += Release;
 
-        obj.gameObject.SetActive(false);
+        obj.SetActive(false);
         return obj;
     }
     

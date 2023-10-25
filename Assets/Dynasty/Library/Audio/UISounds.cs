@@ -1,8 +1,8 @@
-﻿using Dynasty.Library.Classes;
+﻿using Dynasty.Library;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Dynasty.Library.Audio {
+namespace Dynasty.Library {
 
 public class UISounds : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler {
     [SerializeField] Optional<SoundEffect> _clickSound;

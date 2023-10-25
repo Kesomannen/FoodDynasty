@@ -1,5 +1,5 @@
 ﻿using System;
-using Dynasty.Library.Classes;
+using Dynasty.Library;
 using UnityEngine;
 
 namespace Dynasty.Library {

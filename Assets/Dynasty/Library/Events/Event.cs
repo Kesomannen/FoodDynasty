@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Dynasty.Library.Events {
+namespace Dynasty.Library {
 
 public class Event<T> : GenericEvent {
     public event Action<T> OnRaised;

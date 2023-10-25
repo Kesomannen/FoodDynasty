@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: BehavioursDatabase
   m_EditorClassIdentifier: 
   _keys:
-  - _typeNameAndAssembly: Dynasty.Library.Events.Event`1, Dynasty.Library
-  - _typeNameAndAssembly: Dynasty.Library.Events.MouseEventTrigger`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.Event`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.MouseEventTrigger`1, Dynasty.Library
   - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
   - _typeNameAndAssembly: Dynasty.UI.Tooltip.Tooltip`1, Dynasty.UI
   - _typeNameAndAssembly: Dynasty.UI.Components.EntityText`1, Dynasty.UI
-  - _typeNameAndAssembly: Dynasty.Library.Pooling.PoolableComponent`1, Dynasty.Library
+  - _typeNameAndAssembly: Dynasty.Library.PoolableComponent`1, Dynasty.Library
   - _typeNameAndAssembly: Dynasty.UI.Components.EntityIcon`1, Dynasty.UI
   - _typeNameAndAssembly: Dynasty.UI.Components.EntityInfo`1, Dynasty.UI
   - _typeNameAndAssembly: Dynasty.UI.Miscellanious.EnumDropdown`1, Dynasty.UI

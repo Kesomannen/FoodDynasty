@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Dynasty.Library.Helpers {
+namespace Dynasty.Library {
 
 public static class MouseHelpers {
     static Camera _mainCam;

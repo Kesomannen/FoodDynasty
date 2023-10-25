@@ -3,7 +3,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Dynasty.UI.Menu {
+namespace Dynasty.UI {
 
 [RequireComponent(typeof(Graphic))]
 public class PulsingGraphic : MonoBehaviour {

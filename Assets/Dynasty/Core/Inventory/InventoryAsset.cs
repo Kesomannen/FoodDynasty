@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Dynasty.Library;
-using Dynasty.Library.Events;
 using UnityEngine;
 
 namespace Dynasty.Core.Inventory {

@@ -3,7 +3,7 @@ using Dynasty.Persistent;
 using TMPro;
 using UnityEngine;
 
-namespace Dynasty.UI.Menu {
+namespace Dynasty.UI {
 
 public class SaveSlotContainer : MonoBehaviour {
     [SerializeField] TMP_Text _name;

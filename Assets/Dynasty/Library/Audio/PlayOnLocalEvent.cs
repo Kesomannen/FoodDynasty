@@ -1,7 +1,7 @@
-﻿using Dynasty.Library.Events;
+﻿using Dynasty.Library;
 using UnityEngine;
 
-namespace Dynasty.Library.Audio {
+namespace Dynasty.Library {
 
 public class PlayOnLocalEvent : MonoBehaviour {
     [SerializeField] SoundEffect _soundEffect;

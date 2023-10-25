@@ -1,6 +1,5 @@
 ﻿using System;
-using Dynasty.Library.Classes;
-using Dynasty.Library.Data;
+using Dynasty.Library;
 using UnityEngine;
 
 namespace Dynasty.Machines {

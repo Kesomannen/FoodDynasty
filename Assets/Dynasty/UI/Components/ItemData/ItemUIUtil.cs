@@ -21,7 +21,8 @@ public static class ItemUIUtil {
     
     static readonly Dictionary<ItemTier, Color> _colorLookup = new() {
         { ItemTier.Rusty, new Color(0.62f, 0.3f, 0.25f) },
-        { ItemTier.Metallic, new Color(0.6f, 0.6f, 0.6f) }
+        { ItemTier.Metallic, new Color(0.6f, 0.6f, 0.6f) },
+        { ItemTier.Golden, new Color(0.9f, 0.8f, 0.2f) }
     };
 
     public static void SetFromItemType(MaterialIcon icon, ItemType type) {

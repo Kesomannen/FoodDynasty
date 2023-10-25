@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Dynasty.Food;
-using Dynasty.Library.Classes;
+using Dynasty.Library;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Serialization;
