@@ -45,10 +45,12 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 6a0de782a02e33c4ab416ab7a43f6f9c, type: 2}
     - {fileID: 11400000, guid: 139dcf1af1315e34fbd1dee6d0e8f231, type: 2}
     - {fileID: 11400000, guid: db43cb402c7d9b74da2e2f2f4a8d96db, type: 2}
+    - {fileID: 11400000, guid: 21b53943b923b124ab7b5948d21319f3, type: 2}
     - {fileID: 11400000, guid: f88c556245b313d42ac9f5252b84ab31, type: 2}
     - {fileID: 11400000, guid: f3b87854fe2d0d14db5e6319befaed4e, type: 2}
     - {fileID: 11400000, guid: ac547b8fecec0b74fa93c1ad8198079c, type: 2}
+    - {fileID: 11400000, guid: bdd32cb9da3ad9541b74f5ca107f3c25, type: 2}
   - Header: Gold
-    MoneyMadeRequirement: 7000000
+    MoneyMadeRequirement: 5000000
     Unlocks:
     - {fileID: 11400000, guid: 0b09be3e28062164fb5ae8f1d8754f9f, type: 2}

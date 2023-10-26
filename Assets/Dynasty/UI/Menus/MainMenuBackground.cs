@@ -21,7 +21,6 @@ public class MainMenuBackground : MonoBehaviour {
     [SerializeField] RectTransform _overlay;
 
     IEnumerator Start() {
-        var i = 0;
         var getSaves = _saveManager.SaveLoader.GetSaves().GetHandle();
         yield return getSaves;
 
@@ -37,6 +36,8 @@ public class MainMenuBackground : MonoBehaviour {
             if (saveData.ItemIds.Length == 0) continue;
             saves.Add(saveData);
         }
+        
+        var i = Random.Range(0, saves.Count);
 
         while (enabled) {
             MachineSaveData saveData;

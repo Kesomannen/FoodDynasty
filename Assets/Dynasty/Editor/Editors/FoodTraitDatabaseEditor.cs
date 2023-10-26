@@ -53,5 +53,9 @@ public class FoodTraitDatabaseEditor : Editor {
 
             EditorGUILayout.EndHorizontal();
         } 
+        
+        if (GUI.changed) {
+            EditorUtility.SetDirty(target);
+        }
     }
 }

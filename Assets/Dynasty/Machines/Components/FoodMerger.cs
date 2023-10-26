@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Food;
 using Dynasty.Library;
+using Dynasty.Persistent.Mapping;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Dynasty.Machines {
 
@@ -14,10 +16,10 @@ public class FoodMerger : FoodMachineComponent, IInfoProvider, IAdditionalSaveDa
     [SerializeField] Modifier _sellPriceModifier = new(multiplicative: 1f);
     [SerializeField] Supply _supply;
     [SerializeField] Event<FoodBehaviour> _applyEvent;
+    [SerializeField] Lookup<CustomObjectPool<Poolable>> _modelLookup;
 
-    Queue<double> _mergingItemValues = new();
+    Queue<(double Value, CustomObjectPool<Poolable>[] Models)> _mergingItems = new();
     int _currentMergingItems;
-    int _mergedItems;
 
     public Supply Supply {
         get => _supply;
@@ -40,12 +42,12 @@ public class FoodMerger : FoodMachineComponent, IInfoProvider, IAdditionalSaveDa
     }
 
     void Apply(FoodBehaviour food) {
-        if (_mergedItems == 0) return;
-        _mergedItems--;
-
         var values = new double[_requiredItems];
+        var pools = new List<CustomObjectPool<Poolable>>();
         for (var i = 0; i < values.Length; i++) {
-            values[i] = _mergingItemValues.Dequeue();
+            var (value, toppings) = _mergingItems.Dequeue();
+            values[i] = value;
+            pools.AddRange(toppings);
         }
         
         var yieldedPrice = _combineMode switch {
@@ -54,11 +56,13 @@ public class FoodMerger : FoodMachineComponent, IInfoProvider, IAdditionalSaveDa
             CombineMode.Multiply => values.Aggregate((a, b) => a * b),
             _ => 0
         };
-        food.SellPrice = new Modifier(additive: yieldedPrice);
+        
+        food.SellPrice = new Modifier(@base: yieldedPrice);
+        food.ModelProvider.AddToppingModels(pools);
     }
     
     protected override void OnTriggered(FoodBehaviour food) {
-        _mergingItemValues.Enqueue(_sellPriceModifier.Apply(food.GetSellPrice()));
+        _mergingItems.Enqueue((food.GetSellPrice(), food.ModelProvider.GetModelPools().ToArray()));
         food.Dispose();
         
         _currentMergingItems++;
@@ -69,7 +73,6 @@ public class FoodMerger : FoodMachineComponent, IInfoProvider, IAdditionalSaveDa
     }
 
     public IEnumerable<EntityInfo> GetInfo() {
-        yield return new EntityInfo("Required Items", _requiredItems.ToString());
         var combineString = _combineMode switch {
             CombineMode.Add => "(A+B)",
             CombineMode.Average => "Average",
@@ -86,30 +89,35 @@ public class FoodMerger : FoodMachineComponent, IInfoProvider, IAdditionalSaveDa
     }
 
     public void OnAfterLoad(SaveData data) {
-        _mergedItems = data.MergedItems;
         _currentMergingItems = data.CurrentMergingItems;
-        _mergingItemValues = new Queue<double>(data.MergingItemValues);
+        _mergingItems = new Queue<(double Value, CustomObjectPool<Poolable>[] Models)>(
+            data.MergingItems.Select(item => (
+                item.Value,
+                item.ModelIds.Select(_modelLookup.GetFromId).ToArray()
+            )
+        ));
     }
 
     public SaveData GetSaveData() {
         return new SaveData {
-            MergedItems = _mergedItems,
             CurrentMergingItems = _currentMergingItems,
-            MergingItemValues = _mergingItemValues.ToArray()
+            MergingItems = _mergingItems.Select(item => new MergingItem {
+                Value = item.Value,
+                ModelIds = item.Models.Select(_modelLookup.GetId).ToArray()
+            }).ToArray()
         };
     }
     
     [Serializable]
     public struct SaveData {
-        public int MergedItems;
         public int CurrentMergingItems;
-        public double[] MergingItemValues;
+        public MergingItem[] MergingItems;
+    }
 
-        public override string ToString() {
-            return $"MergedItems: {MergedItems}, " +
-                   $"CurrentMergingItems: {CurrentMergingItems}," +
-                   $"MergingItemValues: {MergingItemValues}";
-        }
+    [Serializable]
+    public struct MergingItem {
+        public double Value;
+        public int[] ModelIds;
     }
 }
 

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9becf11d67124afc8a2b2dccc5c68e48, type: 3}
+  m_Name: Toothpick Impaler
+  m_EditorClassIdentifier: 
+  _name: Toothpick Impaler
+  _description: 
+  _shortDescription: 
+  _icon: {fileID: 21300000, guid: 2075bcd67c3702b4da915c9470e1674f, type: 3}
+  _tier: 1
+  _price: 50000
+  _sellable: 1
+  _type: 7
+  _prefab: {fileID: 5326942418757678181, guid: 2c7f3d13c566bbd46997f5eddf79e33e, type: 3}
+  _enabledProviders: 010001

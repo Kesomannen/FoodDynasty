@@ -52,8 +52,9 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
     protected virtual T Create() {
         var obj = Instantiate(_prefab);
         DontDestroyOnLoad(obj);
+        
+        obj.Pool = this;
         obj.OnDisposed += Release;
-
         obj.SetActive(false);
         return obj;
     }

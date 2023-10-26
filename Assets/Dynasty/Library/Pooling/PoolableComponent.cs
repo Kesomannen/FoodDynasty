@@ -7,6 +7,8 @@ public class PoolableComponent<T> : MonoBehaviour, IPoolable<PoolableComponent<T
     [SerializeField] T _component;
     
     public T Component => _component;
+
+    public CustomObjectPool<PoolableComponent<T>> Pool { get; set; }
     
     public event Action<PoolableComponent<T>> OnDisposed;
 

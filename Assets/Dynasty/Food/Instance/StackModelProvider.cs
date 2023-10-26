@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Dynasty.Library;
 using UnityEngine;
 
@@ -9,9 +10,6 @@ public class StackModelProvider : ModelProvider {
     [SerializeField] Transform _bottom;
     [SerializeField] Transform _top;
     
-    readonly Stack<Poolable> _toppings = new();
-    
-    Poolable _baseModel;
     Vector3 _originalTopPosition;
     
     void Awake() {
@@ -19,50 +17,44 @@ public class StackModelProvider : ModelProvider {
     }
     
     public override void SetBaseModel(Poolable poolable) {
-        if (_baseModel != null) {
-            _baseModel.Dispose();
+        if (BaseModel != null) {
+            BaseModel.Dispose();
         }
 
-        _baseModel = poolable;
+        BaseModel = poolable;
         
-        var poolableTransform = poolable.transform;
-        poolableTransform.SetParent(_bottom);
-        poolableTransform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
-        
-        _top.SetActive(false);
-        _bottom.SetActive(false);
+        var t = poolable.transform;
+        t.SetParent(_bottom);
+        t.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
     }
 
     public override void ReturnOriginalModel() {
-        if (_baseModel != null) {
-            _baseModel.Dispose();
+        if (BaseModel != null) {
+            BaseModel.Dispose();
         }
 
-        _baseModel = null;
+        BaseModel = null;
         _top.SetActive(true);
         _bottom.SetActive(true);
-        
-        while (_toppings.Count > 0) { 
-            _toppings.Pop().Dispose();
+
+        while (Toppings.Count > 0) {
+            Toppings.Pop().Dispose();
         }
+
         _top.localPosition = _originalTopPosition;
     }
-
-    public override IEnumerable<Poolable> GetToppings() {
-        return _toppings;
-    }
-
+    
     public override void AddToppingModel(Poolable model) {
-        _toppings.Push(model);
+        Toppings.Push(model);
         SetupToppingModel(model.gameObject);
     }
 
     void SetupToppingModel(GameObject model) {
-        var pos = Vector3.up * _toppings.Count * _toppingHeight;
+        var pos = Vector3.up * Toppings.Count * _toppingHeight;
 
-        var modelTransform = model.transform;
-        modelTransform.SetParent(_bottom);
-        modelTransform.SetLocalPositionAndRotation(pos, Quaternion.identity);
+        var t = model.transform;
+        t.SetParent(_bottom);
+        t.SetLocalPositionAndRotation(pos, Quaternion.identity);
 
         _top.localPosition += _toppingHeight * Vector3.up;
     }

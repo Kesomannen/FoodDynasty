@@ -61,9 +61,12 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5b6d04f5cc95c3d4aaed7050a7a1dcfc, type: 3}
   - {fileID: 21300000, guid: 6660a306b80f03541a1c3af9f9fc2624, type: 3}
   - {fileID: 21300000, guid: 1fc25a268c836054ba2da103ef26713d, type: 3}
+  - {fileID: 21300000, guid: 368a465626f8ba2418c53283112bd538, type: 3}
+  - {fileID: 21300000, guid: 2075bcd67c3702b4da915c9470e1674f, type: 3}
   - {fileID: 21300000, guid: 6625bd2707888df4b87309b9e49bf186, type: 3}
   - {fileID: 21300000, guid: 4a04d9e783d941b44bd8df74ac3e6740, type: 3}
   - {fileID: 21300000, guid: eb625e28ef98cbe48b33eebea3763e04, type: 3}
+  - {fileID: 21300000, guid: 0b22d058762d51a4ea988a02a8cf8a63, type: 3}
   - {fileID: 21300000, guid: ce7b9f58df805bd4185840544859296b, type: 3}
   - {fileID: 21300000, guid: 8ef0d188950473c40871e5a1d5caaef2, type: 3}
   - {fileID: 21300000, guid: 41a87c88d3df73545b1e73d0246ae2aa, type: 3}
@@ -94,9 +97,12 @@ SpriteAtlas:
   - Spice
   - Auto Refiller
   - Sandwich Splitter
+  - Sandwich Merger
+  - Toothpick Impaler
   - Booster
   - Tomato Adder
   - Left Rotating Conveyor
+  - Sandwich Combiner
   - Sandwich
   - Splitting Conveyor
   - Tomato

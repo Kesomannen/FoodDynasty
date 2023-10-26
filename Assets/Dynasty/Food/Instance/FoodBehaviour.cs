@@ -23,6 +23,8 @@ public class FoodBehaviour : MonoBehaviour, IPoolable<FoodBehaviour>, IInfoProvi
     bool _initialized;
     Rigidbody _rigidbody;
 
+    public CustomObjectPool<FoodBehaviour> Pool { get; set; }
+    
     public event Action<FoodBehaviour> OnDisposed;
 
     void Awake() {

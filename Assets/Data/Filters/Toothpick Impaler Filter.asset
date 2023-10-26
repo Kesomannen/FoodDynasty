@@ -10,10 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fd2f8b57eae487ba044b30fba65d5a8, type: 3}
-  m_Name: Sandwich Compressor Filter
+  m_Name: Toothpick Impaler Filter
   m_EditorClassIdentifier: 
   _condition: 0
   _sellPriceRange:
     _enabled: 0
     _value: {x: 0, y: 0}
-  _filters: []
+  _filters:
+  - _type: 1
+    _trait:
+      _value: Toothpick
+      _hash: -1771264459
+      _type: 0
+    _boolValue: 0
+    _floatRange: {x: 0, y: 0}
+    _intRange: {x: 0, y: 0}

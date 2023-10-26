@@ -42,7 +42,10 @@ public class FoodSplitter : FoodMachineComponent, IInfoProvider, IAdditionalSave
     }
 
     void Apply(FoodBehaviour food) {
-        if (!_input.TryPeek(out var input)) return;
+        if (!_input.TryPeek(out var input)) {
+            Debug.LogWarning("No input for food splitter", this);
+            return;
+        }
         food.SellPrice = new Modifier(@base: input);
         
         _splitsLeft--;

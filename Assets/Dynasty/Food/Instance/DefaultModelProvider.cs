@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Dynasty.Library;
 using UnityEngine;
 
@@ -8,16 +9,12 @@ public class DefaultModelProvider : ModelProvider {
     [SerializeField] GameObject _originalModel;
     [SerializeField] Transform _toppingParent;
     
-    readonly Stack<Poolable> _toppings = new();
-    
-    Poolable _baseModel;
-    
     public override void SetBaseModel(Poolable model) {
-        if (_baseModel != null) {
-            _baseModel.Dispose();
+        if (BaseModel != null) {
+            BaseModel.Dispose();
         }
 
-        _baseModel = model;
+        BaseModel = model;
         _originalModel.SetActive(false);
         
         model.transform.SetParent(transform);
@@ -25,24 +22,20 @@ public class DefaultModelProvider : ModelProvider {
     }
 
     public override void ReturnOriginalModel() {
-        if (_baseModel != null) {
-            _baseModel.Dispose();
+        if (BaseModel != null) {
+            BaseModel.Dispose();
         }
 
-        _baseModel = null;
+        BaseModel = null;
         _originalModel.SetActive(true);
         
-        while (_toppings.Count > 0) { 
-            _toppings.Pop().Dispose();
+        while (Toppings.Count > 0) { 
+            Toppings.Pop().Dispose();
         }
-    }
-
-    public override IEnumerable<Poolable> GetToppings() {
-        return _toppings;
     }
 
     public override void AddToppingModel(Poolable model) {
-        _toppings.Push(model);
+        Toppings.Push(model);
         
         var rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
         model.transform.SetParent(_toppingParent);

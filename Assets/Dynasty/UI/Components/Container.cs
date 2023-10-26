@@ -11,8 +11,10 @@ public class Container<T> : UIComponent<T>, IPoolable<Container<T>> {
     [HideIf("_autoDetectComponents")]
     [SerializeField] UIComponent<T>[] _components;
 
-    public event Action<Container<T>> OnDisposed;
+    public CustomObjectPool<Container<T>> Pool { get; set; }
     public T Content { get; private set; }
+
+    public event Action<Container<T>> OnDisposed;
 
     void Awake() {
         if (!_autoDetectComponents) return;
