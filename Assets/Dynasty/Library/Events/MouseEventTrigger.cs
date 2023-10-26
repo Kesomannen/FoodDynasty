@@ -15,11 +15,13 @@ public class MouseEventTrigger<T> : MonoBehaviour, IPointerClickHandler, IPointe
     public void OnPointerClick(PointerEventData eventData) {
         switch (eventData.button) {
             case PointerEventData.InputButton.Left when _clickGameEvent.Enabled:
-                _clickGameEvent.Value.Raise(EventData); break;
+                _clickGameEvent.Value.Raise(EventData); 
+                break;
             case PointerEventData.InputButton.Right when _rightClickGameEvent.Enabled:
-                _rightClickGameEvent.Value.Raise(EventData); break;
-            case PointerEventData.InputButton.Middle: break;
-            default: throw new ArgumentOutOfRangeException();
+                _rightClickGameEvent.Value.Raise(EventData); 
+                break;
+            case PointerEventData.InputButton.Middle: 
+                break;
         }
     }
 

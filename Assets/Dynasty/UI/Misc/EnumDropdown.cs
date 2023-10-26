@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Dynasty.Library;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -15,9 +16,11 @@ public class EnumDropdown<T> : MonoBehaviour where T : Enum {
     
     TMP_Dropdown _dropdown;
 
+    TMP_Dropdown Dropdown => _dropdown ??= GetComponent<TMP_Dropdown>();
+
     public T Value {
-        get => (T) (object) _dropdown.value;
-        set => _dropdown.value = (int) (object) value;
+        get => Dropdown.value.ToEnum<T>();
+        set => Dropdown.value = value.ToInt();
     }
 
     public event Action<T> OnValueChanged; 
@@ -45,11 +48,9 @@ public class EnumDropdown<T> : MonoBehaviour where T : Enum {
     }
 
     void SetOptions() {
-        _dropdown = GetComponent<TMP_Dropdown>();
-        _dropdown.ClearOptions();
-
+        Dropdown.ClearOptions();
         var options = Enum.GetNames(typeof(T)).Select(e => _overrideNames ? _nameOverrides[(int)Enum.Parse(typeof(T), e)] : e);
-        _dropdown.AddOptions(options.ToList());
+        Dropdown.AddOptions(options.ToList());
     }
 }
 

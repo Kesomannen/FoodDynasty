@@ -28,18 +28,15 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
     );
 
     void OnEnable() {
-        Debug.Log($"[Object Pool] {name} enabled.");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     
     void OnDisable() {
-        Debug.Log($"[Object Pool] {name} disabled.");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
     
     void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-        if (_clearOnSceneChange) {
-            Debug.Log($"[Object Pool] Clearing {name} on scene change.");
+        if (_clearOnSceneChange) {  
             Clear();
         }
     }

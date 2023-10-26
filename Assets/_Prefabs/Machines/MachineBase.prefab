@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: {x: 0, y: 0, z: 1}
   _speed:
-    _dataObject: {fileID: 11400000, guid: dd927c834874b6044a38511ab35023e1, type: 2}
+    _dataObject: {fileID: 0}
     Modifier:
       Base: 0
       Percentual: 0

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Library;
 using Dynasty.Machines;
@@ -24,22 +25,26 @@ public class MainMenuBackground : MonoBehaviour {
         var getSaves = _saveManager.SaveLoader.GetSaves().GetHandle();
         yield return getSaves;
 
-        var saves = getSaves.Result.ToArray();
+        var saves = new List<MachineSaveData>();
         
+        foreach (var saveSlot in getSaves.Result) {
+            var getState = _saveManager.SaveLoader.Load(saveSlot.Id).GetHandle();
+            yield return getState;
+            
+            if (!getState.Result.TryGetValue("machines", out var saveDataObj)) continue;
+            var saveData = (MachineSaveData) saveDataObj;
+
+            if (saveData.ItemIds.Length == 0) continue;
+            saves.Add(saveData);
+        }
+
         while (enabled) {
             MachineSaveData saveData;
-            if (saves.Length == 0) {
+            if (saves.Count == 0) {
                 saveData = _fallbackPanorama.SaveData;
             } else {
-                var getState = _saveManager.SaveLoader.Load(saves[i].Id).GetHandle();
-                yield return getState;
-
-                if (getState.Result.TryGetValue("machines", out var saveDataObj))
-                    saveData = (MachineSaveData) saveDataObj;
-                else
-                    saveData = _fallbackPanorama.SaveData;
-
-                i = (i + 1) % saves.Length;
+                saveData = saves[i];
+                i = (i + 1) % saves.Count;
             }
             
             _loader.Clear();
