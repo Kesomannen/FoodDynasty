@@ -4890,7 +4890,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3923324055649985243}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.353, z: 1.131}
+  m_LocalPosition: {x: 0, y: 0.353, z: 1.414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28871,6 +28871,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultState: 0
+--- !u!114 &6748271645302584294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8086906805628167599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 618bfb88a25e49fa812fc778ee707ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8157608225930829705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28892,21 +28904,9 @@ MonoBehaviour:
       Multiplicative: 1
   _pool: {fileID: 11400000, guid: 7fbbf319305ab17499c4d168fab618ce, type: 2}
   _spawnPoint: {fileID: 9205055920273191275}
-  _randomSpawnOffset: {x: 0.3, y: 0.1, z: 0.3}
+  _randomSpawnOffset: {x: 0.3, y: 0.1, z: 0.2}
   _condition: {fileID: 5514994878410955110}
   _onDispensed: {fileID: 4218761305672540076}
---- !u!114 &6748271645302584294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8086906805628167599}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 618bfb88a25e49fa812fc778ee707ea4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &8819245532553663525
 PrefabInstance:
   m_ObjectHideFlags: 0

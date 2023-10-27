@@ -1,0 +1,225 @@
+Date : 2023-10-27 18:20:54
+Directory : c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty
+Total : 151 files,  1388 codes, 4 comments, 396 blanks, all 1788 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C#       |        151 |      1,388 |          4 |        396 |      1,788 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                             | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                |        151 |      1,388 |          4 |        396 |      1,788 |
+| Core                                                                                                             |         21 |        311 |          3 |         98 |        412 |
+| Core\Grid                                                                                                        |         15 |        251 |          3 |         85 |        339 |
+| Core\Grid (Files)                                                                                                |          8 |        117 |          3 |         38 |        158 |
+| Core\Grid\Interaction                                                                                            |          7 |        134 |          0 |         47 |        181 |
+| Core\Inventory                                                                                                   |          5 |         19 |          0 |          4 |         23 |
+| Core\Inventory (Files)                                                                                           |          2 |         18 |          0 |          3 |         21 |
+| Core\Inventory\Data                                                                                              |          3 |          1 |          0 |          1 |          2 |
+| Core\Tooltip                                                                                                     |          1 |         41 |          0 |          9 |         50 |
+| Editor                                                                                                           |         13 |          6 |          1 |          8 |         15 |
+| Editor\Drawers                                                                                                   |          4 |         13 |          1 |          6 |         20 |
+| Editor\Editors                                                                                                   |          3 |         -3 |          0 |          1 |         -2 |
+| Editor\ItemExplorer                                                                                              |          5 |        -19 |          0 |         -2 |        -21 |
+| Editor\Util                                                                                                      |          1 |         15 |          0 |          3 |         18 |
+| Food                                                                                                             |         14 |         74 |          0 |         24 |         98 |
+| Food\Data                                                                                                        |          2 |         -4 |          0 |          0 |         -4 |
+| Food\Filtering                                                                                                   |          2 |          6 |          0 |          1 |          7 |
+| Food\Instance                                                                                                    |          8 |         59 |          0 |         21 |         80 |
+| Food\Modification                                                                                                |          2 |         13 |          0 |          2 |         15 |
+| Library                                                                                                          |         25 |        197 |          0 |         42 |        239 |
+| Library\Audio                                                                                                    |          6 |         96 |          0 |         17 |        113 |
+| Library\Classes                                                                                                  |          2 |         36 |          0 |          9 |         45 |
+| Library\Events                                                                                                   |          2 |          3 |          0 |          1 |          4 |
+| Library\Extensions                                                                                               |          3 |          9 |          0 |          1 |         10 |
+| Library\Helpers                                                                                                  |          5 |         23 |          0 |          3 |         26 |
+| Library\Misc                                                                                                     |          2 |          0 |          0 |          2 |          2 |
+| Library\Pooling                                                                                                  |          5 |         30 |          0 |          9 |         39 |
+| Machine                                                                                                          |         13 |       -540 |          0 |       -141 |       -681 |
+| Machine\Components                                                                                               |         11 |       -454 |          0 |       -118 |       -572 |
+| Machine\Internal                                                                                                 |          2 |        -86 |          0 |        -23 |       -109 |
+| Machines                                                                                                         |         21 |        986 |          0 |        262 |      1,248 |
+| Machines\Components                                                                                              |         17 |        877 |          0 |        229 |      1,106 |
+| Machines\Internal                                                                                                |          4 |        109 |          0 |         33 |        142 |
+| Persistent                                                                                                       |          8 |         18 |          0 |         10 |         28 |
+| Persistent\Core                                                                                                  |          3 |         -2 |          0 |          2 |          0 |
+| Persistent\Mapping                                                                                               |          5 |         20 |          0 |          8 |         28 |
+| UI                                                                                                               |         36 |        336 |          0 |         93 |        429 |
+| UI\Components                                                                                                    |         10 |        125 |          0 |         36 |        161 |
+| UI\Components (Files)                                                                                            |          1 |          1 |          0 |          1 |          2 |
+| UI\Components\AutoBuyer                                                                                          |          2 |         56 |          0 |         16 |         72 |
+| UI\Components\AutoRefiller                                                                                       |          2 |         67 |          0 |         18 |         85 |
+| UI\Components\Entity                                                                                             |          1 |         -1 |          0 |          0 |         -1 |
+| UI\Components\ItemData                                                                                           |          2 |         -3 |          0 |         -2 |         -5 |
+| UI\Components\Supply                                                                                             |          2 |          5 |          0 |          3 |          8 |
+| UI\Controllers                                                                                                   |          7 |        102 |          0 |         24 |        126 |
+| UI\Controls                                                                                                      |          2 |          7 |          0 |          0 |          7 |
+| UI\Displays                                                                                                      |          3 |         -4 |          0 |          0 |         -4 |
+| UI\Menus                                                                                                         |          5 |         44 |          0 |          9 |         53 |
+| UI\Misc                                                                                                          |          6 |         74 |          0 |         28 |        102 |
+| UI\Tooltip                                                                                                       |          2 |          2 |          0 |         -1 |          1 |
+| UI\Tweening                                                                                                      |          1 |        -14 |          0 |         -3 |        -17 |
++------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                                         | language | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\GridDebugger.cs                             | C#       |          5 |          0 |          1 |          6 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\GridManager.cs                              | C#       |         47 |          0 |         13 |         60 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\GridObject.cs                               | C#       |          4 |          0 |          3 |          7 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\GridOutline.cs                              | C#       |         38 |          0 |         11 |         49 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\GridPreview.cs                              | C#       |         15 |          0 |          6 |         21 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\GridRotation.cs                             | C#       |          1 |          3 |          1 |          5 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\GridSize.cs                                 | C#       |          2 |          0 |          1 |          3 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\IRangeProvider.cs                           | C#       |          5 |          0 |          2 |          7 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\Interaction\GridExpansion.cs                | C#       |         27 |          0 |          8 |         35 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\Interaction\GridExpansionController.cs      | C#       |         75 |          0 |         22 |         97 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\Interaction\GridObjectBuilder.cs            | C#       |          1 |          0 |          1 |          2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\Interaction\GridObjectMover.cs              | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\Interaction\GridObjectPlacer.cs             | C#       |         21 |          0 |         10 |         31 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\Interaction\GridObjectSelector.cs           | C#       |         11 |          0 |          5 |         16 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Grid\Interaction\InventoryGridObjectHandler.cs   | C#       |          0 |          0 |          1 |          1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Inventory\Data\ItemData.cs                       | C#       |          3 |          0 |          1 |          4 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Inventory\Data\MachineEntity.cs                  | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Inventory\Data\MachineItemData.cs                | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Inventory\InventoryAsset.cs                      | C#       |         -1 |          0 |         -1 |         -2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Inventory\UnlockManager.cs                       | C#       |         19 |          0 |          4 |         23 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Core\Tooltip\PopupData.cs                             | C#       |         41 |          0 |          9 |         50 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Editor\Drawers\FloatDataPropertyDrawer.cs             | C#       |         15 |          1 |          6 |         22 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Editor\Drawers\FoodFilterDrawer.cs                    | C#       |         -2 |          0 |          0 |         -2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Editor\Drawers\FoodTraitModifierDrawer.cs             | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Editor\Drawers\SerializedGridSizeDrawer.cs            | C#       |          1 |          0 |          0 |          1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Editor\Editors\FoodTraitDatabaseEditor.cs             | C#       |          3 |          0 |          1 |          4 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Editor\Editors\MachineItemDataEditor.cs               | C#       |         -4 |          0 |          0 |         -4 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Editor\Editors\MachineLoaderEditor.cs                 | C#       |         -2 |          0 |          0 |         -2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Editor\ItemExplorer\ItemCreatorPopupWindow.cs         | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Editor\ItemExplorer\ItemCreatorUtil.cs                | C#       |          0 |          0 |         -1 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Editor\ItemExplorer\ItemExplorer.cs                   | C#       |        -12 |          0 |         -3 |        -15 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Editor\ItemExplorer\ItemMachineEditor.cs              | C#       |          1 |          0 |          2 |          3 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Editor\ItemExplorer\MachineCreator.cs                 | C#       |         -7 |          0 |          0 |         -7 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Editor\Util\ThumbnailCreator.cs                       | C#       |         15 |          0 |          3 |         18 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Data\FoodItemData.cs                             | C#       |         -2 |          0 |          0 |         -2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Data\FoodTraitValue.cs                           | C#       |         -2 |          0 |          0 |         -2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Filtering\FoodFilter.cs                          | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Filtering\FoodFilterGroup.cs                     | C#       |          7 |          0 |          1 |          8 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Instance\DefaultModelProvider.cs                 | C#       |         -5 |          0 |         -3 |         -8 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Instance\FoodBehaviour.cs                        | C#       |         -3 |          0 |          1 |         -2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Instance\FoodCamera.cs                           | C#       |         67 |          0 |         21 |         88 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Instance\FoodManager.cs                          | C#       |          6 |          0 |          3 |          9 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Instance\ModelProvider.cs                        | C#       |         18 |          0 |          4 |         22 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Instance\ParticleTrigger.cs                      | C#       |         -2 |          0 |          0 |         -2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Instance\StabilityBehaviour.cs                   | C#       |         -7 |          0 |         -1 |         -8 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Instance\StackModelProvider.cs                   | C#       |        -15 |          0 |         -4 |        -19 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Modification\FoodModifierGroup.cs                | C#       |         14 |          0 |          2 |         16 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Food\Modification\FoodTraitModifier.cs                | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Audio\IdleSound.cs                            | C#       |          9 |          0 |          3 |         12 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Audio\PlayOnGameEvent.cs                      | C#       |         14 |          0 |          5 |         19 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Audio\PlayOnLocalEvent.cs                     | C#       |         14 |          0 |          5 |         19 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Audio\SoundEffect.cs                          | C#       |          2 |          0 |          0 |          2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Audio\SoundManager.cs                         | C#       |         74 |          0 |         10 |         84 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Audio\SoundOnEvent.cs                         | C#       |        -17 |          0 |         -6 |        -23 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Classes\CoroutineHandle.cs                    | C#       |         20 |          0 |          7 |         27 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Classes\Modifier.cs                           | C#       |         16 |          0 |          2 |         18 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Events\ListEvent.cs                           | C#       |          1 |          0 |          1 |          2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Events\MouseEventTrigger.cs                   | C#       |          2 |          0 |          0 |          2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Extensions\ComponentExtensions.cs             | C#       |          7 |          0 |          2 |          9 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Extensions\EnumerableExtensions.cs            | C#       |         16 |          0 |          3 |         19 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Extensions\TransformExtensions.cs             | C#       |        -14 |          0 |         -4 |        -18 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Helpers\Colors.cs                             | C#       |         12 |          0 |          4 |         16 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Helpers\EnumHelpers.cs                        | C#       |          6 |          0 |          2 |          8 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Helpers\MaterialHelpers.cs                    | C#       |          1 |          0 |          0 |          1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Helpers\TaskHelpers.cs                        | C#       |         24 |          0 |          5 |         29 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Helpers\TextStyles.cs                         | C#       |        -20 |          0 |         -8 |        -28 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Misc\MonoScriptableRunner.cs                  | C#       |         -2 |          0 |          0 |         -2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Misc\Settings.cs                              | C#       |          2 |          0 |          2 |          4 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Pooling\CustomObjectPool.cs                   | C#       |         22 |          0 |          5 |         27 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Pooling\IPoolable.cs                          | C#       |          2 |          0 |          1 |          3 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Pooling\Poolable.cs                           | C#       |          1 |          0 |          1 |          2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Pooling\PoolableComponent.cs                  | C#       |          1 |          0 |          1 |          2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Library\Pooling\SpriteRendererPool.cs                 | C#       |          4 |          0 |          1 |          5 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machine\Components\Conveyor.cs                        | C#       |        -48 |          0 |        -15 |        -63 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machine\Components\FoodDispenser.cs                   | C#       |        -56 |          0 |        -14 |        -70 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machine\Components\FoodDisposer.cs                    | C#       |         -9 |          0 |         -3 |        -12 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machine\Components\FoodEvent.cs                       | C#       |         -3 |          0 |         -1 |         -4 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machine\Components\FoodMerger.cs                      | C#       |       -100 |          0 |        -21 |       -121 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machine\Components\FoodModifier.cs                    | C#       |        -31 |          0 |         -8 |        -39 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machine\Components\FoodSeller.cs                      | C#       |        -27 |          0 |         -7 |        -34 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machine\Components\FoodSplitter.cs                    | C#       |        -75 |          0 |        -18 |        -93 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machine\Components\FoodTrigger.cs                     | C#       |        -17 |          0 |         -6 |        -23 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machine\Components\IMachineComponent.cs               | C#       |         -6 |          0 |         -3 |         -9 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machine\Components\Supply.cs                          | C#       |        -82 |          0 |        -22 |       -104 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machine\Internal\FilteredFoodEvent.cs                 | C#       |        -66 |          0 |        -15 |        -81 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machine\Internal\FoodMachineComponent.cs              | C#       |        -20 |          0 |         -8 |        -28 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\AutoBuyer.cs                      | C#       |         85 |          0 |         18 |        103 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\AutoRefiller.cs                   | C#       |        158 |          0 |         41 |        199 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\BoostableAnimator.cs              | C#       |         20 |          0 |          5 |         25 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\Booster.cs                        | C#       |         23 |          0 |          7 |         30 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\Conveyor.cs                       | C#       |         45 |          0 |         15 |         60 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\FoodDispenser.cs                  | C#       |         59 |          0 |         15 |         74 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\FoodDisposer.cs                   | C#       |          8 |          0 |          3 |         11 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\FoodEvent.cs                      | C#       |          3 |          0 |          1 |          4 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\FoodMerger.cs                     | C#       |        104 |          0 |         21 |        125 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\FoodModifier.cs                   | C#       |         29 |          0 |          8 |         37 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\FoodSeller.cs                     | C#       |         26 |          0 |          7 |         33 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\FoodSplitter.cs                   | C#       |         76 |          0 |         18 |         94 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\FoodTrigger.cs                    | C#       |         17 |          0 |          6 |         23 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\IMachineComponent.cs              | C#       |          6 |          0 |          3 |          9 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\MachineModifier.cs                | C#       |         98 |          0 |         26 |        124 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\SplitConveyor.cs                  | C#       |         29 |          0 |          8 |         37 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Components\Supply.cs                         | C#       |         91 |          0 |         27 |        118 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Internal\FilteredFoodEvent.cs                | C#       |         65 |          0 |         15 |         80 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Internal\FloatDataProperty.cs                | C#       |         11 |          0 |          5 |         16 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Internal\FoodMachineComponent.cs             | C#       |         20 |          0 |          8 |         28 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Machines\Internal\IBoostable.cs                       | C#       |         13 |          0 |          5 |         18 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Persistent\Core\SaveLoader.cs                         | C#       |         -2 |          0 |          0 |         -2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Persistent\Core\SaveManager.cs                        | C#       |          1 |          0 |          0 |          1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Persistent\Core\SaveStore.cs                          | C#       |         -1 |          0 |          2 |          1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Persistent\Mapping\InventorySaveInterpreter.cs        | C#       |          3 |          0 |          0 |          3 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Persistent\Mapping\Lookup.cs                          | C#       |          0 |          0 |          1 |          1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Persistent\Mapping\MachinesSaveStore.cs               | C#       |         -3 |          0 |          0 |         -3 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Persistent\Mapping\MoneySaveInterpreter.cs            | C#       |          3 |          0 |          1 |          4 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\Persistent\Mapping\UnlockSaveInterpreter.cs           | C#       |         17 |          0 |          6 |         23 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Components\AutoBuyer\AutoBuyerItem.cs              | C#       |         37 |          0 |         10 |         47 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Components\AutoBuyer\AutoBuyerOverbuyAmount.cs     | C#       |         19 |          0 |          6 |         25 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Components\AutoRefiller\RefillerStateComponent.cs  | C#       |         34 |          0 |          9 |         43 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Components\AutoRefiller\RefillerStateController.cs | C#       |         33 |          0 |          9 |         42 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Components\Container.cs                            | C#       |          1 |          0 |          1 |          2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Components\Entity\EntityText.cs                    | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Components\ItemData\ItemDataOwned.cs               | C#       |         -4 |          0 |         -2 |         -6 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Components\ItemData\ItemUIUtil.cs                  | C#       |          1 |          0 |          0 |          1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Components\Supply\SupplyInput.cs                   | C#       |          6 |          0 |          3 |          9 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Components\Supply\SupplyOwned.cs                   | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Controllers\ActionsController.cs                   | C#       |        -33 |          0 |         -8 |        -41 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Controllers\ControlPanelController.cs              | C#       |         63 |          0 |         14 |         77 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Controllers\InventoryController.cs                 | C#       |         -2 |          0 |          1 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Controllers\NumberInputController.cs               | C#       |          6 |          0 |          1 |          7 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Controllers\PopupController.cs                     | C#       |         67 |          0 |         15 |         82 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Controllers\ShopController.cs                      | C#       |          2 |          0 |          1 |          3 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Controllers\TabController.cs                       | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Controls\ItemDataBuyControl.cs                     | C#       |          2 |          0 |          0 |          2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Controls\ItemSellControl.cs                        | C#       |          5 |          0 |          0 |          5 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Displays\MoneyDeltaSpawner.cs                      | C#       |         -2 |          0 |          0 |         -2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Displays\MoneyPerSecondDisplay.cs                  | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Displays\SaveDisplay.cs                            | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Menus\ExitGame.cs                                  | C#       |         11 |          0 |          1 |         12 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Menus\MainMenuBackground.cs                        | C#       |         22 |          0 |          7 |         29 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Menus\OptionsMenu.cs                               | C#       |          1 |          0 |          1 |          2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Menus\SaveSlotContainer.cs                         | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Menus\SaveSlotController.cs                        | C#       |         11 |          0 |          0 |         11 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Misc\DraggableWindow.cs                            | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Misc\EnumDropdown.cs                               | C#       |          1 |          0 |          0 |          1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Misc\SceneLoader.cs                                | C#       |         -2 |          0 |          1 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Misc\WorldCanvas.cs                                | C#       |         26 |          0 |          9 |         35 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Misc\WorldCanvasRoot.cs                            | C#       |         14 |          0 |          6 |         20 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Misc\WorldCanvasWindow.cs                          | C#       |         36 |          0 |         12 |         48 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Tooltip\Tooltip.cs                                 | C#       |         -1 |          0 |          0 |         -1 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Tooltip\TooltipUtil.cs                             | C#       |          3 |          0 |         -1 |          2 |
+| c:\Users\bobbo\Documents\GitHub\FoodDynasty\Assets\Dynasty\UI\Tweening\FadeTweenData.cs                          | C#       |        -14 |          0 |         -3 |        -17 |
+| Total                                                                                                            |          |      1,388 |          4 |        396 |      1,788 |
++------------------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

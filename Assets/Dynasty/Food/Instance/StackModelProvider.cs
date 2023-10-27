@@ -10,11 +10,7 @@ public class StackModelProvider : ModelProvider {
     [SerializeField] Transform _bottom;
     [SerializeField] Transform _top;
     
-    Vector3 _originalTopPosition;
-    
-    void Awake() {
-        _originalTopPosition = _top.localPosition;
-    }
+    float _currentHeight;
     
     public override void SetBaseModel(Poolable poolable) {
         if (BaseModel != null) {
@@ -41,7 +37,7 @@ public class StackModelProvider : ModelProvider {
             Toppings.Pop().Dispose();
         }
 
-        _top.localPosition = _originalTopPosition;
+        _top.localPosition -= _currentHeight * Vector3.up;
     }
     
     public override void AddToppingModel(Poolable model) {
@@ -57,6 +53,7 @@ public class StackModelProvider : ModelProvider {
         t.SetLocalPositionAndRotation(pos, Quaternion.identity);
 
         _top.localPosition += _toppingHeight * Vector3.up;
+        _currentHeight += _toppingHeight;
     }
 }
 

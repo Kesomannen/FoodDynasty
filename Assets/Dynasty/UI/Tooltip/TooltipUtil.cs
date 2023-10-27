@@ -1,4 +1,5 @@
 ﻿using Dynasty.Core.Tooltip;
+using Dynasty.Library;
 using UnityEngine;
 
 namespace Dynasty.UI.Tooltip {
@@ -22,18 +23,25 @@ public static class TooltipUtil {
                 pivot.y = lockPos.y < position.y ? 0 : 1;
             }
         }
-        
-        var size = tooltip.rect.size;
+
+        var size = CanvasHelpers.ScreenToCanvas(tooltip.rect.size);
 
         if (position.x + size.x * (1 - pivot.x) > Screen.width) {
             position.x = Screen.width - size.x;
             pivot.x = 1;
-        }
-        if (position.y - size.y * pivot.y < 0) {
+        } else if (position.x - size.x * pivot.x < 0) {
+            position.x = size.x;
+            pivot.x = 0;
+        } 
+        
+        if (position.y + size.y * (1 - pivot.y) > Screen.height) {
+            position.y = Screen.height - size.y;
+            pivot.y = 0;
+        } else if (position.y - size.y * pivot.y < 0) {
             position.y = size.y;
             pivot.y = 1;
         }
-
+        
         tooltip.pivot = pivot;
         if (useLocalPosition) {
             tooltip.localPosition = position;

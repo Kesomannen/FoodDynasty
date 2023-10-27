@@ -44,7 +44,7 @@ public class FoodDispenser : MonoBehaviour, IInfoProvider, IMachineComponent, IB
     void TryDispense() {
         if (!_condition.Check()) return;
         if (!_pool.Spawn(out var food)) return;
-
+        
         var position = _spawnPoint.position;
         if (_randomSpawnOffset != Vector3.zero) {
             position.x += Random.Range(-_randomSpawnOffset.x, _randomSpawnOffset.x);

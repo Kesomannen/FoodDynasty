@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.SceneManagement;
@@ -12,7 +13,8 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
     [SerializeField] int _defaultCapacity = 10;
     [SerializeField] int _maxSize = 10000;
     [SerializeField] bool _clearOnSceneChange = true;
-    
+
+    readonly List<T> _all = new();
     ObjectPool<T> _pool;
 
     public T Prefab {
@@ -28,14 +30,14 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
     );
 
     void OnEnable() {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
     
     void OnDisable() {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
     
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+    void OnSceneUnloaded(Scene scene) {
         if (_clearOnSceneChange) {  
             Clear();
         }
@@ -56,11 +58,13 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
         obj.Pool = this;
         obj.OnDisposed += Release;
         obj.SetActive(false);
+        
+        _all.Add(obj);
         return obj;
     }
     
     protected virtual void Destroy(T obj) {
-        if (obj == null) return;
+        if (!_all.Remove(obj) || obj == null) return;
         
         obj.OnDisposed -= Release;
         Destroy(obj.gameObject);
@@ -71,7 +75,11 @@ public abstract class CustomObjectPool<T> : ScriptableObject, IDisposable where 
     }
     
     void Clear() {
-        _pool?.Clear();
+        while (_all.Count > 0) {
+            Destroy(_all[^1]);
+        }
+        _all.Clear();
+        _pool = null;
     }
 
     protected void Release(T obj) => Pool.Release(obj);

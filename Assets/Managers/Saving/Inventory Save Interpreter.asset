@@ -15,3 +15,5 @@ MonoBehaviour:
   _saveKey: inventory
   _inventoryAsset: {fileID: 11400000, guid: f5db9577760bc2e4abe3ba3d47891898, type: 2}
   _itemLookup: {fileID: 11400000, guid: 89fcc50be1a52484aafe9bcb43f1da73, type: 2}
+  _startingItems:
+  - {fileID: 11400000, guid: d9e5b56e40d6b8640b484ee21f57282a, type: 2}

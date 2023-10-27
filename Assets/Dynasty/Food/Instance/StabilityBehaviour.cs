@@ -16,17 +16,13 @@ public class StabilityBehaviour : MonoBehaviour {
     [SerializeField] GenericEvent _onFallenOver;
     [Space]
     [AllowNesting]
-    [SerializeField] [ReadOnly] float _velocity;
-    [AllowNesting]
     [SerializeField] [ReadOnly] float _current;
 
     FoodBehaviour _food;
-    Rigidbody _rigidbody;
     float _randomMultiplier;
     bool _fallenOver;
     
     void Awake() {
-        _rigidbody = GetComponent<Rigidbody>();
         _food = GetComponent<FoodBehaviour>();
     }
 
@@ -44,7 +40,6 @@ public class StabilityBehaviour : MonoBehaviour {
         if (_fallenOver) return;
         
         _current = _food.GetTrait<float>(_stabilityTrait.Hash);
-        _velocity = _rigidbody.velocity.magnitude;
 
         var newStability = _current - _stabilityLoss * delta * _randomMultiplier;
         _food.SetTrait(_stabilityTrait.Hash, newStability);

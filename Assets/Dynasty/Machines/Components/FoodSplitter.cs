@@ -56,9 +56,9 @@ public class FoodSplitter : FoodMachineComponent, IInfoProvider, IAdditionalSave
     }
     
     protected override void OnTriggered(FoodBehaviour food) {
-        _supply.CurrentSupply += _splitsPerItem;
         var inputPrice = _sellPriceModifier.Apply(food.GetSellPrice());
         _input.Enqueue(inputPrice);
+        _supply.CurrentSupply += _splitsPerItem;
         food.Dispose();
     }
 

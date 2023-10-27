@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Toothpick Impaler
   m_EditorClassIdentifier: 
   _name: Toothpick Impaler
-  _description: 
-  _shortDescription: 
+  _description: Impales sandwiches with toothpicks, making them more stable and increasing
+    value.
+  _shortDescription: Increases sandwich stability and value
   _icon: {fileID: 21300000, guid: 2075bcd67c3702b4da915c9470e1674f, type: 3}
   _tier: 1
   _price: 50000

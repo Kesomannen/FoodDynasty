@@ -10,9 +10,12 @@ namespace Dynasty.Persistent.Mapping {
 public class InventorySaveInterpreter : SaveInterpreter<InventorySaveData> {
     [SerializeField] InventoryAsset _inventoryAsset;
     [SerializeField] Lookup<ItemData> _itemLookup;
+    [SerializeField] ItemData[] _startingItems;
 
-    protected override InventorySaveData DefaultData => 
-        new() { ItemIds = Array.Empty<int>(), ItemCounts = Array.Empty<int>() };
+    protected override InventorySaveData DefaultData => new() { 
+        ItemIds = _startingItems.Select(item => _itemLookup.GetId(item)).ToArray(),
+        ItemCounts = _startingItems.Select(_ => 1).ToArray()
+    };
 
     protected override void OnLoad(InventorySaveData saveData) {
         for (var i = 0; i < saveData.ItemIds.Length; i++) {

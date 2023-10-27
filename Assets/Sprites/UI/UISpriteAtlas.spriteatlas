@@ -47,6 +47,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f2b1ec0badfb97448b53a38e6382ecc6, type: 3}
   - {fileID: 21300000, guid: f2a0b47be975058459b21e3ecb27ccae, type: 3}
   - {fileID: 7482667652216324306, guid: ad46d7ebc5dc9ba4aba270c91e5bbb73, type: 3}
+  - {fileID: -405758469893832753, guid: f0d3ea3cc3ef1994d9e948fd6b72ff3b, type: 3}
+  - {fileID: 8096245342380315010, guid: f0d3ea3cc3ef1994d9e948fd6b72ff3b, type: 3}
+  - {fileID: 3712942232932317451, guid: f0d3ea3cc3ef1994d9e948fd6b72ff3b, type: 3}
+  - {fileID: -8783755649183741142, guid: f0d3ea3cc3ef1994d9e948fd6b72ff3b, type: 3}
   - {fileID: 21300000, guid: 59199bbd90b72ed4ebfdb050b4287c3b, type: 3}
   - {fileID: 21300000, guid: 6b4d73dd3cce8fc48872ca405b4d64c9, type: 3}
   m_PackedSpriteNamesToIndex:
@@ -59,6 +63,10 @@ SpriteAtlas:
   - InventoryBackground
   - RoundedHollow10px
   - Square
+  - LoadingBelt_Frame_1
+  - LoadingBelt_Frame_0
+  - LoadingBelt_Frame_3
+  - LoadingBelt_Frame_2
   - RoundedHollow20px
   - Gradient
   m_RenderDataMap: {}

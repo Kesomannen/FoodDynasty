@@ -60,7 +60,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 98cf2ce5707b9da4e801fb17dada4b55, type: 3}
   - {fileID: 21300000, guid: 5b6d04f5cc95c3d4aaed7050a7a1dcfc, type: 3}
   - {fileID: 21300000, guid: 6660a306b80f03541a1c3af9f9fc2624, type: 3}
-  - {fileID: 21300000, guid: 1fc25a268c836054ba2da103ef26713d, type: 3}
   - {fileID: 21300000, guid: 368a465626f8ba2418c53283112bd538, type: 3}
   - {fileID: 21300000, guid: 2075bcd67c3702b4da915c9470e1674f, type: 3}
   - {fileID: 21300000, guid: 6625bd2707888df4b87309b9e49bf186, type: 3}
@@ -96,7 +95,6 @@ SpriteAtlas:
   - Bread Statue
   - Spice
   - Auto Refiller
-  - Sandwich Splitter
   - Sandwich Merger
   - Toothpick Impaler
   - Booster

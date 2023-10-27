@@ -320,11 +320,7 @@ MonoBehaviour:
   _unique: 1
   _guid: 28bb01c8-8f37-486c-a852-35386a20573a
   _loader: {fileID: 89925253}
-  _startingMachines:
-  - _itemData: {fileID: 11400000, guid: d9e5b56e40d6b8640b484ee21f57282a, type: 2}
-    _position: {x: 61, y: 31}
-    _rotation:
-      _value: 1
+  _startingMachines: []
 --- !u!114 &89925249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +630,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147357149}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -19847,6 +19843,10 @@ PrefabInstance:
     - target: {fileID: 1850603480, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959284851, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1544996001
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchorMax.y
