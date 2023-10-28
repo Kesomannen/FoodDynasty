@@ -113,13 +113,6 @@ public class CameraController : MonoBehaviour {
         _transform.eulerAngles = new Vector3(0, newRotation, 0);
     }
     
-    void ClampPosition() {
-        var pos = _transform.position;
-        pos.x = Mathf.Clamp(pos.x, _bounds.min.x, _bounds.max.x);
-        pos.z = Mathf.Clamp(pos.z, _bounds.min.z, _bounds.max.z);
-        _transform.position = pos;
-    }
-
     void GetMovementInput() {
         var value = _moveAction.action.ReadValue<Vector2>();
         var direction = _transform.forward * value.y + _transform.right * value.x;
@@ -176,6 +169,14 @@ public class CameraController : MonoBehaviour {
     void OnSpinEnded(InputAction.CallbackContext context) {
         _isSpinning = false;
     }
+    
+    void ClampPosition() {
+        var pos = _transform.position;
+        pos.x = Mathf.Clamp(pos.x, _bounds.min.x, _bounds.max.x);
+        pos.z = Mathf.Clamp(pos.z, _bounds.min.z, _bounds.max.z);
+        _transform.position = pos;
+    }
+
 
     void ClampZoom() {
         var zoomLevel = _targetZoom.magnitude;

@@ -32,9 +32,7 @@ public class MoneyDeltaSpawner : MonoBehaviour {
         animationText.text = $"+{StringHelpers.FormatMoney(delta)}";
         animationText.color = _startColor;
 
-        var rectTransform = animationText.transform as RectTransform;
-        if (rectTransform == null) return;
-        
+        var rectTransform = (RectTransform) animationText.transform;
         var startPosition = Vector2.zero;
         
         var endColor = _startColor;
