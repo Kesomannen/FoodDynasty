@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Food;
 using Dynasty.Library;
-using Dynasty.Persistent.Mapping;
+using Dynasty.Persistent;
 using UnityEngine;
 using UnityEngine.Serialization;
 

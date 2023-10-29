@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Dynasty.Core.Inventory;
+using Dynasty;
 using Dynasty.Machines;
 using Dynasty.Library;
 using TMPro;

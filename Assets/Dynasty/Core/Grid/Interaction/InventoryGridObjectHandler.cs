@@ -1,8 +1,8 @@
 ﻿using Dynasty.Library;
-using Dynasty.Core.Inventory;
+using Dynasty;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 /// <summary>
 /// Handles interaction between <see cref="InventoryAsset"/> and <see cref="GridObject"/>s.

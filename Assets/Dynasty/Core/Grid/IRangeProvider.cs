@@ -1,4 +1,4 @@
-﻿namespace Dynasty.Core.Grid {
+﻿namespace Dynasty.Grid {
 
 public interface IRangeProvider {
     float Range { get; }

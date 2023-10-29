@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Dynasty.Library;
 using UnityEngine;
 
@@ -17,7 +16,7 @@ public class FoodCamera : MonoBehaviour {
     FoodBehaviour _currentFood;
     Rigidbody _currentRigidbody;
     
-    static FoodManager Manager => FoodManager.Singleton;
+    static FoodManager FoodManager => FoodManager.Singleton;
 
     public bool IsActive {
         get => _isActive;
@@ -33,12 +32,12 @@ public class FoodCamera : MonoBehaviour {
     }
 
     void Start() {
-        Manager.OnFoodAdded += OnFoodAdded;
+        FoodManager.OnFoodAdded += OnFoodAdded;
     }
 
     void OnDestroy() {
-        if (Manager != null) {
-            Manager.OnFoodAdded -= OnFoodAdded;
+        if (FoodManager != null) {
+            FoodManager.OnFoodAdded -= OnFoodAdded;
         }
     }
 
@@ -62,7 +61,7 @@ public class FoodCamera : MonoBehaviour {
         }
         
         var t = transform;
-        _currentFood = _newestFood != null ? _newestFood : Manager.Food.ToArray().GetRandom();
+        _currentFood = _newestFood != null ? _newestFood : FoodManager.Food.ToArray().GetRandom();
         
         t.SetParent(_currentFood.transform, false);
         t.localPosition = _offset;
@@ -81,7 +80,7 @@ public class FoodCamera : MonoBehaviour {
 
     void Update() {
         if (!IsActive) return;
-        transform.forward = _currentRigidbody.velocity.normalized;
+        transform.forward = _currentRigidbody.velocity;
     }
 }
 

@@ -333,7 +333,7 @@ MonoBehaviour:
   _actionPrefab: {fileID: 7901170749697913210, guid: 7ce48160bc5581b4a92a761357d1d81a,
     type: 3}
   _hidePopupEvent: {fileID: 11400000, guid: a107f2969e82e7f438976c3102b38d7f, type: 2}
-  _showPopupEvent: {fileID: 11400000, guid: 8cdf8a9f01d643e4897566426dbaaa92, type: 2}
+  _showPopupEvent: {fileID: 11400000, guid: fa80096062961e549ac250bccf2d50df, type: 2}
   _onShow:
     m_PersistentCalls:
       m_Calls:

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 [RequireComponent(typeof(Outline))]
 public class GridOutline : MonoBehaviour {

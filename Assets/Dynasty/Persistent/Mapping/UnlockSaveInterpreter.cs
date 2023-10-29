@@ -1,7 +1,7 @@
-﻿using Dynasty.Core.Inventory;
+﻿using Dynasty;
 using UnityEngine;
 
-namespace Dynasty.Persistent.Mapping {
+namespace Dynasty.Persistent {
 
 [CreateAssetMenu(menuName = "Saving/Interpreter/Unlock")]
 public class UnlockSaveInterpreter : SaveInterpreter<int> {

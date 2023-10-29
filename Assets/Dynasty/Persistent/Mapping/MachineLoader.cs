@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Dynasty.Core.Grid;
-using Dynasty.Core.Inventory;
+using Dynasty.Grid;
+using Dynasty;
 using Dynasty.Library;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace Dynasty.Persistent.Mapping {
+namespace Dynasty.Persistent {
 
 public class MachineLoader : MonoBehaviour {
     [SerializeField] GridManager _gridManager;

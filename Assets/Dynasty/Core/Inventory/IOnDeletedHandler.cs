@@ -1,4 +1,4 @@
-﻿namespace Dynasty.Core.Inventory {
+﻿namespace Dynasty {
 
 /// <summary>
 /// Implement this to receive a callback when this machine is deleted.

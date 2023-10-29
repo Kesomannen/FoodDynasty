@@ -177,7 +177,6 @@ public class CameraController : MonoBehaviour {
         _transform.position = pos;
     }
 
-
     void ClampZoom() {
         var zoomLevel = _targetZoom.magnitude;
 

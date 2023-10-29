@@ -2,7 +2,7 @@
 using Dynasty.Library;
 using UnityEngine;
 
-namespace Dynasty.Core.Tooltip {
+namespace Dynasty.UI {
 
 public struct PopupAction {
     public string Label;

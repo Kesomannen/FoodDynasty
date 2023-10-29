@@ -1,7 +1,7 @@
 ﻿using System;
 using Dynasty.Library;
 
-namespace Dynasty.Core.Tooltip {
+namespace Dynasty.UI {
 
 public static class Keybinds {
     public static event Action<InputEvent> OnKeybindActivated;

@@ -4,7 +4,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Dynasty.Core.Inventory {
+namespace Dynasty {
 
 /// <summary>
 /// Manages the player's money.

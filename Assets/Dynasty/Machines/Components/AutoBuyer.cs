@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Dynasty.Core.Inventory;
+using Dynasty;
 using Dynasty.Library;
-using Dynasty.Persistent.Mapping;
+using Dynasty.Persistent;
 using UnityEngine;
 
 namespace Dynasty.Machines {

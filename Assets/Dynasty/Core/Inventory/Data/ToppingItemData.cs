@@ -3,7 +3,7 @@ using System.Linq;
 using Dynasty.Library;
 using UnityEngine;
 
-namespace Dynasty.Core.Inventory {
+namespace Dynasty {
 
 /// <summary>
 /// Represents a topping item that's applied to food.

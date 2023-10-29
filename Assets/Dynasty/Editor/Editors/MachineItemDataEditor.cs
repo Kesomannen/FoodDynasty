@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Dynasty.Core.Inventory;
+using Dynasty;
 using Dynasty.Library;
 using UnityEditor;
 using UnityEngine;

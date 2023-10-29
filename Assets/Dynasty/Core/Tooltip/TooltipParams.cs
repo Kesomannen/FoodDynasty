@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 
-namespace Dynasty.Core.Tooltip {
+namespace Dynasty.UI {
 
 /// <summary>
-/// Passed to a <see cref="Tooltip"/> or event to specify how it should be displayed.
+/// Passed to a <see cref="UI"/> or event to specify how it should be displayed.
 /// </summary>
 public struct TooltipParams {
     public object Content;

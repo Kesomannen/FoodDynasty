@@ -1,10 +1,10 @@
 ﻿using System;
-using Dynasty.Core.Grid;
+using Dynasty.Grid;
 using Dynasty.Library;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 /// <summary>
 /// Allows moving a <see cref="GridObject"/> by placing it again.

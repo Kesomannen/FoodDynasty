@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Dynasty.Core.Grid;
+using Dynasty.Grid;
 using Dynasty.Library;
 using UnityEngine;
 

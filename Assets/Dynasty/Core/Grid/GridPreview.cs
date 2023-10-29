@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 [RequireComponent(typeof(Renderer))]
 public class GridPreview : MonoBehaviour {

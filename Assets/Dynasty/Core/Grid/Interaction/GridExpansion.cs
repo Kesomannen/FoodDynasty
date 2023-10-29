@@ -3,7 +3,7 @@ using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 public class GridExpansion : MonoBehaviour, IPointerClickHandler {
     [SerializeField] Renderer _renderer;

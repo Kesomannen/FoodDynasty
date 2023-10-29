@@ -2,7 +2,7 @@
 using Dynasty.Library;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 /// <summary>
 /// Represents a 2D rotation in 90 degree steps.

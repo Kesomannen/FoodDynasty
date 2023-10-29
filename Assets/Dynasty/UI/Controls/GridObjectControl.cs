@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Dynasty.Core.Grid;
+using Dynasty.Grid;
 using UnityEngine;
 
 namespace Dynasty.UI.Controls {

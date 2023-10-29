@@ -9,6 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8dee23d37d14540aa0d856126f4dfc2, type: 3}
-  m_Name: HideEntityTooltip
+  m_Script: {fileID: 1873831197, guid: 428a2b4ae625e1b429d961c6080d49fe, type: 3}
+  m_Name: Mission Pool
   m_EditorClassIdentifier: 
+  _prefab: {fileID: 7092767808487559388, guid: 2511aba90af04654d9eab43faf0de686, type: 3}
+  _collectionCheck: 1
+  _defaultCapacity: 10
+  _maxSize: 10000
+  _clearOnSceneChange: 1

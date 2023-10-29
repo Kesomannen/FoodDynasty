@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd68ac7ac3c64a2b8d4cf835abaa810f, type: 3}
+  m_Name: Spicing It Up Shop Mission
+  m_EditorClassIdentifier: 
+  _description: Buy two <item=7>s and fill them with 10 <item=8>
+  _itemLookup: {fileID: 11400000, guid: 89fcc50be1a52484aafe9bcb43f1da73, type: 2}
+  _inventory: {fileID: 11400000, guid: f5db9577760bc2e4abe3ba3d47891898, type: 2}
+  _items:
+  - ItemData: {fileID: 11400000, guid: 339e43932decdda4fb48cb08d20ebe94, type: 2}
+    Amount: 2
+  - ItemData: {fileID: 11400000, guid: 92c67e9cf6e1f7549ade844dae795724, type: 2}
+    Amount: 10

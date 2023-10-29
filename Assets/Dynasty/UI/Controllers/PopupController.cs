@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Dynasty.Core.Tooltip;
+using Dynasty.UI;
 using Dynasty.Library;
 using TMPro;
 using UnityEngine;

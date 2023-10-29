@@ -1,5 +1,5 @@
 ﻿using System;
-using Dynasty.Persistent.Mapping;
+using Dynasty.Persistent;
 using NaughtyAttributes;
 using UnityEngine;
 

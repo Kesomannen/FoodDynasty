@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -2123808133, guid: 1a73e75fa72967847be33fa6415ea2f6, type: 3}
-  m_Name: OnItemUsed
+  m_Script: {fileID: 11500000, guid: c8dee23d37d14540aa0d856126f4dfc2, type: 3}
+  m_Name: Hide Entity Tooltip
   m_EditorClassIdentifier: 

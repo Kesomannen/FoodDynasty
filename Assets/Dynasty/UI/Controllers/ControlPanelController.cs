@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
-using Dynasty.Core.Grid;
-using Dynasty.Core.Inventory;
+using Dynasty.Grid;
+using Dynasty;
 using Dynasty.Food;
 using Dynasty.Library;
 using Dynasty.Machines;

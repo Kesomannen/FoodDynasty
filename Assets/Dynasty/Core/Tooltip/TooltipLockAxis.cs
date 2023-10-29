@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dynasty.Core.Tooltip {
+namespace Dynasty.UI {
 
 [Flags]
 public enum TooltipLockAxis {

@@ -4,7 +4,7 @@ using System.Linq;
 using Dynasty.Library;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 public class GridExpansionController : MonoBehaviour {
     [SerializeField] Vector2Int _expansionGridSize;

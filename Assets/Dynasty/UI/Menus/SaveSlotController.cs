@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
-using Dynasty.Core.Tooltip;
 using Dynasty.Library;
 using Dynasty.Persistent;
-using Dynasty.UI.Controllers;
 using UnityEngine;
 
 namespace Dynasty.UI {
@@ -19,8 +18,10 @@ public class SaveSlotController : MonoBehaviour {
 
     List<SaveSlotContainer> _slots;
     
-    async void Start() {
-        var saveSlots = await _saveManager.GetSaves();
+    IEnumerator Start() {
+        var getSaveSlots = _saveManager.GetSaves().GetHandle();
+        yield return getSaveSlots;
+        var saveSlots = getSaveSlots.Result;
         
         _slots = new List<SaveSlotContainer>(saveSlots.Length);
         

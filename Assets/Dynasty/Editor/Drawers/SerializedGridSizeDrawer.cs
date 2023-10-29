@@ -1,4 +1,4 @@
-﻿using Dynasty.Core.Grid;
+﻿using Dynasty.Grid;
 using Dynasty.Library;
 using UnityEditor;
 using UnityEngine;

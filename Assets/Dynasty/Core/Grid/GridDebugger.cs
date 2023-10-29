@@ -3,7 +3,7 @@ using Dynasty.Library;
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 [ExecuteInEditMode]
 public class GridDebugger : MonoBehaviour {

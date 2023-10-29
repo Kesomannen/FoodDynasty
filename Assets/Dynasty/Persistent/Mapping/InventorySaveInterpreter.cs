@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Linq;
-using Dynasty.Core.Inventory;
-using Dynasty.Persistent;
+using Dynasty;
 using UnityEngine;
 
-namespace Dynasty.Persistent.Mapping {
+namespace Dynasty.Persistent {
 
 [CreateAssetMenu(menuName = "Saving/Interpreter/Inventory")]
 public class InventorySaveInterpreter : SaveInterpreter<InventorySaveData> {

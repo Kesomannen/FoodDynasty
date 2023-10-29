@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 /// <summary>
 /// Provides utility methods for grid objects.

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Dynasty.Persistent.Mapping {
+namespace Dynasty.Persistent {
 
 [Serializable]
 public struct SerializableVector2Int {

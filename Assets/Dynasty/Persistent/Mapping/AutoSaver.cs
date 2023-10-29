@@ -6,18 +6,18 @@ using UnityEngine;
 
 # pragma warning disable 4014
 
-namespace Dynasty.Persistent.Mapping {
+namespace Dynasty.Persistent {
 
 public class AutoSaver : MonoBehaviour {
     [SerializeField] float _saveInterval = 60;
     [SerializeField] SaveManager _saveManager;
 
-    async void Awake() {
-        await _saveManager.LoadCurrent();
+    void Awake() {
+        _saveManager.LoadCurrent();
     }
 
-    async void OnDestroy() {
-        await _saveManager.SaveCurrent();
+    void OnDestroy() {
+        _saveManager.SaveCurrent();
     }
 
     IEnumerator Start() {

@@ -1,4 +1,4 @@
-﻿namespace Dynasty.Core.Inventory {
+﻿namespace Dynasty {
 
 /// <summary>
 /// Represents an item in an inventory.

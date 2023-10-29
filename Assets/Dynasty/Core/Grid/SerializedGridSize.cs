@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 /// <summary>
 /// Serializable wrapper for <see cref="GridSize"/>.

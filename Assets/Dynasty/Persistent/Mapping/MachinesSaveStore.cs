@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
-using Dynasty.Core.Grid;
-using Dynasty.Core.Inventory;
+using Dynasty.Grid;
+using Dynasty;
 using UnityEngine;
 
-namespace Dynasty.Persistent.Mapping {
+namespace Dynasty.Persistent {
 
 public class MachinesSaveStore : SaveStore<MachineSaveData> {
     [Space]

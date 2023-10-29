@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04eae168c3d4f698146f238d2cb242f, type: 3}
+  m_Name: Spicing It Up Money Mission
+  m_EditorClassIdentifier: 
+  _description: Apply spice and earn more money!
+  _itemLookup: {fileID: 11400000, guid: 89fcc50be1a52484aafe9bcb43f1da73, type: 2}
+  _goal: 1000
+  _moneyManager: {fileID: 11400000, guid: 3aa791b48a062404caa64519d76af16b, type: 2}

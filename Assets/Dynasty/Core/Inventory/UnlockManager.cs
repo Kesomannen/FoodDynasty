@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Dynasty.Core.Tooltip;
 using Dynasty.Library;
+using Dynasty.UI;
 using UnityEngine;
 
-namespace Dynasty.Core.Inventory {
+namespace Dynasty {
 
 [CreateAssetMenu(menuName = "Manager/Unlocks")]
 public class UnlockManager : MonoScriptable {

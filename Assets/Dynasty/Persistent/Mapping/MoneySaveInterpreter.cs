@@ -1,9 +1,9 @@
 ﻿using System;
-using Dynasty.Core.Inventory;
+using Dynasty;
 using Dynasty.Persistent;
 using UnityEngine;
 
-namespace Dynasty.Persistent.Mapping {
+namespace Dynasty.Persistent {
 
 [CreateAssetMenu(menuName = "Saving/Interpreter/Money")]
 public class MoneySaveInterpreter : SaveInterpreter<MoneySaveInterpreter.SaveData> {

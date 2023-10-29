@@ -1,6 +1,5 @@
-﻿using System.Linq;
-using Dynasty.Library;
-using Dynasty.Persistent.Mapping;
+﻿using Dynasty.Library;
+using Dynasty.Persistent;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Saving/Model Lookup")]

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Dynasty.Library;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 /// <summary>
 /// Represents a 2D size on a grid.

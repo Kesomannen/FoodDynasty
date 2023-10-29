@@ -1,7 +1,7 @@
 ﻿using Dynasty.Library;
 using UnityEngine;
 
-namespace Dynasty.Core.Inventory {
+namespace Dynasty {
 
 /// <summary>
 /// Links a machine to its item data.

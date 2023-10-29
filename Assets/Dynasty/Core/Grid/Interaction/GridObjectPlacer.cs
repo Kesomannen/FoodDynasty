@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Dynasty.Core.Grid;
-using Dynasty.Core.Tooltip;
+using Dynasty.Grid;
 using Dynasty.Library;
+using Dynasty.UI;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 /// <summary>
 /// Handles the placement of <see cref="GridObject"/>s on a <see cref="GridManager"/> using player input.

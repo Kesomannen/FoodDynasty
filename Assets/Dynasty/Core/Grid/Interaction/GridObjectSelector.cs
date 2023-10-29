@@ -1,8 +1,8 @@
-﻿using Dynasty.Core.Tooltip;
-using Dynasty.Library;
+﻿using Dynasty.Library;
+using Dynasty.UI;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 /// <summary>
 /// Applies an outline to <see cref="GridObject"/>s and shows a tooltip.

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Library;
-using Dynasty.Core.Grid;
+using Dynasty.Grid;
 using UnityEngine;
 
-namespace Dynasty.Core.Inventory {
+namespace Dynasty {
 
 /// <summary>
 /// Represents an item that can be placed on the grid.

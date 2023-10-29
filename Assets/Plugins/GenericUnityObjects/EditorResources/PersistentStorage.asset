@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: PersistentStorage
   m_EditorClassIdentifier: 
   _menuItemMethods:
-  - _typeName: Dynasty.Persistent.Mapping.Lookup`1, Dynasty.Persistent
+  - _typeName: Dynasty.Persistent.Lookup`1, Dynasty.Persistent
     _fileName: New Lookup`1
     _menuName: Saving/Lookup
+    _order: 0
+  - _typeName: Dynasty.UI.Tutorial.MissionTemplate`1, Dynasty.UI
+    _fileName: New MissionTemplate`1
+    _menuName: Tutorial/Mission
     _order: 0
   - _typeName: Dynasty.UI.Miscellaneous.ContainerObjectPool`1, Dynasty.UI
     _fileName: New ContainerObjectPool`1

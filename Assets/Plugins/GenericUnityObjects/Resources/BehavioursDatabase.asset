@@ -35,7 +35,7 @@ MonoBehaviour:
         z_Event_FoodBehaviour
   - _keys:
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Core.Grid.GridObject, Dynasty.Core
+      - _typeNameAndAssembly: Dynasty.Grid.GridObject, Dynasty.Core
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_c36452e95c0c3b845ab55aa88fbd4dc3,
         z_MouseEventTrigger_GridObject
@@ -43,21 +43,23 @@ MonoBehaviour:
     - _collection:
       - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Core.Inventory.Item, Dynasty.Core
+      - _typeNameAndAssembly: Dynasty.Item, Dynasty.Core
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
+      - _typeNameAndAssembly: Dynasty.ItemData, Dynasty.Core
     - _collection:
       - _typeNameAndAssembly: Dynasty.Library.EntityInfo, Dynasty.Library
     - _collection:
       - _typeNameAndAssembly: Dynasty.Machines.Supply, Dynasty.Machines
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
+      - _typeNameAndAssembly: Dynasty.MachineEntity, Dynasty.Core
     - _collection:
       - _typeNameAndAssembly: Dynasty.Machines.AutoBuyer, Dynasty.Machines
     - _collection:
       - _typeNameAndAssembly: Dynasty.Machines.AutoRefiller, Dynasty.Machines
     - _collection:
       - _typeNameAndAssembly: Dynasty.Machines.RefillerState, Dynasty.Machines
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.UI.Tutorial.Mission, Dynasty.UI
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_df7bf43c3ee77704796922a82fc22b90,
         z_Container_Entity
@@ -77,11 +79,13 @@ MonoBehaviour:
         z_Container_AutoRefiller
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_0d8f0524cb3b9fb458165a0d4c74e230,
         z_Container_RefillerState
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_f512235506e61674da5573ff5ad7ffe8,
+        z_Container_Mission
   - _keys:
     - _collection:
       - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
+      - _typeNameAndAssembly: Dynasty.ItemData, Dynasty.Core
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_61632d180d5648c45863bd037625c8c3,
         z_Tooltip_Entity
@@ -91,9 +95,9 @@ MonoBehaviour:
     - _collection:
       - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Core.Inventory.ItemData, Dynasty.Core
+      - _typeNameAndAssembly: Dynasty.ItemData, Dynasty.Core
     - _collection:
-      - _typeNameAndAssembly: Dynasty.Core.Inventory.MachineEntity, Dynasty.Core
+      - _typeNameAndAssembly: Dynasty.MachineEntity, Dynasty.Core
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_c580e9618eb03cb46b983baf8e5ad14c,
         z_EntityText_Entity

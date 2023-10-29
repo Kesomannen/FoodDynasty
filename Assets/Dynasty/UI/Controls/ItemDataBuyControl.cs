@@ -1,5 +1,5 @@
 ﻿using System;
-using Dynasty.Core.Inventory;
+using Dynasty;
 using Dynasty.Library;
 using Dynasty.UI.Components;
 using Dynasty.UI.Controllers;

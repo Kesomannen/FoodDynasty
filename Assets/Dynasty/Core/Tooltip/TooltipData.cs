@@ -2,7 +2,7 @@
 using Dynasty.Library;
 using UnityEngine;
 
-namespace Dynasty.Core.Tooltip {
+namespace Dynasty.UI {
 
 /// <summary>
 /// Serializable abstraction for a tooltip display;

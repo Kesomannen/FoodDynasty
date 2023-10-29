@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moneyManager: {fileID: 11400000, guid: 3aa791b48a062404caa64519d76af16b, type: 2}
   _unlockEvent: {fileID: 11400000, guid: 7e120a136293dad40b8f72973c98d7f2, type: 2}
-  _popupEvent: {fileID: 11400000, guid: 8cdf8a9f01d643e4897566426dbaaa92, type: 2}
+  _popupEvent: {fileID: 11400000, guid: fa80096062961e549ac250bccf2d50df, type: 2}
   _unlockData:
   - Header: Bread
     MoneyMadeRequirement: 0

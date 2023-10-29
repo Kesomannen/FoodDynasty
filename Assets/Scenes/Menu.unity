@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1479,6 +1479,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1171080442}
   m_CullTransparentMesh: 1
+--- !u!1 &1216194157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1216194159}
+  - component: {fileID: 1216194158}
+  m_Layer: 0
+  m_Name: Tutorial Loader
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!114 &1216194158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216194157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3ab549c86648f5954481ceacd0b446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadSceneEvent: {fileID: 11400000, guid: 91029ffb9c2ca8c4995c5c504c7cf996, type: 2}
+  _gameSceneId: 1
+--- !u!4 &1216194159
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216194157}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1272374773
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,7 +1580,7 @@ MonoBehaviour:
   _containerPrefab: {fileID: 2940283701397975545, guid: 9391bb4faaef5d04eb1d61e7b90ef5e7,
     type: 3}
   _containerParent: {fileID: 1272374774}
-  _showPopupEvent: {fileID: 11400000, guid: 8cdf8a9f01d643e4897566426dbaaa92, type: 2}
+  _showPopupEvent: {fileID: 11400000, guid: fa80096062961e549ac250bccf2d50df, type: 2}
   _loadScene: {fileID: 11400000, guid: 91029ffb9c2ca8c4995c5c504c7cf996, type: 2}
   _gameSceneId: 1
 --- !u!114 &1272374777
@@ -6886,6 +6932,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1741151729}
     m_Modifications:
+    - target: {fileID: 1238014130811609034, guid: 77f5478d619cbae4b84f4dcf766b1556,
+        type: 3}
+      propertyPath: _showPopupEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: fa80096062961e549ac250bccf2d50df,
+        type: 2}
     - target: {fileID: 1238014130811609035, guid: 77f5478d619cbae4b84f4dcf766b1556,
         type: 3}
       propertyPath: m_Pivot.x

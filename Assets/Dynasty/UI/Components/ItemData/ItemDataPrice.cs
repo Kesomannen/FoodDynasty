@@ -1,4 +1,4 @@
-﻿using Dynasty.Core.Inventory;
+﻿using Dynasty;
 using Dynasty.Library;
 using TMPro;
 using UnityEngine;

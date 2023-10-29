@@ -17,3 +17,4 @@ MonoBehaviour:
   _pitch: 1
   _clips:
   - {fileID: 8300000, guid: 9d3c68f45a29c1f47b535392456b9c98, type: 3}
+  - {fileID: 8300000, guid: b053316eb4e69834087e42eeba7b4666, type: 3}

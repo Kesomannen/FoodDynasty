@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 using NaughtyAttributes;
 using UnityEngine;
 
-namespace Dynasty.Core.Grid {
+namespace Dynasty.Grid {
 
 /// <summary>
 /// An object that lives on a grid.

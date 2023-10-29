@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Dynasty.Library;
 using UnityEngine;
 
-namespace Dynasty.Core.Inventory {
+namespace Dynasty {
 
 /// <summary>
 /// Manages a collection of items.
@@ -24,6 +24,9 @@ public class InventoryAsset : MonoScriptable {
     /// Raised when an item's count changes, is added, or is removed.
     /// </summary>
     public event Action<Item> OnItemChanged;
+    
+    public event Action<ItemData, int> OnItemsAdded;
+    public event Action<ItemData, int> OnItemsRemoved;
 
     public override void OnAwake() {
         _items.Clear();
@@ -59,7 +62,8 @@ public class InventoryAsset : MonoScriptable {
         var item = GetOrAdd(data);
         item.Count += count;
         _items[data] = item;
-        
+
+        OnItemsAdded?.Invoke(data, count);
         OnItemChanged?.Invoke(item);
     }
 
@@ -76,6 +80,7 @@ public class InventoryAsset : MonoScriptable {
         if (item.Count <= 0) _items.Remove(data);
         else _items[data] = item;
         
+        OnItemsRemoved?.Invoke(data, count);
         OnItemChanged?.Invoke(item);
         return true;
     }

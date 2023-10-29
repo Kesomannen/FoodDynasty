@@ -1,4 +1,4 @@
-﻿using Dynasty.Persistent.Mapping;
+﻿using Dynasty.Persistent;
 using Dynasty.UI;
 using UnityEditor;
 using UnityEngine;

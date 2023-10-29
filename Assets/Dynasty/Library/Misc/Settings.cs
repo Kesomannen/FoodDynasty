@@ -16,15 +16,15 @@ public static class Settings {
     public static Setting<MaxFramerateSetting> MaxFramerate { get; }
 
     static Settings() {
-        MusicVolume = GetSetting("music_volume", 0.5f, value => SoundManager.Singleton.MusicVolume = value);
-        EffectsVolume = GetSetting("sfx_volume", 0.5f, value => SoundManager.Singleton.EffectsVolume = value);
-        MasterVolume = GetSetting("master_volume", 0.5f, value => SoundManager.Singleton.MasterVolume = value);
+        MusicVolume = SettingsFactory.Get("music_volume", 0.5f, value => SoundManager.Singleton.MusicVolume = value);
+        EffectsVolume = SettingsFactory.Get("sfx_volume", 0.5f, value => SoundManager.Singleton.EffectsVolume = value);
+        MasterVolume = SettingsFactory.Get("master_volume", 0.5f, value => SoundManager.Singleton.MasterVolume = value);
         
-        CameraSensitivity = GetSetting("camera_sensitivity", 0.5f);
+        CameraSensitivity = SettingsFactory.Get("camera_sensitivity", 0.5f);
         
-        Quality = GetSetting("quality", QualitySetting.Medium, value => QualitySettings.SetQualityLevel((int) value));
+        Quality = SettingsFactory.Get("quality", QualitySetting.Medium, value => QualitySettings.SetQualityLevel((int) value));
          
-        WindowMode = GetSetting("window_mode", WindowModeSetting.Borderless, value => {
+        WindowMode = SettingsFactory.Get("window_mode", WindowModeSetting.Borderless, value => {
             Screen.fullScreenMode = value switch {
                 WindowModeSetting.Windowed => FullScreenMode.Windowed,
                 WindowModeSetting.Borderless => FullScreenMode.FullScreenWindow,
@@ -38,7 +38,7 @@ public static class Settings {
             };
         });
         
-        MaxFramerate = GetSetting("max_framerate", MaxFramerateSetting.VSync, value => {
+        MaxFramerate = SettingsFactory.Get("max_framerate", MaxFramerateSetting.VSync, value => {
             QualitySettings.vSyncCount = value == MaxFramerateSetting.VSync ? 1 : 0;
             Application.targetFrameRate = value switch {
                 MaxFramerateSetting.VSync => -1,
@@ -51,20 +51,22 @@ public static class Settings {
             };
         });
     }
+}
 
-    static Setting<string> GetSetting(string key, string defaultValue, Action<string> onSet = null) {
+public static class SettingsFactory {
+    public static Setting<string> Get(string key, string defaultValue = default, Action<string> onSet = null) {
         return new Setting<string>(key, defaultValue, PlayerPrefs.SetString, PlayerPrefs.GetString, onSet);
     }
     
-    static Setting<float> GetSetting(string key, float defaultValue, Action<float> onSet = null) {
+    public static Setting<float> Get(string key, float defaultValue = default, Action<float> onSet = null) {
         return new Setting<float>(key, defaultValue, PlayerPrefs.SetFloat, PlayerPrefs.GetFloat, onSet);
     }
     
-    static Setting<int> GetSetting(string key, int defaultValue, Action<int> onSet = null) {
+    public static Setting<int> Get(string key, int defaultValue = default, Action<int> onSet = null) {
         return new Setting<int>(key, defaultValue, PlayerPrefs.SetInt, PlayerPrefs.GetInt, onSet);
     }
 
-    static Setting<T> GetSetting<T>(string key, T defaultValue, Action<T> onSet = null) where T : Enum {
+    public static Setting<T> Get<T>(string key, T defaultValue = default, Action<T> onSet = null) where T : Enum {
         return new Setting<T>(
             key, defaultValue,
             (k, v) => PlayerPrefs.SetInt(k, v.ToInt()),

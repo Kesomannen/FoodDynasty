@@ -1,4 +1,4 @@
-﻿using Dynasty.Core.Tooltip;
+﻿using Dynasty.UI;
 using Dynasty.Library;
 using Dynasty.UI.Controllers;
 using UnityEngine;

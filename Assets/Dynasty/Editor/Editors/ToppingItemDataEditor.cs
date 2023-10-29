@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Dynasty.Core.Inventory;
+using Dynasty;
 using UnityEditor;
 
 [CustomEditor(typeof(ToppingItemData))]

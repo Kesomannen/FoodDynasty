@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Dynasty.Core.Inventory;
-using Dynasty.Core.Tooltip;
+using Dynasty;
+using Dynasty.UI;
 using Dynasty.Library;
 using Dynasty.UI.Components;
 using Dynasty.UI.Controls;
