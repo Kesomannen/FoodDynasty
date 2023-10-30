@@ -53,6 +53,7 @@ public class FoodFilterDrawer : PropertyDrawer {
             case FoodTraitType.Int:
                 EditorGUI.PropertyField(rect, property.Find("_intRange"), new GUIContent("Range")); break;
             case FoodTraitType.Float:
+            case FoodTraitType.Modifier:
                 EditorGUI.PropertyField(rect, property.Find("_floatRange"), new GUIContent("Range")); break;
             case FoodTraitType.Bool:
                 EditorGUI.PropertyField(rect, property.Find("_boolValue"), new GUIContent("Value")); break;

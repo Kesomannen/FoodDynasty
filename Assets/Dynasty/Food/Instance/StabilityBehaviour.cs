@@ -16,7 +16,8 @@ public class StabilityBehaviour : MonoBehaviour {
     [SerializeField] GenericEvent _onFallenOver;
     [Space]
     [AllowNesting]
-    [SerializeField] [ReadOnly] float _current;
+    [SerializeField] [ReadOnly] Modifier _current;
+    [SerializeField] [ReadOnly] float _currentDelta;
 
     FoodBehaviour _food;
     float _randomMultiplier;
@@ -39,12 +40,13 @@ public class StabilityBehaviour : MonoBehaviour {
     void OnTick(float delta) {
         if (_fallenOver) return;
         
-        _current = _food.GetTrait<float>(_stabilityTrait.Hash);
+        _current = _food.GetTrait<Modifier>(_stabilityTrait.Hash);
 
-        var newStability = _current - _stabilityLoss * delta * _randomMultiplier;
+        var newStability = _current - new Modifier(additive: _stabilityLoss * delta * _randomMultiplier);
         _food.SetTrait(_stabilityTrait.Hash, newStability);
 
-        if (newStability > 0) return;
+        _currentDelta = newStability.DeltaFloat;
+        if (_currentDelta > 0) return;
 
         if (_onFallenOver != null) {
             _onFallenOver.Raise();

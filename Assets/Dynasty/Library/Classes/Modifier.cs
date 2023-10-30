@@ -17,40 +17,18 @@ public struct Modifier {
     }
 
     public double Delta => Apply(0);
+    public float DeltaFloat => Apply(0);
 
     public double Apply(double value) {
         return (value + Base) * (1 + Percentual) * Multiplicative + Additive;
     }
+    
+    public float Apply(float value) {
+        return (float)Apply((double)value);
+    }
 
     public int Apply(int value) {
         return (int)Apply((double)value);
-    }
-
-    public void Bake() {
-        Base = Delta;
-        Percentual = 0;
-        Additive = 0;
-        Multiplicative = 1;
-    }
-
-    public void Modify(double value, ModifierType type, bool bake = false) {
-        switch (type) {
-            case ModifierType.Base: Base += value; break;
-            case ModifierType.Percentual: Percentual += value; break;
-            case ModifierType.Additive: Additive += value; break;
-            case ModifierType.Multiplicative:
-                if (value < 0) {
-                    Multiplicative /= Math.Abs(value);
-                } else {
-                    Multiplicative *= value;
-                }
-                break;
-            default: throw new ArgumentOutOfRangeException(nameof(type), type, null);
-        }
-
-        if (bake) {
-            Bake();
-        }
     }
     
     public static Modifier Lerp(Modifier a, Modifier b, double t) {
@@ -80,15 +58,6 @@ public struct Modifier {
         );
     }
     
-    public static Modifier operator *(Modifier a, float b) {
-        return new Modifier(
-            a.Base * b,
-            a.Percentual * b,
-            a.Additive * b,
-            a.Multiplicative * b
-        );
-    }
-
     public override string ToString() {
         var result = "";
         if (Base != 0) {
@@ -108,11 +77,4 @@ public struct Modifier {
     }
 }
 
-}
-
-public enum ModifierType {
-    Base,
-    Percentual,
-    Additive,
-    Multiplicative
 }

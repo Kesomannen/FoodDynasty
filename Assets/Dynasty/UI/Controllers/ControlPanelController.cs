@@ -27,6 +27,12 @@ public class ControlPanelController : MonoBehaviour {
 
     void Awake() {
         _disabledFoodCameraUnicode = _foodCameraIcon.iconUnicode;
+        
+        _foodCamera.OnAvailabilityChanged += _ => UpdateFoodCameraIcon();
+    }
+
+    void Start() {
+        UpdateFoodCameraIcon();
     }
 
     void OnEnable() {
@@ -49,6 +55,11 @@ public class ControlPanelController : MonoBehaviour {
 
     public void ToggleFoodCamera() {
         _foodCamera.IsActive = !_foodCamera.IsActive;
+        UpdateFoodCameraIcon();
+    }
+
+    void UpdateFoodCameraIcon() {
+        _foodCameraIcon.GetComponent<Selectable>().interactable = _foodCamera.IsAvailable;
         _foodCameraIcon.iconUnicode = _foodCamera.IsActive ? _enabledFoodCameraUnicode : _disabledFoodCameraUnicode;
     }
 

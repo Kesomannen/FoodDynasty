@@ -38,6 +38,8 @@ public class FoodTraitModifier {
                 food.SetTrait(trait.Hash, _floatValue); break;
             case FoodTraitType.Bool:
                 food.SetTrait(trait.Hash, _boolValue); break;
+            case FoodTraitType.Modifier:
+                food.SetTrait(trait.Hash, _modifier); break;
             case FoodTraitType.Tag:
             default: throw new ArgumentOutOfRangeException();
         }
@@ -46,12 +48,16 @@ public class FoodTraitModifier {
     void ModifyTrait(FoodBehaviour food, FoodTraitSelection trait) {
         switch (trait.Type) {
             case FoodTraitType.Float:
-                var value = food.GetTrait<float>(trait.Hash); 
-                food.SetTrait(trait.Hash, (float) _modifier.Apply(value));
+                var floatValue = food.GetTrait<float>(trait.Hash); 
+                food.SetTrait(trait.Hash, _modifier.Apply(floatValue));
                 break;
             case FoodTraitType.Int:
                 var intValue = food.GetTrait<int>(trait.Hash);
                 food.SetTrait(trait.Hash, _modifier.Apply(intValue));
+                break;
+            case FoodTraitType.Modifier:
+                var modifierValue = food.GetTrait<Modifier>(trait.Hash);
+                food.SetTrait(trait.Hash, _modifier + modifierValue);
                 break;
             case FoodTraitType.Bool:
                 throw new InvalidOperationException("Cannot modify bool traits");

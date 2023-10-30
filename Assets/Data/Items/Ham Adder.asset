@@ -17,7 +17,8 @@ MonoBehaviour:
   _shortDescription: Adds hams to sandwiches
   _icon: {fileID: 21300000, guid: 93759f235e770b34db52d7d409acbc9c, type: 3}
   _tier: 1
-  _price: 30000
+  _price: 50000
+  _sellable: 1
   _type: 7
   _prefab: {fileID: 4368069221317615765, guid: cd3cbbc77ba34c84482a9feffb5ae5f8, type: 3}
   _enabledProviders: 01000100

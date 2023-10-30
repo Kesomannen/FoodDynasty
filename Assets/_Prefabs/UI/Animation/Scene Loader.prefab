@@ -140,6 +140,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _overlay: {fileID: 873042058}
-  _fadeDuration: 0.4
-  _fadeEase: 15
+  _fadeDuration: 0.3
+  _fadeEase: 1
   _loadSceneEvent: {fileID: 11400000, guid: 91029ffb9c2ca8c4995c5c504c7cf996, type: 2}

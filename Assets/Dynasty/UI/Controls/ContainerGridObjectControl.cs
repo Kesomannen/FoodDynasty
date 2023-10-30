@@ -29,6 +29,7 @@ public class ContainerGridObjectControl<T> : GridObjectControl {
             if (i < _storedContainers.Count) {
                 container = _storedContainers[i];
                 container.gameObject.SetActive(true);
+                container.transform.localRotation = Quaternion.identity;
             } else {
                 container = Instantiate(_containerPrefab);
                 _storedContainers.Add(container);

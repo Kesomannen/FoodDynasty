@@ -17,7 +17,7 @@ MonoBehaviour:
   _shortDescription: Thanks for playing!
   _icon: {fileID: 21300000, guid: 98cf2ce5707b9da4e801fb17dada4b55, type: 3}
   _tier: 2
-  _price: 10000000
+  _price: 5000000
   _sellable: 1
   _type: 0
   _prefab: {fileID: 3752979660749334158, guid: fe20a112389180c4195d9bdd64313d14, type: 3}

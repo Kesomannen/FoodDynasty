@@ -43,7 +43,7 @@ MonoBehaviour:
   - _trait:
       _value: Stability
       _hash: 605704453
-      _type: 2
+      _type: 4
     _operation: 1
     _modifier:
       Base: 0

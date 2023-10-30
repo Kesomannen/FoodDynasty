@@ -42,7 +42,7 @@ public class FoodTraitModifierDrawer : PropertyDrawer {
         rect.height = EditorGUI.GetPropertyHeight(traitProperty);
         EditorGUI.PropertyField(rect, traitProperty);
 
-        var canModify = validTrait && selectedTrait.Type is FoodTraitType.Int or FoodTraitType.Float;
+        var canModify = validTrait && selectedTrait.Type is FoodTraitType.Int or FoodTraitType.Float or FoodTraitType.Modifier;
         if (!canModify) operationProperty.enumValueIndex = 0;
 
         EditorGUI.BeginDisabledGroup(!canModify);
@@ -78,6 +78,8 @@ public class FoodTraitModifierDrawer : PropertyDrawer {
                 EditorGUI.PropertyField(rect, property.Find("_floatValue"), new GUIContent("Value")); break;
             case FoodTraitType.Bool:
                 EditorGUI.PropertyField(rect, property.Find("_boolValue"), new GUIContent("Value")); break;
+            case FoodTraitType.Modifier:
+                EditorGUI.PropertyField(rect, property.Find("_modifier"), new GUIContent("Value"), true); break;
             case FoodTraitType.Tag: break;
             default: throw new ArgumentOutOfRangeException();
         }

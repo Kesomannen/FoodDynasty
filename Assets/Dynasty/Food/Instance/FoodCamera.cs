@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Dynasty.Library;
 using UnityEngine;
 
@@ -26,6 +27,10 @@ public class FoodCamera : MonoBehaviour {
             else Deactivate();
         }
     }
+    
+    public bool IsAvailable { get; private set; }
+    
+    public event Action<bool> OnAvailabilityChanged; 
 
     void Awake() {
         _camera = GetComponent<Camera>();
@@ -33,11 +38,13 @@ public class FoodCamera : MonoBehaviour {
 
     void Start() {
         FoodManager.OnFoodAdded += OnFoodAdded;
+        FoodManager.OnFoodRemoved += OnFoodRemoved;
     }
 
     void OnDestroy() {
         if (FoodManager != null) {
             FoodManager.OnFoodAdded -= OnFoodAdded;
+            FoodManager.OnFoodRemoved -= OnFoodRemoved;
         }
     }
 
@@ -51,14 +58,16 @@ public class FoodCamera : MonoBehaviour {
         transform.SetParent(null, false);
         
         if (_currentFood != null) {
-            _currentFood.OnDisposed -= OnFoodDisposed;
+            _currentFood.OnDisposed -= OnCurrentFoodDisposed;
         }
     }
 
     void AttachToNewFood() {
         if (_currentFood != null) {
-            _currentFood.OnDisposed -= OnFoodDisposed;
+            _currentFood.OnDisposed -= OnCurrentFoodDisposed;
         }
+        
+        if (!IsAvailable) return;
         
         var t = transform;
         _currentFood = _newestFood != null ? _newestFood : FoodManager.Food.ToArray().GetRandom();
@@ -67,15 +76,29 @@ public class FoodCamera : MonoBehaviour {
         t.localPosition = _offset;
         _currentRigidbody = _currentFood.GetComponent<Rigidbody>();
         
-        _currentFood.OnDisposed += OnFoodDisposed;
+        _currentFood.OnDisposed += OnCurrentFoodDisposed;
     }
     
-    void OnFoodDisposed(FoodBehaviour food) {
+    void OnCurrentFoodDisposed(FoodBehaviour food) {
         AttachToNewFood();
     }
 
     void OnFoodAdded(FoodBehaviour food) {
         _newestFood = food;
+        
+        if (!IsAvailable) {
+            IsAvailable = true;
+            OnAvailabilityChanged?.Invoke(true);
+        }
+    }
+    
+    void OnFoodRemoved(FoodBehaviour food) {
+        if (_newestFood != food) return;
+        
+        _newestFood = null;
+        IsActive = false;
+        IsAvailable = false;
+        OnAvailabilityChanged?.Invoke(false);
     }
 
     void Update() {

@@ -30,8 +30,6 @@ public class InventorySaveInterpreter : SaveInterpreter<InventorySaveData> {
     }
 }
 
-}
-
 [Serializable]
 public struct InventorySaveData {
     public int[] ItemIds;
@@ -41,4 +39,6 @@ public struct InventorySaveData {
         return $"ItemIds: {string.Join(", ", ItemIds)}\n" +
                $"ItemCounts: {string.Join(", ", ItemCounts)}";
     }
+}
+
 }

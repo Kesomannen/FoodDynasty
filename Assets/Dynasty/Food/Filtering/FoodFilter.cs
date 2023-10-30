@@ -22,6 +22,7 @@ public class FoodFilter {
             FoodTraitType.Float => _floatRange.InRange(food.GetTrait<float>(_trait.Hash)),
             FoodTraitType.Bool => _boolValue == food.GetTrait<bool>(_trait.Hash),
             FoodTraitType.Tag => food.HasTag(_trait.Hash),
+            FoodTraitType.Modifier => _floatRange.InRange(food.GetTrait<Modifier>(_trait.Hash).DeltaFloat),
             _ => throw new ArgumentOutOfRangeException()
         };
     }

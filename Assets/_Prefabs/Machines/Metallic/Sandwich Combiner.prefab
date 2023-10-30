@@ -8905,7 +8905,7 @@ MonoBehaviour:
     Base: 0
     Percentual: 0
     Additive: 0
-    Multiplicative: 1.5
+    Multiplicative: 2
   _supply: {fileID: 2934527307799798379}
   _applyEvent: {fileID: 498694121283889272}
   _modelLookup: {fileID: 11400000, guid: 957345ab47fff584199b5e824fc5fba1, type: 2}
@@ -8957,9 +8957,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3fbd445d03d46cabc7b868fd2447205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _requiredSupplyPerUse: 2
+  _requiredSupplyPerUse: 1
   _refillItem: {fileID: 0}
-  _refillItemName: Sandwich
+  _refillItemName: Stacked Sandwich
   _condition: {fileID: 3238707366790903144}
   _useEvent: {fileID: 498694121283889272}
 --- !u!114 &3238707366790903144

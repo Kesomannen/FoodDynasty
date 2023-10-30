@@ -19,15 +19,16 @@ public class SaveSlotController : MonoBehaviour {
     List<SaveSlotContainer> _slots;
     
     IEnumerator Start() {
-        var getSaveSlots = _saveManager.GetSaves().GetHandle();
+        var getSaveSlots = _saveManager.SaveLoader.GetSaves();
         yield return getSaveSlots;
-        var saveSlots = getSaveSlots.Result;
+        var saveSlots = getSaveSlots.Result.ToArray();
         
         _slots = new List<SaveSlotContainer>(saveSlots.Length);
         
         for (var i = 0; i < saveSlots.Length; i++) {
             var slot = saveSlots[i];
             var container = Instantiate(_containerPrefab, _containerParent);
+            
             container.transform.SetSiblingIndex(i);
             container.SetContent(slot);
             

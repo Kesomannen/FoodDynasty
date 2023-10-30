@@ -28,6 +28,8 @@ public class FoodTraitValueDrawer : PropertyDrawer {
                     EditorGUI.PropertyField(rect, property.Find("_floatValue"), new GUIContent("Value")); break;
                 case FoodTraitType.Bool:
                     EditorGUI.PropertyField(rect, property.Find("_boolValue"), new GUIContent("Value")); break;
+                case FoodTraitType.Modifier:
+                    EditorGUI.PropertyField(rect, property.Find("_modifierValue"), new GUIContent("Value"), true); break;
                 case FoodTraitType.Tag:
                 default: throw new ArgumentOutOfRangeException();
             }
@@ -44,10 +46,14 @@ public class FoodTraitValueDrawer : PropertyDrawer {
         var height = EditorGUI.GetPropertyHeight(selectionProperty);
 
         var isValid = database.TryGetEntry(selectedHashProperty.intValue, out var selectedEntry);
-        if (isValid && selectedEntry.Type != FoodTraitType.Tag) {
+        if (!isValid) return height;
+        
+        if (selectedEntry.Type == FoodTraitType.Modifier) {
+            height += EditorGUI.GetPropertyHeight(property.Find("_modifierValue")) + 3;
+        } else if (selectedEntry.Type != FoodTraitType.Tag) {
             height += EditorGUIUtility.singleLineHeight + 3;
         }
-        
+
         return height;
     }
 }

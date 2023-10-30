@@ -13,16 +13,15 @@ public class SceneLoader : MonoBehaviour {
 
     static bool _flag;
 
-    void Awake() {
+    void Start() {
         if (!_flag) return;
         _flag = false;
-        
+
+        _overlay.alpha = 1;
         _overlay.SetActive(true);
         LeanTween.alphaCanvas(_overlay, 0, _fadeDuration)
-            .setIgnoreTimeScale(true)
             .setOnComplete(() => _overlay.SetActive(false))
-            .setEase(_fadeEase)
-            .setFrom(1);
+            .setEase(_fadeEase);
     }
 
     void OnEnable() {
@@ -37,6 +36,7 @@ public class SceneLoader : MonoBehaviour {
         _overlay.SetActive(true);
         _flag = true;
         
+        _overlay.alpha = 0;
         LeanTween.alphaCanvas(_overlay, 1, _fadeDuration)
             .setIgnoreTimeScale(true)
             .setOnComplete(() => SceneManager.LoadScene(sceneId))

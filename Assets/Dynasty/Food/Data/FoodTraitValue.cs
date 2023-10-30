@@ -1,5 +1,6 @@
 ﻿using System;
 using Dynasty.Food;
+using Dynasty.Library;
 using UnityEngine;
 
 namespace Dynasty.Food {
@@ -10,6 +11,7 @@ public struct FoodTraitValue {
     [SerializeField] int _intValue;
     [SerializeField] float _floatValue;
     [SerializeField] bool _boolValue;
+    [SerializeField] Modifier _modifierValue;
 
     public int Hash => _selection.Hash;
     public FoodTraitType Type => _selection.Type;
@@ -19,6 +21,7 @@ public struct FoodTraitValue {
         FoodTraitType.Float => _floatValue,
         FoodTraitType.Bool => _boolValue,
         FoodTraitType.Tag => null,
+        FoodTraitType.Modifier => _modifierValue,
         _ => throw new ArgumentOutOfRangeException()
     };
 

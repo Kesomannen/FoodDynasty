@@ -17,7 +17,7 @@ MonoBehaviour:
     Base: 0
     Percentual: 0
     Additive: 0
-    Multiplicative: 2.5
+    Multiplicative: 3
   _maxSellPriceModifier:
     Base: 0
     Percentual: 0
@@ -30,13 +30,13 @@ MonoBehaviour:
   - _trait:
       _value: Stability
       _hash: 605704453
-      _type: 2
+      _type: 4
     _operation: 1
     _modifier:
       Base: 0
       Percentual: 0
       Additive: 0
-      Multiplicative: 0.3
+      Multiplicative: 0.4
     _intValue: 0
     _floatValue: 0
     _boolValue: 0

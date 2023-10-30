@@ -21,7 +21,7 @@ MonoBehaviour:
     Type: 1
   - Name: Stability
     Hash: 605704453
-    Type: 2
+    Type: 4
   - Name: Baked
     Hash: -1779161523
     Type: 0

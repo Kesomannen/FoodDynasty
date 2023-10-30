@@ -7,10 +7,9 @@ namespace Dynasty.Food {
 
 public class StackModelProvider : ModelProvider {
     [SerializeField] float _toppingHeight;
+    [SerializeField] Vector3 _defaultTopPosition;
     [SerializeField] Transform _bottom;
     [SerializeField] Transform _top;
-    
-    float _currentHeight;
     
     public override void SetBaseModel(Poolable poolable) {
         if (BaseModel != null) {
@@ -37,7 +36,7 @@ public class StackModelProvider : ModelProvider {
             Toppings.Pop().Dispose();
         }
 
-        _top.localPosition -= _currentHeight * Vector3.up;
+        _top.localPosition = _defaultTopPosition;
     }
     
     public override void AddToppingModel(Poolable model) {
@@ -53,7 +52,6 @@ public class StackModelProvider : ModelProvider {
         t.SetLocalPositionAndRotation(pos, Quaternion.identity);
 
         _top.localPosition += _toppingHeight * Vector3.up;
-        _currentHeight += _toppingHeight;
     }
 }
 

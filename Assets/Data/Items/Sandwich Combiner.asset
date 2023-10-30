@@ -17,7 +17,7 @@ MonoBehaviour:
   _shortDescription: Stacks sandwiches, increasing total value
   _icon: {fileID: 21300000, guid: 368a465626f8ba2418c53283112bd538, type: 3}
   _tier: 1
-  _price: 150000
+  _price: 200000
   _sellable: 1
   _type: 7
   _prefab: {fileID: 8649329911116514448, guid: 0aa610de8b728184bbb859c210b9b381, type: 3}

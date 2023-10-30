@@ -4,7 +4,8 @@ public enum FoodTraitType {
     Tag,
     Int,
     Float,
-    Bool
+    Bool,
+    Modifier
 }
 
 }

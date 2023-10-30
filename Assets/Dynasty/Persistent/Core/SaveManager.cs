@@ -57,10 +57,6 @@ public class SaveManager : ScriptableObject {
             _state[interpreter.SaveKey] = interpreter.OnBeforeSave();
         }
     }
-    
-    public async Task<SaveSlot[]> GetSaves() {
-        return (await _loader.GetSaves()).ToArray();
-    }
 
     public void SetData<T>(string key, T data) {
         _state[key] = data;

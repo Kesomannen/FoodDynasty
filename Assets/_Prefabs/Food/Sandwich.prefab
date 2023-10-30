@@ -114,13 +114,23 @@ MonoBehaviour:
     _intValue: 0
     _floatValue: 0
     _boolValue: 0
+    _modifierValue:
+      Base: 0
+      Percentual: 0
+      Additive: 0
+      Multiplicative: 0
   - _selection:
       _value: Stability
       _hash: 605704453
-      _type: 2
+      _type: 4
     _intValue: 0
     _floatValue: 100
     _boolValue: 0
+    _modifierValue:
+      Base: 100
+      Percentual: 0
+      Additive: 0
+      Multiplicative: 1
 --- !u!114 &5837239259972244678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _toppingHeight: 0.02
+  _defaultTopPosition: {x: 0, y: 0.046875, z: -0.03125}
   _bottom: {fileID: 1535425006}
   _top: {fileID: 5697555545127237230}
 --- !u!65 &8053462722402481607
@@ -165,12 +176,16 @@ MonoBehaviour:
   _stabilityTrait:
     _value: Stability
     _hash: 605704453
-    _type: 2
+    _type: 4
   _useSparseUpdate: 1
-  _stabilityLoss: 5
+  _stabilityLoss: 7
   _onFallenOver: {fileID: 9119853389061816348}
-  _velocity: 0
-  _current: 0
+  _current:
+    Base: 0
+    Percentual: 0
+    Additive: 0
+    Multiplicative: 0
+  _currentDelta: 0
 --- !u!114 &9119853389061816348
 MonoBehaviour:
   m_ObjectHideFlags: 0
