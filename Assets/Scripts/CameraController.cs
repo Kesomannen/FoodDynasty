@@ -1,7 +1,10 @@
 using Dynasty.Library;
+using Dynasty.UI.Miscellaneous;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour {
     [Header("Movement")]
@@ -31,6 +34,7 @@ public class CameraController : MonoBehaviour {
     
     [Header("References")] 
     [SerializeField] Camera _camera;
+    [SerializeField] UnderlayDetector _underlay;
         
     Transform _cameraTransform;
     Transform _transform;
@@ -120,8 +124,11 @@ public class CameraController : MonoBehaviour {
     }
 
     void GetZoomInput() {
-        var value = Mathf.Clamp(_zoomAction.action.ReadValue<float>(), -1, 1);
-        _targetZoom += value * _zoomDirection * _zoomSpeed * Time.deltaTime;
+        if (_underlay.IsHovered) {
+            var value = Mathf.Clamp(_zoomAction.action.ReadValue<float>(), -1, 1);
+            _targetZoom += value * _zoomDirection * _zoomSpeed * Time.deltaTime;
+        }
+
         ClampZoom();
     }
     

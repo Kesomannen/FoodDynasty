@@ -34,6 +34,7 @@ public class RefillerStateController : UpdatingUIComponent<AutoRefiller> {
         
         foreach (var state in Content.States) {
             var container = _refillerStatePool.Get(state.Value, _stateParent, 1);
+            container.transform.localRotation = Quaternion.identity;
             _stateContainers.Enqueue(container);
         }
     }

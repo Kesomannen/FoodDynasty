@@ -18,8 +18,8 @@ public class WorldCanvasWindow : MonoBehaviour {
         _closeEvent.RemoveListener(Close);
     }
 
-    void Close() {
-        gameObject.SetActive(false);
+    static void Close() {
+        WorldCanvas.Instance.UnregisterElement();
     }
 
     public void Show(Vector3 worldPosition) {
@@ -30,6 +30,7 @@ public class WorldCanvasWindow : MonoBehaviour {
         var canvas = worldCanvas.Canvas;
         var cam = worldCanvas.Camera;
         
+        worldCanvas.RegisterElement();
         StartCoroutine(ShowCoroutine());
         return;
 
