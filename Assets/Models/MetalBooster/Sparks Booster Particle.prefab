@@ -247,6 +247,11 @@ PrefabInstance:
       propertyPath: VelocityModule.z.minCurve.m_Curve.Array.data[1].value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5052204668009607915, guid: a6f3c759364883b4eb7ddfd072a11f0f,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7152210707201894845, guid: a6f3c759364883b4eb7ddfd072a11f0f,
         type: 3}
       propertyPath: m_Name

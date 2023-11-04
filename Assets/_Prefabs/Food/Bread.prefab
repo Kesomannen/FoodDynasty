@@ -65,7 +65,17 @@ PrefabInstance:
     - target: {fileID: -6920987153026122271, guid: db0e1358117bc2b4fa7685ec849d326b,
         type: 3}
       propertyPath: m_Name
-      value: BreadModel
+      value: Bread
+      objectReference: {fileID: 0}
+    - target: {fileID: -6920987153026122271, guid: db0e1358117bc2b4fa7685ec849d326b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202219430241199641, guid: db0e1358117bc2b4fa7685ec849d326b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 8686905464242370237, guid: db0e1358117bc2b4fa7685ec849d326b,

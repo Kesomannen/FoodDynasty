@@ -8,7 +8,7 @@ public class TickManager : Singleton<TickManager> {
     public event Action<float> OnTick;
     public event Action<float> OnSparseTick;
 
-    const int SparseTickRate = 10;
+    const int SparseTickRate = 15;
     
     int _tickCount;
 

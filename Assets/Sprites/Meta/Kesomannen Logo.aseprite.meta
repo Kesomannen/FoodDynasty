@@ -170,7 +170,7 @@ ScriptedImporter:
       frameIndex: 0
       cellRect:
         x: 0
-        y: 58
+        y: 32
         width: 151
         height: 36
       spriteId: 081dc2c789e4c66408534a7f49f0e6e2
@@ -245,4 +245,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 153, y: 153}
+  canvasSize: {x: 153, y: 96}

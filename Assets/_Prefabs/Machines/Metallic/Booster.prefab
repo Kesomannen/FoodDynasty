@@ -348,6 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotation: {x: 0, y: -25, z: 0}
+  _offset: {x: 0, y: 0, z: 0}
 --- !u!1 &4210746487907020363 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2999331369604872066, guid: 5f5ea6750e6a7b44db4d8d35ae0010b8,
@@ -393,6 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rotation: {x: 0, y: 0, z: 50}
+  _offset: {x: 0, y: 0, z: 0}
 --- !u!1 &8107633109171352789 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2056938620450067172, guid: 5f5ea6750e6a7b44db4d8d35ae0010b8,

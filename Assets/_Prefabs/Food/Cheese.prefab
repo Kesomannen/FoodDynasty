@@ -67,6 +67,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cheese
       objectReference: {fileID: 0}
+    - target: {fileID: -6920987153026122271, guid: 5d231eec4b6010e42a1ff6b98da2dcfe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3838890061739811419, guid: 5d231eec4b6010e42a1ff6b98da2dcfe,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 8686905464242370237, guid: 5d231eec4b6010e42a1ff6b98da2dcfe,
     type: 3}

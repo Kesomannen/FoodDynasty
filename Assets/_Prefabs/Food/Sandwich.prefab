@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1535425006}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: -7992655409445519878}
   - component: {fileID: 9119853389061816348}
   - component: {fileID: 5106507783652907481}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sandwich
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,6 +281,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Sandwich
+      objectReference: {fileID: 0}
+    - target: {fileID: -1057610874974016368, guid: b72837f7bba1aaa458e14544c9c88c24,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 963615927434247328, guid: b72837f7bba1aaa458e14544c9c88c24,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578097327777322850, guid: b72837f7bba1aaa458e14544c9c88c24,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 8686905464242370237, guid: b72837f7bba1aaa458e14544c9c88c24,

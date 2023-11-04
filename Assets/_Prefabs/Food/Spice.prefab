@@ -67,6 +67,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spice
       objectReference: {fileID: 0}
+    - target: {fileID: -6920987153026122271, guid: 0d2fd8c61fe514446b04e3ab3d8ff13b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 946397189400770621, guid: 0d2fd8c61fe514446b04e3ab3d8ff13b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 8686905464242370237, guid: 0d2fd8c61fe514446b04e3ab3d8ff13b,
     type: 3}

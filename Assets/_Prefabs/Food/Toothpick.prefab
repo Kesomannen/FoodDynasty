@@ -67,6 +67,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toothpick
       objectReference: {fileID: 0}
+    - target: {fileID: -6920987153026122271, guid: fa0801281db7a104ab56be410d49d280,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -924149290035338769, guid: fa0801281db7a104ab56be410d49d280,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 8686905464242370237, guid: fa0801281db7a104ab56be410d49d280,
     type: 3}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2409362971342492979}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ToppingParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 8179629649837785446}
   - component: {fileID: 2196648166920202581}
   - component: {fileID: 8388212352163963437}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dough
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +111,11 @@ MonoBehaviour:
     _intValue: 0
     _floatValue: 0
     _boolValue: 0
+    _modifierValue:
+      Base: 0
+      Percentual: 0
+      Additive: 0
+      Multiplicative: 0
 --- !u!65 &2196648166920202581
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -145,6 +150,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3287610082135513341}
     m_Modifications:
+    - target: {fileID: -8058353006932625951, guid: 69840a6b76ea44540984fc085d39d8f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -7806268271918378524, guid: 69840a6b76ea44540984fc085d39d8f0,
         type: 3}
       propertyPath: m_RootOrder
@@ -204,6 +214,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dough
+      objectReference: {fileID: 0}
+    - target: {fileID: -6920987153026122271, guid: 69840a6b76ea44540984fc085d39d8f0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 8686905464242370237, guid: 69840a6b76ea44540984fc085d39d8f0,
