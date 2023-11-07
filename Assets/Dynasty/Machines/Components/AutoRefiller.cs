@@ -49,9 +49,14 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
             yield return CoroutineHelpers.Wait(1 / _refillSpeed.Value);
             
             if (Affected.Count == 0) continue;
+
+            var toRefill = Affected.Where(target => {
+                var supply = target.Component;
+                return supply.CurrentSupply < _states[supply].TargetSupply;
+            }).ToArray();
             
-            var amount = Mathf.CeilToInt((float) _refillAmount / Affected.Count);
-            foreach (var (supply, _) in Affected) {
+            var amount = Mathf.CeilToInt((float) _refillAmount / toRefill.Length);
+            foreach (var (supply, _) in toRefill) {
                 var state = _states[supply];
                 
                 var count = Mathf.Min(

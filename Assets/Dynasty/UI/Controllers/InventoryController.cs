@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Dynasty;
+using Dynasty.Food;
 using Dynasty.UI;
 using Dynasty.Library;
 using Dynasty.UI.Components;
@@ -89,9 +90,20 @@ public class InventoryController : MonoBehaviour {
     }
 
     void SortContainers() {
+        var comparison = SortingUtil.GetComparison(_sortingMode, _descendingOrder);
+        
         _itemContainers.Values.SortSiblingIndices(
             container => container.Content.Data, 
-            SortingUtil.GetComparison(_sortingMode, _descendingOrder)
+            (a, b) => {
+                var aIsFood = a is ToppingItemData or FoodItemData;
+                var bIsFood = b is ToppingItemData or FoodItemData;
+                
+                return aIsFood switch {
+                    true when !bIsFood => 1,
+                    false when bIsFood => -1,
+                    _ => comparison(a, b)
+                };
+            }
         );
     }
 

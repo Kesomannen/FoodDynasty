@@ -36,7 +36,7 @@ MonoBehaviour:
       Base: 0
       Percentual: 0
       Additive: 0
-      Multiplicative: 0.67
+      Multiplicative: 0.8
     _intValue: 0
     _floatValue: 0
     _boolValue: 0

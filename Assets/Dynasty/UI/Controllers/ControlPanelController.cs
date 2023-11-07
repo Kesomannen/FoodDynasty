@@ -18,6 +18,7 @@ public class ControlPanelController : MonoBehaviour {
     [SerializeField] InventoryGridObjectHandler _gridObjectHandler;
     [SerializeField] Slider _maxFoodBar;
     [SerializeField] TMP_Text _maxFoodText;
+    [SerializeField] GameEvent<PopupData> _showPopupEvent;
     [Space]
     [SerializeField] FoodCamera _foodCamera;
     [SerializeField] MaterialIcon _foodCameraIcon;
@@ -75,13 +76,21 @@ public class ControlPanelController : MonoBehaviour {
     }
 
     public void DeleteAllMachines() {
-        var gridObjects = _grid.GridObjects.ToArray();
-        foreach (var gridObject in gridObjects) {
-            if (!gridObject.CanMove || !_gridObjectHandler.RegisterDeletion(gridObject)) continue;
+        _showPopupEvent.Raise(new PopupData {
+            Header = "Delete All Machines?",
+            Actions = new[] {
+                PopupAction.Negative("Delete", () => {
+                    var gridObjects = _grid.GridObjects.ToArray();
+                    foreach (var gridObject in gridObjects) {
+                        if (!gridObject.CanMove || !_gridObjectHandler.RegisterDeletion(gridObject)) continue;
             
-            _grid.TryRemove(gridObject);
-            Destroy(gridObject.gameObject);
-        }
+                        _grid.TryRemove(gridObject);
+                        Destroy(gridObject.gameObject);
+                    }
+                }),
+                PopupAction.Neutral("Cancel"),
+            }
+        });
     }
 }
 

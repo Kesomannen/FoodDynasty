@@ -14,7 +14,7 @@ public static class StringHelpers {
     public static string FormatMoney(double value) {
         switch (value) {
             case 0: return "$0";
-            case < 0: return $"-${FormatMoney(-value)}";
+            case < 0: return $"-{FormatMoney(-value)}";
         }
 
         var magnitude = (int)Math.Log10(value);

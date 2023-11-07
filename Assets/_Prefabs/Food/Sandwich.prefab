@@ -178,7 +178,7 @@ MonoBehaviour:
     _hash: 605704453
     _type: 4
   _useSparseUpdate: 1
-  _stabilityLoss: 7
+  _stabilityLoss: 6
   _onFallenOver: {fileID: 9119853389061816348}
   _current:
     Base: 0
