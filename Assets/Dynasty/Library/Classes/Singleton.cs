@@ -20,6 +20,9 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T> {
             return _instance;
         }
     }
+
+        public static void Dispose()
+            => _instance = null;
     
     public static bool Access(Action<T> action) { 
         if (_isQuitting) {

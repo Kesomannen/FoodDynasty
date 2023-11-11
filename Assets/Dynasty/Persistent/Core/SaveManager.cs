@@ -43,8 +43,15 @@ public class SaveManager : ScriptableObject {
             }
         }
     }
-    
-    async Task UpdateAndSaveState(int saveId) {
+#if UNITY_EDITOR
+        //Domain Reload Compatible
+        private void OnDisable()
+        {
+            OnSaveCompleted = null;
+            OnSaveStarted = null;
+        }
+#endif
+        async Task UpdateAndSaveState(int saveId) {
         UpdateState();
         await _loader.Save(_state, saveId);
         OnSaveCompleted?.Invoke();

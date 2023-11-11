@@ -14,6 +14,9 @@ public static class CoroutineHelpers {
         _waitForSeconds.Add(seconds, waitForSeconds);
         return waitForSeconds;
     }
+
+        public static void Dispose()
+            => _waitForSeconds.Clear();
 }
 
 }
