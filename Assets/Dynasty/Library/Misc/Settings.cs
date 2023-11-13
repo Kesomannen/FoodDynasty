@@ -10,6 +10,7 @@ public static class Settings {
     public static Setting<float> EffectsVolume { get; }
     
     public static Setting<float> CameraSensitivity { get; }
+    public static Setting<float> CameraShakeIntensity { get; }
     
     public static Setting<QualitySetting> Quality { get; }
     public static Setting<WindowModeSetting> WindowMode { get; }
@@ -21,6 +22,7 @@ public static class Settings {
         MasterVolume = SettingsFactory.Get("master_volume", 0.5f, value => SoundManager.Singleton.MasterVolume = value);
         
         CameraSensitivity = SettingsFactory.Get("camera_sensitivity", 0.5f);
+        CameraShakeIntensity = SettingsFactory.Get("camera_shake_intensity", 1f);
         
         Quality = SettingsFactory.Get("quality", QualitySetting.Medium, value => QualitySettings.SetQualityLevel((int) value));
          

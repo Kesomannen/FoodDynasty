@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 namespace Dynasty.Library {
 
@@ -22,6 +23,12 @@ public static class ComponentExtensions {
     
     public static void Error(this Object component, string message) {
         Debug.LogError(message, component);
+    }
+    
+    public static void SetLayerRecursively(this GameObject gameObject, int layer) {
+        foreach (var transform in gameObject.GetComponentsInChildren<Transform>()) {
+            transform.gameObject.layer = layer;
+        }
     }
 }
 

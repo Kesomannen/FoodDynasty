@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Dynasty;
 using Dynasty.Library;
 using Dynasty.Persistent;
 using UnityEngine;
@@ -24,12 +23,7 @@ public class AutoBuyer : MonoBehaviour,
     [SerializeField] int _buyAmount = 1;
     
     ItemData _item;
-
-    public int OverbuyAmount {
-        get => _overbuyAmount;
-        set => _overbuyAmount = value;
-    }
-
+    
     public ItemData Item {
         get => _item;
         set {
@@ -76,23 +70,20 @@ public class AutoBuyer : MonoBehaviour,
     public void OnAfterLoad(SaveData data) {
         var id = data.ItemDataId;
         Item = id == -1 ? null : _itemLookup.GetFromId(id);
-        OverbuyAmount = data.OverbuyAmount;
     }
 
     public SaveData GetSaveData() {
         return new SaveData {
             ItemDataId = Item == null ? -1 : _itemLookup.GetId(Item),
-            OverbuyAmount = OverbuyAmount
         };
     }
 
     [Serializable]
     public struct SaveData {
         public int ItemDataId;
-        public int OverbuyAmount;
 
         public override string ToString() {
-            return $"ItemDataId: {ItemDataId}, OverbuyAmount: {OverbuyAmount}";
+            return $"ItemDataId: {ItemDataId}";
         }
     }
     

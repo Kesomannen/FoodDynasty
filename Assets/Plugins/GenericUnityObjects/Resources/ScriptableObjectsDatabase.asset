@@ -82,6 +82,8 @@ MonoBehaviour:
       - _typeNameAndAssembly: System.Int32, mscorlib
     - _collection:
       - _typeNameAndAssembly: Dynasty.UI.PopupData, Dynasty.Core
+    - _collection:
+      - _typeNameAndAssembly: Dynasty.Library.CameraShake, Dynasty.Library
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_8d2a2aae4cca2734a8464fd2bf02837f,
         z_GameEvent_GridObject
@@ -99,6 +101,8 @@ MonoBehaviour:
         z_GameEvent_Int32
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_abe9c55fba6a5a047ba2e3eb80f21728,
         z_GameEvent_PopupData
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_1f6ad87ec11d5e447a89405b0b05e33b,
+        z_GameEvent_CameraShake
   - _keys: []
     _values: []
   - _keys:

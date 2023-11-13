@@ -47,6 +47,8 @@ MonoBehaviour:
     _guid: 
   - _typeNameAndAssembly: Dynasty.UI.Tutorial.Mission, Dynasty.UI
     _guid: 89aeb0382d99492eafda5a4478ecea7b
+  - _typeNameAndAssembly: Dynasty.Library.CameraShake, Dynasty.Library
+    _guid: 
   _genericArgumentValues:
   - _array: []
   - _array: []
@@ -97,6 +99,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: Dynasty.UI.PopupData, Dynasty.Core
         _guid: 
       _assemblyGUID: abe9c55fba6a5a047ba2e3eb80f21728
+    - _arguments:
+      - _typeNameAndAssembly: Dynasty.Library.CameraShake, Dynasty.Library
+        _guid: 
+      _assemblyGUID: 1f6ad87ec11d5e447a89405b0b05e33b
   - _array: []
   - _array:
     - _arguments:
@@ -288,6 +294,12 @@ MonoBehaviour:
   - _array:
     - _typeNameAndAssembly: Dynasty.UI.Miscellaneous.ContainerObjectPool`1, Dynasty.UI
       _guid: fa25376fa5ab4d03a6ff488669baf3fa
+      AssemblyGUID: 
+      _argNames:
+      - T
+  - _array:
+    - _typeNameAndAssembly: Dynasty.Library.GameEvent`1, Dynasty.Library
+      _guid: 6e0691897fdd4e5894148f79dce13dbc
       AssemblyGUID: 
       _argNames:
       - T

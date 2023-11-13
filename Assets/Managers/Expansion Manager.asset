@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -219281523, guid: d23d0bac304193d4d910ca42bc343e9a, type: 3}
-  m_Name: Auto Refiller Control
+  m_Script: {fileID: 11500000, guid: 8e7c344a79ea4ec7bf493950bad327a0, type: 3}
+  m_Name: Expansion Manager
   m_EditorClassIdentifier: 
-  _containerPrefab: {fileID: 2894734628272281099, guid: 90b4bb41f46028540898973da7a2abe7,
-    type: 3}
+  _startingSize: {x: 41, y: 41}
+  _expansions:
+  - Cost: 10000
+    Size: {x: 51, y: 51}

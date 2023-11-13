@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9112002307545419836}
   - component: {fileID: 5702327714431941052}
   - component: {fileID: 7503004073744361816}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Auto Refiller Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -37,7 +37,7 @@ public class GridObjectBuilder : MonoBehaviour {
     }
     
     async Task<(GridPlacementResult Result, GridObject Object)> Place(GridObject prefab) {
-        var result = await _placer.DoPlacement(prefab, false, false);
+        var result = await _placer.DoPlacement(prefab, false);
 
         if (!result.WasSuccessful) return (result, null);
         

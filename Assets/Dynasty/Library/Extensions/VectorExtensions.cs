@@ -11,6 +11,14 @@ public static class VectorExtensions {
         return new Vector2Int(-vector.y, vector.x);
     }
     
+    public static Vector2 RotateCW(this Vector2 vector) {
+        return new Vector2(vector.y, -vector.x);
+    }
+    
+    public static Vector2Int RotateCW(this Vector2Int vector) {
+        return new Vector2Int(vector.y, -vector.x);
+    }
+    
     public static Vector2Int RotateAbs(this Vector2Int vector, int steps) {
         return steps % 2 == 0 ? vector : new Vector2Int(vector.y, vector.x);
     }

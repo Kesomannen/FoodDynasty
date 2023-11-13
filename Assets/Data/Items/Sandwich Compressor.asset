@@ -18,7 +18,7 @@ MonoBehaviour:
   _shortDescription: Increases sandwich stability
   _icon: {fileID: 21300000, guid: d2e0fceaab84f7e40802672afbf23561, type: 3}
   _tier: 1
-  _price: 25000
+  _price: 30000
   _sellable: 1
   _type: 7
   _prefab: {fileID: 3156872258804744999, guid: 9f63ca80ec9ad344f98b0255b3002cc9, type: 3}

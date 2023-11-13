@@ -14,7 +14,7 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
     [SerializeField] InventoryAsset _inventory;
     [SerializeField] FloatDataProperty _refillSpeed;
     [SerializeField] int _refillAmount = 1;
-    [SerializeField] int _defaultTargetSupply = 50;
+    [SerializeField] int _targetSupply = 50;
     [Space]
     [SerializeField] CustomObjectPool<PoolableComponent<SpriteRenderer>> _itemSpritePool;
     [SerializeField] Transform _itemStart;
@@ -50,30 +50,27 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
             
             if (Affected.Count == 0) continue;
 
-            var toRefill = Affected.Where(target => {
-                var supply = target.Component;
-                return supply.CurrentSupply < _states[supply].TargetSupply;
-            }).ToArray();
-            
+            var toRefill = Affected.Where(target => target.Component.CurrentSupply < _targetSupply).ToArray();
             var amount = Mathf.CeilToInt((float) _refillAmount / toRefill.Length);
+            
             foreach (var (supply, _) in toRefill) {
-                var state = _states[supply];
-                
                 var count = Mathf.Min(
                     amount, 
                     _inventory.GetCount(supply.RefillItem),
-                    state.TargetSupply - supply.CurrentSupply
+                    _targetSupply - supply.CurrentSupply
                 );
 
-                if (count > 0) {
-                    supply.CurrentSupply += count;
-                    _inventory.Remove(supply.RefillItem, count);
-                    StartCoroutine(SpawnItems(supply, count));
-                }
+                if (count == 0) continue;
                 
+                supply.CurrentSupply += count;
+                _inventory.Remove(supply.RefillItem, count);
+                StartCoroutine(SpawnItems(supply, count));
+            }
+            
+            foreach (var (supply, state) in _states) {
                 if (supply.CurrentSupply == 0) {
                     state.Status = SupplyStatus.Empty;
-                } else if (supply.CurrentSupply < state.TargetSupply - _refillAmount) {
+                } else if (supply.CurrentSupply < _targetSupply - _refillAmount) {
                     state.Status = SupplyStatus.Low;
                 } else {
                     state.Status = SupplyStatus.Ok;
@@ -123,7 +120,6 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
     protected override void OnAdded(Supply component) => _states.Add(component, 
         new RefillerState(component) {
             Status = SupplyStatus.Ok,
-            TargetSupply = _defaultTargetSupply 
         }
     );
     
@@ -155,7 +151,6 @@ public class AutoRefiller : MachineModifier<Supply>, IStatusProvider, IBoostable
 public class RefillerState {
     public readonly Supply Supply;
     SupplyStatus _status;
-    int _targetSupply;
 
     public SupplyStatus Status {
         get => _status;
@@ -163,17 +158,6 @@ public class RefillerState {
             var previous = _status;
             _status = value;
             if (previous != _status) {
-                OnChanged?.Invoke(this);
-            }
-        }
-    }
-
-    public int TargetSupply {
-        get => _targetSupply;
-        set {
-            var previous = _targetSupply;
-            _targetSupply = value;
-            if (previous != _targetSupply) {
                 OnChanged?.Invoke(this);
             }
         }

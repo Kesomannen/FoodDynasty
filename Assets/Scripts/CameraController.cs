@@ -1,10 +1,9 @@
+using System.Collections;
 using Dynasty.Library;
 using Dynasty.UI.Miscellaneous;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class CameraController : MonoBehaviour {
     [Header("Movement")]
@@ -35,6 +34,7 @@ public class CameraController : MonoBehaviour {
     [Header("References")] 
     [SerializeField] Camera _camera;
     [SerializeField] UnderlayDetector _underlay;
+    [SerializeField] GameEvent<CameraShake> _cameraShakeEvent;
         
     Transform _cameraTransform;
     Transform _transform;
@@ -76,6 +76,8 @@ public class CameraController : MonoBehaviour {
         _spinAction.action.canceled += OnSpinEnded;
         
         _moveMouseAction.action.performed += OnMouseMoved;
+        
+        _cameraShakeEvent.AddListener(OnShake);
     }
     
     void OnDisable() {
@@ -88,6 +90,8 @@ public class CameraController : MonoBehaviour {
         _spinAction.action.canceled -= OnSpinEnded;
         
         _moveMouseAction.action.performed -= OnMouseMoved;
+        
+        _cameraShakeEvent.RemoveListener(OnShake);
     }
 
     void LateUpdate() {
@@ -135,6 +139,26 @@ public class CameraController : MonoBehaviour {
     void GetRotationInput() {
         var value = Mathf.Clamp(_rotateAction.action.ReadValue<float>(), -1, 1);
         _targetRotation += value * _rotateSpeed * Time.deltaTime;
+    }
+
+    void OnShake(CameraShake shake) {
+        StopAllCoroutines();
+        StartCoroutine(Routine());
+        return;
+
+        IEnumerator Routine() {
+            var time = 0f;
+            while (time < shake.Duration) {
+                var magnitude = shake.Magnitude * (1 - time / shake.Duration);
+                magnitude *= Settings.CameraShakeIntensity.Value;
+                
+                var offset = Random.insideUnitSphere * magnitude;
+                _cameraTransform.localPosition += offset;
+                
+                yield return null;
+                time += Time.deltaTime;
+            }
+        }
     }
 
     void OnMouseMoved(InputAction.CallbackContext context) {

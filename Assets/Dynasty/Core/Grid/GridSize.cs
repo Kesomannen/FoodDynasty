@@ -81,9 +81,7 @@ public struct GridSize {
 
         if (Type == GridSizeType.Custom) {
             rotatedSize._customMatrix = _customMatrix.RotateCW(steps);
-            return rotatedSize;
         }
-
         return rotatedSize;
     }
 

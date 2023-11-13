@@ -15,6 +15,7 @@ public class OptionsMenu : MonoBehaviour {
     [SerializeField] EnumDropdown<QualitySetting> _qualityDropdown;
     [SerializeField] EnumDropdown<WindowModeSetting> _windowDropdown;
     [SerializeField] EnumDropdown<MaxFramerateSetting> _framerateDropdown;
+    [SerializeField] Slider _shakeIntensitySlider;
     [Space]
     [SerializeField] Slider _masterVolumeSlider;
     [SerializeField] Slider _musicVolumeSlider;
@@ -34,6 +35,7 @@ public class OptionsMenu : MonoBehaviour {
         Bind(_qualityDropdown, Settings.Quality);
         Bind(_windowDropdown, Settings.WindowMode);
         Bind(_framerateDropdown, Settings.MaxFramerate);
+        Bind(_shakeIntensitySlider, Settings.CameraShakeIntensity, 100);
         
         Bind(_masterVolumeSlider, Settings.MasterVolume, 100);
         Bind(_musicVolumeSlider, Settings.MusicVolume, 100);

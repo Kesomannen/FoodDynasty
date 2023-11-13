@@ -17,7 +17,7 @@ MonoBehaviour:
   _shortDescription: Adds tomatoes to sandwiches
   _icon: {fileID: 21300000, guid: 4a04d9e783d941b44bd8df74ac3e6740, type: 3}
   _tier: 1
-  _price: 80000
+  _price: 100000
   _sellable: 1
   _type: 7
   _prefab: {fileID: 1018265059960588815, guid: 7056fd113afc45443b43fd85c14d2300, type: 3}

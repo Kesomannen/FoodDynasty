@@ -46,7 +46,7 @@ public class GridObject : MonoBehaviour, IInfoProvider {
     /// <summary>
     /// The grid position of this object.
     /// </summary>
-    public Vector2Int GridPosition { get; private set; }
+    public Vector2Int GridPosition { get; set; }
     
     /// <summary>
     /// Whether this object is currently placed on a grid.
@@ -80,7 +80,7 @@ public class GridObject : MonoBehaviour, IInfoProvider {
     public bool CanMove => _canMove;
     
     // Used when previewing the object's size in the editor.
-    static readonly Vector3 _previewCellSize = new(0.25f, 0, 0.25f);
+    public static readonly Vector3 PreviewCellSize = new(0.25f, 0, 0.25f);
     
     public event Action OnAdded, OnRemoved; 
     
@@ -118,10 +118,10 @@ public class GridObject : MonoBehaviour, IInfoProvider {
             var gridPos = cellPos - (Vector2) (StaticSize.Bounds - Vector2Int.one) / 2f;
             
             var worldPos = transform.position;
-            worldPos.x += gridPos.x * _previewCellSize.x;
-            worldPos.z += gridPos.y * _previewCellSize.z;
+            worldPos.x += gridPos.x * PreviewCellSize.x;
+            worldPos.z += gridPos.y * PreviewCellSize.z;
             
-            Gizmos.DrawWireCube(worldPos, _previewCellSize);
+            Gizmos.DrawWireCube(worldPos, PreviewCellSize);
         }
     }
 }

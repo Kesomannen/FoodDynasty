@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Dynasty.Library;
 using UnityEngine;
 
 namespace Dynasty.Grid {
@@ -16,11 +17,8 @@ public class GridManager : MonoBehaviour {
     [SerializeField] Vector2Int _gridSize;
 
     readonly HashSet<GridObject> _gridObjects = new();
-
-    Vector2Int _gridOffset;
-    int?[,] _cells;
     
-    RectInt Rect => new(_gridOffset, _gridSize);
+    int?[,] _cells;
 
     public int?[,] Cells {
         get {
@@ -98,38 +96,33 @@ public class GridManager : MonoBehaviour {
         OnObjectRemoved?.Invoke(gridObject);
     }
     
-    public void Expand(Vector2Int size, Vector2Int offset) {
-        var rect = new RectInt(offset, size);
-        var oldRect = Rect;
+    public void SetSize(Vector2Int newSize) {
+        if (newSize.x <= _gridSize.x || newSize.y <= _gridSize.y) {
+            Debug.LogError("Cannot shrink grid.");
+            return;
+        }
         
-        var newRect = new RectInt(
-            Mathf.Min(rect.xMin, oldRect.xMin),
-            Mathf.Min(rect.yMin, oldRect.yMin),
-            Mathf.Max(rect.xMax, oldRect.xMax),
-            Mathf.Max(rect.yMax, oldRect.yMax)
-        );
-        
-        var newOffset = Vector2Int.Min(newRect.min, oldRect.min);
-        var newCells = Equals(newRect, oldRect) ? _cells 
-            : new int?[newRect.width, newRect.height];
+        var oldSize = _gridSize;
+        _gridSize = newSize;
+        var offset = (oldSize - _gridSize) / 2;
 
-        for (var x = 0; x < newRect.width; x++) {
-            for (var y = 0; y < newRect.height; y++) {
-                var pos = new Vector2Int(x, y) - newOffset;
-                if (IsInGrid(pos)) {
-                    newCells[x, y] = _cells[pos.x, pos.y];
-                } else if (newRect.Contains(pos)) {
-                    newCells[x, y] = 0;
-                }
+        var newCells = CreateGrid();
+        for (var x = 0; x < oldSize.x; x++) {
+            for (var y = 0; y < oldSize.y; y++) {
+                var cell = Cells[x, y];
+                if (cell is null or 0) continue; 
+                newCells[x - offset.x, y - offset.y] = cell;
             }
         }
         
-        _gridOffset = newOffset;
-        _gridSize = newRect.size;
-        _cells = newCells;
+        foreach (var gridObject in GridObjects) {
+            gridObject.GridPosition -= offset;
+        }
+        
+        Cells = newCells;
     }
     
-    bool CheckOverlapping(Vector2Int position, GridSize size, out IEnumerable<Vector2Int> overlapping) {
+    public bool CheckOverlapping(Vector2Int position, GridSize size, out IEnumerable<Vector2Int> overlapping) {
         if (!IsWithinGrid(position, size.Bounds)) {
             overlapping = null;
             return false;
@@ -160,7 +153,7 @@ public class GridManager : MonoBehaviour {
     }
     
     bool IsInGrid(Vector2Int position) {
-        return Rect.Contains(position);
+        return position.x >= 0 && position.x < _gridSize.x && position.y >= 0 && position.y < _gridSize.y;
     }
     
     bool BelongsToGrid(GridObject gridObject) {
@@ -185,10 +178,11 @@ public class GridManager : MonoBehaviour {
     }
     
     Vector3 GridToWorld(Vector2 position) {
+        position -= _gridSize / 2;
         return transform.position + new Vector3(position.x * _cellSize.x, 0, position.y * _cellSize.y);
     }
 
-    Vector3 GridToWorld(Vector2Int gridPosition, Vector2Int bounds) {
+    public Vector3 GridToWorld(Vector2Int gridPosition, Vector2Int bounds) {
         return GridToWorld(gridPosition + (Vector2) (bounds - Vector2Int.one) / 2f);
     }
     
@@ -222,7 +216,9 @@ public class GridManager : MonoBehaviour {
     /// </summary>
     public Vector2Int WorldToGrid(Vector3 worldPosition) {
         var localPos = worldPosition - transform.position;
-        return new Vector2Int(Mathf.RoundToInt(localPos.x / _cellSize.x), Mathf.RoundToInt(localPos.z / _cellSize.y));
+        var gridPos = new Vector2Int(Mathf.RoundToInt(localPos.x / _cellSize.x), Mathf.RoundToInt(localPos.z / _cellSize.y));
+        gridPos += _gridSize / 2;
+        return gridPos;
     }
 
     public enum CellState {
