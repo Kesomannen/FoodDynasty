@@ -1,64 +1,83 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using Dynasty.Grid;
 using Dynasty.Library;
 using Dynasty.Machines;
 using Dynasty.Persistent;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Dynasty.UI {
 
 public class MainMenuBackground : MonoBehaviour {
-    [SerializeField] float _duration;
     [SerializeField] MachineLoader _loader;
+    [SerializeField] GridExpansionController _expansionController;
+    [Space]
     [SerializeField] SaveManager _saveManager;
     [SerializeField] MainMenuPanorama _fallbackPanorama;
+    [SerializeField] GridExpansionManager _expansionManager;
     [Space]
+    [SerializeField] CanvasGroup _fadeGroup;
     [SerializeField] float _fadeDuration;
-    [SerializeField] float _blackDuration;
-    [SerializeField] RectTransform _overlay;
+    [SerializeField] float _minimumBlackDuration;
 
+    readonly List<(MachineSaveData, Vector2Int)> _saves = new();
+
+    int _currentSlot = -1;
+    
     IEnumerator Start() {
         var getSaves = _saveManager.SaveLoader.GetSaves().GetHandle();
         yield return getSaves;
-
-        var saves = new List<MachineSaveData>();
         
         foreach (var saveSlot in getSaves.Result) {
             var getState = _saveManager.SaveLoader.Load(saveSlot.Id).GetHandle();
             yield return getState;
             
             if (!getState.Result.TryGetValue("machines", out var saveDataObj)) continue;
+            if (!getState.Result.TryGetValue("expansion", out var expansionDataObj)) continue;
+            
             var saveData = (MachineSaveData) saveDataObj;
-
-            if (saveData.ItemIds.Length == 0) continue;
-            saves.Add(saveData);
+            var expansionIndex = (int) expansionDataObj;
+            
+            _saves.Add((saveData, _expansionManager.GetSize(expansionIndex)));
         }
+
+        if (_saves.Count == 0) {
+            SetPanorama(_fallbackPanorama.SaveData, _fallbackPanorama.Size);
+        } else {
+            SetPanorama(Random.Range(0, _saves.Count));
+        }
+    }
+
+    public void SetPanorama(int slot) {
+        if (slot == _currentSlot) return;
+        _currentSlot = slot;
         
-        var i = Random.Range(0, saves.Count);
+        var (saveData, size) = _saves[slot];
+        SetPanorama(saveData, size);
+    }
 
-        while (enabled) {
-            MachineSaveData saveData;
-            if (saves.Count == 0) {
-                saveData = _fallbackPanorama.SaveData;
-            } else {
-                saveData = saves[i];
-                i = (i + 1) % saves.Count;
-            }
+    void SetPanorama(MachineSaveData saveData, Vector2Int size) {
+        var alpha = _fadeGroup.alpha;
+        var loadTime = 0f;
+        
+        LeanTween.cancel(_fadeGroup.gameObject);
+        LeanTween.sequence()
+            .append(LeanTween.alphaCanvas(_fadeGroup, 1, (1 - alpha) * _fadeDuration))
+            .append(() => {
+                var startTime = Time.realtimeSinceStartup;
+                
+                _loader.Clear();
+                _expansionController.SetSize(size, true);
+                _loader.Load(saveData);
             
-            _loader.Clear();
-            _loader.Load(saveData);
-            
-            foreach (var supply in FindObjectsOfType<Supply>()) {
-                supply.CurrentSupply = 10000;
-            }
-            
-            LeanTween.alpha(_overlay, 0, _fadeDuration);
-            yield return CoroutineHelpers.Wait(_duration + _fadeDuration);
-            LeanTween.alpha(_overlay, 1, _fadeDuration);
-            yield return CoroutineHelpers.Wait(_fadeDuration + _blackDuration);
-        }
+                foreach (var supply in FindObjectsOfType<Supply>()) {
+                    supply.CurrentSupply = int.MaxValue;
+                }
+                
+                loadTime = Time.realtimeSinceStartup - startTime;
+            })
+            .append(Mathf.Max(_minimumBlackDuration - loadTime, 0))
+            .append(LeanTween.alphaCanvas(_fadeGroup, 0, _fadeDuration));
     }
 }
 

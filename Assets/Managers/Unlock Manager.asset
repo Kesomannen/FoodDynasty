@@ -35,6 +35,8 @@ MonoBehaviour:
     MoneyMadeRequirement: 1
     Unlocks:
     - {fileID: 11400000, guid: 54788ecb0b1397547b57dad711e9db90, type: 2}
+    - {fileID: 11400000, guid: b834115c793a8c340919d9f0ed87b043, type: 2}
+    - {fileID: 11400000, guid: c5ad2a98e81ff3040809b9e5fa67787f, type: 2}
   - Header: Sandwiches
     MoneyMadeRequirement: 50000
     Unlocks:

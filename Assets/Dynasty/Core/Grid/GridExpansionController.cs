@@ -21,28 +21,31 @@ public class GridExpansionController : MonoBehaviour {
     [SerializeField] UnityEvent _onExpand;
 
     void OnEnable() {
-        _expansionManager.OnExpansionChanged += OnGridExpanded;
-        OnGridExpanded(_expansionManager.CurrentSize, false);
+        _expansionManager.OnExpansionChanged += SetSize;
+        SetSize(_expansionManager.CurrentSize, false);
     }
     
     void OnDisable() {
-        _expansionManager.OnExpansionChanged -= OnGridExpanded;
+        _expansionManager.OnExpansionChanged -= SetSize;
     }
     
-    void OnGridExpanded(Vector2Int size, bool animate) { 
+    public void SetSize(Vector2Int size, bool animate) { 
         _gridManager.SetSize(size);
 
         if (animate) {
-            var shape = _expansionParticles.shape;
-            _expansionParticles.Play();
-            
-            _cameraShakeEvent.Raise(_expandShake);
-
             LeanTween.cancel(_floor);
-            LeanTween.scale(_floor, GetFloorScale(size), _animationDuration)
-                .setEase(_animationTweenType)
-                .setOnUpdate((Vector3 v) => shape.scale = v)
-                .setOnComplete(() => _expansionParticles.Stop());
+            var tween = LeanTween.scale(_floor, GetFloorScale(size), _animationDuration).setEase(_animationTweenType);
+            
+            if (_expansionParticles != null) {
+                var shape = _expansionParticles.shape;
+                _expansionParticles.Play();
+                tween.setOnUpdate((Vector3 v) => shape.scale = v)
+                    .setOnComplete(() => _expansionParticles.Stop());
+            }
+            
+            if (_cameraShakeEvent != null) {
+                _cameraShakeEvent.Raise(_expandShake);
+            }
             
             _onExpand.Invoke();
         } else {

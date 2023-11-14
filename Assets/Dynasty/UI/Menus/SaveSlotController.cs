@@ -11,6 +11,7 @@ public class SaveSlotController : MonoBehaviour {
     [SerializeField] SaveManager _saveManager;
     [SerializeField] SaveSlotContainer _containerPrefab;
     [SerializeField] Transform _containerParent;
+    [SerializeField] MainMenuBackground _background;
     [Space] 
     [SerializeField] GameEvent<PopupData> _showPopupEvent;
     [SerializeField] GameEvent<int> _loadScene;
@@ -26,6 +27,7 @@ public class SaveSlotController : MonoBehaviour {
         _slots = new List<SaveSlotContainer>(saveSlots.Length);
         
         for (var i = 0; i < saveSlots.Length; i++) {
+            var slotIndex = i;
             var slot = saveSlots[i];
             var container = Instantiate(_containerPrefab, _containerParent);
             
@@ -34,6 +36,7 @@ public class SaveSlotController : MonoBehaviour {
             
             container.OnContinue += Continue;
             container.OnDelete += Delete;
+            container.OnHover += _ => _background.SetPanorama(slotIndex);
             
             _slots.Add(container);
         }

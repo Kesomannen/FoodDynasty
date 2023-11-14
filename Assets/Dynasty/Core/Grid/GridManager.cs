@@ -97,11 +97,6 @@ public class GridManager : MonoBehaviour {
     }
     
     public void SetSize(Vector2Int newSize) {
-        if (newSize.x <= _gridSize.x || newSize.y <= _gridSize.y) {
-            Debug.LogError("Cannot shrink grid.");
-            return;
-        }
-        
         var oldSize = _gridSize;
         _gridSize = newSize;
         var offset = (oldSize - _gridSize) / 2;
@@ -111,7 +106,10 @@ public class GridManager : MonoBehaviour {
             for (var y = 0; y < oldSize.y; y++) {
                 var cell = Cells[x, y];
                 if (cell is null or 0) continue; 
-                newCells[x - offset.x, y - offset.y] = cell;
+                
+                var newPos = new Vector2Int(x, y) - offset;
+                if (!IsInSize(newPos, _gridSize)) continue;
+                newCells[newPos.x, newPos.y] = cell;
             }
         }
         
@@ -153,7 +151,11 @@ public class GridManager : MonoBehaviour {
     }
     
     bool IsInGrid(Vector2Int position) {
-        return position.x >= 0 && position.x < _gridSize.x && position.y >= 0 && position.y < _gridSize.y;
+        return IsInSize(position, _gridSize);
+    }
+    
+    bool IsInSize(Vector2Int position, Vector2Int bounds) {
+        return position.x >= 0 && position.x < bounds.x && position.y >= 0 && position.y < bounds.y;
     }
     
     bool BelongsToGrid(GridObject gridObject) {

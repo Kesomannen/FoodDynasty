@@ -46,7 +46,7 @@ public class GridMultiselect : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         
         var delta = eventData.position - _startPosition;
         SelectionRect.pivot = new Vector2(delta.x < 0 ? 1 : 0, delta.y < 0 ? 1 : 0);
-        SelectionRect.sizeDelta = new Vector2(Mathf.Abs(delta.x), Mathf.Abs(delta.y));
+        SelectionRect.sizeDelta = new Vector2(Mathf.Abs(delta.x), Mathf.Abs(delta.y)) / CanvasHelpers.CanvasScale;
     }
 
     public void OnEndDrag(PointerEventData eventData) {

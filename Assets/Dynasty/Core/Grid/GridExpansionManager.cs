@@ -13,7 +13,7 @@ public class GridExpansionManager : MonoScriptable {
     public int ExpansionIndex { get; private set; } = -1;
     public IReadOnlyList<GridExpansion> Expansions => _expansions;
 
-    public Vector2Int CurrentSize => ExpansionIndex == -1 ? _startingSize : _expansions[ExpansionIndex].Size;
+    public Vector2Int CurrentSize => GetSize(ExpansionIndex);
     
     public event Action<Vector2Int, bool> OnExpansionChanged;
 
@@ -36,6 +36,10 @@ public class GridExpansionManager : MonoScriptable {
 
         expansion = _expansions[ExpansionIndex + 1];
         return true;
+    }
+
+    public Vector2Int GetSize(int index) {
+        return index == -1 ? _startingSize : _expansions[index].Size;
     }
 }
 

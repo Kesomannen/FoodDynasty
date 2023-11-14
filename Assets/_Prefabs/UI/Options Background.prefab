@@ -746,7 +746,7 @@ PrefabInstance:
     - target: {fileID: 5018068154463618066, guid: 19915e7581aabab42a88caa70c095ad6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5018068154463618066, guid: 19915e7581aabab42a88caa70c095ad6,
         type: 3}
@@ -1097,7 +1097,7 @@ PrefabInstance:
     - target: {fileID: 5018068154463618066, guid: 19915e7581aabab42a88caa70c095ad6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5018068154463618066, guid: 19915e7581aabab42a88caa70c095ad6,
         type: 3}
@@ -1249,7 +1249,7 @@ PrefabInstance:
     - target: {fileID: 5018068154431223285, guid: 453dbefb868e0344c8592d43e2d7121e,
         type: 3}
       propertyPath: m_text
-      value: Shake Intensity
+      value: Camera Shake
       objectReference: {fileID: 0}
     - target: {fileID: 5018068154463618066, guid: 453dbefb868e0344c8592d43e2d7121e,
         type: 3}
@@ -1264,7 +1264,7 @@ PrefabInstance:
     - target: {fileID: 5018068154463618066, guid: 453dbefb868e0344c8592d43e2d7121e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5018068154463618066, guid: 453dbefb868e0344c8592d43e2d7121e,
         type: 3}
@@ -2399,7 +2399,7 @@ PrefabInstance:
     - target: {fileID: 5018068154463618066, guid: 19915e7581aabab42a88caa70c095ad6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5018068154463618066, guid: 19915e7581aabab42a88caa70c095ad6,
         type: 3}

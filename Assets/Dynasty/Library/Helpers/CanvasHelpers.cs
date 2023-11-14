@@ -13,8 +13,10 @@ public static class CanvasHelpers {
     
     static Canvas _canvas;
     
+    public static Vector2 CanvasScale => Canvas.transform.localScale;
+    
     public static Vector2 CanvasToScreen(Vector2 canvasPosition) {
-        return canvasPosition / Canvas.transform.localScale;
+        return canvasPosition / CanvasScale;
     }
     
     public static Vector2 CanvasToScreen(float x, float y) {
@@ -22,7 +24,7 @@ public static class CanvasHelpers {
     }
     
     public static Vector2 ScreenToCanvas(Vector2 screenPosition) {
-        return screenPosition * Canvas.transform.localScale;
+        return screenPosition * CanvasScale;
     }
     
     public static Vector2 ScreenToCanvas(float x, float y) {

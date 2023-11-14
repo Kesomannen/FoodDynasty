@@ -59,8 +59,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 335c2a754552472468c0702a8d8d31f4, type: 3}
   - {fileID: 21300000, guid: 125f7795f7bfd4245bcccfa8328447c8, type: 3}
   - {fileID: 21300000, guid: 98cf2ce5707b9da4e801fb17dada4b55, type: 3}
+  - {fileID: 21300000, guid: 5928ede5f0b4adf40999769fa91cf13b, type: 3}
   - {fileID: 21300000, guid: 5b6d04f5cc95c3d4aaed7050a7a1dcfc, type: 3}
   - {fileID: 21300000, guid: 6660a306b80f03541a1c3af9f9fc2624, type: 3}
+  - {fileID: 21300000, guid: 8b588b064c2a1904296fea1a60f01f2f, type: 3}
   - {fileID: 21300000, guid: 368a465626f8ba2418c53283112bd538, type: 3}
   - {fileID: 21300000, guid: 2075bcd67c3702b4da915c9470e1674f, type: 3}
   - {fileID: 21300000, guid: 6625bd2707888df4b87309b9e49bf186, type: 3}
@@ -95,8 +97,10 @@ SpriteAtlas:
   - Dough
   - Sandwich Slicer
   - Bread Statue
+  - Right True Turn
   - Spice
   - Auto Refiller
+  - Left True Turn
   - Sandwich Merger
   - Toothpick Impaler
   - Booster

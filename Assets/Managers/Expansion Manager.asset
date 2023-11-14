@@ -15,4 +15,8 @@ MonoBehaviour:
   _startingSize: {x: 41, y: 41}
   _expansions:
   - Cost: 10000
-    Size: {x: 201, y: 201}
+    Size: {x: 51, y: 51}
+  - Cost: 500000
+    Size: {x: 61, y: 61}
+  - Cost: 15000000
+    Size: {x: 71, y: 71}
