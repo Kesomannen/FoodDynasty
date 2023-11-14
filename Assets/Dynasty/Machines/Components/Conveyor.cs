@@ -8,7 +8,7 @@ namespace Dynasty.Machines {
 public class Conveyor : MonoBehaviour, IInfoProvider, IMachineComponent, IBoostableProperty {
     [SerializeField] Vector3 _direction = Vector3.forward;
     [SerializeField] FloatDataProperty _speed;
-    
+
     Rigidbody _rigidbody;
 
     public Vector3 Direction {

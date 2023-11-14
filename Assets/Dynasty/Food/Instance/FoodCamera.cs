@@ -8,6 +8,7 @@ namespace Dynasty.Food {
 [RequireComponent(typeof(Camera))]
 public class FoodCamera : MonoBehaviour {
     [SerializeField] Vector3 _offset;
+    [SerializeField] float _rotationSpeed;
     
     Camera _camera;
     bool _isActive;
@@ -16,7 +17,7 @@ public class FoodCamera : MonoBehaviour {
     
     FoodBehaviour _currentFood;
     Rigidbody _currentRigidbody;
-    
+
     static FoodManager FoodManager => FoodManager.Singleton;
 
     public bool IsActive {
@@ -103,7 +104,8 @@ public class FoodCamera : MonoBehaviour {
 
     void Update() {
         if (!IsActive) return;
-        transform.forward = _currentRigidbody.velocity;
+        var targetRotation = Quaternion.LookRotation(_currentRigidbody.velocity.normalized);
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
     }
 }
 

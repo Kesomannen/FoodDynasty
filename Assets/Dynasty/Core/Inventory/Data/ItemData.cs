@@ -84,5 +84,5 @@ public enum ItemType {
 public enum ItemTier {
     Rusty,
     Metallic,
-    Golden
+    Carbon
 }

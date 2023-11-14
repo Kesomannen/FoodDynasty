@@ -51,7 +51,7 @@ public class GridExpansionController : MonoBehaviour {
     }
 
     public void StartPreviewing() {
-        if (!_expansionManager.TryGetNextExpansion(out var next)) return;
+        if (!_expansionManager.TryGetNext(out var next)) return;
         
         LeanTween.cancel(_preview);
         LeanTween.scale(_preview, GetFloorScale(next.Size), _previewTweenDuration)

@@ -31,6 +31,10 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e4f1d890dc8a7c9428c4f363b18bf8fe, type: 2}
     - {fileID: 11400000, guid: ff16d2895628b5546a9caf35db148783, type: 2}
     - {fileID: 11400000, guid: f14de4ab4e2eace4680874ba300b2e82, type: 2}
+  - Header: Carbon
+    MoneyMadeRequirement: 1
+    Unlocks:
+    - {fileID: 11400000, guid: 54788ecb0b1397547b57dad711e9db90, type: 2}
   - Header: Sandwiches
     MoneyMadeRequirement: 50000
     Unlocks:
@@ -50,7 +54,3 @@ MonoBehaviour:
     - {fileID: 11400000, guid: f3b87854fe2d0d14db5e6319befaed4e, type: 2}
     - {fileID: 11400000, guid: ac547b8fecec0b74fa93c1ad8198079c, type: 2}
     - {fileID: 11400000, guid: bdd32cb9da3ad9541b74f5ca107f3c25, type: 2}
-  - Header: Gold
-    MoneyMadeRequirement: 5000000
-    Unlocks:
-    - {fileID: 11400000, guid: 0b09be3e28062164fb5ae8f1d8754f9f, type: 2}

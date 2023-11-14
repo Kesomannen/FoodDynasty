@@ -50,6 +50,7 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: d7176340491be2a48ab18104f4f2c8c3, type: 3}
   - {fileID: 21300000, guid: 923d4d604e414c242aafe365626fca5f, type: 3}
   - {fileID: 21300000, guid: 8f5933017d0faf74b90c2cff4dd1324e, type: 3}
   - {fileID: 21300000, guid: 4f9064d2922d38e47860397f2a8cf4e2, type: 3}
@@ -85,6 +86,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e554505e35083e64d9014453e457f4f9, type: 3}
   - {fileID: 21300000, guid: 5e659f2f62ca6a74499c9e0313e8d686, type: 3}
   m_PackedSpriteNamesToIndex:
+  - Carbon Conveyor
   - Metallic Conveyor
   - Cheese Adder
   - Auto Buyer

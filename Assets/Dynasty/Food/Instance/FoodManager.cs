@@ -6,13 +6,10 @@ using UnityEngine;
 namespace Dynasty.Food {
 
 public class FoodManager : MonoBehaviour {
-    [SerializeField] int _maxFood = 1000;
-    
     public static FoodManager Singleton { get; private set; }
     
     readonly HashSet<FoodBehaviour> _food = new();
     
-    public int MaxFood => _maxFood;
     public IEnumerable<FoodBehaviour> Food => _food;
     public int FoodCount => _food.Count;
     
@@ -35,7 +32,7 @@ public class FoodManager : MonoBehaviour {
     }
 
     public bool Add(FoodBehaviour food) {
-        if (_food.Count >= _maxFood || !_food.Add(food)) return false;
+        if (!_food.Add(food)) return false;
         food.OnDisposed += OnDisposed;
         
         OnFoodAdded?.Invoke(food);

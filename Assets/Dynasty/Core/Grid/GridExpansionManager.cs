@@ -28,7 +28,7 @@ public class GridExpansionManager : MonoScriptable {
         OnExpansionChanged?.Invoke(CurrentSize, animate);
     }
     
-    public bool TryGetNextExpansion(out GridExpansion expansion) {
+    public bool TryGetNext(out GridExpansion expansion) {
         if (ExpansionIndex == _expansions.Length - 1) {
             expansion = default;
             return false;

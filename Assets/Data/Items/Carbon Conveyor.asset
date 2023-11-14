@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9becf11d67124afc8a2b2dccc5c68e48, type: 3}
+  m_Name: Carbon Conveyor
+  m_EditorClassIdentifier: 
+  _name: Carbon Conveyor
+  _description: Weeeee!
+  _shortDescription: 
+  _icon: {fileID: 21300000, guid: d7176340491be2a48ab18104f4f2c8c3, type: 3}
+  _tier: 2
+  _price: 75000
+  _sellable: 1
+  _type: 3
+  _prefab: {fileID: 7517138898700522857, guid: 614321a634c5b9449a04649558cb57b6, type: 3}
+  _enabledProviders: 0101

@@ -1,5 +1,4 @@
-﻿using System;
-using Dynasty.Grid;
+﻿using Dynasty.Grid;
 using Dynasty.Library;
 using TMPro;
 using UnityEngine;
@@ -16,10 +15,14 @@ public class ExpandGridButton : MonoBehaviour, IPointerEnterHandler, IPointerExi
     [SerializeField] MoneyManager _moneyManager;
 
     Button _button;
+    GridExpansion _next;
 
     void Awake() {
         _button = GetComponent<Button>();
-        _button.onClick.AddListener(() => _manager.Expand(true));
+        _button.onClick.AddListener(() => {
+            _moneyManager.CurrentMoney -= _next.Cost;
+            _manager.Expand(true);
+        });
     }
 
     void OnEnable() {
@@ -42,9 +45,9 @@ public class ExpandGridButton : MonoBehaviour, IPointerEnterHandler, IPointerExi
     }
 
     void UpdateText() {
-        if (_manager.TryGetNextExpansion(out var next)) {
-            _label.text = $"Expand build area ({StringHelpers.FormatMoney(next.Cost)})";
-            _button.interactable = _moneyManager.CurrentMoney >= next.Cost;
+        if (_manager.TryGetNext(out _next)) {
+            _label.text = $"Expand build area ({StringHelpers.FormatMoney(_next.Cost)})";
+            _button.interactable = _moneyManager.CurrentMoney >= _next.Cost;
         } else {
             _label.text = "No more expansions available";
             _button.interactable = false;

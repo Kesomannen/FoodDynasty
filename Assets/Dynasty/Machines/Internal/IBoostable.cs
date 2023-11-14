@@ -11,8 +11,13 @@ public interface IBoostableProperty : IBoostable {
 
     Modifier IBoostable.Modifier {
         get => BoostableProperty.Modifier;
-        set => BoostableProperty.Modifier = value;
+        set {
+            BoostableProperty.Modifier = value;
+            OnModifierChanged();
+        }
     }
+
+    protected virtual void OnModifierChanged() { }
 }
 
 }

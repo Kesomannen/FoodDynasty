@@ -1,12 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Dynasty.Grid;
-using Dynasty;
 using Dynasty.Food;
 using Dynasty.Library;
 using Dynasty.Machines;
 using Google.MaterialDesign.Icons;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,8 +13,6 @@ public class ControlPanelController : MonoBehaviour {
     [SerializeField] InventoryAsset _inventory;
     [SerializeField] GridManager _grid;
     [SerializeField] InventoryGridObjectHandler _gridObjectHandler;
-    [SerializeField] Slider _maxFoodBar;
-    [SerializeField] TMP_Text _maxFoodText;
     [SerializeField] GameEvent<PopupData> _showPopupEvent;
     [Space]
     [SerializeField] FoodCamera _foodCamera;
@@ -34,24 +29,6 @@ public class ControlPanelController : MonoBehaviour {
 
     void Start() {
         UpdateFoodCameraIcon();
-    }
-
-    void OnEnable() {
-        if (FoodManager.Singleton == null) return;
-        
-        FoodManager.Singleton.OnFoodChanged += UpdateMaxFood;
-        _maxFoodBar.maxValue = FoodManager.Singleton.MaxFood;
-        UpdateMaxFood();
-    }
-    
-    void OnDisable() {
-        if (FoodManager.Singleton == null) return;
-        FoodManager.Singleton.OnFoodChanged -= UpdateMaxFood;
-    }
-    
-    void UpdateMaxFood() {
-        _maxFoodBar.value = FoodManager.Singleton.FoodCount;
-        _maxFoodText.text = $"Food: {_maxFoodBar.value}/{_maxFoodBar.maxValue}";
     }
 
     public void ToggleFoodCamera() {
