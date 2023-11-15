@@ -18,6 +18,8 @@ public class GridObject : MonoBehaviour, IInfoProvider {
     [Tooltip("Instantiated when showing a preview of this object.")]
     [SerializeField] GameObject _blueprintPrefab;
     
+    [SerializeField] SoundEffect _placeSound;
+    
     [Tooltip("Used when a grid rotation is applied to the object.")]
     [SerializeField] Vector3 _rotationAxis = Vector3.up;
     
@@ -72,6 +74,11 @@ public class GridObject : MonoBehaviour, IInfoProvider {
     public GameObject BlueprintPrefab {
         get => _blueprintPrefab;
         set => _blueprintPrefab = value;
+    }
+
+    public SoundEffect PlaceSound {
+        get => _placeSound;
+        set => _placeSound = value;
     }
     
     /// <summary>

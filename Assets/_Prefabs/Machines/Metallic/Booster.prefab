@@ -429,6 +429,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
+      propertyPath: _placeSound
+      value: 
+      objectReference: {fileID: 11400000, guid: 61a952da28cf6b746ad7ab5c815fcc52,
+        type: 2}
+    - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
       propertyPath: _blueprintPrefab
       value: 
       objectReference: {fileID: 1957778254936029870, guid: 5f5ea6750e6a7b44db4d8d35ae0010b8,

@@ -64,18 +64,6 @@ public class GridObjectPlacer : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     [SerializeField] GameEvent<CameraShake> _cameraShakeEvent;
     [SerializeField] CameraShake _placeShake;
     
-    [Foldout("Events")]
-    [Tooltip("Raised when an object is placed.")]
-    [SerializeField] UnityEvent _onPlaced;
-    
-    [Foldout("Events")]
-    [Tooltip("Raised when placement is started.")]
-    [SerializeField] UnityEvent _onStartPlacing;
-
-    [Foldout("Events")]
-    [Tooltip("Raised when placement is ended.")]
-    [SerializeField] UnityEvent _onStopPlacing;
-    
     /// <summary>
     /// Is the placer currently placing an object?
     /// </summary>
@@ -174,8 +162,6 @@ public class GridObjectPlacer : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         IsPlacing = true;
         _placeTrigger.enabled = true;
         
-        _onStartPlacing.Invoke();
-        
         StartListeningToInput();
         await WaitForPlacement();
 
@@ -201,14 +187,13 @@ public class GridObjectPlacer : MonoBehaviour, IPointerDownHandler, IPointerUpHa
             LeanTween.cancel(blueprint);
             Destroy(blueprint);
         }
-        _onStopPlacing.Invoke();
         
         switch (_state) {
             case State.Deleted:
                 return Enumerable.Repeat(GridPlacementResult.Deleted, _placingObjects.Count);
             case State.Placed:
-                _onPlaced.Invoke();
                 _cameraShakeEvent.Raise(_placeShake);
+                _placingObjects[0].GridObject.PlaceSound.Play();
                 return _placingObjects.Select(obj => {
                     var pos = _gridPosition + obj.Offset;
                     _lastRotation = obj.GridRotation;
@@ -255,7 +240,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerDownHandler, IPointerUpHa
             var t = indicator.transform;
             t.SetParent(blueprint, false);
             t.localScale = new Vector3(range * 2, 1, range * 2);
-            t.localPosition = Vector3.zero;
+            t.localPosition = Vector3.up * 0.1f;
             
             _rangeIndicators.Enqueue(indicator);
         }

@@ -70,6 +70,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
+      propertyPath: _placeSound
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ad74d25ba1c41c468f43287a1d84d8a,
+        type: 2}
+    - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
       propertyPath: _size._bounds.x
       value: 4
       objectReference: {fileID: 0}

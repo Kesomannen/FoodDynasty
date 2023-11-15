@@ -145,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _canMove: 1
   _blueprintPrefab: {fileID: 0}
+  _placeSound: {fileID: 0}
   _rotationAxis: {x: 0, y: 1, z: 0}
   _size:
     _customMatrix: []

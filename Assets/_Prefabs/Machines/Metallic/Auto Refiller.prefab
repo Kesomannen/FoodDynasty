@@ -167,6 +167,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
+      propertyPath: _placeSound
+      value: 
+      objectReference: {fileID: 11400000, guid: 61a952da28cf6b746ad7ab5c815fcc52,
+        type: 2}
+    - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
       propertyPath: _blueprintPrefab
       value: 
       objectReference: {fileID: 1957778254936029870, guid: 5d2e92a3ecea2d94a88537ad9e9fc035,
@@ -21152,7 +21158,7 @@ MonoBehaviour:
       Additive: 0
       Multiplicative: 1
   _refillAmount: 15
-  _defaultTargetSupply: 50
+  _targetSupply: 50
   _itemSpritePool: {fileID: 11400000, guid: 871e49f0c203bbe4eb2a811fdd781f53, type: 2}
   _itemStart: {fileID: 173599803058851504}
   _itemSpeed: 3

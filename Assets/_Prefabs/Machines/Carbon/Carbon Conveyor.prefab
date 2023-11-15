@@ -15,6 +15,12 @@ PrefabInstance:
         type: 2}
     - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
         type: 3}
+      propertyPath: _placeSound
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d8342815932ca84a9b618ff3af064ef,
+        type: 2}
+    - target: {fileID: -572785721937663073, guid: 0b41a32b938fc324b90a999fc9957d7d,
+        type: 3}
       propertyPath: _blueprintPrefab
       value: 
       objectReference: {fileID: 2638332497102006003, guid: bd57be837f8c49f4994a76e360f1f16c,
