@@ -1,20 +1,21 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Dynasty.Library {
 
 [CreateAssetMenu(menuName = "Pooling/Particle Spawner")]
-public class ParticleSpawner : ScriptableObject {
-    [SerializeField] ParticleSystem _prefab;
-
-    ParticleSystem _particle;
-
+public class ParticleSpawner : CustomObjectPool<PoolableComponent<ParticleSystem>> {
     public void Spawn(Vector3 position) {
-        if (_particle == null) {
-            _particle = Instantiate(_prefab);
-        }
+        var particle = Get();
+        
+        particle.transform.position = position;
+        particle.Component.Play();
+        particle.StartCoroutine(DespawnAfterDuration());
 
-        _particle.transform.position = position;
-        _particle.Play();
+        IEnumerator DespawnAfterDuration() {
+            yield return CoroutineHelpers.Wait(particle.Component.main.duration);
+            particle.Dispose();
+        }
     }
     
     public void SpawnAt(Transform transform) {

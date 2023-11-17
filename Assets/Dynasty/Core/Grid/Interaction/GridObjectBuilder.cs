@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Dynasty.Library;
 using UnityEngine;
 
 namespace Dynasty.Grid {
@@ -11,7 +12,7 @@ public class GridObjectBuilder : MonoBehaviour {
     [SerializeField] GridObjectPlacer _placer;
     
     [Tooltip("Played when a grid object is placed.")]
-    [SerializeField] ParticleSystem _placementParticles;
+    [SerializeField] ParticleSpawner _placementParticles;
 
     /// <summary>
     /// Starts placing the given prefab until the given callback returns false or the user cancels.
@@ -47,8 +48,7 @@ public class GridObjectBuilder : MonoBehaviour {
         if (!gridObject.AddAndPosition(gridManager, result.GridPosition, result.Rotation))
             throw new Exception("Failed to add grid object even though placement was successful");
         
-        _placementParticles.transform.position = gridObject.transform.position;
-        _placementParticles.Play();
+        _placementParticles.SpawnAt(gridObject.transform);
         return (result, gridObject);
     }
 }

@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdc53eb91840486f9d2a6dfe3820eb73, type: 3}
   m_Name: Fall Over Particle
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 4751753833839233348, guid: aa3d2e49c047cbf489b5b893a19b17d5, type: 3}
+  _prefab: {fileID: 2947354448036929416, guid: aa3d2e49c047cbf489b5b893a19b17d5, type: 3}
+  _collectionCheck: 1
+  _defaultCapacity: 5
+  _maxSize: 10000
+  _clearOnSceneChange: 0
