@@ -52,6 +52,7 @@ SpriteAtlas:
   m_PackedSprites:
   - {fileID: 21300000, guid: d7176340491be2a48ab18104f4f2c8c3, type: 3}
   - {fileID: 21300000, guid: 923d4d604e414c242aafe365626fca5f, type: 3}
+  - {fileID: 21300000, guid: add04b809e5566744971257311abb80d, type: 3}
   - {fileID: 21300000, guid: 8f5933017d0faf74b90c2cff4dd1324e, type: 3}
   - {fileID: 21300000, guid: 4f9064d2922d38e47860397f2a8cf4e2, type: 3}
   - {fileID: 21300000, guid: 93759f235e770b34db52d7d409acbc9c, type: 3}
@@ -90,6 +91,7 @@ SpriteAtlas:
   m_PackedSpriteNamesToIndex:
   - Carbon Conveyor
   - Metallic Conveyor
+  - Advanced Splitter
   - Cheese Adder
   - Auto Buyer
   - Ham Adder

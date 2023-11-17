@@ -3666,7 +3666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gridManager: {fileID: 566939830}
-  _drawGrid: 1
+  _drawGrid: 0
   _selectCell: 0
   _selectedCell: {x: 79, y: -88}
 --- !u!1001 &592395010
@@ -25335,23 +25335,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 89.46
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 20.26
       objectReference: {fileID: 0}
     - target: {fileID: 2079960991, guid: 74bec6fecf78cf64d9591831f4e5885b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 45.73
       objectReference: {fileID: 0}
     - target: {fileID: 2965883969436907079, guid: 74bec6fecf78cf64d9591831f4e5885b,
         type: 3}
