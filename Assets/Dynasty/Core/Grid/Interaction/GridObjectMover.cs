@@ -14,7 +14,7 @@ public class GridObjectMover : MonoBehaviour {
     [SerializeField] GridObjectPlacer _placer;
     
     [Tooltip("Played when a grid object is placed.")]
-    [SerializeField] ParticleSystem _placeEffect;
+    [SerializeField] ParticleSpawner _placeEffect;
     
     [Tooltip("When raised, starts moving the given grid object.")]
     [SerializeField] GameEvent<GridObject> _startMovingEvent;
@@ -71,8 +71,7 @@ public class GridObjectMover : MonoBehaviour {
             switch (result.ResultType) {
                 case GridPlacementResultType.Successful:
                     obj.AddAndPosition(_placer.GridManager, result.GridPosition, result.Rotation);
-                    _placeEffect.transform.position = obj.transform.position;
-                    _placeEffect.Play();
+                    _placeEffect.SpawnAt(obj.transform);
                     break;
                 case GridPlacementResultType.Failed:
                     if (!oldGridManagers[i].TryAdd(obj, oldPositions[i], oldRotations[i])) {

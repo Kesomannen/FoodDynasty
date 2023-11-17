@@ -112,6 +112,8 @@ MonoBehaviour:
       - _typeNameAndAssembly: UnityEngine.Rigidbody, UnityEngine.PhysicsModule
     - _collection:
       - _typeNameAndAssembly: UnityEngine.SpriteRenderer, UnityEngine.CoreModule
+    - _collection:
+      - _typeNameAndAssembly: UnityEngine.ParticleSystem, UnityEngine.ParticleSystemModule
     _values:
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_f5beab81658e82d4d86bea6ec2a5d6f1,
         z_PoolableComponent_TextMeshProUGUI
@@ -119,6 +121,8 @@ MonoBehaviour:
         z_PoolableComponent_Rigidbody
     - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_fe789314c850057449a4ae7a5e04d497,
         z_PoolableComponent_SpriteRenderer
+    - _typeNameAndAssembly: GenericUnityObjects.ConcreteClasses.ConcreteClass_191f4ed8ab64c9b43bdabe6aecc6fbb3,
+        z_PoolableComponent_ParticleSystem
   - _keys:
     - _collection:
       - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library

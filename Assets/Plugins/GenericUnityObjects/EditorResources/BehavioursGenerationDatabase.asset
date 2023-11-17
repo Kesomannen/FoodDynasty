@@ -51,6 +51,8 @@ MonoBehaviour:
     _guid: 
   - _typeNameAndAssembly: Dynasty.UI.Tutorial.Mission, Dynasty.UI
     _guid: 89aeb0382d99492eafda5a4478ecea7b
+  - _typeNameAndAssembly: UnityEngine.ParticleSystem, UnityEngine.ParticleSystemModule
+    _guid: 
   _genericArgumentValues:
   - _array:
     - _arguments:
@@ -142,6 +144,10 @@ MonoBehaviour:
       - _typeNameAndAssembly: UnityEngine.SpriteRenderer, UnityEngine.CoreModule
         _guid: 
       _assemblyGUID: fe789314c850057449a4ae7a5e04d497
+    - _arguments:
+      - _typeNameAndAssembly: UnityEngine.ParticleSystem, UnityEngine.ParticleSystemModule
+        _guid: 
+      _assemblyGUID: 191f4ed8ab64c9b43bdabe6aecc6fbb3
   - _array:
     - _arguments:
       - _typeNameAndAssembly: Dynasty.Library.Entity, Dynasty.Library
@@ -394,6 +400,14 @@ MonoBehaviour:
     - _typeNameAndAssembly: Dynasty.UI.Components.Container`1, Dynasty.UI
       _guid: bc7fd065c7114f949ac90aaca54ac6c0
       AssemblyGUID: cf7535a69cb6ec64b96e219cf8096a72
+      _argNames:
+      - T
+      _componentName: 
+      _order: 0
+  - _array:
+    - _typeNameAndAssembly: Dynasty.Library.PoolableComponent`1, Dynasty.Library
+      _guid: 4d9634bd5ef144cfbaed6047c0f6b938
+      AssemblyGUID: 920f7e3b05c6c664c93d157f2d643b6f
       _argNames:
       - T
       _componentName: 
