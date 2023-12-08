@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Dynasty.Library;
 using Dynasty.Persistent;
+using Dynasty.UI.Tutorial;
 using UnityEngine;
 
 namespace Dynasty.UI {
@@ -63,6 +64,7 @@ public class SaveSlotController : MonoBehaviour {
     }
     
     public void New() {
+        TutorialManager.Trigger();
         _saveManager.CurrentSaveId = GetAvailableId();
         _loadScene.Raise(_gameSceneId);
     }

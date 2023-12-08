@@ -28,7 +28,7 @@ public class SerializedGridSizeDrawer : PropertyDrawer {
         var gridSize = serializedGridSize.Value;
 
         var rect = EditorGUI.PrefixLabel(position, label);
-        
+            
         rect.width /= 2f;
         var newBounds = EditorGUI.Vector2IntField(rect, GUIContent.none, gridSize.Bounds);
         if (newBounds != gridSize.Bounds) {
@@ -37,7 +37,7 @@ public class SerializedGridSizeDrawer : PropertyDrawer {
         gridSize.Bounds = newBounds;
         
         rect.x += rect.width;
-        gridSize.Type = (GridSizeType) EditorGUI.EnumPopup(rect, gridSize.Type);
+        //gridSize.Type = (GridSizeType) EditorGUI.EnumPopup(rect, gridSize.Type);
             
         if (gridSize.Type == GridSizeType.Custom) {
             rect.x = position.x;

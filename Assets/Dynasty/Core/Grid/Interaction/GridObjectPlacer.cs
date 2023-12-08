@@ -76,9 +76,9 @@ public class GridObjectPlacer : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     bool _materialValidity;
     Vector2Int _gridPosition;
     GridSize _combinedSize;
-    Vector2Int _moveAxis;
 
     GridRotation _lastRotation;
+    Vector2Int _originPos;
 
     Plane _plane;
     State _state;
@@ -195,6 +195,7 @@ public class GridObjectPlacer : MonoBehaviour, IPointerDownHandler, IPointerUpHa
                 return _placingObjects.Select(obj => {
                     var pos = _gridPosition + obj.Offset;
                     _lastRotation = obj.GridRotation;
+                    _originPos = pos;
                     return GridPlacementResult.Successful(pos, obj.GridRotation);
                 });
             case State.Waiting:
@@ -345,21 +346,17 @@ public class GridObjectPlacer : MonoBehaviour, IPointerDownHandler, IPointerUpHa
         if (newPosition == _gridPosition) return;
         
         if (Keyboard.current.shiftKey.isPressed) {
-            if (_moveAxis == Vector2Int.right) {
-                newPosition.y = _gridPosition.y;
-            } else if (_moveAxis == Vector2Int.up) {
-                newPosition.x = _gridPosition.x;
-            }
-        } else {
-            var delta = newPosition - _gridPosition;
+            var delta = newPosition - _originPos;
             delta.x = Mathf.Abs(delta.x);
             delta.y = Mathf.Abs(delta.y);
             
             if (delta.x > delta.y) {
-                _moveAxis = Vector2Int.right;
+                newPosition.y = _gridPosition.y;
             } else if (delta.x < delta.y) {
-                _moveAxis = Vector2Int.up;
+                newPosition.x = _gridPosition.x;
             }
+        } else {
+            _originPos = newPosition;
         }
 
         _gridPosition = newPosition;
