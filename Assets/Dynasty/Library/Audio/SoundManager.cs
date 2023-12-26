@@ -35,6 +35,9 @@ public class SoundManager : MonoBehaviour {
     }
     
     static SoundManager _singleton;
+
+        public static void Dispose() 
+            => _singleton= null;
     
     public static SoundManager Singleton {
         get {

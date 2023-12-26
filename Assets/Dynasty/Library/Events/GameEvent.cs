@@ -19,6 +19,13 @@ public class GameEvent<T> : GenericGameEvent {
     public void RemoveListener(Action<T> listener) {
         OnRaised -= listener;
     }
-}
-
+#if UNITY_EDITOR
+        //Domain Reload Compatible
+        private void OnDisable()
+        {
+            OnRaised = null;
+        }
+#endif
+    }
+   
 }
